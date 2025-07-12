@@ -269,7 +269,7 @@ function App() {
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-gray-900">High-Converting Ad Creatives</div>
-                    <div className="text-gray-600 text-sm">Templates and formulas that get 15%+ conversion rates</div>
+                    <div className="text-gray-600 text-sm">Templates and formulas that get 15%+ conversion rate</div>
                   </div>
                 </div>
                 <div className="flex items-start">
