@@ -25,7 +25,8 @@ import {
   BarChart3,
   Lightbulb,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  MessageCircle
 } from 'lucide-react';
 
 function App() {

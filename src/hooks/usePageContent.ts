@@ -137,9 +137,9 @@ export function usePageContent() {
         .from('page_settings')
         .select('settings')
         .eq('id', 'homepage_content')
-        .single();
+        .maybeSingle();
 
-      if (error && error.code !== 'PGRST116') {
+      if (error) {
         console.error('Error loading content:', error);
       } else if (data?.settings) {
         setContent({ ...defaultContent, ...data.settings });
