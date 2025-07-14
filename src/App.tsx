@@ -28,7 +28,7 @@ import {
   ChevronUp,
   MessageCircle
 } from 'lucide-react';
- 
+
 function App() {
   const [showAdmin, setShowAdmin] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
@@ -853,7 +853,7 @@ function App() {
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • 
+            <p>&copy; 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • 
               <button 
                 onClick={() => setShowAdmin(true)}
                 className="ml-2 text-gray-500 hover:text-gray-300 underline"
