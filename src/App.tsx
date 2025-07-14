@@ -133,23 +133,53 @@ function App() {
               </p>
 
               {/* Value Proposition Boxes */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">₹50</div>
-                  <div className="text-gray-700 font-semibold">Average Cost Per Lead</div>
-                  <div className="text-sm text-gray-500 mt-1">Industry average: ₹200+</div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                {/* Value Box 1 */}
+                <EditableSection
+                  id="heroValue1"
+                  title="Value Box 1"
+                  content={content.heroValue1}
+                  onSave={saveContent}
+                  isAdmin={isAdminLoggedIn}
+                  small
+                >
+                  <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.heroValue1.value}</div>
+                  <div className="text-gray-700 font-semibold">{content.heroValue1.label}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.heroValue1.subLabel}</div>
+                  </div>
+                </EditableSection>
+                {/* Value Box 2 */}
+                <EditableSection
+                  id="heroValue2"
+                  title="Value Box 2"
+                  content={content.heroValue2}
+                  onSave={saveContent}
+                  isAdmin={isAdminLoggedIn}
+                  small
+                >
+                  <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.heroValue2.value}</div>
+                  <div className="text-gray-700 font-semibold">{content.heroValue2.label}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.heroValue2.subLabel}</div>
+                  </div>
+                </EditableSection>
+                {/* Value Box 3 */}
+                <EditableSection
+                  id="heroValue3"
+                  title="Value Box 3"
+                  content={content.heroValue3}
+                  onSave={saveContent}
+                  isAdmin={isAdminLoggedIn}
+                  small
+                >
+                  <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.heroValue3.value}</div>
+                  <div className="text-gray-700 font-semibold">{content.heroValue3.label}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.heroValue3.subLabel}</div>
+                  </div>
+                </EditableSection>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">15%+</div>
-                  <div className="text-gray-700 font-semibold">Conversion Rate</div>
-                  <div className="text-sm text-gray-500 mt-1">Industry average: 2-5%</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
-                  <div className="text-gray-700 font-semibold">Leads Per Month</div>
-                  <div className="text-sm text-gray-500 mt-1">Guaranteed results</div>
-                </div>
-              </div>
 
               {/* Main CTA */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
