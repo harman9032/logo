@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import AdminApp from './components/AdminApp';
+import TermsPage from './pages/TermsPage';
+import PrivacyPage from './pages/PrivacyPage';
+import ThankYouPage from './pages/ThankYouPage';
 import EditableSection from './components/EditableSection';
 import { usePageContent } from './hooks/usePageContent';
 import { supabase } from './lib/supabase';
@@ -33,6 +36,7 @@ function App() {
   const [showAdmin, setShowAdmin] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState('home');
   const { content, loading, saveContent } = usePageContent();
 
   // TidyCal booking link
@@ -40,8 +44,19 @@ function App() {
 
   // Check if current URL is admin route
   React.useEffect(() => {
-    if (window.location.pathname === '/admin' || window.location.hash === '#admin') {
+    const hash = window.location.hash;
+    const pathname = window.location.pathname;
+    
+    if (pathname === '/admin' || hash === '#admin') {
       setShowAdmin(true);
+    } else if (hash === '#terms' || pathname === '/terms') {
+      setCurrentPage('terms');
+    } else if (hash === '#privacy' || pathname === '/privacy') {
+      setCurrentPage('privacy');
+    } else if (hash === '#thank-you' || pathname === '/thank-you') {
+      setCurrentPage('thank-you');
+    } else {
+      setCurrentPage('home');
     }
     
     // Check if admin is logged in
@@ -54,6 +69,19 @@ function App() {
   // Show admin panel if requested
   if (showAdmin) {
     return <AdminApp />;
+  }
+
+  // Show specific pages based on route
+  if (currentPage === 'terms') {
+    return <TermsPage />;
+  }
+  
+  if (currentPage === 'privacy') {
+    return <PrivacyPage />;
+  }
+  
+  if (currentPage === 'thank-you') {
+    return <ThankYouPage />;
   }
 
   if (loading) {
@@ -825,11 +853,12 @@ function App() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>About Us</li>
-                <li>Our Work</li>
-                <li>Testimonials</li>
-                <li>Contact</li>
-                <li>Privacy Policy</li>
+                <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
+                <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
+                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+                <li><a href="#terms" className="hover:text-white transition-colors">Terms of Service</a></li>
+                <li><a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
 
@@ -853,7 +882,9 @@ function App() {
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • 
+            <p>&copy; 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • {' '}
+              <a href="#terms" className="hover:text-white transition-colors">Terms</a> • {' '}
+              <a href="#privacy" className="hover:text-white transition-colors">Privacy</a> • 
               <button 
                 onClick={() => setShowAdmin(true)}
                 className="ml-2 text-gray-500 hover:text-gray-300 underline"
