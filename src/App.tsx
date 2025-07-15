@@ -153,52 +153,54 @@ function App() {
 
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                {content.hero.title}
+                Get 100+ Quality Leads Every Month Guaranteed
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
-                <strong className="text-orange-600">{content.hero.subtitle}</strong> and {content.hero.description}
+              <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                <strong className="text-orange-600">Book a FREE 30-minute strategy session (Worth ₹2,999)</strong><br className="hidden md:block" />
+                <span className="block md:inline mt-2 md:mt-0">Discover the exact system we use to generate quality leads for businesses like yours.</span>
               </p>
 
               {/* Value Proposition Boxes */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                 <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">₹50</div>
-                  <div className="text-gray-700 font-semibold">Average Cost Per Lead</div>
-                  <div className="text-sm text-gray-500 mt-1">Industry average: ₹200+</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">15%+</div>
-                  <div className="text-gray-700 font-semibold">Conversion Rate</div>
-                  <div className="text-sm text-gray-500 mt-1">Industry average: 2-5%</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
                   <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
-                  <div className="text-gray-700 font-semibold">Leads Per Month</div>
+                  <div className="text-gray-700 font-semibold">Quality Leads Monthly</div>
                   <div className="text-sm text-gray-500 mt-1">Guaranteed results</div>
+                </div>
+                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">5X</div>
+                  <div className="text-gray-700 font-semibold">Revenue Growth</div>
+                  <div className="text-sm text-gray-500 mt-1">Average client results</div>
+                </div>
+                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">7 Days</div>
+                  <div className="text-gray-700 font-semibold">Complete Setup</div>
+                  <div className="text-sm text-gray-500 mt-1">Ready to launch</div>
                 </div>
               </div>
 
               {/* Main CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <div className="flex flex-col gap-4 justify-center items-center mb-12">
                 <a 
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-10 py-5 rounded-full text-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center w-full sm:w-auto justify-center"
                 >
                   <Calendar className="mr-3 h-6 w-6" />
                   {content.hero.ctaText}
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </a>
-                <div className="text-center">
-                  <div className="text-sm text-gray-600">🔥 Limited Time: FREE Session Worth ₹2,999</div>
-                  <div className="text-xs text-red-600 font-semibold">Only 5 slots available this week!</div>
+                <div className="text-center bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-xl p-4 shadow-lg">
+                  <div className="text-lg font-bold text-orange-800 mb-1">🎁 FREE BONUS WORTH ₹4,999!</div>
+                  <div className="text-sm text-orange-700 mb-2">✅ Lead Generation Checklist + ✅ Ad Templates + ✅ Landing Page Guide</div>
+                  <div className="text-xs text-red-600 font-semibold animate-pulse">⚡ Limited Time: Only 10 spots available this week!</div>
                 </div>
               </div>
 
               {/* What You'll Learn */}
-              <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-8 max-w-4xl mx-auto">
+              <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
                   <Lightbulb className="h-6 w-6 text-orange-600 mr-2" />
                   What You'll Learn in This FREE Call
@@ -207,34 +209,36 @@ function App() {
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">The ₹50 Lead System</div>
-                      <div className="text-gray-600 text-sm">Exact targeting strategies that reduce your cost per lead by 75%</div>
+                      <div className="font-semibold text-gray-900">The 100+ Lead Generation System</div>
+                      <div className="text-gray-600 text-sm">Exact targeting strategies that guarantee consistent lead flow</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">High-Converting Ad Creatives</div>
-                      <div className="text-gray-600 text-sm">Templates and formulas that get 15%+ conversion rate</div>
+                      <div className="font-semibold text-gray-900">Revenue Multiplier Strategy</div>
+                      <div className="text-gray-600 text-sm">How to 5X your revenue with our proven system</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Lead Qualification Process</div>
-                      <div className="text-gray-600 text-sm">How to filter out tire-kickers and focus on buyers</div>
+                      <div className="font-semibold text-gray-900">Quality Lead Attraction</div>
+                      <div className="text-gray-600 text-sm">How to attract high-intent customers ready to buy</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Scaling Strategies</div>
-                      <div className="text-gray-600 text-sm">How to go from 10 leads to 100+ leads per month</div>
+                      <div className="font-semibold text-gray-900">7-Day Launch Blueprint</div>
+                      <div className="text-gray-600 text-sm">Complete setup process to start getting leads in 1 week</div>
                     </div>
                   </div>
                 </div>
                 <div className="mt-6 text-center">
-                  <div className="text-sm text-gray-600">💡 <strong>Bonus:</strong> Get instant access to our Lead Generation Checklist (Worth ₹999)</div>
+                  <div className="text-sm text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">
+                    💡 <strong className="text-green-800">INSTANT BONUS:</strong> Get our complete Lead Generation Toolkit (Worth ₹4,999) - includes templates, checklists, and step-by-step guides!
+                  </div>
                 </div>
               </div>
             </div>

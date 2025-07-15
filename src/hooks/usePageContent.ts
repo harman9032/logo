@@ -64,7 +64,7 @@ export interface PageContent {
 
 const defaultContent: PageContent = {
   hero: {
-    title: "Get High-Intent Clients at ₹50 Per Lead Average",
+    title: "Get 100+ Quality Leads Every Month Guaranteed",
     subtitle: "Book a FREE 30-minute strategy session (Worth ₹2,999)",
     description: "Discover the exact system we use to generate quality leads for businesses like yours.",
     ctaText: "Book FREE Strategy Call",
