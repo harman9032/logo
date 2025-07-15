@@ -857,8 +857,8 @@ function App() {
                 <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
                 <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
                 <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#terms" className="hover:text-white transition-colors">Terms of Service</a></li>
-                <li><a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors text-left">Terms of Service</button></li>
+                <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
               </ul>
             </div>
 
@@ -883,8 +883,8 @@ function App() {
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
             <p>&copy; 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • {' '}
-              <a href="#terms" className="hover:text-white transition-colors">Terms</a> • {' '}
-              <a href="#privacy" className="hover:text-white transition-colors">Privacy</a> • 
+              <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors underline">Terms</button> • {' '}
+              <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors underline">Privacy</button> • 
               <button 
                 onClick={() => setShowAdmin(true)}
                 className="ml-2 text-gray-500 hover:text-gray-300 underline"
