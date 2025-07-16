@@ -281,50 +281,151 @@ const App = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-orange-50 via-white to-red-50 py-12 sm:py-16 lg:py-20">
+      <section id="home" className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-100/20 to-red-100/20"></div>
+        <div className="absolute top-10 right-10 w-72 h-72 bg-orange-200/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-red-200/20 rounded-full blur-3xl"></div>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Transform Your Business with 
-              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent"> Professional Digital Solutions</span>
-            </h1>
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed max-w-4xl mx-auto">
-              Get a complete digital package - Logo Design, Landing Page & Meta Ads for just ₹9,999. 
-              Start generating 100+ leads monthly with our proven system.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <a 
-                href="https://tidycal.com/thelogomakers/consultation"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center"
-              >
-                Book Free Consultation
-              </a>
-              <a 
-                href="https://wa.me/919876543210" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="border-2 border-orange-500 text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-500 hover:text-white transition-all duration-300 w-full sm:w-auto text-center"
-              >
-                WhatsApp Us
-              </a>
+          <div className="relative z-10">
+            {/* Limited Time Offer Banner */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center bg-gradient-to-r from-red-500 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-medium animate-pulse">
+                <Clock className="w-4 h-4 mr-2" />
+                LIMITED TIME: 50% OFF - Only 10 Spots Left This Month!
+              </div>
             </div>
-            
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-orange-600">500+</div>
-                <div className="text-sm sm:text-base text-gray-600">Happy Clients</div>
+
+            <div className="text-center">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Get <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">100+ Qualified Leads</span> Every Month
+                <br />
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Without Spending on Ads!</span>
+              </h1>
+              
+              {/* Value Proposition */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8 max-w-4xl mx-auto shadow-xl border border-orange-100">
+                <p className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
+                  Complete Digital Transformation Package
+                </p>
+                <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                  <div className="flex items-center justify-center space-x-2 bg-orange-50 rounded-lg p-3">
+                    <Palette className="w-6 h-6 text-orange-600" />
+                    <span className="font-medium text-gray-800">Professional Logo</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2 bg-orange-50 rounded-lg p-3">
+                    <Globe className="w-6 h-6 text-orange-600" />
+                    <span className="font-medium text-gray-800">Landing Page</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2 bg-orange-50 rounded-lg p-3">
+                    <TrendingUp className="w-6 h-6 text-orange-600" />
+                    <span className="font-medium text-gray-800">Lead Generation</span>
+                  </div>
+                </div>
+                
+                {/* Pricing */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-4 mb-4">
+                    <span className="text-2xl text-gray-500 line-through">₹19,999</span>
+                    <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">₹9,999</span>
+                    <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">50% OFF</div>
+                  </div>
+                  <p className="text-gray-600">One-time payment • No hidden fees • 30-day guarantee</p>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-green-600">98%</div>
-                <div className="text-sm sm:text-base text-gray-600">Success Rate</div>
+              
+              {/* Bonus Section */}
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 sm:p-8 mb-8 border-2 border-green-200">
+                <h3 className="text-2xl font-bold text-green-800 mb-4">🎁 EXCLUSIVE BONUSES (Worth ₹15,000)</h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-white rounded-lg p-4 shadow-md">
+                    <div className="text-green-600 font-bold text-lg mb-2">BONUS #1</div>
+                    <div className="text-sm font-medium text-gray-800">Free Social Media Kit</div>
+                    <div className="text-xs text-gray-600">Worth ₹3,000</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-md">
+                    <div className="text-green-600 font-bold text-lg mb-2">BONUS #2</div>
+                    <div className="text-sm font-medium text-gray-800">SEO Optimization</div>
+                    <div className="text-xs text-gray-600">Worth ₹5,000</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-md">
+                    <div className="text-green-600 font-bold text-lg mb-2">BONUS #3</div>
+                    <div className="text-sm font-medium text-gray-800">Email Templates</div>
+                    <div className="text-xs text-gray-600">Worth ₹2,000</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 shadow-md">
+                    <div className="text-green-600 font-bold text-lg mb-2">BONUS #4</div>
+                    <div className="text-sm font-medium text-gray-800">90-Day Support</div>
+                    <div className="text-xs text-gray-600">Worth ₹5,000</div>
+                  </div>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-red-600">24/7</div>
-                <div className="text-sm sm:text-base text-gray-600">Support</div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a 
+                  href="https://tidycal.com/thelogomakers/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center relative overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    <Calendar className="w-5 h-5 mr-2" />
+                    Book FREE Strategy Call Now
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                <a 
+                  href="https://wa.me/919876543210" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300 w-full sm:w-auto"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp (Instant Reply)
+                </a>
+              </div>
+              
+              {/* Urgency & Social Proof */}
+              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4 mb-8">
+                <div className="flex items-center justify-center space-x-2 text-yellow-800 font-semibold">
+                  <Zap className="w-5 h-5" />
+                  <span>⚡ 3 people booked in the last hour • Only 7 spots left this week!</span>
+                </div>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-orange-600">500+</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Happy Clients</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-green-600">98%</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Success Rate</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-red-600">24/7</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Support</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">100+</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Leads/Month</div>
+                </div>
+              </div>
+              
+              {/* Testimonial Preview */}
+              <div className="mt-8 bg-white/60 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
+                <div className="flex items-center justify-center space-x-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-700 italic mb-3">
+                  "Got 150+ leads in first month! ROI was incredible. The team delivered exactly what they promised."
+                </p>
+                <div className="text-sm font-semibold text-gray-800">- Rajesh Kumar, Restaurant Owner</div>
               </div>
             </div>
           </div>
