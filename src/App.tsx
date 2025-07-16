@@ -20,6 +20,7 @@ import {
   ArrowRight,
   ChevronDown,
   ChevronUp,
+  MapPin,
   ExternalLink
 } from 'lucide-react';
 
