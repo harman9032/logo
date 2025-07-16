@@ -389,46 +389,11 @@ const App = () => {
               
             
               
-              {/* Urgency & Social Proof */}
-              <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4 mb-8">
-                <div className="flex items-center justify-center space-x-2 text-yellow-800 font-semibold">
-                  <Zap className="w-5 h-5" />
-                  <span>⚡ 3 people booked in the last hour • Only 7 spots left this week!</span>
-                </div>
-              </div>
+            
               
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 max-w-3xl mx-auto">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-orange-600">500+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-green-600">98%</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Success Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-red-600">24/7</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Support</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">100+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Leads/Month</div>
-                </div>
-              </div>
+             
               
-              {/* Testimonial Preview */}
-              <div className="mt-8 bg-white/60 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
-                <div className="flex items-center justify-center space-x-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 italic mb-3">
-                  "Got 150+ leads in first month! ROI was incredible. The team delivered exactly what they promised."
-                </p>
-                <div className="text-sm font-semibold text-gray-800">- Rajesh Kumar, Restaurant Owner</div>
-              </div>
+             
             </div>
           </div>
         </div>
