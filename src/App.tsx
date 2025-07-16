@@ -281,100 +281,115 @@ const App = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <section id="home" className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-orange-100/20 to-red-100/20"></div>
-        <div className="absolute top-20 right-20 w-64 h-64 bg-orange-200/20 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-red-200/15 rounded-full blur-2xl"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-orange-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-red-200/10 rounded-full blur-3xl"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10">
-            {/* Trust Badge */}
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center bg-white/90 backdrop-blur-sm border border-orange-200 text-orange-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm">
-                <Award className="w-4 h-4 mr-2" />
-                Trusted by 500+ Businesses • 4.9★ Rating
+            {/* Since 2017 Badge */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
+                <Award className="w-5 h-5 mr-2" />
+                Trusted Since 2017 • 500+ Happy Clients
               </div>
             </div>
 
             <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-                Transform Your Business with
+              {/* Hook Title */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                Get More Customers
                 <br />
-                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Professional Digital Solutions</span>
+                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Without Spending on Ads</span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Get everything you need to establish a strong online presence and generate quality leads for your business
+              <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                We help businesses get 100+ qualified leads every month with our proven digital marketing system
               </p>
               
-              {/* Services Overview */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 sm:p-10 mb-12 max-w-5xl mx-auto shadow-lg border border-orange-100">
-                <div className="grid sm:grid-cols-3 gap-8 mb-8">
-                  <div className="text-center">
-                    <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl p-6 mb-4">
-                      <Palette className="w-12 h-12 text-orange-600 mx-auto" />
+              {/* What We Give You - Point Wise */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8 max-w-4xl mx-auto shadow-xl border border-orange-100">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">What We Give You:</h3>
+                
+                <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                  <div className="flex items-start space-x-4 text-left">
+                    <div className="bg-orange-100 rounded-full p-2 mt-1">
+                      <Palette className="w-6 h-6 text-orange-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Professional Logo Design</h3>
-                    <p className="text-gray-600 text-sm">Custom logos that represent your brand perfectly</p>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Professional Logo Design</h4>
+                      <p className="text-gray-600">Custom logo with unlimited revisions & all file formats</p>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <div className="bg-gradient-to-br from-red-100 to-red-200 rounded-2xl p-6 mb-4">
-                      <Globe className="w-12 h-12 text-red-600 mx-auto" />
+                  
+                  <div className="flex items-start space-x-4 text-left">
+                    <div className="bg-blue-100 rounded-full p-2 mt-1">
+                      <Globe className="w-6 h-6 text-blue-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">High-Converting Landing Pages</h3>
-                    <p className="text-gray-600 text-sm">Mobile-responsive pages optimized for conversions</p>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">High-Converting Landing Page</h4>
+                      <p className="text-gray-600">Mobile-responsive page optimized for lead generation</p>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <div className="bg-gradient-to-br from-orange-100 to-red-100 rounded-2xl p-6 mb-4">
-                      <TrendingUp className="w-12 h-12 text-orange-600 mx-auto" />
+                  
+                  <div className="flex items-start space-x-4 text-left">
+                    <div className="bg-green-100 rounded-full p-2 mt-1">
+                      <TrendingUp className="w-6 h-6 text-green-600" />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Meta Ads & Lead Generation</h3>
-                    <p className="text-gray-600 text-sm">Strategic campaigns that deliver qualified leads</p>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Meta Ads Campaign Setup</h4>
+                      <p className="text-gray-600">Facebook & Instagram ads with audience targeting</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4 text-left">
+                    <div className="bg-purple-100 rounded-full p-2 mt-1">
+                      <Target className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Lead Generation System</h4>
+                      <p className="text-gray-600">Complete funnel to capture & convert prospects</p>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="bg-green-500 text-white rounded-full p-2 mr-3">
-                      <CheckCircle className="w-5 h-5" />
+                {/* Bonus Line */}
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-yellow-200">
+                  <div className="flex items-center justify-center">
+                    <div className="bg-yellow-500 text-white rounded-full p-2 mr-3">
+                      <Star className="w-5 h-5" />
                     </div>
-                    <h4 className="text-lg font-semibold text-green-800">Complete Digital Transformation Package</h4>
+                    <h4 className="text-xl font-bold text-yellow-800">
+                      BONUS: Free Social Media Kit + SEO Optimization + 90-Day Support (Worth ₹15,000)
+                    </h4>
                   </div>
-                  <p className="text-green-700 text-center">
-                    Everything you need to establish your online presence and start generating leads immediately
-                  </p>
                 </div>
               </div>
 
-              {/* Main CTAs */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 max-w-2xl mx-auto">
+              {/* Center Aligned CTAs */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 max-w-2xl mx-auto">
                 <a 
                   href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center border-2 border-orange-400"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
                 >
-                  <span className="flex items-center justify-center">
-                    <Calendar className="w-5 h-5 mr-3" />
-                    Book Free Strategy Call
-                  </span>
+                  📞 BOOK FREE STRATEGY CALL
                 </a>
                 <a 
                   href="https://wa.me/917837319660" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group bg-green-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-green-600 hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center border-2 border-green-400"
+                  className="bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-green-600 hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
                 >
-                  <span className="flex items-center justify-center">
-                    <MessageCircle className="w-5 h-5 mr-3" />
-                    WhatsApp Chat
-                  </span>
+                  💬 WHATSAPP (INSTANT REPLY)
                 </a>
               </div>
 
-              {/* Value Proposition */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-10 max-w-4xl mx-auto shadow-lg border border-gray-200">
+              {/* Social Proof Stats */}
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-gray-900 mb-1">500+</div>
@@ -385,78 +400,13 @@ const App = () => {
                     <div className="text-sm text-gray-600">Average Rating</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
-                    <div className="text-sm text-gray-600">Success Rate</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">100+</div>
+                    <div className="text-sm text-gray-600">Leads/Month</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">24/7</div>
-                    <div className="text-sm text-gray-600">Support</div>
+                    <div className="text-2xl font-bold text-gray-900 mb-1">7+</div>
+                    <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
-                </div>
-              </div>
-
-              {/* Bonus Section */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-8 sm:p-10 mb-10 border border-blue-200 max-w-5xl mx-auto">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
-                    🎁 Exclusive Bonuses Included
-                  </h3>
-                  <p className="text-gray-600">Get these valuable extras at no additional cost</p>
-                </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="bg-blue-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                      <Globe className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Social Media Kit</h4>
-                    <p className="text-sm text-gray-600 mb-2">Complete branding package</p>
-                    <span className="text-xs text-green-600 font-medium">Worth ₹3,000</span>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="bg-green-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                      <Target className="w-6 h-6 text-green-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">SEO Optimization</h4>
-                    <p className="text-sm text-gray-600 mb-2">Search engine ready</p>
-                    <span className="text-xs text-green-600 font-medium">Worth ₹5,000</span>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="bg-purple-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Email Templates</h4>
-                    <p className="text-sm text-gray-600 mb-2">Professional designs</p>
-                    <span className="text-xs text-green-600 font-medium">Worth ₹2,000</span>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-center">
-                    <div className="bg-orange-100 rounded-full p-3 w-12 h-12 mx-auto mb-4 flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <h4 className="font-semibold text-gray-900 mb-2">90-Day Support</h4>
-                    <p className="text-sm text-gray-600 mb-2">Dedicated assistance</p>
-                    <span className="text-xs text-green-600 font-medium">Worth ₹5,000</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto shadow-lg border border-gray-200">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="flex text-yellow-400 mr-4">
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                    <Star className="w-5 h-5 fill-current" />
-                  </div>
-                  <span className="text-gray-600 font-medium">5.0 out of 5</span>
-                </div>
-                <blockquote className="text-lg text-gray-700 italic text-center mb-4">
-                  "The Logo Makers completely transformed our online presence. Professional service, amazing results, and excellent support throughout the process."
-                </blockquote>
-                <div className="text-center">
-                  <div className="font-semibold text-gray-900">Rajesh Kumar</div>
-                  <div className="text-sm text-gray-600">Tech Startup Founder</div>
                 </div>
               </div>
             </div>
