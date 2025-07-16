@@ -289,75 +289,123 @@ const App = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative z-10">
-            {/* Since 2017 Badge */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">
-                <Award className="w-5 h-5 mr-2" />
-                Trusted Since 2017 • 500+ Happy Clients
-              </div>
-            </div>
-
             <div className="text-center">
-              {/* Hook Title */}
+              {/* Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                Get More Customers
+                Transform Your Business Into a
                 <br />
-                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Without Spending on Ads</span>
+                <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">Lead Generation Machine</span>
               </h1>
               
-              <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-                We help businesses get 100+ qualified leads every month with our proven digital marketing system
+              {/* Subheadline */}
+              <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+                We help freelancers, coaches, and local businesses get premium websites and automated lead generation systems that work 24/7 — <span className="font-semibold text-gray-900">Trusted by 500+ businesses since 2017</span>
               </p>
 
-               {/* Center Aligned CTAs */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 max-w-2xl mx-auto">
+              {/* Emoji Service List */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-12 max-w-5xl mx-auto shadow-xl border border-orange-100">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10">Here's What You Get:</h3>
+                
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="text-4xl mb-4">🎨</div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Website Design</h4>
+                      <p className="text-gray-600">Premium, mobile-responsive websites that convert visitors into customers</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="text-4xl mb-4">⚡</div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Logo & Branding</h4>
+                      <p className="text-gray-600">Professional brand identity that makes you stand out from competitors</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="text-4xl mb-4">📱</div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Meta Ads (Facebook/Instagram)</h4>
+                      <p className="text-gray-600">Targeted advertising campaigns that bring qualified leads daily</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className="text-4xl mb-4">🚀</div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Lead Generation Automation</h4>
+                      <p className="text-gray-600">Automated systems that capture and nurture leads while you sleep</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col items-center text-center sm:col-span-2 lg:col-span-1">
+                    <div className="text-4xl mb-4">🌐</div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">Hosting & Domain Setup</h4>
+                      <p className="text-gray-600">Complete technical setup so your website is live and secure</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bonus Line */}
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-yellow-200">
+                  <div className="flex items-center justify-center">
+                    <div className="bg-yellow-500 text-white rounded-full p-2 mr-3">
+                      <Star className="w-5 h-5" />
+                    </div>
+                    <h4 className="text-lg sm:text-xl font-bold text-yellow-800 text-center">
+                      BONUS: Free SEO Optimization + Social Media Templates + 90-Day Premium Support (Worth ₹25,000)
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              {/* Center Aligned CTAs */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 max-w-3xl mx-auto">
                 <a 
                   href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center"
                 >
-                  📞 BOOK FREE STRATEGY CALL
+                  🚀 Get Your Free Strategy Session
                 </a>
                 <a 
                   href="https://wa.me/917837319660" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-green-600 hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
+                  className="bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 hover:shadow-lg transition-all duration-300 w-full sm:w-auto text-center"
                 >
-                  💬 WHATSAPP (INSTANT REPLY)
+                  💬 Chat With Us Now
                 </a>
               </div>
               
-              {/* What We Give You - Point Wise */}
-              <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8 max-w-4xl mx-auto shadow-xl border border-orange-100">
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">What We Give You:</h3>
-                
-                <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                  <div className="flex items-start space-x-4 text-left">
-                    <div className="bg-orange-100 rounded-full p-2 mt-1">
-                      <Palette className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Professional Logo Design</h4>
-                      <p className="text-gray-600">Custom logo with unlimited revisions & all file formats</p>
-                    </div>
+              {/* Social Proof Stats */}
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-gray-900 mb-1">500+</div>
+                    <div className="text-sm text-gray-600">Happy Clients</div>
                   </div>
-                  
-                  <div className="flex items-start space-x-4 text-left">
-                    <div className="bg-blue-100 rounded-full p-2 mt-1">
-                      <Globe className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">High-Converting Landing Page</h4>
-                      <p className="text-gray-600">Mobile-responsive page optimized for lead generation</p>
-                    </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-gray-900 mb-1">4.9★</div>
+                    <div className="text-sm text-gray-600">Average Rating</div>
                   </div>
-                  
-                  <div className="flex items-start space-x-4 text-left">
-                    <div className="bg-green-100 rounded-full p-2 mt-1">
-                      <TrendingUp className="w-6 h-6 text-green-600" />
-                    </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-gray-900 mb-1">7+</div>
+                    <div className="text-sm text-gray-600">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-gray-900 mb-1">24/7</div>
+                    <div className="text-sm text-gray-600">Lead Generation</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">Meta Ads Campaign Setup</h4>
                       <p className="text-gray-600">Facebook & Instagram ads with audience targeting</p>
