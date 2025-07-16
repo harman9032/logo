@@ -324,7 +324,9 @@ const App = () => {
                   </div>
                 </div>
                 
-                
+                {/* Pricing */}
+               
+              </div>
 
                 {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
