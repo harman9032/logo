@@ -1,1024 +1,984 @@
-import React, { useState } from 'react';
-import AdminApp from './components/AdminApp';
-import TermsPage from './pages/TermsPage';
-import PrivacyPage from './pages/PrivacyPage';
-import ThankYouPage from './pages/ThankYouPage';
-import EditableSection from './components/EditableSection';
-import { usePageContent } from './hooks/usePageContent';
-import { supabase } from './lib/supabase';
+import React from 'react';
 import { 
-  ArrowRight, 
-  Palette, 
-  Globe, 
-  Target, 
-  Users, 
-  TrendingUp, 
+  Star, 
   CheckCircle, 
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Shield,
+  Phone, 
+  Mail, 
+  MessageCircle, 
+  Calendar,
   Award,
   Zap,
-  Rocket,
-  X,
-  Calendar,
+  Shield,
+  Users,
+  TrendingUp,
+  Clock,
+  Target,
+  Smartphone,
+  Search,
   BarChart3,
-  Lightbulb,
+  Headphones,
+  ArrowRight,
   ChevronDown,
   ChevronUp,
-  MessageCircle
+  ExternalLink
 } from 'lucide-react';
 
-function App() {
-  const [showAdmin, setShowAdmin] = useState(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [currentPage, setCurrentPage] = useState('home');
-  const { content, loading, saveContent } = usePageContent();
+export default function App() {
+  const [openFaq, setOpenFaq] = React.useState<number | null>(null);
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    phone: '',
+    business: '',
+    package: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitMessage, setSubmitMessage] = React.useState('');
 
-  // TidyCal booking link
   const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-free-consulation";
 
-  // Check if current URL is admin route
-  React.useEffect(() => {
-    const hash = window.location.hash;
-    const pathname = window.location.pathname;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
     
-    if (pathname === '/admin' || hash === '#admin') {
-      setShowAdmin(true);
-    } else if (hash === '#terms' || pathname === '/terms') {
-      setCurrentPage('terms');
-    } else if (hash === '#privacy' || pathname === '/privacy') {
-      setCurrentPage('privacy');
-    } else if (hash === '#thank-you' || pathname === '/thank-you') {
-      setCurrentPage('thank-you');
-    } else {
-      setCurrentPage('home');
-    }
-    
-    // Check if admin is logged in
-    const adminData = localStorage.getItem('admin_session');
-    if (adminData) {
-      setIsAdminLoggedIn(true);
-    }
-    
-    // Add keyboard shortcut for admin access (Ctrl+Shift+A)
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-        setIsAdminLoggedIn(true);
-      }
-    };
-    
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
+    // Simulate form submission
+    setTimeout(() => {
+      setSubmitMessage('Thank you! We will contact you within 24 hours.');
+      setFormData({ name: '', email: '', phone: '', business: '', package: '', message: '' });
+      setIsSubmitting(false);
+      
+      // Clear message after 5 seconds
+      setTimeout(() => setSubmitMessage(''), 5000);
+    }, 1000);
+  };
 
-  // Show admin panel if requested
-  if (showAdmin) {
-    return <AdminApp />;
-  }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
 
-  // Show specific pages based on route
-  if (currentPage === 'terms') {
-    return <TermsPage />;
-  }
-  
-  if (currentPage === 'privacy') {
-    return <PrivacyPage />;
-  }
-  
-  if (currentPage === 'thank-you') {
-    return <ThankYouPage />;
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
+  const generateWhatsAppLink = () => {
+    const message = "Hi! I'm interested in your digital marketing services. Can we discuss my requirements?";
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/919876543210?text=${encodedMessage}`;
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center">
-                <Palette className="h-8 w-8 text-orange-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">Daily Creative Designs</span>
-              </div>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-orange-500 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-48 h-48 bg-red-500 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/3 w-40 h-40 bg-pink-500 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+          {/* Trust Badge */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-orange-200">
+              <Award className="h-5 w-5 text-orange-600 mr-2" />
+              <span className="text-sm font-medium text-gray-700">8 Years of Excellence • Since 2017 • 1000+ Happy Clients</span>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#services" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                <a href="#pricing" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Pricing</a>
-                <a href="#why-choose" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Why Choose</a>
-                <a href="#faq" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">FAQ</a>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Get <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">100+ Quality Leads</span> Every Month Guaranteed
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                Book a <span className="font-semibold text-orange-600">FREE 30-minute strategy session</span> (Worth ₹2,999)
+              </p>
+              
+              <p className="text-lg text-gray-700 mb-10">
+                Discover the exact system we use to generate quality leads for businesses like yours.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
                 <a 
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
-                  Book Free Call
+                  <Calendar className="h-5 w-5 mr-2" />
+                  Book FREE Strategy Call
                 </a>
+                <a 
+                  href="#pricing"
+                  className="bg-white text-gray-800 px-8 py-4 rounded-full font-semibold text-lg border-2 border-gray-300 hover:border-orange-500 hover:text-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                >
+                  View Packages
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </a>
+              </div>
+
+              {/* Value Propositions */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
+                  <div className="text-sm font-medium text-gray-900">Quality Leads Monthly</div>
+                  <div className="text-xs text-gray-600">Guaranteed results</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-red-600 mb-2">5X</div>
+                  <div className="text-sm font-medium text-gray-900">Revenue Growth</div>
+                  <div className="text-xs text-gray-600">Average client results</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-pink-600 mb-2">7 Days</div>
+                  <div className="text-sm font-medium text-gray-900">Complete Setup</div>
+                  <div className="text-xs text-gray-600">Ready to launch</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Learning Points */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-orange-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">What You'll Learn in This FREE Call</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">The 100+ Lead Generation System</h4>
+                    <p className="text-gray-600 text-sm">Exact targeting strategies that guarantee consistent lead flow</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Revenue Multiplier Strategy</h4>
+                    <p className="text-gray-600 text-sm">How to 5X your revenue with our proven system</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Quality Lead Attraction</h4>
+                    <p className="text-gray-600 text-sm">How to attract high-intent customers ready to buy</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white font-bold text-sm">4</span>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">7-Day Launch Blueprint</h4>
+                    <p className="text-gray-600 text-sm">Complete setup process to start getting leads in 1 week</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bonus Section */}
+              <div className="mt-8 p-6 bg-gradient-to-r from-orange-100 to-red-100 rounded-xl border border-orange-200">
+                <h4 className="font-bold text-orange-800 mb-2">🎁 FREE BONUS WORTH ₹4,999!</h4>
+                <p className="text-orange-700 text-sm mb-2">✅ Lead Generation Checklist + ✅ Ad Templates + ✅ Landing Page Guide</p>
+                <p className="text-orange-600 text-xs">Get our complete Lead Generation Toolkit (Worth ₹4,999) - includes templates, checklists, and step-by-step guides!</p>
+                <p className="text-red-600 text-xs font-semibold mt-2">⚡ Limited Time: Only 10 spots available this week!</p>
               </div>
             </div>
           </div>
         </div>
-      </header>
-
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 pt-20 pb-32 overflow-hidden">
-        <EditableSection
-          id="hero"
-          title="Hero Section"
-          content={content.hero}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23EA580C' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }}></div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            {/* Experience Badge */}
-            <EditableSection
-              id="heroBadge"
-              title="Hero Badge"
-              content={{ badgeText: content.hero.badgeText }}
-              onSave={(id, badgeContent) => saveContent('hero', { ...content.hero, badgeText: badgeContent.badgeText })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="flex justify-center mb-8">
-                <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full px-6 py-2 flex items-center">
-                  <Award className="h-5 w-5 text-orange-600 mr-2" />
-                  <span className="text-orange-800 font-semibold">{content.hero.badgeText}</span>
-                </div>
-              </div>
-            </EditableSection>
-
-            <EditableSection
-              id="heroTitle"
-              title="Hero Title & Subtitle"
-              content={{ 
-                title: content.hero.title,
-                subtitle: content.hero.subtitle,
-                description: content.hero.description
-              }}
-              onSave={(id, titleContent) => saveContent('hero', { 
-                ...content.hero, 
-                title: titleContent.title,
-                subtitle: titleContent.subtitle,
-                description: titleContent.description
-              })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="text-center">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                  {content.hero.title}
-                </h1>
-                
-                <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                  <strong className="text-orange-600">{content.hero.subtitle}</strong><br className="hidden md:block" />
-                  <span className="block md:inline mt-2 md:mt-0">{content.hero.description}</span>
-                </p>
-              </div>
-            </EditableSection>
-
-            {/* Value Proposition Boxes */}
-            <EditableSection
-              id="heroValueProps"
-              title="Hero Value Propositions"
-              content={{
-                valueProposition1: content.hero.valueProposition1,
-                valueProposition1Value: content.hero.valueProposition1Value,
-                valueProposition1Desc: content.hero.valueProposition1Desc,
-                valueProposition2: content.hero.valueProposition2,
-                valueProposition2Value: content.hero.valueProposition2Value,
-                valueProposition2Desc: content.hero.valueProposition2Desc,
-                valueProposition3: content.hero.valueProposition3,
-                valueProposition3Value: content.hero.valueProposition3Value,
-                valueProposition3Desc: content.hero.valueProposition3Desc
-              }}
-              onSave={(id, valueProps) => saveContent('hero', { ...content.hero, ...valueProps })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition1Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition1Desc}</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition2Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition2Desc}</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition3Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition3Desc}</div>
-                </div>
-              </div>
-            </EditableSection>
-
-            {/* Main CTA */}
-            <EditableSection
-              id="heroCTA"
-              title="Hero CTA & Bonus"
-              content={{
-                ctaText: content.hero.ctaText,
-                bonusTitle: content.hero.bonusTitle,
-                bonusSubtitle: content.hero.bonusSubtitle,
-                bonusUrgency: content.hero.bonusUrgency
-              }}
-              onSave={(id, ctaContent) => saveContent('hero', { ...content.hero, ...ctaContent })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="flex flex-col gap-4 justify-center items-center mb-12">
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center w-full sm:w-auto justify-center"
-                >
-                  <Calendar className="mr-3 h-6 w-6" />
-                  {content.hero.ctaText}
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </a>
-                <div className="text-center bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-xl p-4 shadow-lg">
-                  <div className="text-lg font-bold text-orange-800 mb-1">{content.hero.bonusTitle}</div>
-                  <div className="text-sm text-orange-700 mb-2">{content.hero.bonusSubtitle}</div>
-                  <div className="text-xs text-red-600 font-semibold animate-pulse">{content.hero.bonusUrgency}</div>
-                </div>
-              </div>
-            </EditableSection>
-
-            {/* What You'll Learn */}
-            <EditableSection
-              id="heroLearning"
-              title="Hero Learning Points"
-              content={{
-                learningTitle: content.hero.learningTitle,
-                learningPoint1Title: content.hero.learningPoint1Title,
-                learningPoint1Desc: content.hero.learningPoint1Desc,
-                learningPoint2Title: content.hero.learningPoint2Title,
-                learningPoint2Desc: content.hero.learningPoint2Desc,
-                learningPoint3Title: content.hero.learningPoint3Title,
-                learningPoint3Desc: content.hero.learningPoint3Desc,
-                learningPoint4Title: content.hero.learningPoint4Title,
-                learningPoint4Desc: content.hero.learningPoint4Desc,
-                instantBonusText: content.hero.instantBonusText,
-                bonusItems: content.hero.bonusItems
-              }}
-              onSave={(id, learningContent) => saveContent('hero', { ...content.hero, ...learningContent })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
-                  <Lightbulb className="h-6 w-6 text-orange-600 mr-2" />
-                  {content.hero.learningTitle}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint1Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint2Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint3Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint4Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 text-center">
-                  <div className="text-sm text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">
-                    {content.hero.instantBonusText} <strong className="text-green-800">INSTANT BONUS:</strong> {content.hero.bonusItems}
-                  </div>
-                </div>
-              </div>
-            </EditableSection>
-          </div>
-        </EditableSection>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <EditableSection
-          id="services"
-          title="Services Section"
-          content={content.services}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.services.title}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                {content.services.subtitle}
-              </p>
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Complete Digital Package</h2>
+            <p className="text-xl text-gray-600 mb-6">Everything you need to establish a strong online presence and attract customers</p>
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">Our comprehensive digital solutions are designed to transform your business and drive real results.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Logo Design */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-6">
+                <Award className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Logo Design</h3>
+              <p className="text-gray-600 mb-6">Professional, memorable logo that represents your brand identity perfectly. Multiple concepts, unlimited revisions, and all file formats included.</p>
+              
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>5+ Logo Concepts</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Unlimited Revisions</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>All File Formats</span>
+                </li>
+              </ul>
+              
+              <div className="border-t pt-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-2xl font-bold text-blue-600">Starting at ₹2,999</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">Delivery</div>
+                    <div className="font-semibold text-gray-900">2-3 Days</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-orange-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mb-6">
-                  <Palette className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.logoDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature3}
-                  </li>
-                </ul>
-              </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-blue-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mb-6">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.landingDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature3}
-                  </li>
-                </ul>
+            {/* Landing Page */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
+                <Smartphone className="h-8 w-8 text-white" />
               </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-green-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mb-6">
-                  <Target className="h-8 w-8 text-white" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Landing Page</h3>
+              <p className="text-gray-600 mb-6">High-converting, mobile-responsive landing page designed to turn visitors into customers. Optimized for speed and conversions.</p>
+              
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Mobile Responsive</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>SEO Optimized</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Fast Loading</span>
+                </li>
+              </ul>
+              
+              <div className="border-t pt-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-2xl font-bold text-green-600">Starting at ₹4,999</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">Delivery</div>
+                    <div className="font-semibold text-gray-900">5-7 Days</div>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.adsDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature3}
-                  </li>
-                </ul>
+              </div>
+            </div>
+
+            {/* Meta Ads */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-xl flex items-center justify-center mb-6">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Meta Ads Setup</h3>
+              <p className="text-gray-600 mb-6">Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.</p>
+              
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Campaign Setup</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Audience Targeting</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Ad Creatives</span>
+                </li>
+              </ul>
+              
+              <div className="border-t pt-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className="text-2xl font-bold text-pink-600">Starting at ₹3,999</span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm text-gray-500">Delivery</div>
+                    <div className="font-semibold text-gray-900">3-5 Days</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </EditableSection>
+
+          {/* Complete Package CTA */}
+          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl p-8 md:p-12 text-white text-center">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Complete Package</h3>
+            <p className="text-xl mb-6 text-orange-100">Get everything for one low price</p>
+            <p className="text-lg mb-8 text-orange-100 max-w-2xl mx-auto">Save money and get better results with our complete digital marketing package.</p>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+              <div className="text-center">
+                <div className="text-4xl md:text-5xl font-bold mb-2">₹9,999</div>
+                <div className="text-orange-200">One-time payment</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-semibold mb-2">7-10 Days</div>
+                <div className="text-orange-200">Complete delivery</div>
+              </div>
+            </div>
+            
+            <a 
+              href="#contact"
+              className="inline-block bg-white text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg"
+            >
+              Get Complete Package
+            </a>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-8 pt-8 border-t border-orange-500">
+              <div className="flex items-center">
+                <Shield className="h-6 w-6 mr-2" />
+                <span>100% Money-Back Guarantee</span>
+              </div>
+              <div className="flex items-center">
+                <Headphones className="h-6 w-6 mr-2" />
+                <span>30 Days Free Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-50">
-        <EditableSection
-          id="pricing"
-          title="Pricing Section"
-          content={content.pricing}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.pricing.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.pricing.subtitle}
-              </p>
+      <section id="pricing" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-gray-600">Choose the package that's right for your business</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Starter Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200 hover:border-blue-500 transition-colors">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Starter Package</h3>
+                <div className="text-4xl font-bold text-blue-600 mb-2">₹4,999</div>
+                <p className="text-gray-600">Perfect for small businesses getting started</p>
+              </div>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Logo Design (3 concepts)</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Basic Landing Page</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Mobile Responsive</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Basic SEO Setup</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>7-day Support</span>
+                </li>
+              </ul>
+              
+              <a 
+                href="#contact"
+                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center block"
+              >
+                Get Started
+              </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Starter Package */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-                  <p className="text-gray-600 mb-6">{content.pricing.starterDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold text-orange-600">{content.pricing.starterPrice}</span>
-                    <span className="text-gray-600 ml-2">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-gray-600 text-white py-4 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
-                >
-                  {content.pricing.starterButtonText}
-                </a>
+            {/* Professional Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-purple-500 relative transform scale-105">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-sm font-semibold">Most Popular</span>
               </div>
+              
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Professional Package</h3>
+                <div className="text-4xl font-bold text-purple-600 mb-2">₹9,999</div>
+                <p className="text-gray-600">Most popular choice for growing businesses</p>
+              </div>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Professional Logo Design</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Custom Landing Page</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Meta Ads Campaign Setup</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>SEO Optimization</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>30-day Support</span>
+                </li>
+              </ul>
+              
+              <a 
+                href="#contact"
+                className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 text-center block"
+              >
+                Get Started Now
+              </a>
+            </div>
 
-              {/* Professional Package */}
-              <div className="bg-gradient-to-br from-orange-600 to-red-600 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white relative overflow-hidden transform scale-105">
-                <div className="absolute top-4 right-4 bg-yellow-400 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  {content.pricing.professionalBadgeText}
-                </div>
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{content.pricing.professionalTitle}</h3>
-                  <p className="text-orange-100 mb-6">{content.pricing.professionalDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold">{content.pricing.professionalPrice}</span>
-                    <span className="text-orange-100 ml-2">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-white text-orange-600 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  {content.pricing.professionalButtonText}
-                </a>
+            {/* Enterprise Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200 hover:border-orange-500 transition-colors">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Enterprise Package</h3>
+                <div className="text-4xl font-bold text-orange-600 mb-2">₹19,999</div>
+                <p className="text-gray-600">Complete solution for established businesses</p>
               </div>
-
-              {/* Enterprise Package */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-                  <p className="text-gray-600 mb-6">{content.pricing.enterpriseDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold text-orange-600">{content.pricing.enterprisePrice}</span>
-                    <span className="text-gray-600 ml-2">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
-                >
-                  {content.pricing.enterpriseButtonText}
-                </a>
-              </div>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Everything in Professional</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Advanced Analytics Setup</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>CRM Integration</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>Email Marketing Setup</span>
+                </li>
+                <li className="flex items-center text-gray-700">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span>90-day Support</span>
+                </li>
+              </ul>
+              
+              <a 
+                href="#contact"
+                className="w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors text-center block"
+              >
+                Contact Us
+              </a>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section id="why-choose" className="py-20 bg-white">
-        <EditableSection
-          id="whyChoose"
-          title="Why Choose Section"
-          content={content.whyChoose}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.whyChoose.title}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                {content.whyChoose.subtitle}
-              </p>
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Daily Creative Designs?</h2>
+            <p className="text-xl text-gray-600">We deliver results that matter to your business growth</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Fast Delivery</h3>
+              <p className="text-gray-600">Complete package delivered within 7 days</p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason1Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason1Description}</p>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-white" />
               </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason2Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason2Description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Team</h3>
+              <p className="text-gray-600">8 years of experience since 2017</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-white" />
               </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason3Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason3Description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Proven Results</h3>
+              <p className="text-gray-600">Helped 1000+ businesses grow their revenue</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-white" />
               </div>
-
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason4Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason4Description}</p>
-              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Money-Back Guarantee</h3>
+              <p className="text-gray-600">100% satisfaction or your money back</p>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-gray-50">
-        <EditableSection
-          id="faq"
-          title="FAQ Section"
-          content={content.faq}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.faq.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.faq.subtitle}
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[1, 2, 3, 4, 5, 6].map((num) => {
-                const questionKey = `question${num}` as keyof typeof content.faq;
-                const answerKey = `answer${num}` as keyof typeof content.faq;
-                const isExpanded = expandedFaq === num;
-                
-                return (
-                  <div key={num} className="bg-white rounded-lg shadow-sm border border-gray-200">
-                    <button
-                      onClick={() => setExpandedFaq(isExpanded ? null : num)}
-                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="font-semibold text-gray-900">{content.faq[questionKey]}</span>
-                      {isExpanded ? (
-                        <ChevronUp className="h-5 w-5 text-gray-500" />
-                      ) : (
-                        <ChevronDown className="h-5 w-5 text-gray-500" />
-                      )}
-                    </button>
-                    {isExpanded && (
-                      <div className="px-6 pb-4">
-                        <p className="text-gray-600">{content.faq[answerKey]}</p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="text-center mt-12">
-              <p className="text-gray-600 mb-4">Still have questions?</p>
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Book a Free Consultation
-              </a>
-            </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">Everything you need to know about our services</p>
           </div>
-        </EditableSection>
+
+          <div className="space-y-4">
+            {[
+              {
+                question: "How long does it take to complete the package?",
+                answer: "Our complete package is delivered within 7 business days. Logo concepts are provided within 2-3 days, landing page within 5 days, and Meta ads setup within 7 days."
+              },
+              {
+                question: "Do you provide unlimited revisions?",
+                answer: "Yes, we provide unlimited revisions for the logo design until you're 100% satisfied. For landing pages, we include up to 3 rounds of revisions."
+              },
+              {
+                question: "What's included in the Meta ads setup?",
+                answer: "Complete Facebook and Instagram campaign setup including audience research, ad creative design, campaign structure, targeting setup, and initial optimization."
+              },
+              {
+                question: "Do you provide ongoing support?",
+                answer: "Yes, we provide 30 days of free support after project completion. For ongoing management, we offer monthly packages starting at ₹9,999."
+              },
+              {
+                question: "What if I'm not satisfied with the work?",
+                answer: "We offer a 100% money-back guarantee. If you're not completely satisfied with our work, we'll refund your payment within 30 days."
+              },
+              {
+                question: "Can you help with other digital marketing services?",
+                answer: "Absolutely! We offer additional services like SEO, content marketing, social media management, and Google Ads. Contact us to discuss your specific needs."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg">
+                <button
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-100 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  {openFaq === index ? (
+                    <ChevronUp className="h-5 w-5 text-gray-500" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-gray-500" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-4">
+                    <p className="text-gray-600">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Ready to Talk Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <EditableSection
-          id="readyToTalk"
-          title="Ready to Talk Section"
-          content={content.readyToTalk}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {content.readyToTalk.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                {content.readyToTalk.subtitle}
-              </p>
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Talk? Let's Connect!</h2>
+            <p className="text-xl text-gray-600">Skip the forms and get instant access to our team. Choose your preferred way to connect.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Phone */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Phone className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Call Us Now</h3>
+              <p className="text-gray-600 mb-4">Speak directly with our experts</p>
+              <div className="text-2xl font-bold text-green-600 mb-2">+91 98765 43210</div>
+              <p className="text-sm text-gray-500">Available 9 AM - 9 PM</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {/* Phone */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Phone className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.phoneTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.phoneDescription}</p>
-                <a 
-                  href={`tel:${content.readyToTalk.phoneNumber}`}
-                  className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-                >
-                  {content.readyToTalk.phoneNumber}
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.phoneAvailability}</p>
+            {/* WhatsApp */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="h-8 w-8 text-white" />
               </div>
-
-              {/* WhatsApp */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.whatsappTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.whatsappDescription}</p>
-                <a 
-                  href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
-                >
-                  {content.readyToTalk.whatsappButtonText}
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.whatsappResponse}</p>
-              </div>
-
-              {/* Email */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.emailTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.emailDescription}</p>
-                <a 
-                  href={`mailto:${content.readyToTalk.emailAddress}`}
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Send Email
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.emailResponse}</p>
-              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">WhatsApp Chat</h3>
+              <p className="text-gray-600 mb-4">Quick responses within minutes</p>
+              <a 
+                href={generateWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+              >
+                Start Chat
+              </a>
+              <p className="text-sm text-gray-500 mt-2">Instant responses</p>
             </div>
 
-            {/* Why Talk to Us */}
-            <div className="bg-gray-800 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-center mb-8">{content.readyToTalk.whyTalkTitle}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <Zap className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit1Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit1Description}</p>
+            {/* Email */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Email Us</h3>
+              <p className="text-gray-600 mb-4">Detailed project discussions</p>
+              <div className="text-lg font-semibold text-blue-600 mb-2">hello@dailycreativedesigns.com</div>
+              <p className="text-sm text-gray-500">Response within 2 hours</p>
+            </div>
+          </div>
+
+          {/* Why Talk to Us */}
+          <div className="bg-white rounded-2xl p-8 md:p-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why Talk to Us Directly?</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-6 w-6 text-white" />
                 </div>
-                <div className="text-center">
-                  <Users className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit2Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit2Description}</p>
+                <h4 className="font-bold text-gray-900 mb-2">Instant Clarity</h4>
+                <p className="text-gray-600 text-sm">Get immediate answers to your questions</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-white" />
                 </div>
-                <div className="text-center">
-                  <Rocket className="h-8 w-8 text-green-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit3Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit3Description}</p>
+                <h4 className="font-bold text-gray-900 mb-2">Personal Touch</h4>
+                <p className="text-gray-600 text-sm">Speak with real experts, not chatbots</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-6 w-6 text-white" />
                 </div>
-                <div className="text-center">
-                  <Star className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit4Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit4Description}</p>
+                <h4 className="font-bold text-gray-900 mb-2">Faster Results</h4>
+                <p className="text-gray-600 text-sm">Skip the back-and-forth emails</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-white" />
                 </div>
+                <h4 className="font-bold text-gray-900 mb-2">Custom Solutions</h4>
+                <p className="text-gray-600 text-sm">Tailored advice for your business</p>
               </div>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <EditableSection
-          id="testimonials"
-          title="Testimonials Section"
-          content={content.testimonials}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.testimonials.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.testimonials.subtitle}
-              </p>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-gray-600">Don't just take our word for it</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"Daily Creative Designs transformed our business! We got 150 leads in the first month and our revenue increased by 300%."</p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  R
+                </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Raj Patel</div>
+                  <div className="text-gray-600">CEO, TechStart Solutions</div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"Amazing service! The landing page looks professional and we're getting quality leads consistently."</p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  P
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial1Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial1Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial1Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial1Title}</p>
-                  </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Priya Sharma</div>
+                  <div className="text-gray-600">Founder, GreenSpace Design</div>
                 </div>
               </div>
+            </div>
 
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial2Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial2Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial2Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial2Title}</p>
-                  </div>
-                </div>
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
               </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
+              <p className="text-gray-700 mb-6 italic">"Best investment we made! The Meta ads are performing exceptionally well. Getting 100+ leads monthly. Highly recommended."</p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  A
                 </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial3Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial3Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial3Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial3Title}</p>
-                  </div>
+                <div>
+                  <div className="font-semibold text-gray-900">Amit Kumar</div>
+                  <div className="text-gray-600">Director, FitLife Gym</div>
                 </div>
               </div>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
-        <EditableSection
-          id="cta"
-          title="CTA Section"
-          content={content.cta}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {content.cta.title}
-            </h2>
-            <p className="text-xl text-orange-100 mb-8">
-              {content.cta.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                {content.cta.primaryButtonText}
-              </a>
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
-              >
-                {content.cta.secondaryButtonText}
-              </a>
-            </div>
-            <p className="text-orange-100 mt-6 text-sm">
-              {content.cta.urgencyText}
-            </p>
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Transform Your Business?</h2>
+            <p className="text-xl text-gray-600 mb-6">Join 1000+ businesses that have transformed their digital presence with us</p>
+            <p className="text-lg text-orange-600 font-semibold">⚡ Limited Time Offer - Book your call today!</p>
           </div>
-        </EditableSection>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get Your Custom Quote</h3>
+              
+              {submitMessage && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <p className="text-green-800">{submitMessage}</p>
+                </div>
+              )}
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Business Name</label>
+                  <input
+                    type="text"
+                    name="business"
+                    value={formData.business}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your business name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Interested Package *</label>
+                  <select
+                    name="package"
+                    value={formData.package}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                  >
+                    <option value="">Select a package</option>
+                    <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
+                    <option value="Monthly Lead Generation (₹9,999/month)">Monthly Lead Generation (₹9,999/month)</option>
+                    <option value="Both Packages">Both Packages</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Additional Message</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-vertical"
+                    placeholder="Tell us about your business goals..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-orange-700 hover:to-red-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Get My Digital Package →'}
+                </button>
+              </form>
+            </div>
+
+            {/* CTA Options */}
+            <div className="space-y-8">
+              <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Or Book a FREE Call</h3>
+                <p className="text-gray-600 mb-6">Skip the form and talk to us directly. Book a free 30-minute strategy session worth ₹2,999.</p>
+                <a 
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg flex items-center justify-center"
+                >
+                  <Calendar className="h-5 w-5 mr-2" />
+                  Book FREE Strategy Call (Worth ₹2,999)
+                </a>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-600 to-teal-600 rounded-2xl p-8 text-white">
+                <h3 className="text-2xl font-bold mb-4">Need Immediate Help?</h3>
+                <p className="mb-6 text-green-100">Get instant answers to your questions via WhatsApp.</p>
+                <a 
+                  href={generateWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-white text-green-600 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
+                >
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  Chat on WhatsApp
+                </a>
+              </div>
+
+              <div className="bg-gray-100 rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Why Choose Us?</h3>
+                <div className="space-y-3 text-sm text-gray-700">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    <span>8 years of proven experience</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    <span>1000+ successful projects</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    <span>100% money-back guarantee</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
+                    <span>24/7 customer support</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-16">
-        <EditableSection
-          id="footer"
-          title="Footer Section"
-          content={content.footer}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center mb-4">
-                  <Palette className="h-8 w-8 text-orange-400" />
-                  <span className="ml-2 text-xl font-bold">Daily Creative Designs</span>
-                </div>
-                <p className="text-gray-400 mb-4">
-                  {content.footer.companyDescription}
-                </p>
-                <div className="flex space-x-4">
-                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">f</span>
-                  </div>
-                  <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">i</span>
-                  </div>
-                  <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">t</span>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.servicesTitle}</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>{content.footer.service1}</li>
-                  <li>{content.footer.service2}</li>
-                  <li>{content.footer.service3}</li>
-                  <li>{content.footer.service4}</li>
-                  <li>{content.footer.service5}</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.companyTitle}</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-                  <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
-                  <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-                  <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                  <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors text-left">Terms of Service</button></li>
-                  <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.contactTitle}</h3>
-                <div className="space-y-3 text-gray-400">
-                  <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-2" />
-                    <span>{content.footer.phoneNumber}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-2" />
-                    <span>{content.footer.emailAddress}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2" />
-                    <span>{content.footer.location}</span>
-                  </div>
-                </div>
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="md:col-span-2">
+              <h3 className="text-2xl font-bold mb-4">Daily Creative Designs</h3>
+              <p className="text-gray-300 mb-6 max-w-md">Transforming businesses with professional digital solutions since 2017.</p>
+              
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <ExternalLink className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <ExternalLink className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <ExternalLink className="h-5 w-5" />
+                </a>
               </div>
             </div>
 
-            <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-              <p>{content.footer.copyrightText} • {' '}
-                <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors underline">Terms</button> • {' '}
-                <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors underline">Privacy</button> • 
-                <button 
-                  onClick={() => setShowAdmin(true)}
-                  className="ml-2 text-gray-500 hover:text-gray-300 underline"
-                >
-                  Admin
-                </button>
-              </p>
+            {/* Services */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Services</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li><a href="#services" className="hover:text-white transition-colors">Logo Design</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Landing Pages</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Meta Ads</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">Lead Generation</a></li>
+                <li><a href="#services" className="hover:text-white transition-colors">SEO Optimization</a></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
+              <div className="space-y-3 text-gray-300">
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <span>+91 98765 43210</span>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2" />
+                  <span>hello@dailycreativedesigns.com</span>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="h-4 w-4 mr-2" />
+                  <span>Mumbai, India</span>
+                </div>
+              </div>
             </div>
           </div>
-        </EditableSection>
+
+          <div className="border-t border-gray-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017</p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
-
-export default App;
