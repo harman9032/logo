@@ -667,17 +667,17 @@ function App() {
                     <button
                       onClick={() => setExpandedFaq(isExpanded ? null : num)}
                       className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                      <div className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                        {content.services.logoFeature1}
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                        {content.services.logoFeature2}
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                        {content.services.logoFeature3}
+                    >
+                      <span className="font-semibold text-gray-900">{content.faq[questionKey]}</span>
+                      {isExpanded ? (
+                        <ChevronUp className="h-5 w-5 text-gray-500" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-gray-500" />
+                      )}
+                    </button>
+                    {isExpanded && (
+                      <div className="px-6 pb-4">
+                        <p className="text-gray-600">{content.faq[answerKey]}</p>
                       </div>
                     )}
                   </div>
