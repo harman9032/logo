@@ -138,7 +138,7 @@ const App = () => {
               <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 mb-2 sm:mb-0">
                 <div className="flex items-center space-x-1">
                   <Phone className="w-4 h-4" />
-                  <span>+91 9876543210</span>
+                  <span>+91 7837319660</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Mail className="w-4 h-4" />
@@ -151,7 +151,7 @@ const App = () => {
                   <span>Mon-Sat: 9AM-7PM</span>
                 </span>
                 <a 
-                  href="https://wa.me/919876543210" 
+                  href="https://wa.me/917837319660" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-green-500 hover:bg-green-600 px-3 py-1 rounded-full text-xs font-medium transition-colors"
@@ -307,7 +307,7 @@ const App = () => {
               {/* Value Proposition */}
               <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-8 max-w-4xl mx-auto shadow-xl border border-orange-100">
                 <p className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
-                  Complete Digital Transformation Package
+                  Transform Your Business with Our Complete Digital Package
                 </p>
                 <div className="grid sm:grid-cols-3 gap-4 mb-6">
                   <div className="flex items-center justify-center space-x-2 bg-orange-50 rounded-lg p-3">
@@ -324,33 +324,44 @@ const App = () => {
                   </div>
                 </div>
                 
-                {/* Pricing */}
-               
+                <p className="text-lg text-gray-600 text-center">
+                  Get everything you need to generate leads and grow your business online
+                </p>
               </div>
 
-                {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+              {/* Enhanced CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
                 <a 
                   href="https://tidycal.com/thelogomakers/consultation"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center relative overflow-hidden"
+                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 w-full sm:w-auto text-center relative overflow-hidden border-4 border-orange-300 animate-pulse"
                 >
                   <span className="relative z-10 flex items-center justify-center">
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Book FREE Strategy Call Now
+                    <Calendar className="w-6 h-6 mr-3" />
+                    📞 BOOK FREE STRATEGY CALL
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 </a>
                 <a 
-                  href="https://wa.me/919876543210" 
+                  href="https://wa.me/917837319660" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300 w-full sm:w-auto"
+                  className="group flex items-center justify-center bg-green-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-green-600 transition-all duration-300 transform hover:scale-110 w-full sm:w-auto border-4 border-green-300 shadow-lg hover:shadow-2xl relative overflow-hidden"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp (Instant Reply)
+                  <MessageCircle className="w-6 h-6 mr-3" />
+                  💬 WHATSAPP (INSTANT REPLY)
+                  <div className="absolute -inset-1 bg-gradient-to-r from-green-400 to-green-600 rounded-full blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
                 </a>
+              </div>
+
+              {/* Urgency Indicator */}
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium">
+                  <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+                  🔥 3 people booked in the last hour - Only 7 spots left this week!
+                </div>
               </div>
               
               {/* Bonus Section */}
@@ -379,14 +390,42 @@ const App = () => {
                   </div>
                 </div>
               </div>
-              
-            
-              
-            
-              
-             
-              
-             
+
+              {/* Social Proof */}
+              <div className="text-center">
+                <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-6">
+                  <div className="flex items-center space-x-2">
+                    <div className="flex -space-x-2">
+                      <div className="w-8 h-8 bg-orange-400 rounded-full border-2 border-white"></div>
+                      <div className="w-8 h-8 bg-red-400 rounded-full border-2 border-white"></div>
+                      <div className="w-8 h-8 bg-yellow-400 rounded-full border-2 border-white"></div>
+                    </div>
+                    <span className="text-gray-600 font-medium">500+ Happy Clients</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="flex text-yellow-400">
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                      <Star className="w-5 h-5 fill-current" />
+                    </div>
+                    <span className="text-gray-600 font-medium">4.9/5 Rating</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-5 h-5 text-green-500" />
+                    <span className="text-gray-600 font-medium">98% Success Rate</span>
+                  </div>
+                </div>
+                
+                <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 max-w-2xl mx-auto">
+                  <p className="text-gray-700 italic mb-2">
+                    "The Logo Makers transformed our business completely! We went from 0 to 150+ leads per month. 
+                    Their landing page and Meta ads strategy is incredible!"
+                  </p>
+                  <p className="text-sm text-gray-600 font-medium">- Rajesh Kumar, Tech Startup Founder</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -638,7 +677,7 @@ const App = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                      <p className="text-gray-600">+91 9876543210</p>
+                      <p className="text-gray-600">+91 7837319660</p>
                       <p className="text-sm text-gray-500">Mon-Sat: 9AM-7PM</p>
                     </div>
                   </div>
@@ -688,7 +727,7 @@ const App = () => {
                   </a>
                   
                   <a 
-                    href="https://wa.me/919876543210" 
+                    href="https://wa.me/917837319660" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
@@ -702,7 +741,7 @@ const App = () => {
                   </a>
 
                   <a 
-                    href="tel:+919876543210"
+                    href="tel:+917837319660"
                     className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
                   >
                     <Phone className="w-6 h-6" />
@@ -787,7 +826,7 @@ const App = () => {
               <div className="space-y-3 text-gray-300">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>+91 9876543210</span>
+                  <span>+91 7837319660</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
