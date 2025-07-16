@@ -513,6 +513,11 @@ export function usePageContent() {
 
   const saveContent = async (sectionId: string, sectionContent: any) => {
     try {
+      // Validate content before saving
+      if (!sectionContent || typeof sectionContent !== 'object') {
+        throw new Error('Invalid content format');
+      }
+      
       const newContent = { ...content, [sectionId]: sectionContent };
       
       const { error } = await supabase
@@ -526,9 +531,12 @@ export function usePageContent() {
       if (error) throw error;
       
       setContent(newContent);
+      
+      // Show success message
+      console.log(`Successfully saved ${sectionId} content`);
     } catch (error) {
       console.error('Error saving content:', error);
-      alert('Error saving content. Please try again.');
+      throw error; // Re-throw to handle in component
     }
   };
 

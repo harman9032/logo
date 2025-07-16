@@ -64,6 +64,16 @@ function App() {
     if (adminData) {
       setIsAdminLoggedIn(true);
     }
+    
+    // Add keyboard shortcut for admin access (Ctrl+Shift+A)
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        setIsAdminLoggedIn(true);
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
   }, []);
 
   // Show admin panel if requested
