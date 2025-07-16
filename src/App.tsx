@@ -214,7 +214,7 @@ const App = () => {
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-2 sm:space-x-4">
               <a 
-                href="https://tidycal.com/thelogomakers/consultation"
+                href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:block bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 lg:px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 text-sm lg:text-base"
@@ -267,7 +267,7 @@ const App = () => {
                   Contact
                 </button>
                 <a 
-                  href="https://tidycal.com/thelogomakers/consultation"
+                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-medium text-center mt-4"
@@ -332,7 +332,7 @@ const App = () => {
               {/* Enhanced CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
                 <a 
-                  href="https://tidycal.com/thelogomakers/consultation"
+                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 w-full sm:w-auto text-center relative overflow-hidden border-4 border-orange-300 animate-pulse"
@@ -504,7 +504,7 @@ const App = () => {
                 </ul>
 
                 <a 
-                  href="https://tidycal.com/thelogomakers/consultation"
+                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`block w-full py-3 rounded-lg font-semibold transition-all duration-300 text-center ${
@@ -713,7 +713,7 @@ const App = () => {
                 
                 <div className="space-y-4">
                   <a 
-                    href="https://tidycal.com/thelogomakers/consultation"
+                    href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
@@ -760,7 +760,7 @@ const App = () => {
                   Book your free consultation today and let's discuss how we can help grow your business.
                 </p>
                 <a 
-                  href="https://tidycal.com/thelogomakers/consultation"
+                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 inline-block"
