@@ -59,7 +59,7 @@ export default function EditableSection({
   const shouldUseTextarea = (key: string, value: string) => {
     const textareaFields = [
       'description', 'subtitle', 'content', 'text', 'message', 
-      'answer', 'testimonial', 'bonusItems', 'agreementText',
+      'answer', 'testimonial', 'bonusItems', 'agreementText', 'feature',
       'servicesDescription', 'paymentDescription', 'deliveryDescription',
       'revisionsDescription', 'refundDescription', 'ipDescription',
       'liabilityDescription', 'changesDescription', 'introText',
@@ -70,7 +70,8 @@ export default function EditableSection({
       'bonusDescription', 'finalCtaText', 'companyDescription'
     ];
     
-    return textareaFields.some(field => key.toLowerCase().includes(field.toLowerCase())) || 
+    return textareaFields.some(field => key.toLowerCase().includes(field.toLowerCase())) ||
+           key.toLowerCase().includes('feature') ||
            (typeof value === 'string' && value.length > 100);
   };
 
