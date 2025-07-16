@@ -324,16 +324,7 @@ const App = () => {
                   </div>
                 </div>
                 
-                {/* Pricing */}
-                <div className="text-center">
-                  <div className="flex items-center justify-center space-x-4 mb-4">
-                    <span className="text-2xl text-gray-500 line-through">₹19,999</span>
-                    <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">₹9,999</span>
-                    <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">50% OFF</div>
-                  </div>
-                  <p className="text-gray-600">One-time payment • No hidden fees • 30-day guarantee</p>
-                </div>
-              </div>
+                
 
                 {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -430,6 +421,16 @@ const App = () => {
               </div>
             ))}
           </div>
+          {/* Pricing */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center space-x-4 mb-4">
+                    <span className="text-2xl text-gray-500 line-through">₹19,999</span>
+                    <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">₹9,999</span>
+                    <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">50% OFF</div>
+                  </div>
+                  <p className="text-gray-600">One-time payment • No hidden fees • 30-day guarantee</p>
+                </div>
+              </div>
         </div>
       </section>
 
