@@ -334,6 +334,31 @@ const App = () => {
                   <p className="text-gray-600">One-time payment • No hidden fees • 30-day guarantee</p>
                 </div>
               </div>
+
+                {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <a 
+                  href="https://tidycal.com/thelogomakers/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center relative overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    <Calendar className="w-5 h-5 mr-2" />
+                    Book FREE Strategy Call Now
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </a>
+                <a 
+                  href="https://wa.me/919876543210" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300 w-full sm:w-auto"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  WhatsApp (Instant Reply)
+                </a>
+              </div>
               
               {/* Bonus Section */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 sm:p-8 mb-8 border-2 border-green-200">
@@ -362,30 +387,7 @@ const App = () => {
                 </div>
               </div>
               
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <a 
-                  href="https://tidycal.com/thelogomakers/consultation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center relative overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center justify-center">
-                    <Calendar className="w-5 h-5 mr-2" />
-                    Book FREE Strategy Call Now
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </a>
-                <a 
-                  href="https://wa.me/919876543210" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-all duration-300 w-full sm:w-auto"
-                >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp (Instant Reply)
-                </a>
-              </div>
+            
               
               {/* Urgency & Social Proof */}
               <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4 mb-8">
