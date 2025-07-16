@@ -153,30 +153,30 @@ function App() {
 
             <div className="text-center">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Get 100+ Quality Leads Every Month Guaranteed
+                {content.hero.title}
               </h1>
               
               <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                <strong className="text-orange-600">Book a FREE 30-minute strategy session (Worth ₹2,999)</strong><br className="hidden md:block" />
-                <span className="block md:inline mt-2 md:mt-0">Discover the exact system we use to generate quality leads for businesses like yours.</span>
+                <strong className="text-orange-600">{content.hero.subtitle}</strong><br className="hidden md:block" />
+                <span className="block md:inline mt-2 md:mt-0">{content.hero.description}</span>
               </p>
 
               {/* Value Proposition Boxes */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                 <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">100+</div>
-                  <div className="text-gray-700 font-semibold">Quality Leads Monthly</div>
-                  <div className="text-sm text-gray-500 mt-1">Guaranteed results</div>
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
+                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition1Value}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition1Desc}</div>
                 </div>
                 <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">5X</div>
-                  <div className="text-gray-700 font-semibold">Revenue Growth</div>
-                  <div className="text-sm text-gray-500 mt-1">Average client results</div>
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
+                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition2Value}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition2Desc}</div>
                 </div>
                 <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">7 Days</div>
-                  <div className="text-gray-700 font-semibold">Complete Setup</div>
-                  <div className="text-sm text-gray-500 mt-1">Ready to launch</div>
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
+                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition3Value}</div>
+                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition3Desc}</div>
                 </div>
               </div>
 
@@ -193,9 +193,9 @@ function App() {
                   <ArrowRight className="ml-3 h-6 w-6" />
                 </a>
                 <div className="text-center bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-xl p-4 shadow-lg">
-                  <div className="text-lg font-bold text-orange-800 mb-1">🎁 FREE BONUS WORTH ₹4,999!</div>
-                  <div className="text-sm text-orange-700 mb-2">✅ Lead Generation Checklist + ✅ Ad Templates + ✅ Landing Page Guide</div>
-                  <div className="text-xs text-red-600 font-semibold animate-pulse">⚡ Limited Time: Only 10 spots available this week!</div>
+                  <div className="text-lg font-bold text-orange-800 mb-1">{content.hero.bonusTitle}</div>
+                  <div className="text-sm text-orange-700 mb-2">{content.hero.bonusSubtitle}</div>
+                  <div className="text-xs text-red-600 font-semibold animate-pulse">{content.hero.bonusUrgency}</div>
                 </div>
               </div>
 
@@ -203,41 +203,41 @@ function App() {
               <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
                   <Lightbulb className="h-6 w-6 text-orange-600 mr-2" />
-                  What You'll Learn in This FREE Call
+                  {content.hero.learningTitle}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">The 100+ Lead Generation System</div>
-                      <div className="text-gray-600 text-sm">Exact targeting strategies that guarantee consistent lead flow</div>
+                      <div className="font-semibold text-gray-900">{content.hero.learningPoint1Title}</div>
+                      <div className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Revenue Multiplier Strategy</div>
-                      <div className="text-gray-600 text-sm">How to 5X your revenue with our proven system</div>
+                      <div className="font-semibold text-gray-900">{content.hero.learningPoint2Title}</div>
+                      <div className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">Quality Lead Attraction</div>
-                      <div className="text-gray-600 text-sm">How to attract high-intent customers ready to buy</div>
+                      <div className="font-semibold text-gray-900">{content.hero.learningPoint3Title}</div>
+                      <div className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</div>
                     </div>
                   </div>
                   <div className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
                     <div>
-                      <div className="font-semibold text-gray-900">7-Day Launch Blueprint</div>
-                      <div className="text-gray-600 text-sm">Complete setup process to start getting leads in 1 week</div>
+                      <div className="font-semibold text-gray-900">{content.hero.learningPoint4Title}</div>
+                      <div className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</div>
                     </div>
                   </div>
                 </div>
                 <div className="mt-6 text-center">
                   <div className="text-sm text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">
-                    💡 <strong className="text-green-800">INSTANT BONUS:</strong> Get our complete Lead Generation Toolkit (Worth ₹4,999) - includes templates, checklists, and step-by-step guides!
+                    {content.hero.instantBonusText} <strong className="text-green-800">INSTANT BONUS:</strong> {content.hero.bonusItems}
                   </div>
                 </div>
               </div>
@@ -617,287 +617,319 @@ function App() {
 
       {/* Ready to Talk Section */}
       <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Talk? Let's Connect!
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Skip the forms and get instant access to our team. Choose your preferred way to connect.
-            </p>
+        <EditableSection
+          id="readyToTalk"
+          title="Ready to Talk Section"
+          content={content.readyToTalk}
+          onSave={saveContent}
+          isAdmin={isAdminLoggedIn}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                {content.readyToTalk.title}
+              </h2>
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                {content.readyToTalk.subtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {/* Phone */}
+              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Phone className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.phoneTitle}</h3>
+                <p className="text-gray-300 mb-6">{content.readyToTalk.phoneDescription}</p>
+                <a 
+                  href={`tel:${content.readyToTalk.phoneNumber}`}
+                  className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                >
+                  {content.readyToTalk.phoneNumber}
+                </a>
+                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.phoneAvailability}</p>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MessageCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.whatsappTitle}</h3>
+                <p className="text-gray-300 mb-6">{content.readyToTalk.whatsappDescription}</p>
+                <a 
+                  href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
+                >
+                  {content.readyToTalk.whatsappButtonText}
+                </a>
+                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.whatsappResponse}</p>
+              </div>
+
+              {/* Email */}
+              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Mail className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.emailTitle}</h3>
+                <p className="text-gray-300 mb-6">{content.readyToTalk.emailDescription}</p>
+                <a 
+                  href={`mailto:${content.readyToTalk.emailAddress}`}
+                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Send Email
+                </a>
+                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.emailResponse}</p>
+              </div>
+            </div>
+
+            {/* Why Talk to Us */}
+            <div className="bg-gray-800 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-center mb-8">{content.readyToTalk.whyTalkTitle}</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <Zap className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
+                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit1Title}</h4>
+                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit1Description}</p>
+                </div>
+                <div className="text-center">
+                  <Users className="h-8 w-8 text-blue-400 mx-auto mb-3" />
+                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit2Title}</h4>
+                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit2Description}</p>
+                </div>
+                <div className="text-center">
+                  <Rocket className="h-8 w-8 text-green-400 mx-auto mb-3" />
+                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit3Title}</h4>
+                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit3Description}</p>
+                </div>
+                <div className="text-center">
+                  <Star className="h-8 w-8 text-purple-400 mx-auto mb-3" />
+                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit4Title}</h4>
+                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit4Description}</p>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* Phone */}
-            <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Phone className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Call Us Now</h3>
-              <p className="text-gray-300 mb-6">Speak directly with our experts</p>
-              <a 
-                href="tel:+919876543210"
-                className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-              >
-                +91 98765 43210
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Available 9 AM - 9 PM</p>
-            </div>
-
-            {/* WhatsApp */}
-            <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">WhatsApp Chat</h3>
-              <p className="text-gray-300 mb-6">Quick responses within minutes</p>
-              <a 
-                href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
-              >
-                Start Chat
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Instant responses</p>
-            </div>
-
-            {/* Email */}
-            <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Mail className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Email Us</h3>
-              <p className="text-gray-300 mb-6">Detailed project discussions</p>
-              <a 
-                href="mailto:hello@dailycreativedesigns.com"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                Send Email
-              </a>
-              <p className="text-sm text-gray-400 mt-2">Response within 2 hours</p>
-            </div>
-          </div>
-
-          {/* Why Talk to Us */}
-          <div className="bg-gray-800 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-center mb-8">Why Talk to Us Directly?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <Zap className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Instant Clarity</h4>
-                <p className="text-gray-300 text-sm">Get immediate answers to your questions</p>
-              </div>
-              <div className="text-center">
-                <Users className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Personal Touch</h4>
-                <p className="text-gray-300 text-sm">Speak with real experts, not chatbots</p>
-              </div>
-              <div className="text-center">
-                <Rocket className="h-8 w-8 text-green-400 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Faster Results</h4>
-                <p className="text-gray-300 text-sm">Skip the back-and-forth emails</p>
-              </div>
-              <div className="text-center">
-                <Star className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-                <h4 className="font-semibold mb-2">Custom Solutions</h4>
-                <p className="text-gray-300 text-sm">Tailored advice for your business</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </EditableSection>
       </section>
 
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Don't just take our word for it
-            </p>
+        <EditableSection
+          id="testimonials"
+          title="Testimonials Section"
+          content={content.testimonials}
+          onSave={saveContent}
+          isAdmin={isAdminLoggedIn}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {content.testimonials.title}
+              </h2>
+              <p className="text-xl text-gray-600">
+                {content.testimonials.subtitle}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "{content.testimonials.testimonial1Text}"
+                </p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                    {content.testimonials.testimonial1Name.charAt(0)}
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial1Name}</p>
+                    <p className="text-sm text-gray-600">{content.testimonials.testimonial1Title}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "{content.testimonials.testimonial2Text}"
+                </p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+                    {content.testimonials.testimonial2Name.charAt(0)}
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial2Name}</p>
+                    <p className="text-sm text-gray-600">{content.testimonials.testimonial2Title}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-gray-600 mb-4">
+                  "{content.testimonials.testimonial3Text}"
+                </p>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                    {content.testimonials.testimonial3Name.charAt(0)}
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial3Name}</p>
+                    <p className="text-sm text-gray-600">{content.testimonials.testimonial3Title}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "Daily Creative Designs transformed our business! We got 150 leads in the first month and our revenue increased by 300%."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-                  R
-                </div>
-                <div className="ml-3">
-                  <p className="font-semibold text-gray-900">Raj Patel</p>
-                  <p className="text-sm text-gray-600">CEO, TechStart Solutions</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "Amazing service! The landing page looks professional and we're getting quality leads consistently at ₹45 per lead."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                  P
-                </div>
-                <div className="ml-3">
-                  <p className="font-semibold text-gray-900">Priya Sharma</p>
-                  <p className="text-sm text-gray-600">Founder, GreenSpace Design</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "Best investment we made! The Meta ads are performing exceptionally well. Getting leads at ₹52 average. Highly recommended."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-                  A
-                </div>
-                <div className="ml-3">
-                  <p className="font-semibold text-gray-900">Amit Kumar</p>
-                  <p className="text-sm text-gray-600">Director, FitLife Gym</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </EditableSection>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Business?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8">
-            Join 1000+ businesses that have transformed their digital presence with us
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
-            >
-              <Calendar className="mr-2 h-5 w-5" />
-              Book FREE Strategy Call (Worth ₹2,999)
-            </a>
-            <a 
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
-            >
-              Get Complete Package - ₹9,999
-            </a>
+        <EditableSection
+          id="cta"
+          title="CTA Section"
+          content={content.cta}
+          onSave={saveContent}
+          isAdmin={isAdminLoggedIn}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              {content.cta.title}
+            </h2>
+            <p className="text-xl text-orange-100 mb-8">
+              {content.cta.subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
+              >
+                <Calendar className="mr-2 h-5 w-5" />
+                {content.cta.primaryButtonText}
+              </a>
+              <a 
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
+              >
+                {content.cta.secondaryButtonText}
+              </a>
+            </div>
+            <p className="text-orange-100 mt-6 text-sm">
+              {content.cta.urgencyText}
+            </p>
           </div>
-          <p className="text-orange-100 mt-6 text-sm">
-            ⚡ Limited Time Offer - Book your call today!
-          </p>
-        </div>
+        </EditableSection>
       </section>
 
       {/* Footer */}
       <footer id="contact" className="bg-gray-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center mb-4">
-                <Palette className="h-8 w-8 text-orange-400" />
-                <span className="ml-2 text-xl font-bold">Daily Creative Designs</span>
+        <EditableSection
+          id="footer"
+          title="Footer Section"
+          content={content.footer}
+          onSave={saveContent}
+          isAdmin={isAdminLoggedIn}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div>
+                <div className="flex items-center mb-4">
+                  <Palette className="h-8 w-8 text-orange-400" />
+                  <span className="ml-2 text-xl font-bold">Daily Creative Designs</span>
+                </div>
+                <p className="text-gray-400 mb-4">
+                  {content.footer.companyDescription}
+                </p>
+                <div className="flex space-x-4">
+                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">f</span>
+                  </div>
+                  <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">i</span>
+                  </div>
+                  <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold">t</span>
+                  </div>
+                </div>
               </div>
-              <p className="text-gray-400 mb-4">
-                Transforming businesses with professional digital solutions since 2017.
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">{content.footer.servicesTitle}</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li>{content.footer.service1}</li>
+                  <li>{content.footer.service2}</li>
+                  <li>{content.footer.service3}</li>
+                  <li>{content.footer.service4}</li>
+                  <li>{content.footer.service5}</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">{content.footer.companyTitle}</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
+                  <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
+                  <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
+                  <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+                  <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors text-left">Terms of Service</button></li>
+                  <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-4">{content.footer.contactTitle}</h3>
+                <div className="space-y-3 text-gray-400">
+                  <div className="flex items-center">
+                    <Phone className="h-5 w-5 mr-2" />
+                    <span>{content.footer.phoneNumber}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="h-5 w-5 mr-2" />
+                    <span>{content.footer.emailAddress}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <MapPin className="h-5 w-5 mr-2" />
+                    <span>{content.footer.location}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+              <p>{content.footer.copyrightText} • {' '}
+                <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors underline">Terms</button> • {' '}
+                <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors underline">Privacy</button> • 
+                <button 
+                  onClick={() => setShowAdmin(true)}
+                  className="ml-2 text-gray-500 hover:text-gray-300 underline"
+                >
+                  Admin
+                </button>
               </p>
-              <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">f</span>
-                </div>
-                <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">i</span>
-                </div>
-                <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">t</span>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Logo Design</li>
-                <li>Landing Pages</li>
-                <li>Meta Ads</li>
-                <li>Lead Generation</li>
-                <li>SEO Optimization</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
-                <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors text-left">Terms of Service</button></li>
-                <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-3 text-gray-400">
-                <div className="flex items-center">
-                  <Phone className="h-5 w-5 mr-2" />
-                  <span>+91 98765 43210</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 mr-2" />
-                  <span>hello@dailycreativedesigns.com</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2" />
-                  <span>Mumbai, India</span>
-                </div>
-              </div>
             </div>
           </div>
-
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017 • {' '}
-              <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors underline">Terms</button> • {' '}
-              <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors underline">Privacy</button> • 
-              <button 
-                onClick={() => setShowAdmin(true)}
-                className="ml-2 text-gray-500 hover:text-gray-300 underline"
-              >
-                Admin
-              </button>
-            </p>
-          </div>
-        </div>
+        </EditableSection>
       </footer>
     </div>
   );
