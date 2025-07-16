@@ -351,11 +351,6 @@ function App() {
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 {content.services.subtitle}
               </p>
-              {content.services.sectionDescription && (
-                <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
-                  {content.services.sectionDescription}
-                </p>
-              )}
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -381,16 +376,6 @@ function App() {
                     {content.services.logoFeature3}
                   </li>
                 </ul>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-blue-600">
-                      {content.services.logoPrice}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {content.services.logoDelivery}
-                    </span>
-                  </div>
-                </div>
               </div>
 
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-blue-100">
@@ -415,16 +400,6 @@ function App() {
                     {content.services.landingFeature3}
                   </li>
                 </ul>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-purple-600">
-                      {content.services.landingPrice}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {content.services.landingDelivery}
-                    </span>
-                  </div>
-                </div>
               </div>
 
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-green-100">
@@ -449,57 +424,6 @@ function App() {
                     {content.services.adsFeature3}
                   </li>
                 </ul>
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-orange-600">
-                      {content.services.adsPrice}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {content.services.adsDelivery}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Complete Package CTA */}
-            <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 mt-16">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                  {content.services.packageTitle}
-                </h3>
-                <p className="text-xl text-gray-300 mb-2">
-                  {content.services.packageSubtitle}
-                </p>
-                <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
-                  {content.services.packageDescription}
-                </p>
-                
-                <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
-                  <div className="text-center">
-                    <div className="text-5xl font-bold text-white mb-2">
-                      {content.services.packagePrice}
-                    </div>
-                    <div className="text-gray-300">
-                      {content.services.packageDelivery}
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row gap-4">
-                    <div className="flex items-center text-green-400">
-                      <Shield className="h-5 w-5 mr-2" />
-                      {content.services.guaranteeText}
-                    </div>
-                    <div className="flex items-center text-blue-400">
-                      <Clock className="h-5 w-5 mr-2" />
-                      {content.services.supportText}
-                    </div>
-                  </div>
-                </div>
-                
-                <button className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-12 py-4 rounded-full text-xl font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg">
-                  {content.services.packageButtonText}
-                </button>
               </div>
             </div>
           </div>

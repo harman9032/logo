@@ -151,6 +151,12 @@ export default function EditableSection({
           <div className="space-y-6 max-h-96 overflow-y-auto pr-2">
             {Object.keys(editContent).map((key) => {
               const value = editContent[key];
+              
+              // Skip null or undefined values
+              if (value === null || value === undefined) {
+                return null;
+              }
+              
               const label = formatLabel(key);
               const placeholder = getFieldPlaceholder(key);
               const hint = getFieldHint(key);
@@ -160,11 +166,12 @@ export default function EditableSection({
                 <div key={key} className="bg-white p-4 rounded-lg border border-gray-200">
                   <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {label}
+                    <span className="text-xs text-gray-500 ml-2">({key})</span>
                   </label>
                   
                   {useTextarea ? (
                     <textarea
-                      value={value || ''}
+                      value={String(value || '')}
                       onChange={(e) => handleFieldChange(key, e.target.value)}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-vertical transition-colors"
                       rows={4}
@@ -173,7 +180,7 @@ export default function EditableSection({
                   ) : (
                     <input
                       type="text"
-                      value={value || ''}
+                      value={String(value || '')}
                       onChange={(e) => handleFieldChange(key, e.target.value)}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                       placeholder={placeholder}
