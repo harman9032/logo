@@ -31,6 +31,32 @@ export default function EditableSection({
     setIsEditing(false);
   };
 
+  // Helper function to format field labels
+  const formatLabel = (key: string) => {
+    return key
+      .replace(/([A-Z])/g, ' $1') // Add space before capital letters
+      .replace(/^./, str => str.toUpperCase()) // Capitalize first letter
+      .replace(/\d+/g, match => ` ${match}`) // Add space before numbers
+      .replace(/\s+/g, ' ') // Clean up multiple spaces
+      .trim();
+  };
+
+  // Helper function to determine if field should be textarea
+  const shouldUseTextarea = (key: string, value: string) => {
+    const textareaFields = [
+      'description', 'subtitle', 'content', 'text', 'message', 
+      'answer', 'testimonial', 'bonusItems', 'agreementText',
+      'servicesDescription', 'paymentDescription', 'deliveryDescription',
+      'revisionsDescription', 'refundDescription', 'ipDescription',
+      'liabilityDescription', 'changesDescription', 'introText',
+      'personalInfoDescription', 'autoInfoDescription', 'howWeUseDescription',
+      'sharingDescription', 'securityDescription', 'cookiesDescription',
+      'rightsDescription', 'changesDescription'
+    ];
+    
+    return textareaFields.some(field => key.toLowerCase().includes(field.toLowerCase())) || 
+           (typeof value === 'string' && value.length > 100);
+  };
   if (!isAdmin) {
     return <>{children}</>;
   }
@@ -71,18 +97,19 @@ export default function EditableSection({
       {isEditing ? (
         <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
           <h3 className="text-lg font-semibold text-blue-900 mb-4">Editing: {title}</h3>
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-96 overflow-y-auto">
             {Object.keys(editContent).map((key) => (
               <div key={key}>
                 <label className="block text-sm font-medium text-blue-800 mb-1">
-                  {key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                  {formatLabel(key)}
                 </label>
-                {typeof editContent[key] === 'string' && editContent[key].length > 100 ? (
+                {shouldUseTextarea(key, editContent[key]) ? (
                   <textarea
                     value={editContent[key]}
                     onChange={(e) => setEditContent({...editContent, [key]: e.target.value})}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-vertical"
                     rows={4}
+                    placeholder={`Enter ${formatLabel(key).toLowerCase()}...`}
                   />
                 ) : (
                   <input
@@ -90,10 +117,25 @@ export default function EditableSection({
                     value={editContent[key]}
                     onChange={(e) => setEditContent({...editContent, [key]: e.target.value})}
                     className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder={`Enter ${formatLabel(key).toLowerCase()}...`}
                   />
+                )}
+                {key.includes('phone') && (
+                  <p className="text-xs text-gray-500 mt-1">Format: +91 XXXXX XXXXX</p>
+                )}
+                {key.includes('email') && (
+                  <p className="text-xs text-gray-500 mt-1">Format: example@domain.com</p>
+                )}
+                {key.includes('price') && (
+                  <p className="text-xs text-gray-500 mt-1">Format: ₹X,XXX</p>
                 )}
               </div>
             ))}
+          </div>
+          <div className="mt-4 p-3 bg-blue-100 rounded-lg">
+            <p className="text-sm text-blue-800">
+              <strong>Tip:</strong> Changes will be saved to the database and reflected immediately on the live site.
+            </p>
           </div>
         </div>
       ) : (

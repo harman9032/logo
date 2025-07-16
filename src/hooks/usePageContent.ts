@@ -31,16 +31,27 @@ export interface PageContent {
     bonusItems: string;
     bonusUrgency: string;
     instantBonusText: string;
+    heroBackgroundText: string;
+    heroCalloutText: string;
   };
   services: {
     title: string;
     subtitle: string;
     logoTitle: string;
     logoDescription: string;
+    logoFeature1: string;
+    logoFeature2: string;
+    logoFeature3: string;
     landingTitle: string;
     landingDescription: string;
+    landingFeature1: string;
+    landingFeature2: string;
+    landingFeature3: string;
     adsTitle: string;
     adsDescription: string;
+    adsFeature1: string;
+    adsFeature2: string;
+    adsFeature3: string;
   };
   pricing: {
     title: string;
@@ -48,12 +59,31 @@ export interface PageContent {
     starterTitle: string;
     starterPrice: string;
     starterDescription: string;
+    starterFeature1: string;
+    starterFeature2: string;
+    starterFeature3: string;
+    starterFeature4: string;
+    starterFeature5: string;
+    starterButtonText: string;
     professionalTitle: string;
     professionalPrice: string;
     professionalDescription: string;
+    professionalFeature1: string;
+    professionalFeature2: string;
+    professionalFeature3: string;
+    professionalFeature4: string;
+    professionalFeature5: string;
+    professionalButtonText: string;
+    professionalBadgeText: string;
     enterpriseTitle: string;
     enterprisePrice: string;
     enterpriseDescription: string;
+    enterpriseFeature1: string;
+    enterpriseFeature2: string;
+    enterpriseFeature3: string;
+    enterpriseFeature4: string;
+    enterpriseFeature5: string;
+    enterpriseButtonText: string;
   };
   whyChoose: {
     title: string;
@@ -241,17 +271,28 @@ const defaultContent: PageContent = {
     bonusSubtitle: "✅ Lead Generation Checklist + ✅ Ad Templates + ✅ Landing Page Guide",
     bonusItems: "Get our complete Lead Generation Toolkit (Worth ₹4,999) - includes templates, checklists, and step-by-step guides!",
     bonusUrgency: "⚡ Limited Time: Only 10 spots available this week!",
-    instantBonusText: "💡 INSTANT BONUS:"
+    instantBonusText: "💡 INSTANT BONUS:",
+    heroBackgroundText: "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
+    heroCalloutText: "Transform your business with professional digital solutions"
   },
   services: {
     title: "Complete Digital Package",
     subtitle: "Everything you need to establish a strong online presence and attract customers",
     logoTitle: "Logo Design",
     logoDescription: "Professional, memorable logo that represents your brand identity perfectly. Multiple concepts, unlimited revisions, and all file formats included.",
+    logoFeature1: "5+ Logo Concepts",
+    logoFeature2: "Unlimited Revisions", 
+    logoFeature3: "All File Formats",
     landingTitle: "Landing Page",
     landingDescription: "High-converting, mobile-responsive landing page designed to turn visitors into customers. Optimized for speed and conversions.",
+    landingFeature1: "Mobile Responsive",
+    landingFeature2: "SEO Optimized",
+    landingFeature3: "Fast Loading",
     adsTitle: "Meta Ads Setup",
-    adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI."
+    adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.",
+    adsFeature1: "Campaign Setup",
+    adsFeature2: "Audience Targeting",
+    adsFeature3: "Ad Creatives"
   },
   pricing: {
     title: "Simple, Transparent Pricing",
@@ -259,12 +300,31 @@ const defaultContent: PageContent = {
     starterTitle: "Starter Package",
     starterPrice: "₹4,999",
     starterDescription: "Perfect for small businesses getting started",
+    starterFeature1: "Logo Design (3 concepts)",
+    starterFeature2: "Basic Landing Page",
+    starterFeature3: "Mobile Responsive",
+    starterFeature4: "Basic SEO Setup",
+    starterFeature5: "7-day Support",
+    starterButtonText: "Get Started",
     professionalTitle: "Professional Package",
     professionalPrice: "₹9,999",
     professionalDescription: "Most popular choice for growing businesses",
+    professionalFeature1: "Professional Logo Design",
+    professionalFeature2: "Custom Landing Page",
+    professionalFeature3: "Meta Ads Campaign Setup",
+    professionalFeature4: "SEO Optimization",
+    professionalFeature5: "30-day Support",
+    professionalButtonText: "Get Started Now",
+    professionalBadgeText: "Most Popular",
     enterpriseTitle: "Enterprise Package",
     enterprisePrice: "₹19,999",
-    enterpriseDescription: "Complete solution for established businesses"
+    enterpriseDescription: "Complete solution for established businesses",
+    enterpriseFeature1: "Everything in Professional",
+    enterpriseFeature2: "Advanced Analytics Setup",
+    enterpriseFeature3: "CRM Integration",
+    enterpriseFeature4: "Email Marketing Setup",
+    enterpriseFeature5: "90-day Support",
+    enterpriseButtonText: "Contact Us"
   },
   whyChoose: {
     title: "Why Choose Daily Creative Designs?",

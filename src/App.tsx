@@ -277,15 +277,15 @@ function App() {
                 <ul className="space-y-2">
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    5+ Logo Concepts
+                    {content.services.logoFeature1}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Unlimited Revisions
+                    {content.services.logoFeature2}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    All File Formats
+                    {content.services.logoFeature3}
                   </li>
                 </ul>
               </div>
@@ -301,15 +301,15 @@ function App() {
                 <ul className="space-y-2">
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Mobile Responsive
+                    {content.services.landingFeature1}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    SEO Optimized
+                    {content.services.landingFeature2}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Fast Loading
+                    {content.services.landingFeature3}
                   </li>
                 </ul>
               </div>
@@ -325,15 +325,15 @@ function App() {
                 <ul className="space-y-2">
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Campaign Setup
+                    {content.services.adsFeature1}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Audience Targeting
+                    {content.services.adsFeature2}
                   </li>
                   <li className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Ad Creatives
+                    {content.services.adsFeature3}
                   </li>
                 </ul>
               </div>
@@ -375,23 +375,23 @@ function App() {
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Logo Design (3 concepts)</span>
+                    <span>{content.pricing.starterFeature1}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Basic Landing Page</span>
+                    <span>{content.pricing.starterFeature2}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Mobile Responsive</span>
+                    <span>{content.pricing.starterFeature3}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Basic SEO Setup</span>
+                    <span>{content.pricing.starterFeature4}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>7-day Support</span>
+                    <span>{content.pricing.starterFeature5}</span>
                   </li>
                 </ul>
                 <a 
@@ -400,14 +400,14 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-full block text-center bg-gray-600 text-white py-4 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
                 >
-                  Get Started
+                  {content.pricing.starterButtonText}
                 </a>
               </div>
 
               {/* Professional Package */}
               <div className="bg-gradient-to-br from-orange-600 to-red-600 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white relative overflow-hidden transform scale-105">
                 <div className="absolute top-4 right-4 bg-yellow-400 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  Most Popular
+                  {content.pricing.professionalBadgeText}
                 </div>
                 <div className="text-center mb-8">
                   <h3 className="text-2xl font-bold mb-2">{content.pricing.professionalTitle}</h3>
@@ -420,23 +420,23 @@ function App() {
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>Professional Logo Design</span>
+                    <span>{content.pricing.professionalFeature1}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>Custom Landing Page</span>
+                    <span>{content.pricing.professionalFeature2}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>Meta Ads Campaign Setup</span>
+                    <span>{content.pricing.professionalFeature3}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>SEO Optimization</span>
+                    <span>{content.pricing.professionalFeature4}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>30-day Support</span>
+                    <span>{content.pricing.professionalFeature5}</span>
                   </li>
                 </ul>
                 <a 
@@ -445,7 +445,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-full block text-center bg-white text-orange-600 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                 >
-                  Get Started Now
+                  {content.pricing.professionalButtonText}
                 </a>
               </div>
 
@@ -462,23 +462,23 @@ function App() {
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Everything in Professional</span>
+                    <span>{content.pricing.enterpriseFeature1}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Advanced Analytics Setup</span>
+                    <span>{content.pricing.enterpriseFeature2}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>CRM Integration</span>
+                    <span>{content.pricing.enterpriseFeature3}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>Email Marketing Setup</span>
+                    <span>{content.pricing.enterpriseFeature4}</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>90-day Support</span>
+                    <span>{content.pricing.enterpriseFeature5}</span>
                   </li>
                 </ul>
                 <a 
@@ -487,7 +487,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="w-full block text-center bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
                 >
-                  Contact Us
+                  {content.pricing.enterpriseButtonText}
                 </a>
               </div>
             </div>
