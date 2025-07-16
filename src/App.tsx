@@ -382,6 +382,7 @@ const App = () => {
               </div>
               
               {/* Social Proof Stats */}
+              {/* Social Proof Stats */}
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="text-center">
@@ -399,63 +400,6 @@ const App = () => {
                   <div className="text-center">
                     <div className="text-3xl font-bold text-gray-900 mb-1">24/7</div>
                     <div className="text-sm text-gray-600">Lead Generation</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Meta Ads Campaign Setup</h4>
-                      <p className="text-gray-600">Facebook & Instagram ads with audience targeting</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4 text-left">
-                    <div className="bg-purple-100 rounded-full p-2 mt-1">
-                      <Target className="w-6 h-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-2">Lead Generation System</h4>
-                      <p className="text-gray-600">Complete funnel to capture & convert prospects</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Bonus Line */}
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-yellow-200">
-                  <div className="flex items-center justify-center">
-                    <div className="bg-yellow-500 text-white rounded-full p-2 mr-3">
-                      <Star className="w-5 h-5" />
-                    </div>
-                    <h4 className="text-xl font-bold text-yellow-800">
-                      BONUS: Free Social Media Kit + SEO Optimization + 90-Day Support (Worth ₹15,000)
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-             
-
-              {/* Social Proof Stats */}
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">500+</div>
-                    <div className="text-sm text-gray-600">Happy Clients</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">4.9★</div>
-                    <div className="text-sm text-gray-600">Average Rating</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">100+</div>
-                    <div className="text-sm text-gray-600">Leads/Month</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 mb-1">7+</div>
-                    <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
                 </div>
               </div>
