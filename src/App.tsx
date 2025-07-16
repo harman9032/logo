@@ -308,6 +308,26 @@ const App = () => {
               <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
                 We help businesses get 100+ qualified leads every month with our proven digital marketing system
               </p>
+
+               {/* Center Aligned CTAs */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 max-w-2xl mx-auto">
+                <a 
+                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
+                >
+                  📞 BOOK FREE STRATEGY CALL
+                </a>
+                <a 
+                  href="https://wa.me/917837319660" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-green-600 hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
+                >
+                  💬 WHATSAPP (INSTANT REPLY)
+                </a>
+              </div>
               
               {/* What We Give You - Point Wise */}
               <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8 max-w-4xl mx-auto shadow-xl border border-orange-100">
@@ -368,25 +388,7 @@ const App = () => {
                 </div>
               </div>
 
-              {/* Center Aligned CTAs */}
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 max-w-2xl mx-auto">
-                <a 
-                  href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
-                >
-                  📞 BOOK FREE STRATEGY CALL
-                </a>
-                <a 
-                  href="https://wa.me/917837319660" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="bg-green-500 text-white px-10 py-5 rounded-xl font-bold text-xl hover:bg-green-600 hover:shadow-xl transition-all duration-300 w-full sm:w-auto text-center"
-                >
-                  💬 WHATSAPP (INSTANT REPLY)
-                </a>
-              </div>
+             
 
               {/* Social Proof Stats */}
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
