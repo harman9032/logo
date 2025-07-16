@@ -27,74 +27,7 @@ import {
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const submitToGoogleSheets = async (data: typeof formData) => {
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbxQR8vK9YNzJ5vK8wK9YNzJ5vK8wK9YNzJ5vK8wK9YNzJ5vK8wK9YNzJ5vK8w/exec';
-    
-    const formDataToSend = new FormData();
-    formDataToSend.append('name', data.name);
-    formDataToSend.append('email', data.email);
-    formDataToSend.append('phone', data.phone);
-    formDataToSend.append('service', data.service);
-    formDataToSend.append('message', data.message);
-    formDataToSend.append('timestamp', new Date().toISOString());
-
-    try {
-      const response = await fetch(scriptUrl, {
-        method: 'POST',
-        body: formDataToSend,
-        mode: 'no-cors'
-      });
-      return true;
-    } catch (error) {
-      console.error('Error submitting to Google Sheets:', error);
-      return false;
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('');
-
-    try {
-      const success = await submitToGoogleSheets(formData);
-      
-      if (success) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -110,19 +43,19 @@ const App = () => {
 
   const services = [
     {
-      icon: <Palette className="w-8 h-8 text-blue-600" />,
+      icon: <Palette className="w-8 h-8 text-orange-600" />,
       title: "Professional Logo Design",
       description: "Custom logo designs that represent your brand identity perfectly",
       features: ["5+ Logo Concepts", "Unlimited Revisions", "All File Formats", "Brand Guidelines", "Commercial Rights"]
     },
     {
-      icon: <Globe className="w-8 h-8 text-green-600" />,
+      icon: <Globe className="w-8 h-8 text-orange-600" />,
       title: "Landing Page Development",
       description: "High-converting landing pages optimized for lead generation",
       features: ["Mobile Responsive", "SEO Optimized", "Fast Loading", "Lead Forms", "Analytics Setup"]
     },
     {
-      icon: <Megaphone className="w-8 h-8 text-purple-600" />,
+      icon: <Megaphone className="w-8 h-8 text-orange-600" />,
       title: "Meta Ads Management",
       description: "Strategic Facebook & Instagram advertising campaigns",
       features: ["Campaign Setup", "Audience Targeting", "Ad Creatives", "Performance Tracking", "Monthly Reports"]
@@ -199,10 +132,10 @@ const App = () => {
       {/* Enhanced Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
         {/* Top Bar */}
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2">
+        <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
-              <div className="flex items-center space-x-4 mb-2 sm:mb-0">
+              <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 mb-2 sm:mb-0">
                 <div className="flex items-center space-x-1">
                   <Phone className="w-4 h-4" />
                   <span>+91 9876543210</span>
@@ -212,7 +145,7 @@ const App = () => {
                   <span>info@thelogomakers.com</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4">
                 <span className="flex items-center space-x-1">
                   <Clock className="w-4 h-4" />
                   <span>Mon-Sat: 9AM-7PM</span>
@@ -235,11 +168,11 @@ const App = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
-                <Palette className="w-8 h-8 text-white" />
+              <div className="bg-gradient-to-r from-orange-500 to-red-500 p-2 rounded-lg">
+                <Palette className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-gray-900">The Logo Makers</h1>
+                <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">The Logo Makers</h1>
                 <p className="text-xs text-gray-600 hidden sm:block">Professional Digital Solutions</p>
               </div>
             </div>
@@ -248,49 +181,51 @@ const App = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
               >
                 Services
               </button>
               <button 
                 onClick={() => scrollToSection('pricing')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
               >
                 Pricing
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
               >
                 Contact
               </button>
             </div>
 
             {/* CTA Button & Mobile Menu */}
-            <div className="flex items-center space-x-4">
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="hidden sm:block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300"
+            <div className="flex items-center space-x-2 sm:space-x-4">
+              <a 
+                href="https://tidycal.com/thelogomakers/consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:block bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 lg:px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 text-sm lg:text-base"
               >
-                Get Quote
-              </button>
+                Book Call
+              </a>
               
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+                className="lg:hidden p-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-100"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -303,40 +238,42 @@ const App = () => {
               <div className="flex flex-col space-y-4">
                 <button 
                   onClick={() => scrollToSection('home')}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-left text-gray-700 hover:text-orange-600 font-medium py-2"
                 >
                   Home
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-left text-gray-700 hover:text-orange-600 font-medium py-2"
                 >
                   Services
                 </button>
                 <button 
                   onClick={() => scrollToSection('pricing')}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-left text-gray-700 hover:text-orange-600 font-medium py-2"
                 >
                   Pricing
                 </button>
                 <button 
                   onClick={() => scrollToSection('about')}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-left text-gray-700 hover:text-orange-600 font-medium py-2"
                 >
                   About
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
-                  className="text-left text-gray-700 hover:text-blue-600 font-medium py-2"
+                  className="text-left text-gray-700 hover:text-orange-600 font-medium py-2"
                 >
                   Contact
                 </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium text-center mt-4"
+                <a 
+                  href="https://tidycal.com/thelogomakers/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-medium text-center mt-4"
                 >
-                  Get Quote
-                </button>
+                  Book Call
+                </a>
               </div>
             </div>
           )}
@@ -344,139 +281,50 @@ const App = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 sm:py-20">
+      <section id="home" className="bg-gradient-to-br from-orange-50 via-white to-red-50 py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Transform Your Business with 
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Professional Digital Solutions</span>
-              </h1>
-              <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
-                Get a complete digital package - Logo Design, Landing Page & Meta Ads for just ₹9,999. 
-                Start generating 100+ leads monthly with our proven system.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                >
-                  Get Started Today
-                </button>
-                <a 
-                  href="https://wa.me/919876543210" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-center"
-                >
-                  WhatsApp Us
-                </a>
-              </div>
-              
-              {/* Trust Indicators */}
-              <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-8">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">500+</div>
-                  <div className="text-sm text-gray-600">Happy Clients</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-green-600">98%</div>
-                  <div className="text-sm text-gray-600">Success Rate</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-purple-600">24/7</div>
-                  <div className="text-sm text-gray-600">Support</div>
-                </div>
-              </div>
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              Transform Your Business with 
+              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent"> Professional Digital Solutions</span>
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed max-w-4xl mx-auto">
+              Get a complete digital package - Logo Design, Landing Page & Meta Ads for just ₹9,999. 
+              Start generating 100+ leads monthly with our proven system.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+              <a 
+                href="https://tidycal.com/thelogomakers/consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 w-full sm:w-auto text-center"
+              >
+                Book Free Consultation
+              </a>
+              <a 
+                href="https://wa.me/919876543210" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="border-2 border-orange-500 text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-500 hover:text-white transition-all duration-300 w-full sm:w-auto text-center"
+              >
+                WhatsApp Us
+              </a>
             </div>
             
-            <div className="relative mt-8 lg:mt-0">
-              <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8">
-                <div className="text-center mb-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Quick Quote</h3>
-                  <p className="text-gray-600">Get your project estimate in minutes</p>
-                </div>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email Address"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      <option value="">Select Service</option>
-                      <option value="logo-design">Logo Design</option>
-                      <option value="landing-page">Landing Page</option>
-                      <option value="meta-ads">Meta Ads</option>
-                      <option value="complete-package">Complete Package</option>
-                    </select>
-                  </div>
-                  <div>
-                    <textarea
-                      name="message"
-                      placeholder="Tell us about your project..."
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50"
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Get Free Quote'}
-                  </button>
-                  
-                  {submitStatus === 'success' && (
-                    <div className="text-green-600 text-center font-medium">
-                      Thank you! We'll contact you within 24 hours.
-                    </div>
-                  )}
-                  
-                  {submitStatus === 'error' && (
-                    <div className="text-red-600 text-center font-medium">
-                      Something went wrong. Please try again or contact us directly.
-                    </div>
-                  )}
-                </form>
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-orange-600">500+</div>
+                <div className="text-sm sm:text-base text-gray-600">Happy Clients</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-green-600">98%</div>
+                <div className="text-sm sm:text-base text-gray-600">Success Rate</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl sm:text-4xl font-bold text-red-600">24/7</div>
+                <div className="text-sm sm:text-base text-gray-600">Support</div>
               </div>
             </div>
           </div>
@@ -488,7 +336,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span>
+              Our <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Services</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               We provide comprehensive digital solutions to help your business grow and succeed online
@@ -522,7 +370,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Simple <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Pricing</span>
+              Simple <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Pricing</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Choose the perfect package for your business needs. All packages include our quality guarantee.
@@ -531,10 +379,10 @@ const App = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
-              <div key={index} className={`relative bg-white rounded-2xl shadow-lg p-6 sm:p-8 ${plan.popular ? 'ring-2 ring-blue-500 transform scale-105' : ''}`}>
+              <div key={index} className={`relative bg-white rounded-2xl shadow-lg p-6 sm:p-8 ${plan.popular ? 'ring-2 ring-orange-500 transform scale-105' : ''}`}>
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-medium">
+                    <span className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
@@ -555,16 +403,18 @@ const App = () => {
                   ))}
                 </ul>
 
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className={`w-full py-3 rounded-lg font-semibold transition-all duration-300 ${
+                <a 
+                  href="https://tidycal.com/thelogomakers/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block w-full py-3 rounded-lg font-semibold transition-all duration-300 text-center ${
                     plan.popular 
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg' 
-                      : 'border-2 border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600'
+                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:shadow-lg' 
+                      : 'border-2 border-gray-300 text-gray-700 hover:border-orange-500 hover:text-orange-600'
                   }`}
                 >
-                  Get Started
-                </button>
+                  Book Consultation
+                </a>
               </div>
             ))}
           </div>
@@ -577,7 +427,7 @@ const App = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Us?</span>
+                Why Choose <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Us?</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 We're not just another design agency. We're your growth partners, committed to delivering 
@@ -586,8 +436,8 @@ const App = () => {
               
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <Shield className="w-6 h-6 text-blue-600" />
+                  <div className="bg-orange-100 p-3 rounded-lg">
+                    <Shield className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Quality Guarantee</h4>
@@ -606,8 +456,8 @@ const App = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-100 p-3 rounded-lg">
-                    <Users className="w-6 h-6 text-purple-600" />
+                  <div className="bg-red-100 p-3 rounded-lg">
+                    <Users className="w-6 h-6 text-red-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Expert Team</h4>
@@ -616,8 +466,8 @@ const App = () => {
                 </div>
                 
                 <div className="flex items-start space-x-4">
-                  <div className="bg-orange-100 p-3 rounded-lg">
-                    <Award className="w-6 h-6 text-orange-600" />
+                  <div className="bg-yellow-100 p-3 rounded-lg">
+                    <Award className="w-6 h-6 text-yellow-600" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Proven Results</h4>
@@ -628,34 +478,34 @@ const App = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6">Our Process</h3>
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
-                    <div className="bg-white bg-opacity-20 rounded-full p-2">
-                      <span className="text-white font-bold">1</span>
+                    <div className="bg-white bg-opacity-20 rounded-full p-2 w-8 h-8 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">1</span>
                     </div>
                     <div>
                       <h4 className="font-semibold">Consultation</h4>
-                      <p className="text-blue-100 text-sm">Understanding your needs and goals</p>
+                      <p className="text-orange-100 text-sm">Understanding your needs and goals</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <div className="bg-white bg-opacity-20 rounded-full p-2">
-                      <span className="text-white font-bold">2</span>
+                    <div className="bg-white bg-opacity-20 rounded-full p-2 w-8 h-8 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">2</span>
                     </div>
                     <div>
                       <h4 className="font-semibold">Design & Development</h4>
-                      <p className="text-blue-100 text-sm">Creating your digital assets</p>
+                      <p className="text-orange-100 text-sm">Creating your digital assets</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
-                    <div className="bg-white bg-opacity-20 rounded-full p-2">
-                      <span className="text-white font-bold">3</span>
+                    <div className="bg-white bg-opacity-20 rounded-full p-2 w-8 h-8 flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">3</span>
                     </div>
                     <div>
                       <h4 className="font-semibold">Launch & Support</h4>
-                      <p className="text-blue-100 text-sm">Going live with ongoing support</p>
+                      <p className="text-orange-100 text-sm">Going live with ongoing support</p>
                     </div>
                   </div>
                 </div>
@@ -670,7 +520,7 @@ const App = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Questions</span>
+              Frequently Asked <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Questions</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
               Got questions? We've got answers to help you make the right decision.
@@ -684,11 +534,11 @@ const App = () => {
                   onClick={() => toggleFaq(index)}
                   className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-semibold text-gray-900">{faq.question}</span>
+                  <span className="font-semibold text-gray-900 pr-4">{faq.question}</span>
                   {openFaq === index ? (
-                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                    <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                    <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
                   )}
                 </button>
                 {openFaq === index && (
@@ -707,113 +557,14 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
+              Get In <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">Touch</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to transform your business? Contact us today for a free consultation and quote.
+              Ready to transform your business? Book a free consultation or contact us directly.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Service *</label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    >
-                      <option value="">Select Service</option>
-                      <option value="logo-design">Logo Design</option>
-                      <option value="landing-page">Landing Page</option>
-                      <option value="meta-ads">Meta Ads</option>
-                      <option value="complete-package">Complete Package</option>
-                    </select>
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                    placeholder="Tell us about your project requirements..."
-                  />
-                </div>
-                
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-                
-                {submitStatus === 'success' && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-5 h-5 text-green-500" />
-                      <span className="text-green-700 font-medium">Message sent successfully!</span>
-                    </div>
-                    <p className="text-green-600 text-sm mt-1">We'll get back to you within 24 hours.</p>
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="text-red-700 font-medium">Something went wrong!</div>
-                    <p className="text-red-600 text-sm mt-1">Please try again or contact us directly.</p>
-                  </div>
-                )}
-              </form>
-            </div>
-
             {/* Contact Information */}
             <div className="space-y-8">
               <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8">
@@ -821,8 +572,8 @@ const App = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Phone className="w-6 h-6 text-blue-600" />
+                    <div className="bg-orange-100 p-3 rounded-lg">
+                      <Phone className="w-6 h-6 text-orange-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
@@ -843,8 +594,8 @@ const App = () => {
                   </div>
                   
                   <div className="flex items-start space-x-4">
-                    <div className="bg-purple-100 p-3 rounded-lg">
-                      <MapPin className="w-6 h-6 text-purple-600" />
+                    <div className="bg-red-100 p-3 rounded-lg">
+                      <MapPin className="w-6 h-6 text-red-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
@@ -853,12 +604,28 @@ const App = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Quick Actions */}
-              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 sm:p-8 text-white">
+            {/* Quick Actions */}
+            <div className="space-y-8">
+              <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-6 sm:p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6">Quick Actions</h3>
                 
                 <div className="space-y-4">
+                  <a 
+                    href="https://tidycal.com/thelogomakers/consultation"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
+                  >
+                    <Calendar className="w-6 h-6" />
+                    <div className="flex-1">
+                      <div className="font-semibold">Book Free Consultation</div>
+                      <div className="text-sm text-orange-100">Schedule a 30-minute strategy call</div>
+                    </div>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                  
                   <a 
                     href="https://wa.me/919876543210" 
                     target="_blank" 
@@ -866,27 +633,40 @@ const App = () => {
                     className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
                   >
                     <MessageCircle className="w-6 h-6" />
-                    <div>
+                    <div className="flex-1">
                       <div className="font-semibold">WhatsApp Chat</div>
-                      <div className="text-sm text-blue-100">Get instant responses</div>
+                      <div className="text-sm text-orange-100">Get instant responses</div>
                     </div>
-                    <ExternalLink className="w-4 h-4 ml-auto" />
+                    <ExternalLink className="w-4 h-4" />
                   </a>
-                  
+
                   <a 
-                    href="https://calendly.com/thelogomakers" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="tel:+919876543210"
                     className="flex items-center space-x-3 bg-white bg-opacity-20 rounded-lg p-4 hover:bg-opacity-30 transition-all"
                   >
-                    <Calendar className="w-6 h-6" />
-                    <div>
-                      <div className="font-semibold">Book a Call</div>
-                      <div className="text-sm text-blue-100">Schedule consultation</div>
+                    <Phone className="w-6 h-6" />
+                    <div className="flex-1">
+                      <div className="font-semibold">Call Directly</div>
+                      <div className="text-sm text-orange-100">Speak with our team now</div>
                     </div>
-                    <ExternalLink className="w-4 h-4 ml-auto" />
                   </a>
                 </div>
+              </div>
+
+              {/* CTA Card */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
+                <p className="text-gray-600 mb-6">
+                  Book your free consultation today and let's discuss how we can help grow your business.
+                </p>
+                <a 
+                  href="https://tidycal.com/thelogomakers/consultation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 inline-block"
+                >
+                  Book Free Consultation
+                </a>
               </div>
             </div>
           </div>
@@ -900,7 +680,7 @@ const App = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="flex items-center space-x-2 mb-6">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 p-2 rounded-lg">
                   <Palette className="w-8 h-8 text-white" />
                 </div>
                 <div>
