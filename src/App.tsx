@@ -154,24 +154,67 @@ function App() {
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             {/* Experience Badge */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full px-6 py-2 flex items-center">
-                <Award className="h-5 w-5 text-orange-600 mr-2" />
-                <span className="text-orange-800 font-semibold">{content.hero.badgeText}</span>
+            <EditableSection
+              id="heroBadge"
+              title="Hero Badge"
+              content={{ badgeText: content.hero.badgeText }}
+              onSave={(id, badgeContent) => saveContent('hero', { ...content.hero, badgeText: badgeContent.badgeText })}
+              isAdmin={isAdminLoggedIn}
+            >
+              <div className="flex justify-center mb-8">
+                <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full px-6 py-2 flex items-center">
+                  <Award className="h-5 w-5 text-orange-600 mr-2" />
+                  <span className="text-orange-800 font-semibold">{content.hero.badgeText}</span>
+                </div>
               </div>
-            </div>
+            </EditableSection>
 
-            <div className="text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                {content.hero.title}
-              </h1>
-              
-              <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                <strong className="text-orange-600">{content.hero.subtitle}</strong><br className="hidden md:block" />
-                <span className="block md:inline mt-2 md:mt-0">{content.hero.description}</span>
-              </p>
+            <EditableSection
+              id="heroTitle"
+              title="Hero Title & Subtitle"
+              content={{ 
+                title: content.hero.title,
+                subtitle: content.hero.subtitle,
+                description: content.hero.description
+              }}
+              onSave={(id, titleContent) => saveContent('hero', { 
+                ...content.hero, 
+                title: titleContent.title,
+                subtitle: titleContent.subtitle,
+                description: titleContent.description
+              })}
+              isAdmin={isAdminLoggedIn}
+            >
+              <div className="text-center">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                  {content.hero.title}
+                </h1>
+                
+                <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
+                  <strong className="text-orange-600">{content.hero.subtitle}</strong><br className="hidden md:block" />
+                  <span className="block md:inline mt-2 md:mt-0">{content.hero.description}</span>
+                </p>
+              </div>
+            </EditableSection>
 
-              {/* Value Proposition Boxes */}
+            {/* Value Proposition Boxes */}
+            <EditableSection
+              id="heroValueProps"
+              title="Hero Value Propositions"
+              content={{
+                valueProposition1: content.hero.valueProposition1,
+                valueProposition1Value: content.hero.valueProposition1Value,
+                valueProposition1Desc: content.hero.valueProposition1Desc,
+                valueProposition2: content.hero.valueProposition2,
+                valueProposition2Value: content.hero.valueProposition2Value,
+                valueProposition2Desc: content.hero.valueProposition2Desc,
+                valueProposition3: content.hero.valueProposition3,
+                valueProposition3Value: content.hero.valueProposition3Value,
+                valueProposition3Desc: content.hero.valueProposition3Desc
+              }}
+              onSave={(id, valueProps) => saveContent('hero', { ...content.hero, ...valueProps })}
+              isAdmin={isAdminLoggedIn}
+            >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
                 <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
                   <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
@@ -189,8 +232,21 @@ function App() {
                   <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition3Desc}</div>
                 </div>
               </div>
+            </EditableSection>
 
-              {/* Main CTA */}
+            {/* Main CTA */}
+            <EditableSection
+              id="heroCTA"
+              title="Hero CTA & Bonus"
+              content={{
+                ctaText: content.hero.ctaText,
+                bonusTitle: content.hero.bonusTitle,
+                bonusSubtitle: content.hero.bonusSubtitle,
+                bonusUrgency: content.hero.bonusUrgency
+              }}
+              onSave={(id, ctaContent) => saveContent('hero', { ...content.hero, ...ctaContent })}
+              isAdmin={isAdminLoggedIn}
+            >
               <div className="flex flex-col gap-4 justify-center items-center mb-12">
                 <a 
                   href={BOOKING_LINK}
@@ -208,8 +264,28 @@ function App() {
                   <div className="text-xs text-red-600 font-semibold animate-pulse">{content.hero.bonusUrgency}</div>
                 </div>
               </div>
+            </EditableSection>
 
-              {/* What You'll Learn */}
+            {/* What You'll Learn */}
+            <EditableSection
+              id="heroLearning"
+              title="Hero Learning Points"
+              content={{
+                learningTitle: content.hero.learningTitle,
+                learningPoint1Title: content.hero.learningPoint1Title,
+                learningPoint1Desc: content.hero.learningPoint1Desc,
+                learningPoint2Title: content.hero.learningPoint2Title,
+                learningPoint2Desc: content.hero.learningPoint2Desc,
+                learningPoint3Title: content.hero.learningPoint3Title,
+                learningPoint3Desc: content.hero.learningPoint3Desc,
+                learningPoint4Title: content.hero.learningPoint4Title,
+                learningPoint4Desc: content.hero.learningPoint4Desc,
+                instantBonusText: content.hero.instantBonusText,
+                bonusItems: content.hero.bonusItems
+              }}
+              onSave={(id, learningContent) => saveContent('hero', { ...content.hero, ...learningContent })}
+              isAdmin={isAdminLoggedIn}
+            >
               <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
                   <Lightbulb className="h-6 w-6 text-orange-600 mr-2" />
@@ -251,7 +327,7 @@ function App() {
                   </div>
                 </div>
               </div>
-            </div>
+            </EditableSection>
           </div>
         </EditableSection>
       </section>
