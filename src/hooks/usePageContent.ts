@@ -37,21 +37,36 @@ export interface PageContent {
   services: {
     title: string;
     subtitle: string;
+    sectionDescription: string;
     logoTitle: string;
     logoDescription: string;
     logoFeature1: string;
     logoFeature2: string;
     logoFeature3: string;
+    logoPrice: string;
+    logoDelivery: string;
     landingTitle: string;
     landingDescription: string;
     landingFeature1: string;
     landingFeature2: string;
     landingFeature3: string;
+    landingPrice: string;
+    landingDelivery: string;
     adsTitle: string;
     adsDescription: string;
     adsFeature1: string;
     adsFeature2: string;
     adsFeature3: string;
+    adsPrice: string;
+    adsDelivery: string;
+    packageTitle: string;
+    packageSubtitle: string;
+    packageDescription: string;
+    packagePrice: string;
+    packageDelivery: string;
+    packageButtonText: string;
+    guaranteeText: string;
+    supportText: string;
   };
   pricing: {
     title: string;
@@ -278,21 +293,36 @@ const defaultContent: PageContent = {
   services: {
     title: "Complete Digital Package",
     subtitle: "Everything you need to establish a strong online presence and attract customers",
+    sectionDescription: "Our comprehensive digital solutions are designed to transform your business and drive real results.",
     logoTitle: "Logo Design",
     logoDescription: "Professional, memorable logo that represents your brand identity perfectly. Multiple concepts, unlimited revisions, and all file formats included.",
     logoFeature1: "5+ Logo Concepts",
     logoFeature2: "Unlimited Revisions", 
     logoFeature3: "All File Formats",
+    logoPrice: "Starting at ₹2,999",
+    logoDelivery: "2-3 Days",
     landingTitle: "Landing Page",
     landingDescription: "High-converting, mobile-responsive landing page designed to turn visitors into customers. Optimized for speed and conversions.",
     landingFeature1: "Mobile Responsive",
     landingFeature2: "SEO Optimized",
     landingFeature3: "Fast Loading",
+    landingPrice: "Starting at ₹4,999",
+    landingDelivery: "5-7 Days",
     adsTitle: "Meta Ads Setup",
     adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.",
     adsFeature1: "Campaign Setup",
     adsFeature2: "Audience Targeting",
     adsFeature3: "Ad Creatives"
+    adsPrice: "Starting at ₹3,999",
+    adsDelivery: "3-5 Days",
+    packageTitle: "Complete Package",
+    packageSubtitle: "Get everything for one low price",
+    packageDescription: "Save money and get better results with our complete digital marketing package.",
+    packagePrice: "₹9,999",
+    packageDelivery: "7-10 Days",
+    packageButtonText: "Get Complete Package",
+    guaranteeText: "100% Money-Back Guarantee",
+    supportText: "30 Days Free Support"
   },
   pricing: {
     title: "Simple, Transparent Pricing",
