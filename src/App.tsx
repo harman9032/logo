@@ -1,1023 +1,1370 @@
 import React, { useState } from 'react';
-import AdminApp from './components/AdminApp';
-import TermsPage from './pages/TermsPage';
-import PrivacyPage from './pages/PrivacyPage';
-import ThankYouPage from './pages/ThankYouPage';
-import EditableSection from './components/EditableSection';
-import { usePageContent } from './hooks/usePageContent';
-import { supabase } from './lib/supabase';
 import { 
+  Phone, 
+  Mail, 
+  MessageCircle, 
+  Star, 
+  CheckCircle, 
   ArrowRight, 
-  Palette, 
-  Globe, 
-  Target, 
   Users, 
   TrendingUp, 
-  CheckCircle, 
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Award,
-  Zap,
+  Award, 
+  Zap, 
+  Shield, 
+  Clock, 
+  Target, 
+  BarChart3, 
   Lightbulb,
-  Shield,
-  Rocket,
+  MapPin,
   Calendar,
-  BarChart3,
   ChevronDown,
   ChevronUp,
-  MessageCircle
+  Menu,
+  X,
+  ExternalLink
 } from 'lucide-react';
 
-function App() {
-  const [showAdmin, setShowAdmin] = useState(false);
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-  const [currentPage, setCurrentPage] = useState('home');
-  const { content, loading, saveContent } = usePageContent();
+// Static content - no database needed
+const content = {
+  hero: {
+    title: "Get 100+ Quality Leads Every Month Guaranteed",
+    subtitle: "Book a FREE 30-minute strategy session (Worth ₹2,999)",
+    description: "Discover the exact system we use to generate quality leads for businesses like yours.",
+    ctaText: "Book FREE Strategy Call",
+    badgeText: "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
+    valueProposition1: "100+",
+    valueProposition2: "5X",
+    valueProposition3: "7 Days",
+    valueProposition1Value: "Quality Leads Monthly",
+    valueProposition2Value: "Revenue Growth",
+    valueProposition3Value: "Complete Setup",
+    valueProposition1Desc: "Guaranteed results",
+    valueProposition2Desc: "Average client results",
+    valueProposition3Desc: "Ready to launch",
+    learningTitle: "What You'll Learn in This FREE Call",
+    learningPoint1Title: "The 100+ Lead Generation System",
+    learningPoint1Desc: "Exact targeting strategies that guarantee consistent lead flow",
+    learningPoint2Title: "Revenue Multiplier Strategy",
+    learningPoint2Desc: "How to 5X your revenue with our proven system",
+    learningPoint3Title: "Quality Lead Attraction",
+    learningPoint3Desc: "How to attract high-intent customers ready to buy",
+    learningPoint4Title: "7-Day Launch Blueprint",
+    learningPoint4Desc: "Complete setup process to start getting leads in 1 week",
+    bonusTitle: "🎁 FREE BONUS WORTH ₹4,999!",
+    bonusSubtitle: "✅ Lead Generation Checklist + ✅ Ad Templates + ✅ Landing Page Guide",
+    bonusItems: "Get our complete Lead Generation Toolkit (Worth ₹4,999) - includes templates, checklists, and step-by-step guides!",
+    bonusUrgency: "⚡ Limited Time: Only 10 spots available this week!",
+    instantBonusText: "💡 INSTANT BONUS:",
+    heroBackgroundText: "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
+    heroCalloutText: "Transform your business with professional digital solutions"
+  },
+  services: {
+    title: "Complete Digital Package",
+    subtitle: "Everything you need to establish a strong online presence and attract customers",
+    sectionDescription: "Our comprehensive digital solutions are designed to transform your business and drive real results.",
+    logoTitle: "Logo Design",
+    logoDescription: "Professional, memorable logo that represents your brand identity perfectly. Multiple concepts, unlimited revisions, and all file formats included.",
+    logoFeature1: "5+ Logo Concepts",
+    logoFeature2: "Unlimited Revisions", 
+    logoFeature3: "All File Formats",
+    logoPrice: "Starting at ₹2,999",
+    logoDelivery: "2-3 Days",
+    landingTitle: "Landing Page",
+    landingDescription: "High-converting, mobile-responsive landing page designed to turn visitors into customers. Optimized for speed and conversions.",
+    landingFeature1: "Mobile Responsive",
+    landingFeature2: "SEO Optimized",
+    landingFeature3: "Fast Loading",
+    landingPrice: "Starting at ₹4,999",
+    landingDelivery: "5-7 Days",
+    adsTitle: "Meta Ads Setup",
+    adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.",
+    adsFeature1: "Campaign Setup",
+    adsFeature2: "Audience Targeting",
+    adsFeature3: "Ad Creatives",
+    adsPrice: "Starting at ₹3,999",
+    adsDelivery: "3-5 Days",
+    packageTitle: "Complete Package",
+    packageSubtitle: "Get everything for one low price",
+    packageDescription: "Save money and get better results with our complete digital marketing package.",
+    packagePrice: "₹9,999",
+    packageDelivery: "7-10 Days",
+    packageButtonText: "Get Complete Package",
+    guaranteeText: "100% Money-Back Guarantee",
+    supportText: "30 Days Free Support"
+  },
+  pricing: {
+    title: "Simple, Transparent Pricing",
+    subtitle: "Choose the package that's right for your business",
+    starterTitle: "Starter Package",
+    starterPrice: "₹4,999",
+    starterDescription: "Perfect for small businesses getting started",
+    starterFeature1: "Logo Design (3 concepts)",
+    starterFeature2: "Basic Landing Page",
+    starterFeature3: "Mobile Responsive",
+    starterFeature4: "Basic SEO Setup",
+    starterFeature5: "7-day Support",
+    starterButtonText: "Get Started",
+    professionalTitle: "Professional Package",
+    professionalPrice: "₹9,999",
+    professionalDescription: "Most popular choice for growing businesses",
+    professionalFeature1: "Professional Logo Design",
+    professionalFeature2: "Custom Landing Page",
+    professionalFeature3: "Meta Ads Campaign Setup",
+    professionalFeature4: "SEO Optimization",
+    professionalFeature5: "30-day Support",
+    professionalButtonText: "Get Started Now",
+    professionalBadgeText: "Most Popular",
+    enterpriseTitle: "Enterprise Package",
+    enterprisePrice: "₹19,999",
+    enterpriseDescription: "Complete solution for established businesses",
+    enterpriseFeature1: "Everything in Professional",
+    enterpriseFeature2: "Advanced Analytics Setup",
+    enterpriseFeature3: "CRM Integration",
+    enterpriseFeature4: "Email Marketing Setup",
+    enterpriseFeature5: "90-day Support",
+    enterpriseButtonText: "Contact Us"
+  },
+  whyChoose: {
+    title: "Why Choose Daily Creative Designs?",
+    subtitle: "We deliver results that matter to your business growth",
+    reason1Title: "Fast Delivery",
+    reason1Description: "Complete package delivered within 7 days",
+    reason2Title: "Expert Team",
+    reason2Description: "8 years of experience since 2017",
+    reason3Title: "Proven Results",
+    reason3Description: "Helped 1000+ businesses grow their revenue",
+    reason4Title: "Money-Back Guarantee",
+    reason4Description: "100% satisfaction or your money back"
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    subtitle: "Everything you need to know about our services",
+    question1: "How long does it take to complete the package?",
+    answer1: "Our complete package is delivered within 7 business days. Logo concepts are provided within 2-3 days, landing page within 5 days, and Meta ads setup within 7 days.",
+    question2: "Do you provide unlimited revisions?",
+    answer2: "Yes, we provide unlimited revisions for the logo design until you're 100% satisfied. For landing pages, we include up to 3 rounds of revisions.",
+    question3: "What's included in the Meta ads setup?",
+    answer3: "Complete Facebook and Instagram campaign setup including audience research, ad creative design, campaign structure, targeting setup, and initial optimization.",
+    question4: "Do you provide ongoing support?",
+    answer4: "Yes, we provide 30 days of free support after project completion. For ongoing management, we offer monthly packages starting at ₹9,999.",
+    question5: "What if I'm not satisfied with the work?",
+    answer5: "We offer a 100% money-back guarantee. If you're not completely satisfied with our work, we'll refund your payment within 30 days.",
+    question6: "Can you help with other digital marketing services?",
+    answer6: "Absolutely! We offer additional services like SEO, content marketing, social media management, and Google Ads. Contact us to discuss your specific needs."
+  },
+  readyToTalk: {
+    title: "Ready to Talk? Let's Connect!",
+    subtitle: "Skip the forms and get instant access to our team. Choose your preferred way to connect.",
+    phoneTitle: "Call Us Now",
+    phoneDescription: "Speak directly with our experts",
+    phoneNumber: "+91 98765 43210",
+    phoneAvailability: "Available 9 AM - 9 PM",
+    whatsappTitle: "WhatsApp Chat",
+    whatsappDescription: "Quick responses within minutes",
+    whatsappButtonText: "Start Chat",
+    whatsappResponse: "Instant responses",
+    emailTitle: "Email Us",
+    emailDescription: "Detailed project discussions",
+    emailAddress: "hello@dailycreativedesigns.com",
+    emailResponse: "Response within 2 hours",
+    whyTalkTitle: "Why Talk to Us Directly?",
+    benefit1Title: "Instant Clarity",
+    benefit1Description: "Get immediate answers to your questions",
+    benefit2Title: "Personal Touch",
+    benefit2Description: "Speak with real experts, not chatbots",
+    benefit3Title: "Faster Results",
+    benefit3Description: "Skip the back-and-forth emails",
+    benefit4Title: "Custom Solutions",
+    benefit4Description: "Tailored advice for your business"
+  },
+  testimonials: {
+    title: "What Our Clients Say",
+    subtitle: "Don't just take our word for it",
+    testimonial1Text: "Daily Creative Designs transformed our business! We got 150 leads in the first month and our revenue increased by 300%.",
+    testimonial1Name: "Raj Patel",
+    testimonial1Title: "CEO, TechStart Solutions",
+    testimonial2Text: "Amazing service! The landing page looks professional and we're getting quality leads consistently.",
+    testimonial2Name: "Priya Sharma",
+    testimonial2Title: "Founder, GreenSpace Design",
+    testimonial3Text: "Best investment we made! The Meta ads are performing exceptionally well. Getting 100+ leads monthly. Highly recommended.",
+    testimonial3Name: "Amit Kumar",
+    testimonial3Title: "Director, FitLife Gym"
+  },
+  cta: {
+    title: "Ready to Transform Your Business?",
+    subtitle: "Join 1000+ businesses that have transformed their digital presence with us",
+    primaryButtonText: "Book FREE Strategy Call (Worth ₹2,999)",
+    secondaryButtonText: "Get Complete Package - ₹9,999",
+    urgencyText: "⚡ Limited Time Offer - Book your call today!"
+  },
+  footer: {
+    companyDescription: "Transforming businesses with professional digital solutions since 2017.",
+    servicesTitle: "Services",
+    service1: "Logo Design",
+    service2: "Landing Pages",
+    service3: "Meta Ads",
+    service4: "Lead Generation",
+    service5: "SEO Optimization",
+    companyTitle: "Company",
+    contactTitle: "Contact Info",
+    phoneNumber: "+91 98765 43210",
+    emailAddress: "hello@dailycreativedesigns.com",
+    location: "Mumbai, India",
+    copyrightText: "© 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017"
+  }
+};
 
-  // TidyCal booking link
+export default function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    business: '',
+    package: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
   const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-free-consulation";
 
-  // Check if current URL is admin route
-  React.useEffect(() => {
-    const hash = window.location.hash;
-    const pathname = window.location.pathname;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
     
-    if (pathname === '/admin' || hash === '#admin') {
-      setShowAdmin(true);
-    } else if (hash === '#terms' || pathname === '/terms') {
-      setCurrentPage('terms');
-    } else if (hash === '#privacy' || pathname === '/privacy') {
-      setCurrentPage('privacy');
-    } else if (hash === '#thank-you' || pathname === '/thank-you') {
-      setCurrentPage('thank-you');
-    } else {
-      setCurrentPage('home');
+    try {
+      // Simple form submission without database
+      console.log('Form submitted:', formData);
+      
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setSubmitMessage('Thank you! We\'ll contact you within 24 hours.');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        business: '',
+        package: '',
+        message: ''
+      });
+      
+      // Redirect to thank you page after 2 seconds
+      setTimeout(() => {
+        window.location.href = '/thank-you';
+      }, 2000);
+      
+    } catch (error) {
+      setSubmitMessage('There was an error. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    // Check if admin is logged in
-    const adminData = localStorage.getItem('admin_session');
-    if (adminData) {
-      setIsAdminLoggedIn(true);
+  };
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    
-    // Add keyboard shortcut for admin access (Ctrl+Shift+A)
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-        setIsAdminLoggedIn(true);
-      }
-    };
-    
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, []);
-
-  // Show admin panel if requested
-  if (showAdmin) {
-    return <AdminApp />;
-  }
-
-  // Show specific pages based on route
-  if (currentPage === 'terms') {
-    return <TermsPage />;
-  }
-  
-  if (currentPage === 'privacy') {
-    return <PrivacyPage />;
-  }
-  
-  if (currentPage === 'thank-you') {
-    return <ThankYouPage />;
-  }
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
-      </div>
-    );
-  }
+    setIsMenuOpen(false);
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0 flex items-center">
-                <Palette className="h-8 w-8 text-orange-600" />
-                <span className="ml-2 text-xl font-bold text-gray-900">Daily Creative Designs</span>
+              <div className="flex-shrink-0">
+                <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                  The Logo Makers
+                </span>
               </div>
             </div>
+            
+            {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#services" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                <a href="#pricing" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Pricing</a>
-                <a href="#why-choose" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Why Choose</a>
-                <a href="#faq" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">FAQ</a>
+              <div className="ml-10 flex items-baseline space-x-8">
+                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Services
+                </button>
+                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Pricing
+                </button>
+                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Testimonials
+                </button>
+                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                  FAQ
+                </button>
+                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                  Contact
+                </button>
                 <a 
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg"
                 >
                   Book Free Call
                 </a>
               </div>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-700 hover:text-orange-600 p-2"
+              >
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
-      </header>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+                Services
+              </button>
+              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+                Pricing
+              </button>
+              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+                Testimonials
+              </button>
+              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+                FAQ
+              </button>
+              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+                Contact
+              </button>
+              <a 
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-gradient-to-r from-orange-600 to-red-600 text-white px-3 py-2 text-base font-medium text-center rounded-lg mx-3 mt-4"
+              >
+                Book Free Call
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-orange-50 via-white to-red-50 pt-20 pb-32 overflow-hidden">
-        <EditableSection
-          id="hero"
-          title="Hero Section"
-          content={content.hero}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23EA580C' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }}></div>
+      <section className="pt-20 pb-16 bg-gradient-to-br from-orange-50 via-white to-red-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Trust Badge */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-orange-100">
+              <Award className="h-5 w-5 text-orange-600 mr-2" />
+              <span className="text-sm font-medium text-gray-700">
+                {content.hero.badgeText}
+              </span>
+            </div>
           </div>
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            {/* Experience Badge */}
-            <EditableSection
-              id="heroBadge"
-              title="Hero Badge"
-              content={{ badgeText: content.hero.badgeText }}
-              onSave={(id, badgeContent) => saveContent('hero', { ...content.hero, badgeText: badgeContent.badgeText })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="flex justify-center mb-8">
-                <div className="bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full px-6 py-2 flex items-center">
-                  <Award className="h-5 w-5 text-orange-600 mr-2" />
-                  <span className="text-orange-800 font-semibold">{content.hero.badgeText}</span>
-                </div>
-              </div>
-            </EditableSection>
 
-            <EditableSection
-              id="heroTitle"
-              title="Hero Title & Subtitle"
-              content={{ 
-                title: content.hero.title,
-                subtitle: content.hero.subtitle,
-                description: content.hero.description
-              }}
-              onSave={(id, titleContent) => saveContent('hero', { 
-                ...content.hero, 
-                title: titleContent.title,
-                subtitle: titleContent.subtitle,
-                description: titleContent.description
-              })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="text-center">
-                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                  {content.hero.title}
-                </h1>
-                
-                <p className="text-lg md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                  <strong className="text-orange-600">{content.hero.subtitle}</strong><br className="hidden md:block" />
-                  <span className="block md:inline mt-2 md:mt-0">{content.hero.description}</span>
-                </p>
-              </div>
-            </EditableSection>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Main Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                {content.hero.title}
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                {content.hero.subtitle}
+              </p>
+              
+              <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                {content.hero.description}
+              </p>
 
-            {/* Value Proposition Boxes */}
-            <EditableSection
-              id="heroValueProps"
-              title="Hero Value Propositions"
-              content={{
-                valueProposition1: content.hero.valueProposition1,
-                valueProposition1Value: content.hero.valueProposition1Value,
-                valueProposition1Desc: content.hero.valueProposition1Desc,
-                valueProposition2: content.hero.valueProposition2,
-                valueProposition2Value: content.hero.valueProposition2Value,
-                valueProposition2Desc: content.hero.valueProposition2Desc,
-                valueProposition3: content.hero.valueProposition3,
-                valueProposition3Value: content.hero.valueProposition3Value,
-                valueProposition3Desc: content.hero.valueProposition3Desc
-              }}
-              onSave={(id, valueProps) => saveContent('hero', { ...content.hero, ...valueProps })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition1Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition1Desc}</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition2Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition2Desc}</div>
-                </div>
-                <div className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
-                  <div className="text-gray-700 font-semibold">{content.hero.valueProposition3Value}</div>
-                  <div className="text-sm text-gray-500 mt-1">{content.hero.valueProposition3Desc}</div>
-                </div>
-              </div>
-            </EditableSection>
-
-            {/* Main CTA */}
-            <EditableSection
-              id="heroCTA"
-              title="Hero CTA & Bonus"
-              content={{
-                ctaText: content.hero.ctaText,
-                bonusTitle: content.hero.bonusTitle,
-                bonusSubtitle: content.hero.bonusSubtitle,
-                bonusUrgency: content.hero.bonusUrgency
-              }}
-              onSave={(id, ctaContent) => saveContent('hero', { ...content.hero, ...ctaContent })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="flex flex-col gap-4 justify-center items-center mb-12">
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
                 <a 
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center w-full sm:w-auto justify-center"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
-                  <Calendar className="mr-3 h-6 w-6" />
+                  <Calendar className="h-5 w-5 mr-2" />
                   {content.hero.ctaText}
-                  <ArrowRight className="ml-3 h-6 w-6" />
                 </a>
-                <div className="text-center bg-gradient-to-r from-yellow-100 to-orange-100 border-2 border-yellow-300 rounded-xl p-4 shadow-lg">
-                  <div className="text-lg font-bold text-orange-800 mb-1">{content.hero.bonusTitle}</div>
-                  <div className="text-sm text-orange-700 mb-2">{content.hero.bonusSubtitle}</div>
-                  <div className="text-xs text-red-600 font-semibold animate-pulse">{content.hero.bonusUrgency}</div>
-                </div>
+                <button 
+                  onClick={() => scrollToSection('services')}
+                  className="bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200 flex items-center justify-center"
+                >
+                  Learn More
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </button>
               </div>
-            </EditableSection>
 
-            {/* What You'll Learn */}
-            <EditableSection
-              id="heroLearning"
-              title="Hero Learning Points"
-              content={{
-                learningTitle: content.hero.learningTitle,
-                learningPoint1Title: content.hero.learningPoint1Title,
-                learningPoint1Desc: content.hero.learningPoint1Desc,
-                learningPoint2Title: content.hero.learningPoint2Title,
-                learningPoint2Desc: content.hero.learningPoint2Desc,
-                learningPoint3Title: content.hero.learningPoint3Title,
-                learningPoint3Desc: content.hero.learningPoint3Desc,
-                learningPoint4Title: content.hero.learningPoint4Title,
-                learningPoint4Desc: content.hero.learningPoint4Desc,
-                instantBonusText: content.hero.instantBonusText,
-                bonusItems: content.hero.bonusItems
-              }}
-              onSave={(id, learningContent) => saveContent('hero', { ...content.hero, ...learningContent })}
-              isAdmin={isAdminLoggedIn}
-            >
-              <div className="bg-white/60 backdrop-blur-sm border border-orange-100 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center justify-center">
-                  <Lightbulb className="h-6 w-6 text-orange-600 mr-2" />
-                  {content.hero.learningTitle}
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint1Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</div>
-                    </div>
+              {/* Value Propositions */}
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition1Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition1Desc}</div>
+                </div>
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition2Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition2Desc}</div>
+                </div>
+                <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition3Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition3Desc}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - What You'll Learn */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-orange-100">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {content.hero.learningTitle}
+              </h2>
+              
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">1</span>
                   </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint2Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint3Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                    <div>
-                      <div className="font-semibold text-gray-900">{content.hero.learningPoint4Title}</div>
-                      <div className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</div>
-                    </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint1Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</p>
                   </div>
                 </div>
-                <div className="mt-6 text-center">
-                  <div className="text-sm text-gray-600 bg-green-50 border border-green-200 rounded-lg p-3">
-                    {content.hero.instantBonusText} <strong className="text-green-800">INSTANT BONUS:</strong> {content.hero.bonusItems}
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">2</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint2Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">3</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint3Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">4</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint4Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</p>
                   </div>
                 </div>
               </div>
-            </EditableSection>
+
+              {/* Bonus Section */}
+              <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
+                <div className="text-center">
+                  <h3 className="text-lg font-bold text-green-800 mb-2">
+                    {content.hero.bonusTitle}
+                  </h3>
+                  <p className="text-sm text-green-700 mb-3">
+                    {content.hero.bonusSubtitle}
+                  </p>
+                  <p className="text-xs text-green-600">
+                    {content.hero.bonusItems}
+                  </p>
+                </div>
+              </div>
+
+              {/* Urgency */}
+              <div className="mt-6 text-center">
+                <p className="text-sm font-semibold text-red-600 animate-pulse">
+                  {content.hero.bonusUrgency}
+                </p>
+              </div>
+            </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <EditableSection
-          id="services"
-          title="Services Section"
-          content={content.services}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.services.title}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                {content.services.subtitle}
-              </p>
+      <section id="services" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.services.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.services.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Logo Design */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.logoDescription}</p>
+              
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature1}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature3}</span>
+                </div>
+              </div>
+              
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-bold text-orange-600">{content.services.logoPrice}</span>
+                <span className="text-sm text-gray-500 flex items-center">
+                  <Clock className="h-4 w-4 mr-1" />
+                  {content.services.logoDelivery}
+                </span>
+              </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+              >
+                Get Started
+              </button>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-orange-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mb-6">
-                  <Palette className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.logoDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.logoFeature3}
-                  </li>
-                </ul>
-              </div>
 
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-blue-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mb-6">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.landingDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.landingFeature3}
-                  </li>
-                </ul>
+            {/* Landing Page */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+                <BarChart3 className="h-8 w-8 text-white" />
               </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-green-100">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mb-6">
-                  <Target className="h-8 w-8 text-white" />
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.landingDescription}</p>
+              
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature1}</span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
-                <p className="text-gray-600 mb-6">
-                  {content.services.adsDescription}
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature1}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature2}
-                  </li>
-                  <li className="flex items-center text-sm text-gray-600">
-                    <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    {content.services.adsFeature3}
-                  </li>
-                </ul>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature3}</span>
+                </div>
+              </div>
+              
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-bold text-orange-600">{content.services.landingPrice}</span>
+                <span className="text-sm text-gray-500 flex items-center">
+                  <Clock className="h-4 w-4 mr-1" />
+                  {content.services.landingDelivery}
+                </span>
+              </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-teal-600 transition-all duration-300"
+              >
+                Get Started
+              </button>
+            </div>
+
+            {/* Meta Ads */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.adsDescription}</p>
+              
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature1}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature3}</span>
+                </div>
+              </div>
+              
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-bold text-orange-600">{content.services.adsPrice}</span>
+                <span className="text-sm text-gray-500 flex items-center">
+                  <Clock className="h-4 w-4 mr-1" />
+                  {content.services.adsDelivery}
+                </span>
+              </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Complete Package */}
+          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl p-12 text-white text-center relative overflow-hidden">
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="relative z-10">
+              <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
+                <Zap className="h-5 w-5 mr-2" />
+                <span className="font-semibold">Best Value</span>
+              </div>
+              
+              <h3 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h3>
+              <p className="text-xl mb-2">{content.services.packageSubtitle}</p>
+              <p className="text-orange-100 mb-8 max-w-2xl mx-auto">{content.services.packageDescription}</p>
+              
+              <div className="flex items-center justify-center mb-8">
+                <span className="text-5xl font-bold">{content.services.packagePrice}</span>
+                <span className="text-xl ml-2 text-orange-100">one-time</span>
+              </div>
+              
+              <div className="flex items-center justify-center mb-8">
+                <Clock className="h-5 w-5 mr-2" />
+                <span>{content.services.packageDelivery}</span>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                <button 
+                  onClick={() => scrollToSection('contact')}
+                  className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                >
+                  {content.services.packageButtonText}
+                </button>
+                <a 
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-300"
+                >
+                  Book Free Call
+                </a>
+              </div>
+              
+              <div className="flex items-center justify-center space-x-8 text-sm">
+                <div className="flex items-center">
+                  <Shield className="h-5 w-5 mr-2" />
+                  <span>{content.services.guaranteeText}</span>
+                </div>
+                <div className="flex items-center">
+                  <Users className="h-5 w-5 mr-2" />
+                  <span>{content.services.supportText}</span>
+                </div>
               </div>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-50">
-        <EditableSection
-          id="pricing"
-          title="Pricing Section"
-          content={content.pricing}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.pricing.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.pricing.subtitle}
-              </p>
+      <section id="pricing" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.pricing.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.pricing.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Starter Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-orange-200 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
+              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.starterPrice}</div>
+              <p className="text-gray-600 mb-6">{content.pricing.starterDescription}</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature1}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature3}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature4}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature5}</span>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
+              >
+                {content.pricing.starterButtonText}
+              </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Starter Package */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-                  <p className="text-gray-600 mb-6">{content.pricing.starterDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold text-orange-600">{content.pricing.starterPrice}</span>
-                    <span className="text-gray-600 ml-2">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.starterFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-gray-600 text-white py-4 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
-                >
-                  {content.pricing.starterButtonText}
-                </a>
-              </div>
-
-              {/* Professional Package */}
-              <div className="bg-gradient-to-br from-orange-600 to-red-600 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 text-white relative overflow-hidden transform scale-105">
-                <div className="absolute top-4 right-4 bg-yellow-400 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">
+            {/* Professional Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-orange-200 relative transform scale-105">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   {content.pricing.professionalBadgeText}
-                </div>
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{content.pricing.professionalTitle}</h3>
-                  <p className="text-orange-100 mb-6">{content.pricing.professionalDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold">{content.pricing.professionalPrice}</span>
-                    <span className="text-orange-100 ml-2">one-time</span>
-                  </div>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                    <span>{content.pricing.professionalFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-white text-orange-600 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  {content.pricing.professionalButtonText}
-                </a>
+                </span>
               </div>
+              
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
+              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.professionalPrice}</div>
+              <p className="text-gray-600 mb-6">{content.pricing.professionalDescription}</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
+              >
+                {content.pricing.professionalButtonText}
+              </button>
+            </div>
 
-              {/* Enterprise Package */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-                  <p className="text-gray-600 mb-6">{content.pricing.enterpriseDescription}</p>
-                  <div className="flex items-center justify-center">
-                    <span className="text-4xl font-bold text-orange-600">{content.pricing.enterprisePrice}</span>
-                    <span className="text-gray-600 ml-2">one-time</span>
-                  </div>
+            {/* Enterprise Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-orange-200 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
+              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.enterprisePrice}</div>
+              <p className="text-gray-600 mb-6">{content.pricing.enterpriseDescription}</p>
+              
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
                 </div>
-                <ul className="space-y-4 mb-8">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature1}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature2}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature3}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature4}</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                    <span>{content.pricing.enterpriseFeature5}</span>
-                  </li>
-                </ul>
-                <a 
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full block text-center bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
-                >
-                  {content.pricing.enterpriseButtonText}
-                </a>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
+                </div>
               </div>
+              
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
+              >
+                {content.pricing.enterpriseButtonText}
+              </button>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section id="why-choose" className="py-20 bg-white">
-        <EditableSection
-          id="whyChoose"
-          title="Why Choose Section"
-          content={content.whyChoose}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.whyChoose.title}
-              </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                {content.whyChoose.subtitle}
-              </p>
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.whyChoose.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.whyChoose.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason1Description}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock className="h-8 w-8 text-orange-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason1Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason1Description}</p>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason2Description}</p>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Award className="h-8 w-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason2Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason2Description}</p>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <TrendingUp className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason3Description}</p>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="h-8 w-8 text-purple-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason3Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason3Description}</p>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason4Description}</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Shield className="h-8 w-8 text-blue-600" />
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.testimonials.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.testimonials.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6 italic">
+                "{content.testimonials.testimonial1Text}"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  {content.testimonials.testimonial1Name.charAt(0)}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{content.whyChoose.reason4Title}</h3>
-                <p className="text-gray-600">{content.whyChoose.reason4Description}</p>
+                <div>
+                  <p className="font-semibold text-gray-900">{content.testimonials.testimonial1Name}</p>
+                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial1Title}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6 italic">
+                "{content.testimonials.testimonial2Text}"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  {content.testimonials.testimonial2Name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">{content.testimonials.testimonial2Name}</p>
+                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial2Title}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-gray-700 mb-6 italic">
+                "{content.testimonials.testimonial3Text}"
+              </blockquote>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  {content.testimonials.testimonial3Name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">{content.testimonials.testimonial3Name}</p>
+                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial3Title}</p>
+                </div>
               </div>
             </div>
           </div>
-        </EditableSection>
+        </div>
       </section>
 
       {/* FAQ Section */}
       <section id="faq" className="py-20 bg-gray-50">
-        <EditableSection
-          id="faq"
-          title="FAQ Section"
-          content={content.faq}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.faq.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.faq.subtitle}
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              {[1, 2, 3, 4, 5, 6].map((num) => {
-                const questionKey = `question${num}` as keyof typeof content.faq;
-                const answerKey = `answer${num}` as keyof typeof content.faq;
-                const isExpanded = expandedFaq === num;
-                
-                return (
-                  <div key={num} className="bg-white rounded-lg shadow-sm border border-gray-200">
-                    <button
-                      onClick={() => setExpandedFaq(isExpanded ? null : num)}
-                      className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="font-semibold text-gray-900">{content.faq[questionKey]}</span>
-                      {isExpanded ? (
-                        <ChevronUp className="h-5 w-5 text-gray-500" />
-                      ) : (
-                        <ChevronDown className="h-5 w-5 text-gray-500" />
-                      )}
-                    </button>
-                    {isExpanded && (
-                      <div className="px-6 pb-4">
-                        <p className="text-gray-600">{content.faq[answerKey]}</p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="text-center mt-12">
-              <p className="text-gray-600 mb-4">Still have questions?</p>
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Book a Free Consultation
-              </a>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.faq.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.faq.subtitle}
+            </p>
           </div>
-        </EditableSection>
+
+          <div className="space-y-4">
+            {[
+              { question: content.faq.question1, answer: content.faq.answer1 },
+              { question: content.faq.question2, answer: content.faq.answer2 },
+              { question: content.faq.question3, answer: content.faq.answer3 },
+              { question: content.faq.question4, answer: content.faq.answer4 },
+              { question: content.faq.question5, answer: content.faq.answer5 },
+              { question: content.faq.question6, answer: content.faq.answer6 }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors rounded-2xl"
+                >
+                  <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+                  {openFaq === index ? (
+                    <ChevronUp className="h-5 w-5 text-orange-600" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-orange-600" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-8 pb-6">
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Ready to Talk Section */}
-      <section className="py-20 bg-gray-900 text-white">
-        <EditableSection
-          id="readyToTalk"
-          title="Ready to Talk Section"
-          content={content.readyToTalk}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {content.readyToTalk.title}
-              </h2>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                {content.readyToTalk.subtitle}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {/* Phone */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Phone className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.phoneTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.phoneDescription}</p>
-                <a 
-                  href={`tel:${content.readyToTalk.phoneNumber}`}
-                  className="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-                >
-                  {content.readyToTalk.phoneNumber}
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.phoneAvailability}</p>
-              </div>
-
-              {/* WhatsApp */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.whatsappTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.whatsappDescription}</p>
-                <a 
-                  href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-green-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors"
-                >
-                  {content.readyToTalk.whatsappButtonText}
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.whatsappResponse}</p>
-              </div>
-
-              {/* Email */}
-              <div className="bg-gray-800 p-8 rounded-2xl hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1 text-center">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-4">{content.readyToTalk.emailTitle}</h3>
-                <p className="text-gray-300 mb-6">{content.readyToTalk.emailDescription}</p>
-                <a 
-                  href={`mailto:${content.readyToTalk.emailAddress}`}
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Send Email
-                </a>
-                <p className="text-sm text-gray-400 mt-2">{content.readyToTalk.emailResponse}</p>
-              </div>
-            </div>
-
-            {/* Why Talk to Us */}
-            <div className="bg-gray-800 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-center mb-8">{content.readyToTalk.whyTalkTitle}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="text-center">
-                  <Zap className="h-8 w-8 text-yellow-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit1Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit1Description}</p>
-                </div>
-                <div className="text-center">
-                  <Users className="h-8 w-8 text-blue-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit2Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit2Description}</p>
-                </div>
-                <div className="text-center">
-                  <Rocket className="h-8 w-8 text-green-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit3Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit3Description}</p>
-                </div>
-                <div className="text-center">
-                  <Star className="h-8 w-8 text-purple-400 mx-auto mb-3" />
-                  <h4 className="font-semibold mb-2">{content.readyToTalk.benefit4Title}</h4>
-                  <p className="text-gray-300 text-sm">{content.readyToTalk.benefit4Description}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </EditableSection>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <EditableSection
-          id="testimonials"
-          title="Testimonials Section"
-          content={content.testimonials}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {content.testimonials.title}
-              </h2>
-              <p className="text-xl text-gray-600">
-                {content.testimonials.subtitle}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial1Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial1Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial1Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial1Title}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial2Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial2Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial2Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial2Title}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4">
-                  "{content.testimonials.testimonial3Text}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {content.testimonials.testimonial3Name.charAt(0)}
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-gray-900">{content.testimonials.testimonial3Name}</p>
-                    <p className="text-sm text-gray-600">{content.testimonials.testimonial3Title}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </EditableSection>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
-        <EditableSection
-          id="cta"
-          title="CTA Section"
-          content={content.cta}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {content.cta.title}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.readyToTalk.title}
             </h2>
-            <p className="text-xl text-orange-100 mb-8">
-              {content.cta.subtitle}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg flex items-center justify-center"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                {content.cta.primaryButtonText}
-              </a>
-              <a 
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-colors"
-              >
-                {content.cta.secondaryButtonText}
-              </a>
-            </div>
-            <p className="text-orange-100 mt-6 text-sm">
-              {content.cta.urgencyText}
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.readyToTalk.subtitle}
             </p>
           </div>
-        </EditableSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Phone */}
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
+              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Phone className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.phoneTitle}</h3>
+              <p className="text-gray-600 mb-4">{content.readyToTalk.phoneDescription}</p>
+              <a 
+                href={`tel:${content.readyToTalk.phoneNumber}`}
+                className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors block mb-2"
+              >
+                {content.readyToTalk.phoneNumber}
+              </a>
+              <p className="text-sm text-green-600">{content.readyToTalk.phoneAvailability}</p>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
+              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.whatsappTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.readyToTalk.whatsappDescription}</p>
+              <a 
+                href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors inline-flex items-center"
+              >
+                <MessageCircle className="h-5 w-5 mr-2" />
+                {content.readyToTalk.whatsappButtonText}
+              </a>
+              <p className="text-sm text-green-600 mt-4">{content.readyToTalk.whatsappResponse}</p>
+            </div>
+
+            {/* Email */}
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center hover:bg-blue-100 transition-colors">
+              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.emailTitle}</h3>
+              <p className="text-gray-600 mb-4">{content.readyToTalk.emailDescription}</p>
+              <a 
+                href={`mailto:${content.readyToTalk.emailAddress}`}
+                className="text-lg font-semibold text-blue-600 hover:text-blue-700 transition-colors block mb-2"
+              >
+                {content.readyToTalk.emailAddress}
+              </a>
+              <p className="text-sm text-blue-600">{content.readyToTalk.emailResponse}</p>
+            </div>
+          </div>
+
+          {/* Why Talk to Us */}
+          <div className="bg-gray-50 rounded-3xl p-12">
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              {content.readyToTalk.whyTalkTitle}
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Lightbulb className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit1Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit1Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit2Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit2Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit3Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit3Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit4Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit4Description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Your Free Quote</h2>
+            <p className="text-xl text-gray-600">Tell us about your project and we'll get back to you within 24 hours</p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your email address"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your phone number"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    name="business"
+                    value={formData.business}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    placeholder="Enter your business name"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Interested Package *
+                </label>
+                <select
+                  name="package"
+                  value={formData.package}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                >
+                  <option value="">Select a package</option>
+                  <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
+                  <option value="Monthly Lead Generation (₹9,999/month)">Monthly Lead Generation (₹9,999/month)</option>
+                  <option value="Both Packages">Both Packages</option>
+                  <option value="Custom Solution">Custom Solution</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Tell us about your project
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-vertical"
+                  placeholder="Describe your business goals and what you're looking to achieve..."
+                />
+              </div>
+
+              {submitMessage && (
+                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
+                  {submitMessage}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Submitting...' : 'Get My Free Quote →'}
+              </button>
+
+              <div className="text-center">
+                <p className="text-sm text-gray-600">
+                  Or call us directly at{' '}
+                  <a href="tel:+919876543210" className="text-orange-600 font-semibold hover:text-orange-700">
+                    +91 98765 43210
+                  </a>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            {content.cta.title}
+          </h2>
+          <p className="text-xl mb-8 text-orange-100">
+            {content.cta.subtitle}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <a 
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+            >
+              <Calendar className="h-5 w-5 mr-2" />
+              {content.cta.primaryButtonText}
+            </a>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-300"
+            >
+              {content.cta.secondaryButtonText}
+            </button>
+          </div>
+          
+          <p className="text-orange-200 font-semibold animate-pulse">
+            {content.cta.urgencyText}
+          </p>
+        </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-gray-900 text-white py-16">
-        <EditableSection
-          id="footer"
-          title="Footer Section"
-          content={content.footer}
-          onSave={saveContent}
-          isAdmin={isAdminLoggedIn}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center mb-4">
-                  <Palette className="h-8 w-8 text-orange-400" />
-                  <span className="ml-2 text-xl font-bold">Daily Creative Designs</span>
-                </div>
-                <p className="text-gray-400 mb-4">
-                  {content.footer.companyDescription}
-                </p>
-                <div className="flex space-x-4">
-                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">f</span>
-                  </div>
-                  <div className="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">i</span>
-                  </div>
-                  <div className="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold">t</span>
-                  </div>
-                </div>
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="md:col-span-2">
+              <div className="flex items-center mb-6">
+                <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  The Logo Makers
+                </span>
               </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.servicesTitle}</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>{content.footer.service1}</li>
-                  <li>{content.footer.service2}</li>
-                  <li>{content.footer.service3}</li>
-                  <li>{content.footer.service4}</li>
-                  <li>{content.footer.service5}</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.companyTitle}</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-                  <li><a href="#services" className="hover:text-white transition-colors">Our Work</a></li>
-                  <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-                  <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                  <li><button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors text-left">Terms of Service</button></li>
-                  <li><button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors text-left">Privacy Policy</button></li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold mb-4">{content.footer.contactTitle}</h3>
-                <div className="space-y-3 text-gray-400">
-                  <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-2" />
-                    <span>{content.footer.phoneNumber}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-2" />
-                    <span>{content.footer.emailAddress}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2" />
-                    <span>{content.footer.location}</span>
-                  </div>
-                </div>
+              <p className="text-gray-300 mb-6 max-w-md">
+                {content.footer.companyDescription}
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <span className="sr-only">Facebook</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <span className="sr-only">Instagram</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297L3.182 17.635l1.044-1.944c-.8-.875-1.297-2.026-1.297-3.323c0-2.734 2.215-4.949 4.949-4.949s4.949 2.215 4.949 4.949S11.652 16.988 8.449 16.988z"/>
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
               </div>
             </div>
 
-            <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-              <p>{content.footer.copyrightText} • {' '}
-                <button onClick={() => setCurrentPage('terms')} className="hover:text-white transition-colors underline">Terms</button> • {' '}
-                <button onClick={() => setCurrentPage('privacy')} className="hover:text-white transition-colors underline">Privacy</button> • 
-                <button 
-                  onClick={() => setShowAdmin(true)}
-                  className="ml-2 text-gray-500 hover:text-gray-300 underline"
-                >
-                  Admin
-                </button>
-              </p>
+            {/* Services */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">{content.footer.servicesTitle}</h3>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service1}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service2}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service3}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service4}</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service5}</a></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Phone className="h-5 w-5 text-orange-400 mr-3" />
+                  <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
+                    {content.footer.phoneNumber}
+                  </a>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-5 w-5 text-orange-400 mr-3" />
+                  <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
+                    {content.footer.emailAddress}
+                  </a>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="h-5 w-5 text-orange-400 mr-3" />
+                  <span className="text-gray-300">{content.footer.location}</span>
+                </div>
+              </div>
             </div>
           </div>
-        </EditableSection>
+
+          <div className="border-t border-gray-800 mt-12 pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                {content.footer.copyrightText}
+              </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
 }
-
-export default App;
