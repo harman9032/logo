@@ -20,10 +20,14 @@ import {
   ChevronDown,
   ChevronUp,
   Menu,
-  X,
-  ExternalLink
+  X
 } from 'lucide-react';
-
+/**
+ * ExternalLink icon is imported from lucide-react but not used.
+ * To fix the warning, either use it in your code or remove it from the import list.
+ * 
+ * Alternative fix: Remove ExternalLink from the import statement.
+ */
 // Static content - no database needed
 const content = {
   hero: {
@@ -240,15 +244,36 @@ export default function App() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      // Simple form submission without database
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call
+      // Google Sheets script endpoint (replace with your actual script URL)
+      const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1Wx4I-Xy0OkHmtgMaau9IUi14frEJrRhkAZOH1aBOjXU/edit?gid=0#gid=0";
+
+      // Prepare data for Google Sheets
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        business: formData.business,
+        package: formData.package,
+        message: formData.message,
+        timestamp: new Date().toISOString()
+      };
+
+      // Send data to Google Sheets
+      await fetch(GOOGLE_SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      // Simulate API call for UI feedback
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSubmitMessage('Thank you! We\'ll contact you within 24 hours.');
+
+      setSubmitMessage("Thank you! We'll contact you within 24 hours.");
       setFormData({
         name: '',
         email: '',
@@ -257,12 +282,12 @@ export default function App() {
         package: '',
         message: ''
       });
-      
+
       // Redirect to thank you page after 2 seconds
       setTimeout(() => {
         window.location.href = '/thank-you';
       }, 2000);
-      
+
     } catch (error) {
       setSubmitMessage('There was an error. Please try again or contact us directly.');
     } finally {
