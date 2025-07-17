@@ -23,10 +23,8 @@ import {
   Zap,
   Shield,
   Rocket,
-  X,
   Calendar,
   BarChart3,
-  Lightbulb,
   ChevronDown,
   ChevronUp,
   MessageCircle
