@@ -19,8 +19,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  Shield,
-  Clock,
   Award,
   Zap,
   Shield,
