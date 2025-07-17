@@ -21,6 +21,7 @@ import {
   Clock,
   Award,
   Zap,
+  Lightbulb,
   Shield,
   Rocket,
   Calendar,
