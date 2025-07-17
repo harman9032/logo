@@ -312,7 +312,7 @@ const defaultContent: PageContent = {
     adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.",
     adsFeature1: "Campaign Setup",
     adsFeature2: "Audience Targeting",
-    adsFeature3: "Ad Creatives"
+    adsFeature3: "Ad Creatives",
     adsPrice: "Starting at ₹3,999",
     adsDelivery: "3-5 Days",
     packageTitle: "Complete Package",
