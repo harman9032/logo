@@ -422,13 +422,13 @@ export default function App() {
                 
               </h1>
               
-              {/* <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                 {content.hero.subtitle}
-              </p> */}
-              
-              <p className="text-lg text-gray-700 mb-10 leading-relaxed">
-                {content.hero.description}
               </p>
+              
+              {/* <p className="text-lg text-gray-700 mb-10 leading-relaxed">
+                {content.hero.description}
+              </p> */}
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
