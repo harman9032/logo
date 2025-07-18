@@ -1165,7 +1165,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
 
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" netlify>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
