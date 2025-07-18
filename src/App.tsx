@@ -333,7 +333,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                  The Logo Makers
+                  Daily Creative Designs
                 </span>
               </div>
             </div>
@@ -1332,7 +1332,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
                 <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                  The Logo Makers
+                  Daily Creative Designs
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
