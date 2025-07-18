@@ -422,9 +422,9 @@ export default function App() {
                 
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+              {/* <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
                 {content.hero.subtitle}
-              </p>
+              </p> */}
               
               <p className="text-lg text-gray-700 mb-10 leading-relaxed">
                 {content.hero.description}
@@ -451,7 +451,7 @@ export default function App() {
               </div>
 
               {/* Value Propositions */}
-              <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-center">
                 <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
                   <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
                   <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition1Value}</div>
