@@ -211,7 +211,7 @@ const content = {
     service5: "SEO Optimization",
     companyTitle: "Company",
     contactTitle: "Contact Info",
-    phoneNumber: "+91 98765 43210",
+    phoneNumber: "+91 78373 19660",
     emailAddress: "hello@dailycreativedesigns.com",
     location: "Mumbai, India",
     copyrightText: "© 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017"
@@ -241,53 +241,64 @@ export default function App() {
     });
   };
 
+  // HubSpot Form Submission Handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitMessage('');
 
     try {
-      // Google Sheets script endpoint (replace with your actual script URL)
-      const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1Wx4I-Xy0OkHmtgMaau9IUi14frEJrRhkAZOH1aBOjXU/edit?gid=0#gid=0";
+      // Replace with your HubSpot portal ID and form GUID
+      const HUBSPOT_PORTAL_ID = "242481138";
+const HUBSPOT_FORM_GUID = "e103e55b-f0e9-42de-82a8-285e7a94c4f3";
+const HUBSPOT_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
 
-      // Prepare data for Google Sheets
-      const payload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        business: formData.business,
-        package: formData.package,
-        message: formData.message,
-        timestamp: new Date().toISOString()
+
+      // Prepare HubSpot fields
+      const fields = [
+        { name: "firstname", value: formData.name },
+        { name: "email", value: formData.email },
+        { name: "hs_whatsapp_phone_number", value: formData.phone },
+        { name: "company", value: formData.business },
+        { name: "package", value: formData.package },
+        { name: "message", value: formData.message }
+      ];
+
+      // Optionally, you can add context (e.g., pageUri, pageName)
+      const context = {
+        pageUri: window.location.href,
+        pageName: document.title
       };
 
-      // Send data to Google Sheets
-      await fetch(GOOGLE_SHEET_URL, {
+      const payload = {
+        fields,
+        context
+      };
+
+      const response = await fetch(HUBSPOT_URL, {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(payload)
       });
 
-      // Simulate API call for UI feedback
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      setSubmitMessage("Thank you! We'll contact you within 24 hours.");
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        business: '',
-        package: '',
-        message: ''
-      });
-
-      // Redirect to thank you page after 2 seconds
-      setTimeout(() => {
-        window.location.href = '/thank-you';
-      }, 2000);
-
+      if (response.ok) {
+        setSubmitMessage("Thank you! We'll contact you within 24 hours.");
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          business: '',
+          package: '',
+          message: ''
+        });
+        setTimeout(() => {
+          window.location.href = '/thank-you';
+        }, 2000);
+      } else {
+        setSubmitMessage('There was an error. Please try again or contact us directly.');
+      }
     } catch (error) {
       setSubmitMessage('There was an error. Please try again or contact us directly.');
     } finally {
@@ -684,7 +695,7 @@ export default function App() {
                 <span className="font-semibold">Best Value</span>
               </div>
               
-              <h3 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h3>
+              <h2 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h2>
               <p className="text-xl mb-2">{content.services.packageSubtitle}</p>
               <p className="text-orange-100 mb-8 max-w-2xl mx-auto">{content.services.packageDescription}</p>
               
@@ -1068,7 +1079,7 @@ export default function App() {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.whatsappTitle}</h3>
               <p className="text-gray-600 mb-6">{content.readyToTalk.whatsappDescription}</p>
               <a 
-                href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
+                href="https://wa.me/917837319660?text=Hi, I'm interested in your digital marketing services"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors inline-flex items-center"
@@ -1224,6 +1235,7 @@ export default function App() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
                 >
                   <option value="">Select a package</option>
+                  <option value="Free Bonus">Free Bonus</option>
                   <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
                   <option value="Monthly Lead Generation (₹9,999/month)">Monthly Lead Generation (₹9,999/month)</option>
                   <option value="Both Packages">Both Packages</option>
@@ -1262,8 +1274,8 @@ export default function App() {
               <div className="text-center">
                 <p className="text-sm text-gray-600">
                   Or call us directly at{' '}
-                  <a href="tel:+919876543210" className="text-orange-600 font-semibold hover:text-orange-700">
-                    +91 98765 43210
+                  <a href="tel:+917837319660" className="text-orange-600 font-semibold hover:text-orange-700">
+                    +91 78373 19660
                   </a>
                 </p>
               </div>
