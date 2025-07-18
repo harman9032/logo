@@ -241,70 +241,76 @@ export default function App() {
     });
   };
 
-  // HubSpot Form Submission Handler
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage('');
+// HubSpot Form Submission Handler
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitMessage('');
 
-    try {
-      // Replace with your HubSpot portal ID and form GUID
-      const HUBSPOT_PORTAL_ID = "242481138";
-const HUBSPOT_FORM_GUID = "e103e55b-f0e9-42de-82a8-285e7a94c4f3";
-const HUBSPOT_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
+  try {
+    // Replace with your HubSpot portal ID and form GUID
+    const HUBSPOT_PORTAL_ID = "242481138";
+    const HUBSPOT_FORM_GUID = "e103e55b-f0e9-42de-82a8-285e7a94c4f3";
+    const HUBSPOT_URL = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`;
 
+    // Prepare HubSpot fields (field names must match your HubSpot form)
+    const fields = [
+      { name: "firstname", value: formData.name },
+      { name: "email", value: formData.email },
+      { name: "hs_whatsapp_phone_number", value: formData.phone },
+      { name: "company", value: formData.business },
+      { name: "package", value: formData.package },
+      { name: "message", value: formData.message }
+    ];
 
-      // Prepare HubSpot fields
-      const fields = [
-        { name: "firstname", value: formData.name },
-        { name: "email", value: formData.email },
-        { name: "hs_whatsapp_phone_number", value: formData.phone },
-        { name: "company", value: formData.business },
-        { name: "package", value: formData.package },
-        { name: "message", value: formData.message }
-      ];
+    // Optionally, you can add context (e.g., pageUri, pageName)
+    const context = {
+      pageUri: window.location.href,
+      pageName: document.title
+    };
 
-      // Optionally, you can add context (e.g., pageUri, pageName)
-      const context = {
-        pageUri: window.location.href,
-        pageName: document.title
-      };
+    const payload = {
+      fields,
+      context
+    };
 
-      const payload = {
-        fields,
-        context
-      };
+    const response = await fetch(HUBSPOT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
 
-      const response = await fetch(HUBSPOT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+    if (response.ok) {
+      setSubmitMessage("Thank you! We'll contact you within 24 hours.");
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        business: '',
+        package: '',
+        message: ''
       });
-
-      if (response.ok) {
-        setSubmitMessage("Thank you! We'll contact you within 24 hours.");
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          business: '',
-          package: '',
-          message: ''
-        });
-        setTimeout(() => {
-          window.location.href = '/thank-you';
-        }, 2000);
-      } else {
-        setSubmitMessage('There was an error. Please try again or contact us directly.');
-      }
-    } catch (error) {
-      setSubmitMessage('There was an error. Please try again or contact us directly.');
-    } finally {
-      setIsSubmitting(false);
+      setTimeout(() => {
+        window.location.href = '/thank-you';
+      }, 2000);
+    } else {
+      const errorData = await response.json();
+      setSubmitMessage(
+        errorData?.message ||
+          'There was an error. Please try again or contact us directly.'
+      );
     }
-  };
+  } catch (error: any) {
+    setSubmitMessage(
+      error?.message ||
+        'There was an error. Please try again or contact us directly.'
+    );
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
