@@ -23,6 +23,11 @@ import {
   X,
   Send
 } from 'lucide-react';
+declare module "react" {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    netlify?: boolean;
+  }
+};
 /**
  * ExternalLink icon is imported from lucide-react but not used.
  * To fix the warning, either use it in your code or remove it from the import list.
@@ -242,13 +247,40 @@ export default function App() {
     });
   };
 
-// HubSpot Form Submission Handler
+// HubSpot Form Submission Handler with reCAPTCHA v2 verification
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setIsSubmitting(true);
   setSubmitMessage('');
 
   try {
+    // Get reCAPTCHA response token
+    // @ts-ignore
+    const recaptchaToken = window.grecaptcha?.getResponse();
+    if (!recaptchaToken) {
+      setSubmitMessage('Please complete the reCAPTCHA.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Verify reCAPTCHA token with Google
+    const recaptchaSecret = "6Lc1oZ0UAAAAADtekDZqR1hK5C6aIuMjf69qfn1q";
+    const verifyResponse = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `secret=${recaptchaSecret}&response=${recaptchaToken}`
+    });
+    const verifyData = await verifyResponse.json();
+    if (!verifyData.success) {
+      setSubmitMessage('reCAPTCHA verification failed. Please try again.');
+      setIsSubmitting(false);
+      // @ts-ignore
+      window.grecaptcha?.reset();
+      return;
+    }
+
     // Replace with your HubSpot portal ID and form GUID
     const HUBSPOT_PORTAL_ID = "242481138";
     const HUBSPOT_FORM_GUID = "e103e55b-f0e9-42de-82a8-285e7a94c4f3";
@@ -293,6 +325,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         package: '',
         message: ''
       });
+      // @ts-ignore
+      window.grecaptcha?.reset();
       setTimeout(() => {
         window.location.href = '/thank-you';
       }, 2000);
@@ -302,12 +336,16 @@ const handleSubmit = async (e: React.FormEvent) => {
         errorData?.message ||
           'There was an error. Please try again or contact us directly.'
       );
+      // @ts-ignore
+      window.grecaptcha?.reset();
     }
   } catch (error: any) {
     setSubmitMessage(
       error?.message ||
         'There was an error. Please try again or contact us directly.'
     );
+    // @ts-ignore
+    window.grecaptcha?.reset();
   } finally {
     setIsSubmitting(false);
   }
@@ -489,113 +527,120 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
 
             {/* Right Column - What You'll Learn */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-orange-100">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-orange-100">         
+              
+               
+              <div className="text-center mb-6">
+                 <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 {content.hero.learningTitle}
               </h2>
-              
-               <div className="bg-white rounded-2xl shadow-xl p-8">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Quote</h3>
                 <p className="text-gray-600">Fill out the form and we'll get back to you within 24 hours</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Full Name *
+                  Full Name *
                   </label>
                   <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="Enter your full name"
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address *
+                  Email Address *
                   </label>
                   <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="Enter your email address"
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your email address"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                    Phone Number *
+                  Phone Number *
                   </label>
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="Enter your phone number"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your phone number"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="business" className="block text-sm font-medium text-gray-700 mb-1">
-                    Business Name
+                  Business Name
                   </label>
                   <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    value={formData.business}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="Enter your business name"
+                  type="text"
+                  id="business"
+                  name="business"
+                  value={formData.business}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Enter your business name"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-1">
-                    Interested Package *
+                  Interested Package *
                   </label>
                   <select
-                    id="package"
-                    name="package"
-                    value={formData.package}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  id="package"
+                  name="package"
+                  value={formData.package}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                   >
-                    <option value="">Select a package</option>
-                    <option value="complete">Complete Package (₹9,999 one-time)</option>
-                    <option value="monthly">Monthly Lead Generation (₹9,999/month)</option>
-                    <option value="both">Both Packages</option>
+                  <option value="">Select a package</option>
+                  <option value="complete">Complete Package (₹9,999 one-time)</option>
+                  <option value="monthly">Monthly Lead Generation (₹9,999/month)</option>
+                  <option value="both">Both Packages</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Additional Message
+                  Additional Message
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell us about your business goals..."
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  placeholder="Tell us about your business goals..."
                   />
+                </div>
+
+                {/* reCAPTCHA v2 */}
+                <div className="flex justify-center">
+                  <div
+                  className="g-recaptcha"
+                  data-sitekey="6Lc1oZ0UAAAAAApCZDmd_UtlZVj4W7ZGgTZOPNBF"
+                  ></div>
                 </div>
 
                 <button
@@ -604,23 +649,25 @@ const handleSubmit = async (e: React.FormEvent) => {
                   className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Submitting...
-                    </>
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Submitting...
+                  </>
                   ) : (
-                    <>
-                      Get My Digital Package
-                      <Send className="w-5 h-5 ml-2" />
-                    </>
+                  <>
+                    Get My Digital Package
+                    <Send className="w-5 h-5 ml-2" />
+                  </>
                   )}
                 </button>
                 {submitMessage && !isSubmitting && (
                   <div className={`bg-green-50 border border-green-200 rounded-lg p-4 text-green-800 text-center`}>
-                    {submitMessage}
+                  {submitMessage}
                   </div>
                 )}
-              </form>
+                </form>
+                {/* reCAPTCHA v2 script */}
+                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
               {/* Bonus Section */}
               <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
@@ -643,7 +690,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   {content.hero.bonusUrgency}
                 </p>
               </div>
-            </div>
+           
           </div>
         </div>
         </div>
@@ -1255,123 +1302,131 @@ const handleSubmit = async (e: React.FormEvent) => {
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-6" netlify>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                    placeholder="Enter your email address"
-                  />
-                </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Full Name *
+                </label>
+                <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                placeholder="Enter your full name"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Email Address *
+                </label>
+                <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                placeholder="Enter your email address"
+                />
+              </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                    placeholder="Enter your phone number"
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    name="business"
-                    value={formData.business}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                    placeholder="Enter your business name"
-                  />
-                </div>
-              </div>
-
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Interested Package *
+                Phone Number *
                 </label>
-                <select
-                  name="package"
-                  value={formData.package}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
-                >
-                  <option value="">Select a package</option>
-                  <option value="Free Bonus">Free Bonus</option>
-                  <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
-                  <option value="Monthly Lead Generation (₹9,999/month)">Monthly Lead Generation (₹9,999/month)</option>
-                  <option value="Both Packages">Both Packages</option>
-                  <option value="Custom Solution">Custom Solution</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Tell us about your project
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-vertical"
-                  placeholder="Describe your business goals and what you're looking to achieve..."
+                <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                placeholder="Enter your phone number"
                 />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Business Name
+                </label>
+                <input
+                type="text"
+                name="business"
+                value={formData.business}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                placeholder="Enter your business name"
+                />
+              </div>
+              </div>
+
+              <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Interested Package *
+              </label>
+              <select
+                name="package"
+                value={formData.package}
+                onChange={handleInputChange}
+                required
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+              >
+                <option value="">Select a package</option>
+                <option value="Free Bonus">Free Bonus</option>
+                <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
+                <option value="Monthly Lead Generation (₹9,999/month)">Monthly Lead Generation (₹9,999/month)</option>
+                <option value="Both Packages">Both Packages</option>
+                <option value="Custom Solution">Custom Solution</option>
+              </select>
+              </div>
+
+              <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                Tell us about your project
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows={4}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-vertical"
+                placeholder="Describe your business goals and what you're looking to achieve..."
+              />
+              </div>
+
+              {/* reCAPTCHA v2 */}
+              <div className="flex justify-center">
+              <div
+                className="g-recaptcha"
+                data-sitekey="6Lc1oZ0UAAAAAApCZDmd_UtlZVj4W7ZGgTZOPNBF"
+              ></div>
               </div>
 
               {submitMessage && (
-                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
-                  {submitMessage}
-                </div>
+              <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
+                {submitMessage}
+              </div>
               )}
 
               <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Submitting...' : 'Get My Free Quote →'}
+              {isSubmitting ? 'Submitting...' : 'Get My Free Quote →'}
               </button>
 
               <div className="text-center">
-                <p className="text-sm text-gray-600">
-                  Or call us directly at{' '}
-                  <a href="tel:+917837319660" className="text-orange-600 font-semibold hover:text-orange-700">
-                    +91 78373 19660
-                  </a>
-                </p>
+              <p className="text-sm text-gray-600">
+                Or call us directly at{' '}
+                <a href="tel:+917837319660" className="text-orange-600 font-semibold hover:text-orange-700">
+                +91 78373 19660
+                </a>
+              </p>
               </div>
             </form>
           </div>
