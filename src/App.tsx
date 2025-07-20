@@ -367,7 +367,7 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsMenuOpen(false);
   };
 
-  export default function App() {
+export default function App() {
   return (
     <Router>
       <Routes>
