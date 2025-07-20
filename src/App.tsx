@@ -28,6 +28,10 @@ declare module "react" {
     netlify?: boolean;
   }
 };
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ThankYou from '/components/ThankYou';
+import PrivacyPolicy from '/components/PrivacyPolicy';
+import Terms from '/components/Terms';
 /**
  * ExternalLink icon is imported from lucide-react but not used.
  * To fix the warning, either use it in your code or remove it from the import list.
@@ -51,7 +55,7 @@ const content = {
   "valueProposition3": "7 Days",
   "valueProposition3Value": "Complete Setup",
   "valueProposition3Desc": "Go Live & Get Clients in Just 1 Week",
-  "learningTitle": "What You’ll Learn in This FREE Call",
+  "learningTitle": "What You'll Learn in This FREE Call",
   "learningPoint1Title": "The 100+ Lead Generation System",
   "learningPoint1Desc": "Our proven method to generate predictable, high-quality leads month after month",
   "learningPoint2Title": "Revenue Multiplier Strategy",
@@ -224,7 +228,7 @@ const content = {
   }
 };
 
-export default function App() {
+function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
@@ -1554,4 +1558,10 @@ const handleSubmit = async (e: React.FormEvent) => {
       </footer>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+
+export default App;
+>>>>>>> c1d6ab22ab37ee577509292eb8b62c2eec162e15
