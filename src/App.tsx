@@ -29,9 +29,9 @@ declare module "react" {
   }
 };
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ThankYou from '/components/ThankYou';
-import PrivacyPolicy from '/components/PrivacyPolicy';
-import Terms from '/components/Terms';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ThankYou from './components/ThankYou';
+import Terms from './components/Terms';
 /**
  * ExternalLink icon is imported from lucide-react but not used.
  * To fix the warning, either use it in your code or remove it from the import list.
@@ -1558,10 +1558,4 @@ const handleSubmit = async (e: React.FormEvent) => {
       </footer>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
-
-export default App;
->>>>>>> c1d6ab22ab37ee577509292eb8b62c2eec162e15
