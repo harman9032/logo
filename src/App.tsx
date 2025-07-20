@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Phone, 
   Mail, 
@@ -34,19 +34,23 @@ import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
 /**
  * ExternalLink icon is imported from lucide-react but not used.
- * To fix the warning, either use it in your code or remove it from the import list.
- * 
- * Alternative fix: Remove ExternalLink from the import statement.
- */
-// Static content - no database needed
-const content = {
-  hero: {
-  "title": "We Build Landing Pages & Ads That Convert Traffic Into Paying Clients",
-  "subtitle": "Book a FREE 30-Minute Strategy Session (Worth ₹2,999)",
-  "description": "Discover the exact system we use to deliver high-quality leads to businesses like yours—consistently, predictably, and affordably.",
-  "ctaText": "Book My FREE Call Now",
-  "badgeText": "8 Years of Excellence • 1000+ Happy Clients • Since 2017",
   "valueProposition1": "100+",
+  const location = useLocation();
+  
+  // Show only the specific page component for routes
+  if (location.pathname === '/privacy-policy') {
+    return <PrivacyPolicy />;
+  }
+  
+  if (location.pathname === '/terms') {
+    return <Terms />;
+  }
+  
+  if (location.pathname === '/thank-you') {
+    return <ThankYou />;
+  }
+  
+  // Main landing page
   "valueProposition1Value": "Quality Leads Monthly",
   "valueProposition1Desc": "Guaranteed Results with Every Project",
   "valueProposition2": "5X",
@@ -367,6 +371,17 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsMenuOpen(false);
   };
 
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/thank-you" element={<ThankYou />} />
+    </Routes>
+  );
+}
+
+function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -1572,15 +1587,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <Link to="/thank-you" className="hover:text-white transition-colors">
                 Thank You
               </Link>
-            </div>
-          </div>
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-        </div>
-      </div>
     </div>
   );
-}
 
 export default App;
