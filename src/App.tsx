@@ -28,6 +28,10 @@ declare module "react" {
     netlify?: boolean;
   }
 };
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ThankYou from '/components/ThankYou';
+import PrivacyPolicy from '/components/PrivacyPolicy';
+import Terms from '/components/Terms';
 /**
  * ExternalLink icon is imported from lucide-react but not used.
  * To fix the warning, either use it in your code or remove it from the import list.
@@ -363,7 +367,15 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsMenuOpen(false);
   };
 
+  export default function App() {
   return (
+    <Router>
+      <Routes>
+        <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/" element={
+
     <div className="min-h-screen bg-white">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
@@ -1553,5 +1565,8 @@ const handleSubmit = async (e: React.FormEvent) => {
         </div>
       </footer>
     </div>
+  } />
+      </Routes>
+    </Router>
   );
 }
