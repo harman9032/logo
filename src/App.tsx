@@ -32,9 +32,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import ThankYou from './components/ThankYou';
-import Terms from './components/Terms';
 /**
  * ExternalLink icon is imported from lucide-react but not used.
  * To fix the warning, either use it in your code or remove it from the import list.
