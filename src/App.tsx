@@ -30,6 +30,9 @@ declare module "react" {
 }
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
+import ThankYou from './components/ThankYou';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import ThankYou from './components/ThankYou';
 import Terms from './components/Terms';
 /**
@@ -1556,6 +1559,29 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
         </div>
       </footer>
+      
+      {/* Legal Footer */}
+      <div className="bg-gray-900 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-sm text-gray-400">
+            <p>&copy; 2025 Daily Creative Designs. All rights reserved.</p>
+            <div className="flex space-x-6 mt-2 sm:mt-0">
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:text-white transition-colors">
+                Terms & Conditions
+              </Link>
+              <Link to="/thank-you" className="hover:text-white transition-colors">
+                Thank You
+              </Link>
+            </div>
+          </div>
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/thank-you" element={<ThankYou />} />
+        </div>
+      </div>
     </div>
   );
 }
