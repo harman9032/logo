@@ -23,6 +23,7 @@ import {
   X,
   Send
 } from 'lucide-react';
+import { useState } from 'react';
 declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     netlify?: boolean;
@@ -32,50 +33,43 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
+
+const content = {
+  hero: {
+    badgeText: "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
+    title: "Get 100+ Quality Leads Monthly",
+    subtitle: "Transform Your Business with Our Complete Digital Package",
+    description: "Professional Logo + High-Converting Landing Page + Meta Ads Setup - Everything you need to attract customers and grow your revenue.",
+    ctaText: "Book FREE Strategy Call (Worth ₹2,999)",
 /**
  * ExternalLink icon is imported from lucide-react but not used.
-  "valueProposition1": "100+",
-  const location = useLocation();
-  
-  // Show only the specific page component for routes
-  if (location.pathname === '/privacy-policy') {
-    return <PrivacyPolicy />;
-  }
-  
-  if (location.pathname === '/terms') {
-    return <Terms />;
-  }
-  
-  if (location.pathname === '/thank-you') {
-    return <ThankYou />;
-  }
-  
-  // Main landing page
-  "valueProposition1Value": "Quality Leads Monthly",
-  "valueProposition1Desc": "Guaranteed Results with Every Project",
-  "valueProposition2": "5X",
-  "valueProposition2Value": "Revenue Growth",
-  "valueProposition2Desc": "Average Growth Seen by Our Clients",
-  "valueProposition3": "7 Days",
-  "valueProposition3Value": "Complete Setup",
-  "valueProposition3Desc": "Go Live & Get Clients in Just 1 Week",
-  "learningTitle": "What You'll Learn in This FREE Call",
-  "learningPoint1Title": "The 100+ Lead Generation System",
-  "learningPoint1Desc": "Our proven method to generate predictable, high-quality leads month after month",
-  "learningPoint2Title": "Revenue Multiplier Strategy",
-  "learningPoint2Desc": "How to scale your business with client-converting digital assets",
-  "learningPoint3Title": "Quality Lead Attraction",
-  "learningPoint3Desc": "Attract the right audience that is ready to buy",
-  "learningPoint4Title": "7-Day Launch Blueprint",
-  "learningPoint4Desc": "How we set up your system so you're ready to get leads within a week",
-  "bonusTitle": "🎁 FREE BONUS WORTH ₹4,999!",
-  "bonusSubtitle": "✅ Lead Generation Checklist + ✅ Ready-Made Ad Templates + ✅ High-Converting Landing Page Guide",
-  "bonusItems": "Get our exclusive Lead Gen Toolkit – Templates, Checklists, and a Complete Step-by-Step Guide (Worth ₹4,999)",
-  "bonusUrgency": "⚡ Limited Offer: Only 10 Free Sessions Available This Week!",
-  "instantBonusText": "💡 INSTANT BONUS:",
-  "heroBackgroundText": "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
-  "heroCalloutText": "Transform Traffic into Clients with a Done-For-You Growth System"
-},
+ */
+    valueProposition1: "100+",
+    valueProposition1Value: "Quality Leads Monthly",
+    valueProposition1Desc: "Guaranteed Results with Every Project",
+    valueProposition2: "5X",
+    valueProposition2Value: "Revenue Growth",
+    valueProposition2Desc: "Average Growth Seen by Our Clients",
+    valueProposition3: "7 Days",
+    valueProposition3Value: "Complete Setup",
+    valueProposition3Desc: "Go Live & Get Clients in Just 1 Week",
+    learningTitle: "What You'll Learn in This FREE Call",
+    learningPoint1Title: "The 100+ Lead Generation System",
+    learningPoint1Desc: "Our proven method to generate predictable, high-quality leads month after month",
+    learningPoint2Title: "Revenue Multiplier Strategy",
+    learningPoint2Desc: "How to scale your business with client-converting digital assets",
+    learningPoint3Title: "Quality Lead Attraction",
+    learningPoint3Desc: "Attract the right audience that is ready to buy",
+    learningPoint4Title: "7-Day Launch Blueprint",
+    learningPoint4Desc: "How we set up your system so you're ready to get leads within a week",
+    bonusTitle: "🎁 FREE BONUS WORTH ₹4,999!",
+    bonusSubtitle: "✅ Lead Generation Checklist + ✅ Ready-Made Ad Templates + ✅ High-Converting Landing Page Guide",
+    bonusItems: "Get our exclusive Lead Gen Toolkit – Templates, Checklists, and a Complete Step-by-Step Guide (Worth ₹4,999)",
+    bonusUrgency: "⚡ Limited Offer: Only 10 Free Sessions Available This Week!",
+    instantBonusText: "💡 INSTANT BONUS:",
+    heroBackgroundText: "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
+    heroCalloutText: "Transform Traffic into Clients with a Done-For-You Growth System"
+  },
   services: {
     title: "Complete Digital Package",
     subtitle: "Everything you need to establish a strong online presence and attract customers",
@@ -233,6 +227,33 @@ import ThankYou from './components/ThankYou';
 };
 
 function App() {
+  const location = useLocation();
+  
+  // Show only the specific page component for routes
+  if (location.pathname === '/privacy-policy') {
+    return <PrivacyPolicy />;
+  }
+  
+  if (location.pathname === '/terms') {
+    return <Terms />;
+  }
+  
+  if (location.pathname === '/thank-you') {
+    return <ThankYou />;
+  }
+  
+  // Main landing page
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/thank-you" element={<ThankYou />} />
+    </Routes>
+  );
+}
+
+function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
@@ -371,17 +392,6 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsMenuOpen(false);
   };
 
-  return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<Terms />} />
-      <Route path="/thank-you" element={<ThankYou />} />
-    </Routes>
-  );
-}
-
-function LandingPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -1587,7 +1597,12 @@ function LandingPage() {
               <Link to="/thank-you" className="hover:text-white transition-colors">
                 Thank You
               </Link>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
+}
 
 export default App;
