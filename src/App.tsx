@@ -27,7 +27,7 @@ declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     netlify?: boolean;
   }
-};
+}
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ThankYou from '/components/ThankYou';
 import PrivacyPolicy from '/components/PrivacyPolicy';
@@ -55,7 +55,7 @@ const content = {
   "valueProposition3": "7 Days",
   "valueProposition3Value": "Complete Setup",
   "valueProposition3Desc": "Go Live & Get Clients in Just 1 Week",
-  "learningTitle": "What You’ll Learn in This FREE Call",
+  "learningTitle": "What You'll Learn in This FREE Call",
   "learningPoint1Title": "The 100+ Lead Generation System",
   "learningPoint1Desc": "Our proven method to generate predictable, high-quality leads month after month",
   "learningPoint2Title": "Revenue Multiplier Strategy",
@@ -228,7 +228,7 @@ const content = {
   }
 };
 
-export default function App() {
+function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
@@ -367,7 +367,6 @@ const handleSubmit = async (e: React.FormEvent) => {
     setIsMenuOpen(false);
   };
 
-export default function App() {
   return (
     <Router>
       <Routes>
@@ -1570,3 +1569,5 @@ export default function App() {
     </Router>
   );
 }
+
+export default App;
