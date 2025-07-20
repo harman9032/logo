@@ -27,7 +27,7 @@ declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     netlify?: boolean;
   }
-};
+}
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ThankYou from './components/ThankYou';
@@ -1558,3 +1558,6 @@ const handleSubmit = async (e: React.FormEvent) => {
       </footer>
     </div>
   );
+}
+
+export default App;
