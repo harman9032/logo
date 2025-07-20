@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Terms() {
+export default function Terms() { 
   return (
     <div className="min-h-screen bg-white px-4 py-16">
       <div className="max-w-4xl mx-auto">

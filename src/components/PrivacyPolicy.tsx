@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function PrivacyPolicy() {
+export default function PrivacyPolicy() { 
   return (
     <div className="min-h-screen bg-white px-4 py-16">
       <div className="max-w-4xl mx-auto">
