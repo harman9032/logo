@@ -28,7 +28,7 @@ declare module "react" {
     netlify?: boolean;
   }
 }
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
