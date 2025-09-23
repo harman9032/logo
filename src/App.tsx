@@ -1383,7 +1383,7 @@ export default function App() {
           
           {/* Get Free Consultation Button */}
           <a
-            href="https://tidycal.com/your-link"
+            href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 flex items-center justify-center font-semibold transition-colors duration-200"
