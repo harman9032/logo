@@ -534,4 +534,778 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Logo Design */}
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <Lightbulb className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.logoDescription}</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.logoFeature3}</span>
+                </li>
+              </ul>
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <div className="text-3xl font-bold text-green-600">{content.services.logoPrice}</div>
+                  <div className="text-sm text-gray-500">{content.services.logoDelivery}</div>
+                </div>
+              </div>
+              <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+
+            {/* Landing Page */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.landingDescription}</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.landingFeature3}</span>
+                </li>
+              </ul>
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <div className="text-3xl font-bold text-green-600">{content.services.landingPrice}</div>
+                  <div className="text-sm text-gray-500">{content.services.landingDelivery}</div>
+                </div>
+              </div>
+              <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+
+            {/* Meta Ads */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.services.adsDescription}</p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.services.adsFeature3}</span>
+                </li>
+              </ul>
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <div className="text-3xl font-bold text-green-600">{content.services.adsPrice}</div>
+                  <div className="text-sm text-gray-500">{content.services.adsDelivery}</div>
+                </div>
+              </div>
+              <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300">
+                Get Started
+              </button>
+            </div>
+          </div>
+
+          {/* Complete Package */}
+          <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-3xl p-12 text-white text-center shadow-2xl">
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h3>
+              <p className="text-xl mb-2">{content.services.packageSubtitle}</p>
+              <p className="text-lg mb-8 opacity-90">{content.services.packageDescription}</p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-8">
+                <div className="text-center">
+                  <div className="text-5xl font-bold mb-2">{content.services.packagePrice}</div>
+                  <div className="text-lg opacity-90">{content.services.packageDelivery}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg font-semibold mb-2">{content.services.guaranteeText}</div>
+                  <div className="text-lg opacity-90">{content.services.supportText}</div>
+                </div>
+              </div>
+              
+              <button className="bg-white text-green-600 px-12 py-4 rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg">
+                {content.services.packageButtonText}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.whyChoose.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.whyChoose.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Clock className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason1Description}</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason2Description}</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <BarChart3 className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason3Description}</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
+              <p className="text-gray-600">{content.whyChoose.reason4Description}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.pricing.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.pricing.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Starter Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.pricing.starterTitle}</h3>
+              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.starterPrice}</div>
+              <p className="text-gray-600 mb-8">{content.pricing.starterDescription}</p>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature3}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature4}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.starterFeature5}</span>
+                </li>
+              </ul>
+              
+              <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-all duration-300">
+                {content.pricing.starterButtonText}
+              </button>
+            </div>
+
+            {/* Professional Package */}
+            <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-2xl p-8 shadow-2xl text-white relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-yellow-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-bold">
+                  {content.pricing.professionalBadgeText}
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4">{content.pricing.professionalTitle}</h3>
+              <div className="text-4xl font-bold mb-2">{content.pricing.professionalPrice}</div>
+              <p className="opacity-90 mb-8">{content.pricing.professionalDescription}</p>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-200 mr-3" />
+                  <span>{content.pricing.professionalFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-200 mr-3" />
+                  <span>{content.pricing.professionalFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-200 mr-3" />
+                  <span>{content.pricing.professionalFeature3}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-200 mr-3" />
+                  <span>{content.pricing.professionalFeature4}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-200 mr-3" />
+                  <span>{content.pricing.professionalFeature5}</span>
+                </li>
+              </ul>
+              
+              <button className="w-full bg-white text-green-600 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300">
+                {content.pricing.professionalButtonText}
+              </button>
+            </div>
+
+            {/* Enterprise Package */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.pricing.enterpriseTitle}</h3>
+              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.enterprisePrice}</div>
+              <p className="text-gray-600 mb-8">{content.pricing.enterpriseDescription}</p>
+              
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
+                </li>
+              </ul>
+              
+              <button className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-all duration-300">
+                {content.pricing.enterpriseButtonText}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.testimonials.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.testimonials.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"{content.testimonials.testimonial1Text}"</p>
+              <div>
+                <div className="font-semibold text-gray-900">{content.testimonials.testimonial1Name}</div>
+                <div className="text-gray-600 text-sm">{content.testimonials.testimonial1Title}</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"{content.testimonials.testimonial2Text}"</p>
+              <div>
+                <div className="font-semibold text-gray-900">{content.testimonials.testimonial2Name}</div>
+                <div className="text-gray-600 text-sm">{content.testimonials.testimonial2Title}</div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <p className="text-gray-700 mb-6 italic">"{content.testimonials.testimonial3Text}"</p>
+              <div>
+                <div className="font-semibold text-gray-900">{content.testimonials.testimonial3Name}</div>
+                <div className="text-gray-600 text-sm">{content.testimonials.testimonial3Title}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.faq.title}
+            </h2>
+            <p className="text-xl text-gray-600">
+              {content.faq.subtitle}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { question: content.faq.question1, answer: content.faq.answer1 },
+              { question: content.faq.question2, answer: content.faq.answer2 },
+              { question: content.faq.question3, answer: content.faq.answer3 },
+              { question: content.faq.question4, answer: content.faq.answer4 },
+              { question: content.faq.question5, answer: content.faq.answer5 },
+              { question: content.faq.question6, answer: content.faq.answer6 }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors"
+                >
+                  <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+                  {openFaq === index ? (
+                    <ChevronUp className="h-5 w-5 text-green-600" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-green-600" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-8 pb-6">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ready to Talk Section */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              {content.readyToTalk.title}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {content.readyToTalk.subtitle}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Phone */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Phone className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.readyToTalk.phoneTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.readyToTalk.phoneDescription}</p>
+              <a 
+                href={`tel:${content.readyToTalk.phoneNumber}`}
+                className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors block mb-2"
+              >
+                {content.readyToTalk.phoneNumber}
+              </a>
+              <p className="text-sm text-gray-500">{content.readyToTalk.phoneAvailability}</p>
+            </div>
+
+            {/* WhatsApp */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <MessageCircle className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.readyToTalk.whatsappTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.readyToTalk.whatsappDescription}</p>
+              <a 
+                href={`https://wa.me/917837319660`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors inline-block mb-2"
+              >
+                {content.readyToTalk.whatsappButtonText}
+              </a>
+              <p className="text-sm text-gray-500">{content.readyToTalk.whatsappResponse}</p>
+            </div>
+
+            {/* Email */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Mail className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.readyToTalk.emailTitle}</h3>
+              <p className="text-gray-600 mb-6">{content.readyToTalk.emailDescription}</p>
+              <a 
+                href={`mailto:${content.readyToTalk.emailAddress}`}
+                className="text-lg font-semibold text-green-600 hover:text-green-700 transition-colors block mb-2"
+              >
+                {content.readyToTalk.emailAddress}
+              </a>
+              <p className="text-sm text-gray-500">{content.readyToTalk.emailResponse}</p>
+            </div>
+          </div>
+
+          {/* Why Talk Benefits */}
+          <div className="bg-white rounded-3xl p-12 shadow-lg">
+            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
+              {content.readyToTalk.whyTalkTitle}
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{content.readyToTalk.benefit1Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit1Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{content.readyToTalk.benefit2Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit2Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{content.readyToTalk.benefit3Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit3Description}</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-2">{content.readyToTalk.benefit4Title}</h4>
+                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit4Description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Get Your Free Quote
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tell us about your project and we'll get back to you within 24 hours
+            </p>
+          </div>
+
+          <div className="bg-gray-50 rounded-3xl p-12">
+            {submitMessage && (
+              <div className="mb-8 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                {submitMessage}
+              </div>
+            )}
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Your full name"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="your@email.com"
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="+91 98765 43210"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="business" className="block text-sm font-medium text-gray-700 mb-2">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    value={formData.business}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder="Your business name"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label htmlFor="package" className="block text-sm font-medium text-gray-700 mb-2">
+                  Package Interest
+                </label>
+                <select
+                  id="package"
+                  name="package"
+                  value={formData.package}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                >
+                  <option value="">Select a package</option>
+                  <option value="starter">Starter Package - ₹4,999</option>
+                  <option value="professional">Professional Package - ₹9,999</option>
+                  <option value="enterprise">Enterprise Package - ₹19,999</option>
+                  <option value="custom">Custom Solution</option>
+                </select>
+              </div>
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Project Details
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Tell us about your project requirements..."
+                ></textarea>
+              </div>
+              
+              <div className="text-center">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            {content.cta.title}
+          </h2>
+          <p className="text-xl mb-10 opacity-90">
+            {content.cta.subtitle}
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+            <a 
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+            >
+              <Calendar className="h-5 w-5 mr-2" />
+              {content.cta.primaryButtonText}
+            </a>
+            <button 
+              onClick={() => scrollToSection('pricing')}
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
+            >
+              {content.cta.secondaryButtonText}
+            </button>
+          </div>
+          
+          <p className="text-lg font-semibold animate-pulse">
+            {content.cta.urgencyText}
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Company Info */}
+            <div className="md:col-span-2">
+              <div className="flex items-center mb-6">
+                <span className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  The Logo Makers
+                </span>
+              </div>
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                {content.footer.companyDescription}
+              </p>
+              <div className="flex space-x-4">
+                <a 
+                  href={`tel:+917837319660`}
+                  className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors"
+                >
+                  <Phone className="h-5 w-5" />
+                </a>
+                <a 
+                  href={`https://wa.me/917837319660`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                </a>
+                <a 
+                  href={`mailto:${content.footer.emailAddress}`}
+                  className="bg-green-600 hover:bg-green-700 p-3 rounded-full transition-colors"
+                >
+                  <Mail className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            
+            {/* Services */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">{content.footer.servicesTitle}</h3>
+              <ul className="space-y-3">
+                <li><a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">{content.footer.service1}</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">{content.footer.service2}</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">{content.footer.service3}</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">{content.footer.service4}</a></li>
+                <li><a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">{content.footer.service5}</a></li>
+              </ul>
+            </div>
+            
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Phone className="h-5 w-5 text-green-400 mr-3" />
+                  <a href={`tel:+917837319660`} className="text-gray-300 hover:text-green-400 transition-colors">
+                    +91 78373 19660
+                  </a>
+                </div>
+                <div className="flex items-center">
+                  <Mail className="h-5 w-5 text-green-400 mr-3" />
+                  <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-green-400 transition-colors">
+                    {content.footer.emailAddress}
+                  </a>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="h-5 w-5 text-green-400 mr-3" />
+                  <span className="text-gray-300">{content.footer.location}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+            <p className="text-gray-400">
+              {content.footer.copyrightText}
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Sticky Bottom Buttons */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex bg-white border-t border-gray-200 shadow-lg">
+        <a
+          href="tel:+917837319660"
+          className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 px-6 flex items-center justify-center font-semibold transition-colors"
+        >
+          <Phone className="h-5 w-5 mr-2" />
+          Call Now
+        </a>
+        <a
+          href="https://tidycal.com/harmanpreetsingh/get-free-consulation"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-4 px-6 flex items-center justify-center font-semibold transition-colors"
+        >
+          <Calendar className="h-5 w-5 mr-2" />
+          Get Free Consultation
+        </a>
+      </div>
+
+      {/* Add bottom padding to prevent content from being hidden behind sticky buttons */}
+      <div className="h-16"></div>
+    </div>
+  );
+}
