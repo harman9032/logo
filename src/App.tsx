@@ -283,14 +283,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-gray-50">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                   The Logo Makers
                 </span>
               </div>
@@ -299,19 +299,19 @@ export default function App() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors">
                   Services
                 </button>
-                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors">
                   Pricing
                 </button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors">
                   Testimonials
                 </button>
-                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors">
                   FAQ
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors">
                   Contact
                 </button>
                 <a 
@@ -329,7 +329,7 @@ export default function App() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-orange-600 p-2"
+                className="text-gray-700 hover:text-green-600 p-2"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -339,21 +339,21 @@ export default function App() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
+          <div className="md:hidden bg-white border-t border-green-100">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-medium w-full text-left">
                 Services
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-medium w-full text-left">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-medium w-full text-left">
                 Testimonials
               </button>
-              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-medium w-full text-left">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-orange-600 px-3 py-2 text-base font-medium w-full text-left">
+              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-medium w-full text-left">
                 Contact
               </button>
               <a 
@@ -520,7 +520,7 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-20 bg-gradient-to-br from-white via-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -533,13 +533,13 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Logo Design */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
                 <Target className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
               <p className="text-gray-600 mb-6">{content.services.logoDescription}</p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -554,31 +554,31 @@ export default function App() {
                   <span className="text-gray-700">{content.services.logoFeature3}</span>
                 </div>
               </div>
-              
+
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-orange-600">{content.services.logoPrice}</span>
+                <span className="text-2xl font-bold text-green-600">{content.services.logoPrice}</span>
                 <span className="text-sm text-gray-500 flex items-center">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.logoDelivery}
                 </span>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-300"
               >
                 Get Started
               </button>
             </div>
 
             {/* Landing Page */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+              <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mb-6">
                 <BarChart3 className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
               <p className="text-gray-600 mb-6">{content.services.landingDescription}</p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -593,31 +593,31 @@ export default function App() {
                   <span className="text-gray-700">{content.services.landingFeature3}</span>
                 </div>
               </div>
-              
+
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-orange-600">{content.services.landingPrice}</span>
+                <span className="text-2xl font-bold text-green-600">{content.services.landingPrice}</span>
                 <span className="text-sm text-gray-500 flex items-center">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.landingDelivery}
                 </span>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-green-500 to-teal-500 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-teal-600 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-gray-500 to-gray-600 text-white py-3 rounded-lg font-semibold hover:from-gray-600 hover:to-gray-700 transition-all duration-300"
               >
                 Get Started
               </button>
             </div>
 
             {/* Meta Ads */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
               <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
               <p className="text-gray-600 mb-6">{content.services.adsDescription}</p>
-              
+
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
@@ -632,16 +632,16 @@ export default function App() {
                   <span className="text-gray-700">{content.services.adsFeature3}</span>
                 </div>
               </div>
-              
+
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-orange-600">{content.services.adsPrice}</span>
+                <span className="text-2xl font-bold text-green-600">{content.services.adsPrice}</span>
                 <span className="text-sm text-gray-500 flex items-center">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.adsDelivery}
                 </span>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300"
               >
@@ -651,21 +651,21 @@ export default function App() {
           </div>
 
           {/* Complete Package */}
-          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-3xl p-12 text-white text-center relative overflow-hidden">
+          <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-12 text-white text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
                 <Zap className="h-5 w-5 mr-2" />
                 <span className="font-semibold">Best Value</span>
               </div>
-              
+
               <h3 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h3>
               <p className="text-xl mb-2">{content.services.packageSubtitle}</p>
-              <p className="text-orange-100 mb-8 max-w-2xl mx-auto">{content.services.packageDescription}</p>
-              
+              <p className="text-green-50 mb-8 max-w-2xl mx-auto">{content.services.packageDescription}</p>
+
               <div className="flex items-center justify-center mb-8">
                 <span className="text-5xl font-bold">{content.services.packagePrice}</span>
-                <span className="text-xl ml-2 text-orange-100">one-time</span>
+                <span className="text-xl ml-2 text-green-50">one-time</span>
               </div>
               
               <div className="flex items-center justify-center mb-8">
@@ -674,17 +674,17 @@ export default function App() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <button 
+                <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                  className="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg"
                 >
                   {content.services.packageButtonText}
                 </button>
-                <a 
+                <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-300"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
                 >
                   Book Free Call
                 </a>
@@ -706,7 +706,7 @@ export default function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-white">
+      <section id="pricing" className="py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -719,9 +719,9 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Starter Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-orange-200 transition-all duration-300">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-green-200 transition-all duration-300">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.starterPrice}</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.starterPrice}</div>
               <p className="text-gray-600 mb-6">{content.pricing.starterDescription}</p>
               
               <div className="space-y-4 mb-8">
@@ -756,15 +756,15 @@ export default function App() {
             </div>
 
             {/* Professional Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-orange-200 relative transform scale-105">
+            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-200 relative transform scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                <span className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                   {content.pricing.professionalBadgeText}
                 </span>
               </div>
-              
+
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.professionalPrice}</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.professionalPrice}</div>
               <p className="text-gray-600 mb-6">{content.pricing.professionalDescription}</p>
               
               <div className="space-y-4 mb-8">
@@ -789,19 +789,19 @@ export default function App() {
                   <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 rounded-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
               >
                 {content.pricing.professionalButtonText}
               </button>
             </div>
 
             {/* Enterprise Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-orange-200 transition-all duration-300">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-green-200 transition-all duration-300">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-bold text-orange-600 mb-2">{content.pricing.enterprisePrice}</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.enterprisePrice}</div>
               <p className="text-gray-600 mb-6">{content.pricing.enterpriseDescription}</p>
               
               <div className="space-y-4 mb-8">
@@ -839,7 +839,7 @@ export default function App() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gradient-to-br from-green-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -852,7 +852,7 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Zap className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
@@ -860,7 +860,7 @@ export default function App() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Award className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
@@ -868,7 +868,7 @@ export default function App() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <TrendingUp className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
@@ -876,7 +876,7 @@ export default function App() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-gray-400 to-gray-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Shield className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
@@ -887,7 +887,7 @@ export default function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
+      <section id="testimonials" className="py-20 bg-gradient-to-br from-white via-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -909,7 +909,7 @@ export default function App() {
                 "{content.testimonials.testimonial1Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   {content.testimonials.testimonial1Name.charAt(0)}
                 </div>
                 <div>
@@ -929,7 +929,7 @@ export default function App() {
                 "{content.testimonials.testimonial2Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-gray-500 to-gray-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   {content.testimonials.testimonial2Name.charAt(0)}
                 </div>
                 <div>
@@ -949,7 +949,7 @@ export default function App() {
                 "{content.testimonials.testimonial3Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold mr-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold mr-4">
                   {content.testimonials.testimonial3Name.charAt(0)}
                 </div>
                 <div>
@@ -963,7 +963,7 @@ export default function App() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-gray-50">
+      <section id="faq" className="py-20 bg-gradient-to-br from-green-50 via-white to-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -990,9 +990,9 @@ export default function App() {
                 >
                   <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
                   {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-orange-600" />
+                    <ChevronUp className="h-5 w-5 text-green-600" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-orange-600" />
+                    <ChevronDown className="h-5 w-5 text-green-600" />
                   )}
                 </button>
                 {openFaq === index && (
@@ -1007,7 +1007,7 @@ export default function App() {
       </section>
 
       {/* Ready to Talk Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-white via-gray-50 to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -1115,7 +1115,7 @@ export default function App() {
       </section>
 
       {/* Contact Form Section */}
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="py-20 bg-gradient-to-br from-green-50 via-white to-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Your Free Quote</h2>
@@ -1135,11 +1135,11 @@ export default function App() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="Enter your full name"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Email Address *
@@ -1150,7 +1150,7 @@ export default function App() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="Enter your email address"
                   />
                 </div>
@@ -1167,11 +1167,11 @@ export default function App() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="Enter your phone number"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Business Name
@@ -1181,7 +1181,7 @@ export default function App() {
                     name="business"
                     value={formData.business}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                     placeholder="Enter your business name"
                   />
                 </div>
@@ -1196,7 +1196,7 @@ export default function App() {
                   value={formData.package}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                 >
                   <option value="">Select a package</option>
                   <option value="Complete Package (₹9,999 one-time)">Complete Package (₹9,999 one-time)</option>
@@ -1215,7 +1215,7 @@ export default function App() {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-vertical"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors resize-vertical"
                   placeholder="Describe your business goals and what you're looking to achieve..."
                 />
               </div>
@@ -1229,7 +1229,7 @@ export default function App() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Get My Free Quote →'}
               </button>
@@ -1237,7 +1237,7 @@ export default function App() {
               <div className="text-center">
                 <p className="text-sm text-gray-600">
                   Or call us directly at{' '}
-                  <a href="tel:+919876543210" className="text-orange-600 font-semibold hover:text-orange-700">
+                  <a href="tel:+919876543210" className="text-green-600 font-semibold hover:text-green-700">
                     +91 98765 43210
                   </a>
                 </p>
@@ -1248,34 +1248,34 @@ export default function App() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             {content.cta.title}
           </h2>
-          <p className="text-xl mb-8 text-orange-100">
+          <p className="text-xl mb-8 text-green-50">
             {content.cta.subtitle}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a 
+            <a
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-orange-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+              className="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
             >
               <Calendar className="h-5 w-5 mr-2" />
               {content.cta.primaryButtonText}
             </a>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-orange-600 transition-all duration-300"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
             >
               {content.cta.secondaryButtonText}
             </button>
           </div>
-          
-          <p className="text-orange-200 font-semibold animate-pulse">
+
+          <p className="text-green-100 font-semibold animate-pulse">
             {content.cta.urgencyText}
           </p>
         </div>
@@ -1288,7 +1288,7 @@ export default function App() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
-                <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
                   The Logo Makers
                 </span>
               </div>
@@ -1334,19 +1334,19 @@ export default function App() {
               <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-orange-400 mr-3" />
+                  <Phone className="h-5 w-5 text-green-400 mr-3" />
                   <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.phoneNumber}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-orange-400 mr-3" />
+                  <Mail className="h-5 w-5 text-green-400 mr-3" />
                   <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.emailAddress}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-orange-400 mr-3" />
+                  <MapPin className="h-5 w-5 text-green-400 mr-3" />
                   <span className="text-gray-300">{content.footer.location}</span>
                 </div>
               </div>
