@@ -370,144 +370,139 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-24 bg-gradient-to-br from-green-600 via-green-700 to-emerald-900 relative overflow-hidden">
-        {/* Modern Grid Pattern Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 to-transparent"></div>
-        </div>
-
-        {/* Floating Gradient Orbs */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <section className="pt-20 pb-16 bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-10 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Trust Badge */}
-          <div className="text-center mb-12 animate-fade-in">
-            <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 shadow-2xl border border-white/20 hover:bg-white/15 transition-all duration-300">
-              <Award className="h-5 w-5 text-white mr-2" />
-              <span className="text-sm font-semibold text-white">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-white/30">
+              <Award className="h-5 w-5 text-orange-600 mr-2" />
+              <span className="text-sm font-medium text-gray-700">
                 {content.hero.badgeText}
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Main Content */}
-            <div className="text-center lg:text-left space-y-8">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-white to-gray-200 mb-6 leading-tight tracking-tight">
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 {content.hero.title}
+
               </h1>
 
-              <p className="text-2xl md:text-3xl font-medium text-gray-100 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
                 {content.hero.subtitle}
               </p>
 
-              <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
+              <p className="text-lg text-white mb-10 leading-relaxed">
                 {content.hero.description}
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start mb-16">
-                <a
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                <a 
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative bg-gradient-to-r from-orange-600 to-red-600 text-white px-10 py-5 rounded-2xl text-lg font-bold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:-translate-y-1 flex items-center justify-center overflow-hidden"
+                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                 >
-                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                  <Calendar className="h-6 w-6 mr-3 relative z-10" />
-                  <span className="relative z-10">{content.hero.ctaText}</span>
+                  <Calendar className="h-5 w-5 mr-2" />
+                  {content.hero.ctaText}
                 </a>
-                <button
+                <button 
                   onClick={() => scrollToSection('services')}
-                  className="bg-white/10 backdrop-blur-md text-white border-2 border-white/30 px-10 py-5 rounded-2xl text-lg font-bold hover:bg-white/20 transition-all duration-300 shadow-xl flex items-center justify-center"
+                  className="bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200 flex items-center justify-center"
                 >
                   Learn More
-                  <ArrowRight className="h-6 w-6 ml-3" />
+                  <ArrowRight className="h-5 w-5 ml-2" />
                 </button>
               </div>
 
               {/* Value Propositions */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
-                  <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{content.hero.valueProposition1}</div>
-                  <div className="text-sm font-bold text-gray-200 mb-1">{content.hero.valueProposition1Value}</div>
-                  <div className="text-xs text-gray-300">{content.hero.valueProposition1Desc}</div>
+              <div className="grid grid-cols-3 gap-6 text-center">
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition1Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition1Desc}</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
-                  <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{content.hero.valueProposition2}</div>
-                  <div className="text-sm font-bold text-gray-200 mb-1">{content.hero.valueProposition2Value}</div>
-                  <div className="text-xs text-gray-300">{content.hero.valueProposition2Desc}</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition2Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition2Desc}</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
-                  <div className="text-4xl font-black text-white mb-2 group-hover:scale-110 transition-transform">{content.hero.valueProposition3}</div>
-                  <div className="text-sm font-bold text-gray-200 mb-1">{content.hero.valueProposition3Value}</div>
-                  <div className="text-xs text-gray-300">{content.hero.valueProposition3Desc}</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
+                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
+                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition3Value}</div>
+                  <div className="text-xs text-gray-600">{content.hero.valueProposition3Desc}</div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - What You'll Learn */}
-            <div className="bg-gradient-to-br from-white/95 to-gray-50/95 backdrop-blur-xl rounded-[2rem] p-10 shadow-2xl border border-white/40 hover:shadow-green-500/10 transition-all duration-500">
-              <h2 className="text-3xl font-black text-gray-900 mb-8 text-center bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 {content.hero.learningTitle}
               </h2>
 
-              <div className="space-y-5">
-                <div className="flex items-start group p-4 rounded-2xl hover:bg-green-50 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-5 mt-1 shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg font-black">1</span>
+              <div className="space-y-6">
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">1</span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">{content.hero.learningPoint1Title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint1Desc}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start group p-4 rounded-2xl hover:bg-green-50 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-5 mt-1 shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg font-black">2</span>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">{content.hero.learningPoint2Title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint2Desc}</p>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint1Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start group p-4 rounded-2xl hover:bg-green-50 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-5 mt-1 shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg font-black">3</span>
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">2</span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">{content.hero.learningPoint3Title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint3Desc}</p>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint2Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start group p-4 rounded-2xl hover:bg-green-50 transition-all duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mr-5 mt-1 shadow-lg group-hover:scale-110 transition-transform">
-                    <span className="text-white text-lg font-black">4</span>
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">3</span>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 mb-2 text-lg">{content.hero.learningPoint4Title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint4Desc}</p>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint3Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span className="text-white text-sm font-bold">4</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint4Title}</h3>
+                    <p className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</p>
                   </div>
                 </div>
               </div>
 
               {/* Bonus Section */}
-              <div className="mt-8 p-6 bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl border-2 border-green-300 shadow-lg">
+              <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
                 <div className="text-center">
-                  <h3 className="text-xl font-black text-green-800 mb-3">
+                  <h3 className="text-lg font-bold text-green-800 mb-2">
                     {content.hero.bonusTitle}
                   </h3>
-                  <p className="text-sm font-semibold text-green-700 mb-3">
+                  <p className="text-sm text-green-700 mb-3">
                     {content.hero.bonusSubtitle}
                   </p>
-                  <p className="text-xs text-green-700 leading-relaxed">
+                  <p className="text-xs text-green-600">
                     {content.hero.bonusItems}
                   </p>
                 </div>
@@ -515,7 +510,7 @@ export default function App() {
 
               {/* Urgency */}
               <div className="mt-6 text-center">
-                <p className="text-sm font-bold text-red-600 animate-pulse bg-red-50 py-3 px-6 rounded-full inline-block">
+                <p className="text-sm font-semibold text-red-600 animate-pulse">
                   {content.hero.bonusUrgency}
                 </p>
               </div>
