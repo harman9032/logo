@@ -525,184 +525,223 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-br from-white via-gray-50 to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <section id="services" className="py-24 bg-gradient-to-br from-gray-50 via-white to-green-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-sm font-bold text-green-600 bg-green-100 px-4 py-2 rounded-full">SERVICES</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
               {content.services.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {content.services.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             {/* Logo Design */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.logoTitle}</h3>
-              <p className="text-gray-600 mb-6">{content.services.logoDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature1}</span>
+            <div className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                  <Target className="h-8 w-8 text-white" />
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature3}</span>
-                </div>
-              </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.logoTitle}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{content.services.logoDescription}</p>
 
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-green-600">{content.services.logoPrice}</span>
-                <span className="text-sm text-gray-500 flex items-center">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.logoDelivery}
-                </span>
-              </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.logoFeature1}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.logoFeature2}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.logoFeature3}</span>
+                  </div>
+                </div>
 
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-300"
-              >
-                Get Started
-              </button>
+                <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl">
+                  <span className="text-3xl font-black text-green-600">{content.services.logoPrice}</span>
+                  <span className="text-sm text-gray-500 flex items-center font-semibold">
+                    <Clock className="h-4 w-4 mr-1" />
+                    {content.services.logoDelivery}
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-4 rounded-2xl font-bold hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-green-500/50"
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
 
             {/* Landing Page */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-gray-600 rounded-2xl flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.landingTitle}</h3>
-              <p className="text-gray-600 mb-6">{content.services.landingDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature1}</span>
+            <div className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gray-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-500 to-gray-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                  <BarChart3 className="h-8 w-8 text-white" />
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature3}</span>
-                </div>
-              </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.landingTitle}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{content.services.landingDescription}</p>
 
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-green-600">{content.services.landingPrice}</span>
-                <span className="text-sm text-gray-500 flex items-center">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.landingDelivery}
-                </span>
-              </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.landingFeature1}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.landingFeature2}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.landingFeature3}</span>
+                  </div>
+                </div>
 
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-gray-500 to-gray-600 text-white py-3 rounded-lg font-semibold hover:from-gray-600 hover:to-gray-700 transition-all duration-300"
-              >
-                Get Started
-              </button>
+                <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl">
+                  <span className="text-3xl font-black text-green-600">{content.services.landingPrice}</span>
+                  <span className="text-sm text-gray-500 flex items-center font-semibold">
+                    <Clock className="h-4 w-4 mr-1" />
+                    {content.services.landingDelivery}
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-gradient-to-r from-gray-500 to-gray-700 text-white py-4 rounded-2xl font-bold hover:from-gray-600 hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-gray-500/50"
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
 
             {/* Meta Ads */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{content.services.adsTitle}</h3>
-              <p className="text-gray-600 mb-6">{content.services.adsDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature1}</span>
+            <div className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-300 hover:-translate-y-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+              <div className="relative">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform">
+                  <TrendingUp className="h-8 w-8 text-white" />
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature3}</span>
-                </div>
-              </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.adsTitle}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{content.services.adsDescription}</p>
 
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-bold text-green-600">{content.services.adsPrice}</span>
-                <span className="text-sm text-gray-500 flex items-center">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.adsDelivery}
-                </span>
-              </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.adsFeature1}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.adsFeature2}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{content.services.adsFeature3}</span>
+                  </div>
+                </div>
 
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300"
-              >
-                Get Started
-              </button>
+                <div className="flex justify-between items-center mb-6 p-4 bg-gray-50 rounded-2xl">
+                  <span className="text-3xl font-black text-green-600">{content.services.adsPrice}</span>
+                  <span className="text-sm text-gray-500 flex items-center font-semibold">
+                    <Clock className="h-4 w-4 mr-1" />
+                    {content.services.adsDelivery}
+                  </span>
+                </div>
+
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/50"
+                >
+                  Get Started
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Complete Package */}
-          <div className="bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-12 text-white text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-black/10"></div>
+          <div className="bg-gradient-to-br from-green-600 via-green-700 to-emerald-800 rounded-[2.5rem] p-12 md:p-16 text-white text-center relative overflow-hidden shadow-2xl">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
+
             <div className="relative z-10">
-              <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
-                <Zap className="h-5 w-5 mr-2" />
-                <span className="font-semibold">Best Value</span>
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-8 py-3 mb-8 shadow-xl">
+                <Zap className="h-6 w-6 mr-2" />
+                <span className="font-black text-lg">Best Value</span>
               </div>
 
-              <h3 className="text-4xl font-bold mb-4">{content.services.packageTitle}</h3>
-              <p className="text-xl mb-2">{content.services.packageSubtitle}</p>
-              <p className="text-green-50 mb-8 max-w-2xl mx-auto">{content.services.packageDescription}</p>
+              <h3 className="text-5xl md:text-6xl font-black mb-6">{content.services.packageTitle}</h3>
+              <p className="text-2xl md:text-3xl font-bold mb-4">{content.services.packageSubtitle}</p>
+              <p className="text-green-50 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">{content.services.packageDescription}</p>
 
-              <div className="flex items-center justify-center mb-8">
-                <span className="text-5xl font-bold">{content.services.packagePrice}</span>
-                <span className="text-xl ml-2 text-green-50">one-time</span>
+              <div className="flex items-center justify-center mb-8 bg-white/10 backdrop-blur-sm rounded-3xl py-6 px-8 inline-flex">
+                <span className="text-6xl md:text-7xl font-black">{content.services.packagePrice}</span>
+                <span className="text-2xl ml-3 text-green-100 font-semibold">one-time</span>
+              </div>
+
+              <div className="flex items-center justify-center mb-12">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 flex items-center">
+                  <Clock className="h-5 w-5 mr-2" />
+                  <span className="font-semibold">{content.services.packageDelivery}</span>
+                </div>
               </div>
               
-              <div className="flex items-center justify-center mb-8">
-                <Clock className="h-5 w-5 mr-2" />
-                <span>{content.services.packageDelivery}</span>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                  className="group bg-white text-green-700 px-10 py-5 rounded-2xl text-xl font-black hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:-translate-y-1 relative overflow-hidden"
                 >
-                  {content.services.packageButtonText}
+                  <div className="absolute inset-0 bg-green-100 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <span className="relative z-10">{content.services.packageButtonText}</span>
                 </button>
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
+                  className="bg-white/10 backdrop-blur-md border-2 border-white text-white px-10 py-5 rounded-2xl text-xl font-black hover:bg-white/20 transition-all duration-300 shadow-xl flex items-center justify-center"
                 >
                   Book Free Call
                 </a>
               </div>
-              
-              <div className="flex items-center justify-center space-x-8 text-sm">
-                <div className="flex items-center">
-                  <Shield className="h-5 w-5 mr-2" />
-                  <span>{content.services.guaranteeText}</span>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-base">
+                <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                  <Shield className="h-6 w-6 mr-2" />
+                  <span className="font-semibold">{content.services.guaranteeText}</span>
                 </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 mr-2" />
-                  <span>{content.services.supportText}</span>
+                <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                  <Users className="h-6 w-6 mr-2" />
+                  <span className="font-semibold">{content.services.supportText}</span>
                 </div>
               </div>
             </div>
@@ -711,130 +750,166 @@ export default function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gradient-to-br from-gray-50 via-white to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+      <section id="pricing" className="py-24 bg-gradient-to-br from-white via-green-50 to-gray-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-sm font-bold text-green-600 bg-green-100 px-4 py-2 rounded-full">PRICING</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
               {content.pricing.title}
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 leading-relaxed">
               {content.pricing.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Starter Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-green-200 transition-all duration-300">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.starterPrice}</div>
-              <p className="text-gray-600 mb-6">{content.pricing.starterDescription}</p>
-              
+            <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-200 hover:border-green-300 transition-all duration-500 hover:-translate-y-2">
+              <h3 className="text-2xl font-black text-gray-900 mb-3">{content.pricing.starterTitle}</h3>
+              <div className="text-5xl font-black text-green-600 mb-3">{content.pricing.starterPrice}</div>
+              <p className="text-gray-600 mb-8 leading-relaxed">{content.pricing.starterDescription}</p>
+
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature1}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.starterFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature2}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.starterFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature3}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.starterFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature4}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.starterFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature5}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.starterFeature5}</span>
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
+                className="w-full bg-gray-600 text-white py-4 rounded-2xl font-bold hover:bg-gray-700 transition-all duration-300 shadow-lg"
               >
                 {content.pricing.starterButtonText}
               </button>
             </div>
 
             {/* Professional Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-200 relative transform scale-105">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+            <div className="bg-gradient-to-br from-white to-green-50 rounded-3xl p-8 shadow-2xl border-2 border-green-400 relative transform scale-105 hover:-translate-y-2 transition-all duration-500">
+              <div className="absolute -top-5 left-1/2 transform -translate-x-1/2">
+                <span className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-full text-sm font-black shadow-xl">
                   {content.pricing.professionalBadgeText}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.professionalPrice}</div>
-              <p className="text-gray-600 mb-6">{content.pricing.professionalDescription}</p>
-              
+              <h3 className="text-2xl font-black text-gray-900 mb-3 mt-4">{content.pricing.professionalTitle}</h3>
+              <div className="text-5xl font-black text-green-600 mb-3">{content.pricing.professionalPrice}</div>
+              <p className="text-gray-600 mb-8 leading-relaxed">{content.pricing.professionalDescription}</p>
+
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.professionalFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.professionalFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.professionalFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.professionalFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.professionalFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-2xl font-black hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-xl hover:shadow-green-500/50"
               >
                 {content.pricing.professionalButtonText}
               </button>
             </div>
 
             {/* Enterprise Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-green-200 transition-all duration-300">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-bold text-green-600 mb-2">{content.pricing.enterprisePrice}</div>
-              <p className="text-gray-600 mb-6">{content.pricing.enterpriseDescription}</p>
-              
+            <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-200 hover:border-green-300 transition-all duration-500 hover:-translate-y-2">
+              <h3 className="text-2xl font-black text-gray-900 mb-3">{content.pricing.enterpriseTitle}</h3>
+              <div className="text-5xl font-black text-green-600 mb-3">{content.pricing.enterprisePrice}</div>
+              <p className="text-gray-600 mb-8 leading-relaxed">{content.pricing.enterpriseDescription}</p>
+
               <div className="space-y-4 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.enterpriseFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.enterpriseFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.enterpriseFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.enterpriseFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{content.pricing.enterpriseFeature5}</span>
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-600 text-white py-3 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300"
+                className="w-full bg-gray-600 text-white py-4 rounded-2xl font-bold hover:bg-gray-700 transition-all duration-300 shadow-lg"
               >
                 {content.pricing.enterpriseButtonText}
               </button>
