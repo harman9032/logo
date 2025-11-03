@@ -370,139 +370,153 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-emerald-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+      <section className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        {/* Sophisticated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDEzNGg3djJoLTd6TTMxIDEzMWg1djJoLTV6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Trust Badge */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-6 py-2 shadow-lg border border-white/30">
-              <Award className="h-5 w-5 text-orange-600 mr-2" />
-              <span className="text-sm font-medium text-gray-700">
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20 shadow-2xl">
+              <Award className="h-5 w-5 text-orange-400 mr-3" />
+              <span className="text-sm font-semibold text-white">
                 {content.hero.badgeText}
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Main Content */}
-            <div className="text-center lg:text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                {content.hero.title}
-
+            <div className="text-center lg:text-left space-y-8">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight">
+                Turn Traffic Into
+                <span className="block mt-2 bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 bg-clip-text text-transparent">
+                  Paying Clients
+                </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed">
-                {content.hero.subtitle}
-              </p>
-
-              <p className="text-lg text-white mb-10 leading-relaxed">
-                {content.hero.description}
+              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
+                Get a <span className="font-semibold text-white">FREE 30-Minute Strategy Session</span> and discover how to generate 100+ qualified leads monthly
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                <a 
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
+                  className="group relative bg-gradient-to-r from-orange-500 to-red-500 text-white px-10 py-5 rounded-xl text-lg font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300 shadow-2xl hover:shadow-orange-500/50 transform hover:-translate-y-1 flex items-center justify-center overflow-hidden"
                 >
-                  <Calendar className="h-5 w-5 mr-2" />
-                  {content.hero.ctaText}
+                  <span className="relative z-10 flex items-center">
+                    <Calendar className="h-6 w-6 mr-3" />
+                    Book Your FREE Call Now
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
-                <button 
+                <button
                   onClick={() => scrollToSection('services')}
-                  className="bg-white text-gray-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border border-gray-200 flex items-center justify-center"
+                  className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
                 >
-                  Learn More
-                  <ArrowRight className="h-5 w-5 ml-2" />
+                  Explore Solutions
+                  <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
 
               {/* Value Propositions */}
-              <div className="grid grid-cols-3 gap-6 text-center">
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition1}</div>
-                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition1Value}</div>
-                  <div className="text-xs text-gray-600">{content.hero.valueProposition1Desc}</div>
+              <div className="grid grid-cols-3 gap-4 pt-8">
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl font-black bg-gradient-to-br from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">
+                    {content.hero.valueProposition1}
+                  </div>
+                  <div className="text-sm font-bold text-white mb-1">{content.hero.valueProposition1Value}</div>
+                  <div className="text-xs text-slate-400">{content.hero.valueProposition1Desc}</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition2}</div>
-                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition2Value}</div>
-                  <div className="text-xs text-gray-600">{content.hero.valueProposition2Desc}</div>
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl font-black bg-gradient-to-br from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">
+                    {content.hero.valueProposition2}
+                  </div>
+                  <div className="text-sm font-bold text-white mb-1">{content.hero.valueProposition2Value}</div>
+                  <div className="text-xs text-slate-400">{content.hero.valueProposition2Desc}</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30">
-                  <div className="text-3xl font-bold text-orange-600 mb-2">{content.hero.valueProposition3}</div>
-                  <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition3Value}</div>
-                  <div className="text-xs text-gray-600">{content.hero.valueProposition3Desc}</div>
+                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl font-black bg-gradient-to-br from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">
+                    {content.hero.valueProposition3}
+                  </div>
+                  <div className="text-sm font-bold text-white mb-1">{content.hero.valueProposition3Value}</div>
+                  <div className="text-xs text-slate-400">{content.hero.valueProposition3Desc}</div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - What You'll Learn */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                {content.hero.learningTitle}
-              </h2>
+            <div className="bg-white rounded-3xl p-10 shadow-2xl border border-gray-100">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-5 py-2 rounded-full text-sm font-bold mb-4">
+                  <Zap className="h-4 w-4 mr-2" />
+                  FREE Strategy Session
+                </div>
+                <h2 className="text-3xl font-black text-gray-900">
+                  {content.hero.learningTitle}
+                </h2>
+              </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white text-sm font-bold">1</span>
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-lg font-black">1</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint1Title}</h3>
-                    <p className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">{content.hero.learningPoint1Title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint1Desc}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white text-sm font-bold">2</span>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-lg font-black">2</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint2Title}</h3>
-                    <p className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">{content.hero.learningPoint2Title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint2Desc}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white text-sm font-bold">3</span>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-lg font-black">3</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint3Title}</h3>
-                    <p className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">{content.hero.learningPoint3Title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint3Desc}</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4 mt-1">
-                    <span className="text-white text-sm font-bold">4</span>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white text-lg font-black">4</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-2">{content.hero.learningPoint4Title}</h3>
-                    <p className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 text-lg">{content.hero.learningPoint4Title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{content.hero.learningPoint4Desc}</p>
                   </div>
                 </div>
               </div>
 
               {/* Bonus Section */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl border border-green-200">
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 border-2 border-orange-200 shadow-inner">
                 <div className="text-center">
-                  <h3 className="text-lg font-bold text-green-800 mb-2">
-                    {content.hero.bonusTitle}
-                  </h3>
-                  <p className="text-sm text-green-700 mb-3">
+                  <div className="inline-flex items-center bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-xs font-bold mb-3">
+                    BONUS WORTH ₹4,999
+                  </div>
+                  <p className="text-sm text-gray-700 font-semibold mb-2">
                     {content.hero.bonusSubtitle}
                   </p>
-                  <p className="text-xs text-green-600">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     {content.hero.bonusItems}
                   </p>
                 </div>
@@ -510,9 +524,10 @@ export default function App() {
 
               {/* Urgency */}
               <div className="mt-6 text-center">
-                <p className="text-sm font-semibold text-red-600 animate-pulse">
+                <div className="inline-flex items-center text-sm font-bold text-red-600 bg-red-50 px-4 py-2 rounded-full animate-pulse">
+                  <Clock className="h-4 w-4 mr-2" />
                   {content.hero.bonusUrgency}
-                </p>
+                </div>
               </div>
             </div>
           </div>
