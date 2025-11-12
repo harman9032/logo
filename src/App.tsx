@@ -370,139 +370,158 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-white overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Trust Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center bg-green-50 rounded-full px-4 py-2 border border-green-200">
-              <Award className="h-4 w-4 text-green-600 mr-2" />
-              <span className="text-sm font-medium text-green-700">
-                {content.hero.badgeText}
-              </span>
-            </div>
-          </div>
+      <section className="relative pt-24 pb-20 bg-gradient-to-br from-emerald-900 via-green-900 to-emerald-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column */}
+            <div className="space-y-8">
+              {/* Status Badge */}
+              <div className="inline-flex items-center bg-emerald-800/50 border border-emerald-700/50 rounded-full px-4 py-2">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                <span className="text-sm font-semibold text-white">
+                  Available for New Projects
+                </span>
+              </div>
 
-          {/* Main Heading with Green Background */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-tight tracking-tight mb-6">
-              Turn Traffic Into
-              <span className="block mt-4 relative inline-block px-6 py-2 bg-green-400 rounded-2xl">
-                Paying Clients
-              </span>
-            </h1>
-          </div>
+              {/* Rating */}
+              <div className="flex items-center space-x-3">
+                <div className="flex space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <span className="text-white font-bold">5.0 Rating</span>
+                <span className="text-emerald-300">from 50+ clients</span>
+              </div>
 
-          {/* Subtitle */}
-          <p className="text-center text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Get a <span className="font-semibold text-gray-900">FREE 30-Minute Strategy Session</span> and discover the exact system to generate 100+ qualified leads every month
-          </p>
+              {/* Main Headline */}
+              <div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
+                  We Build Landing Pages & Ads
+                  <span className="block mt-2">That Convert</span>
+                </h1>
+                <p className="text-lg text-emerald-100 leading-relaxed mb-2">
+                  Data-driven logo evaluation using psychology, neuroscience, and design principles. Get your{' '}
+                  <span className="text-green-400 font-bold">FREE Logo Analysis Report</span>
+                  {' '}and discover how to optimize your brand identity.
+                </p>
+              </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <a
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-green-500 text-white px-10 py-4 rounded-lg text-lg font-bold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center"
-            >
-              <Calendar className="h-5 w-5 mr-2" />
-              Book Your FREE Call
-            </a>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="border-2 border-gray-300 text-gray-900 px-10 py-4 rounded-lg text-lg font-bold hover:border-green-500 hover:bg-green-50 transition-all duration-300 flex items-center justify-center group"
-            >
-              Learn More
-              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-          </div>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-500 text-emerald-900 px-8 py-4 rounded-xl text-lg font-black hover:bg-green-400 transition-all duration-300 shadow-lg flex items-center justify-center"
+                >
+                  <Calendar className="h-5 w-5 mr-2" />
+                  Get Free Logo Analysis
+                </a>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="border-2 border-emerald-700 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-emerald-800/50 transition-all duration-300 flex items-center justify-center"
+                >
+                  Book Consultation
+                </button>
+              </div>
 
-          {/* Value Propositions Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-4xl font-black text-green-600 mb-2">{content.hero.valueProposition1}</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition1Value}</div>
-              <div className="text-xs text-gray-600">{content.hero.valueProposition1Desc}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-green-600 mb-2">{content.hero.valueProposition2}</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition2Value}</div>
-              <div className="text-xs text-gray-600">{content.hero.valueProposition2Desc}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-black text-green-600 mb-2">{content.hero.valueProposition3}</div>
-              <div className="text-sm font-semibold text-gray-900 mb-1">{content.hero.valueProposition3Value}</div>
-              <div className="text-xs text-gray-600">{content.hero.valueProposition3Desc}</div>
-            </div>
-          </div>
-
-          {/* What You'll Learn Section */}
-          <div className="mt-20 pt-16 border-t border-gray-200">
-            <h2 className="text-3xl font-black text-gray-900 text-center mb-12">
-              {content.hero.learningTitle}
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-12">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-4 mt-1">
-                  <span className="text-white font-black text-lg">1</span>
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-8 pt-8">
+                <div>
+                  <div className="text-4xl font-black text-white mb-2">500+</div>
+                  <div className="text-sm text-emerald-300">Logos Analyzed</div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{content.hero.learningPoint1Title}</h3>
-                  <p className="text-gray-600 text-sm">{content.hero.learningPoint1Desc}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-4 mt-1">
-                  <span className="text-white font-black text-lg">2</span>
+                  <div className="text-4xl font-black text-white mb-2">12+</div>
+                  <div className="text-sm text-emerald-300">Analysis Metrics</div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{content.hero.learningPoint2Title}</h3>
-                  <p className="text-gray-600 text-sm">{content.hero.learningPoint2Desc}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-4 mt-1">
-                  <span className="text-white font-black text-lg">3</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{content.hero.learningPoint3Title}</h3>
-                  <p className="text-gray-600 text-sm">{content.hero.learningPoint3Desc}</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-4 mt-1">
-                  <span className="text-white font-black text-lg">4</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{content.hero.learningPoint4Title}</h3>
-                  <p className="text-gray-600 text-sm">{content.hero.learningPoint4Desc}</p>
+                  <div className="text-4xl font-black text-white mb-2">95%</div>
+                  <div className="text-sm text-emerald-300">Brand Improvement</div>
                 </div>
               </div>
             </div>
 
-            {/* Bonus Section */}
-            <div className="bg-green-50 rounded-2xl p-8 border border-green-200 max-w-2xl mx-auto text-center">
-              <div className="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-3">
-                <Zap className="h-4 w-4 mr-2" />
-                BONUS WORTH ₹4,999
+            {/* Right Column - Service Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* Logo Analysis Card */}
+              <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
+                <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
+                  <Target className="h-7 w-7 text-emerald-900" />
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">Logo Analysis</h3>
+                <p className="text-emerald-200 text-sm mb-4">Scientific evaluation of your brand identity</p>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                >
+                  Learn More
+                </button>
               </div>
-              <p className="text-base text-gray-900 font-semibold mb-2">
-                {content.hero.bonusSubtitle}
-              </p>
-              <p className="text-sm text-gray-700">
-                {content.hero.bonusItems}
-              </p>
-            </div>
 
-            {/* Urgency */}
-            <div className="mt-6 text-center">
-              <div className="inline-flex items-center text-sm font-bold text-green-700 bg-green-100 px-4 py-2 rounded-full">
-                <Clock className="h-4 w-4 mr-2" />
-                {content.hero.bonusUrgency}
+              {/* Landing Page Card */}
+              <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
+                <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
+                  <BarChart3 className="h-7 w-7 text-emerald-900" />
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">Landing Page</h3>
+                <p className="text-emerald-200 text-sm mb-4">High-converting pages that drive results</p>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                >
+                  Learn More
+                </button>
+              </div>
+
+              {/* Web Design Card */}
+              <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
+                <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
+                  <Lightbulb className="h-7 w-7 text-emerald-900" />
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">Web Design</h3>
+                <p className="text-emerald-200 text-sm mb-4">Beautiful & responsive website designs</p>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                >
+                  Learn More
+                </button>
+              </div>
+
+              {/* Meta Ads Card */}
+              <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
+                <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
+                  <Zap className="h-7 w-7 text-emerald-900" />
+                </div>
+                <h3 className="text-xl font-black text-white mb-2">Meta Ads</h3>
+                <p className="text-emerald-200 text-sm mb-4">Strategic Facebook & Instagram campaigns</p>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                >
+                  Learn More
+                </button>
+              </div>
+
+              {/* Google Ads Card - Full Width */}
+              <div className="sm:col-span-2 bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300 flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center">
+                    <TrendingUp className="h-7 w-7 text-emerald-900" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-black text-white mb-1">Google Ads</h3>
+                    <p className="text-emerald-200 text-sm">Data-driven search & display advertising</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => scrollToSection('services')}
+                  className="border border-emerald-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all whitespace-nowrap"
+                >
+                  Learn More
+                </button>
               </div>
             </div>
           </div>
