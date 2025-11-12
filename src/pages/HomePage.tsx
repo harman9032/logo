@@ -394,8 +394,8 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
-              White-label Shopify stores, landing pages & Meta/Google Ads that convert.
-              <span className="font-semibold text-gray-900"> Fast delivery. Proven results.</span>
+              Let’s Decode It & Fix It with Our 3-in-1 Combo — Logo • Landing Page • Ads
+              <span className="font-semibold text-gray-900"> Find Out What Your Logo Is Manifesting</span>
             </p>
 
             {/* CTA Buttons */}
