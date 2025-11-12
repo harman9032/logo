@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { 
-  Phone, 
-  Mail, 
-  MessageCircle, 
-  Star, 
-  CheckCircle, 
-  ArrowRight, 
-  Users, 
-  TrendingUp, 
-  Award, 
-  Zap, 
-  Shield, 
-  Clock, 
-  Target, 
-  BarChart3, 
+import {
+  Phone,
+  Mail,
+  MessageCircle,
+  Star,
+  CheckCircle,
+  ArrowRight,
+  Users,
+  TrendingUp,
+  Award,
+  Zap,
+  Shield,
+  Clock,
+  Target,
+  BarChart3,
   Lightbulb,
   MapPin,
   Calendar,
@@ -23,6 +23,8 @@ import {
   X,
   ExternalLink
 } from 'lucide-react';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import CookiesPolicy from './components/CookiesPolicy';
 
 // Static content - no database needed
 const content = {
@@ -31,7 +33,7 @@ const content = {
   "subtitle": "Book a FREE 30-Minute Strategy Session (Worth ₹2,999)",
   "description": "Discover the exact system we use to deliver high-quality leads to businesses like yours—consistently, predictably, and affordably.",
   "ctaText": "Book My FREE Call Now",
-  "badgeText": "8 Years of Excellence • 1000+ Happy Clients • Since 2017",
+  "badgeText": "Daily Creative Designs • Trusted by US Agencies • Since 2017",
   "valueProposition1": "100+",
   "valueProposition1Value": "Quality Leads Monthly",
   "valueProposition1Desc": "Guaranteed Results with Every Project",
@@ -217,6 +219,7 @@ const content = {
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'cookies'>('home');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -282,6 +285,14 @@ export default function App() {
     setIsMenuOpen(false);
   };
 
+  if (currentPage === 'privacy') {
+    return <PrivacyPolicy onBack={() => setCurrentPage('home')} />;
+  }
+
+  if (currentPage === 'cookies') {
+    return <CookiesPolicy onBack={() => setCurrentPage('home')} />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -290,8 +301,8 @@ export default function App() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-black text-green-600">
-                  The Logo Makers
+                <span className="text-2xl font-black text-emerald-900">
+                  Daily Creative <span className="text-gold-600">Designs</span>
                 </span>
               </div>
             </div>
@@ -370,14 +381,14 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 bg-gradient-to-br from-emerald-900 via-green-900 to-emerald-950 overflow-hidden">
+      <section className="relative pt-24 pb-20 bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left Column */}
             <div className="space-y-8">
               {/* Status Badge */}
-              <div className="inline-flex items-center bg-emerald-800/50 border border-emerald-700/50 rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+              <div className="inline-flex items-center bg-emerald-900/50 border border-gold-600/50 rounded-full px-4 py-2">
+                <div className="w-2 h-2 bg-gold-400 rounded-full mr-2 animate-pulse"></div>
                 <span className="text-sm font-semibold text-white">
                   🇺🇸 Trusted by US Marketing Agencies | Taking New Clients
                 </span>
@@ -391,20 +402,20 @@ export default function App() {
                   ))}
                 </div>
                 <span className="text-white font-bold">5.0 Rating</span>
-                <span className="text-emerald-300">from 50+ US agencies</span>
+                <span className="text-gold-300">from 50+ US agencies</span>
               </div>
 
               {/* Main Headline */}
               <div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
                   Turn Your Client's Brand Into
-                  <span className="block mt-2 text-green-400">A Revenue Machine</span>
+                  <span className="block mt-2 text-gold-400">A Revenue Machine</span>
                 </h1>
                 <p className="text-xl text-emerald-100 leading-relaxed mb-4">
                   Expert freelancer delivering <span className="text-white font-bold">high-converting Shopify stores, landing pages, and ad campaigns</span> that US agencies trust. Get clients results fast—without hiring a full team.
                 </p>
-                <div className="bg-emerald-800/60 border border-emerald-700/50 rounded-2xl p-4 backdrop-blur-sm">
-                  <p className="text-green-300 font-bold text-lg mb-2">🎁 FREE for Agency Partners:</p>
+                <div className="bg-emerald-900/60 border border-gold-600/50 rounded-2xl p-4 backdrop-blur-sm">
+                  <p className="text-gold-300 font-bold text-lg mb-2">🎁 FREE for Agency Partners:</p>
                   <p className="text-white text-base">
                     Scientific Logo Analysis Report (Worth $499) — Data-driven insights using psychology & neuroscience to optimize your client's brand identity.
                   </p>
@@ -417,14 +428,14 @@ export default function App() {
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-400 text-emerald-900 px-8 py-5 rounded-xl text-lg font-black hover:bg-green-300 transition-all duration-300 shadow-2xl flex items-center justify-center group"
+                  className="bg-gold-500 text-gray-900 px-8 py-5 rounded-xl text-lg font-black hover:bg-gold-400 transition-all duration-300 shadow-2xl flex items-center justify-center group"
                 >
                   <Award className="h-6 w-6 mr-2 group-hover:scale-110 transition-transform" />
                   Get FREE Logo Analysis Now
                 </a>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="border-2 border-green-400 text-white px-8 py-5 rounded-xl text-lg font-bold hover:bg-green-400 hover:text-emerald-900 transition-all duration-300 flex items-center justify-center"
+                  className="border-2 border-gold-400 text-white px-8 py-5 rounded-xl text-lg font-bold hover:bg-gold-400 hover:text-gray-900 transition-all duration-300 flex items-center justify-center"
                 >
                   View 3-in-1 Combo Deal
                   <ArrowRight className="h-5 w-5 ml-2" />
@@ -434,38 +445,38 @@ export default function App() {
               {/* Trust Badges */}
               <div className="flex flex-wrap items-center gap-6 pt-4">
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
-                    <CheckCircle className="h-5 w-5 text-emerald-900" />
+                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
+                    <CheckCircle className="h-5 w-5 text-gray-900" />
                   </div>
                   <span className="text-white text-sm font-semibold">Fast 48-72hr Delivery</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
-                    <Shield className="h-5 w-5 text-emerald-900" />
+                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
+                    <Shield className="h-5 w-5 text-gray-900" />
                   </div>
                   <span className="text-white text-sm font-semibold">Money-Back Guarantee</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
-                    <Users className="h-5 w-5 text-emerald-900" />
+                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
+                    <Users className="h-5 w-5 text-gray-900" />
                   </div>
                   <span className="text-white text-sm font-semibold">White-Label Ready</span>
                 </div>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-emerald-700/50">
+              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gold-600/30">
                 <div>
-                  <div className="text-4xl font-black text-white mb-2">250+</div>
-                  <div className="text-sm text-emerald-300">Projects Delivered</div>
+                  <div className="text-4xl font-black text-gold-400 mb-2">250+</div>
+                  <div className="text-sm text-gray-300">Projects Delivered</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-white mb-2">87%</div>
-                  <div className="text-sm text-emerald-300">Client Retention</div>
+                  <div className="text-4xl font-black text-gold-400 mb-2">87%</div>
+                  <div className="text-sm text-gray-300">Client Retention</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-white mb-2">24hr</div>
-                  <div className="text-sm text-emerald-300">Avg. Response Time</div>
+                  <div className="text-4xl font-black text-gold-400 mb-2">24hr</div>
+                  <div className="text-sm text-gray-300">Avg. Response Time</div>
                 </div>
               </div>
             </div>
@@ -473,31 +484,31 @@ export default function App() {
             {/* Right Column - Service Cards */}
             <div className="space-y-4">
               {/* 3-in-1 Combo Deal - Featured */}
-              <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-yellow-400 text-emerald-900 px-4 py-1 rounded-full text-xs font-black">
+              <div className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-4 right-4 bg-white text-gray-900 px-4 py-1 rounded-full text-xs font-black">
                   BEST VALUE
                 </div>
                 <div className="relative z-10">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-16 h-16 bg-emerald-900 rounded-2xl flex items-center justify-center">
-                      <Zap className="h-9 w-9 text-green-400" />
+                    <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center">
+                      <Zap className="h-9 w-9 text-gold-400" />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-black text-emerald-900 mb-1">3-in-1 Growth Package</h3>
-                      <p className="text-emerald-800 text-sm font-bold">Logo + Landing Page + Ads Setup</p>
+                      <h3 className="text-2xl font-black text-gray-900 mb-1">3-in-1 Growth Package</h3>
+                      <p className="text-gray-800 text-sm font-bold">Logo + Landing Page + Ads Setup</p>
                     </div>
                   </div>
-                  <div className="bg-emerald-900/20 rounded-2xl p-4 mb-4">
+                  <div className="bg-gray-900/20 rounded-2xl p-4 mb-4">
                     <div className="space-y-2">
-                      <div className="flex items-center text-emerald-900">
+                      <div className="flex items-center text-gray-900">
                         <CheckCircle className="h-4 w-4 mr-2" />
                         <span className="text-sm font-semibold">Scientific Logo Design & Analysis</span>
                       </div>
-                      <div className="flex items-center text-emerald-900">
+                      <div className="flex items-center text-gray-900">
                         <CheckCircle className="h-4 w-4 mr-2" />
                         <span className="text-sm font-semibold">High-Converting Landing Page</span>
                       </div>
-                      <div className="flex items-center text-emerald-900">
+                      <div className="flex items-center text-gray-900">
                         <CheckCircle className="h-4 w-4 mr-2" />
                         <span className="text-sm font-semibold">Meta & Google Ads Campaign Setup</span>
                       </div>
@@ -505,7 +516,7 @@ export default function App() {
                   </div>
                   <button
                     onClick={() => scrollToSection('pricing')}
-                    className="w-full bg-emerald-900 text-white py-4 rounded-xl font-black hover:bg-emerald-800 transition-all shadow-lg"
+                    className="w-full bg-gray-900 text-gold-400 py-4 rounded-xl font-black hover:bg-gray-800 transition-all shadow-lg"
                   >
                     View Package Details →
                   </button>
@@ -515,65 +526,65 @@ export default function App() {
               {/* Individual Services Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Shopify Stores */}
-                <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
-                  <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
-                    <Target className="h-7 w-7 text-emerald-900" />
+                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
+                    <Target className="h-7 w-7 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-2">Shopify Stores</h3>
-                  <p className="text-emerald-200 text-sm mb-4">Custom e-commerce stores that sell</p>
+                  <p className="text-gray-300 text-sm mb-4">Custom e-commerce stores that sell</p>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
                   >
                     Learn More
                   </button>
                 </div>
 
                 {/* Landing Pages */}
-                <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
-                  <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
-                    <BarChart3 className="h-7 w-7 text-emerald-900" />
+                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
+                    <BarChart3 className="h-7 w-7 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-2">Landing Pages</h3>
-                  <p className="text-emerald-200 text-sm mb-4">Conversion-optimized page design</p>
+                  <p className="text-gray-300 text-sm mb-4">Conversion-optimized page design</p>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
                   >
                     Learn More
                   </button>
                 </div>
 
                 {/* Scientific Logo Analysis */}
-                <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300 relative">
-                  <div className="absolute top-3 right-3 bg-green-400 text-emerald-900 px-2 py-1 rounded-full text-xs font-black">
+                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300 relative">
+                  <div className="absolute top-3 right-3 bg-gold-500 text-gray-900 px-2 py-1 rounded-full text-xs font-black">
                     FREE
                   </div>
-                  <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
-                    <Award className="h-7 w-7 text-emerald-900" />
+                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
+                    <Award className="h-7 w-7 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-2">Logo Analysis</h3>
-                  <p className="text-emerald-200 text-sm mb-4">Scientific brand evaluation report</p>
+                  <p className="text-gray-300 text-sm mb-4">Scientific brand evaluation report</p>
                   <a
                     href={BOOKING_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full border-2 border-green-400 text-green-400 py-3 rounded-xl font-bold hover:bg-green-400 hover:text-emerald-900 transition-all block text-center"
+                    className="w-full border-2 border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all block text-center"
                   >
                     Get Free Report
                   </a>
                 </div>
 
                 {/* Meta & Google Ads */}
-                <div className="bg-emerald-800/40 border border-emerald-700/50 rounded-3xl p-6 hover:bg-emerald-800/60 transition-all duration-300">
-                  <div className="w-14 h-14 bg-green-400 rounded-2xl flex items-center justify-center mb-4">
-                    <TrendingUp className="h-7 w-7 text-emerald-900" />
+                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
+                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
+                    <TrendingUp className="h-7 w-7 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-black text-white mb-2">Ad Campaigns</h3>
-                  <p className="text-emerald-200 text-sm mb-4">Meta & Google Ads management</p>
+                  <p className="text-gray-300 text-sm mb-4">Meta & Google Ads management</p>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="w-full border border-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-700/50 transition-all"
+                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
                   >
                     Learn More
                   </button>
@@ -1353,8 +1364,8 @@ export default function App() {
             {/* Company Info */}
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
-                <span className="text-2xl font-black text-green-400">
-                  The Logo Makers
+                <span className="text-2xl font-black text-white">
+                  Daily Creative <span className="text-gold-400">Designs</span>
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
@@ -1399,19 +1410,19 @@ export default function App() {
               <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-green-400 mr-3" />
+                  <Phone className="h-5 w-5 text-gold-400 mr-3" />
                   <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.phoneNumber}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-green-400 mr-3" />
+                  <Mail className="h-5 w-5 text-gold-400 mr-3" />
                   <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.emailAddress}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-green-400 mr-3" />
+                  <MapPin className="h-5 w-5 text-gold-400 mr-3" />
                   <span className="text-gray-300">{content.footer.location}</span>
                 </div>
               </div>
@@ -1424,8 +1435,18 @@ export default function App() {
                 {content.footer.copyrightText}
               </p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                <a href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                <button
+                  onClick={() => setCurrentPage('privacy')}
+                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors font-medium"
+                >
+                  Privacy Policy
+                </button>
+                <button
+                  onClick={() => setCurrentPage('cookies')}
+                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors font-medium"
+                >
+                  Cookies Policy
+                </button>
               </div>
             </div>
           </div>
