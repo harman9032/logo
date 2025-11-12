@@ -547,15 +547,13 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Portfolio Item 1 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-emerald-100 to-emerald-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Target className="h-10 w-10 text-emerald-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-emerald-900">E-commerce Store</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/1884581/pexels-photo-1884581.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Fashion ecommerce website"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Shopify
                 </div>
@@ -576,15 +574,13 @@ export default function App() {
 
             {/* Portfolio Item 2 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-gold-100 to-gold-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <BarChart3 className="h-10 w-10 text-gold-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Landing Page</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="SaaS landing page on laptop"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   SaaS
                 </div>
@@ -605,15 +601,13 @@ export default function App() {
 
             {/* Portfolio Item 3 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Award className="h-10 w-10 text-blue-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Logo Design</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Logo design and branding"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Branding
                 </div>
@@ -634,15 +628,13 @@ export default function App() {
 
             {/* Portfolio Item 4 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Zap className="h-10 w-10 text-purple-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Meta Ads</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Restaurant food photography"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Facebook
                 </div>
@@ -663,15 +655,13 @@ export default function App() {
 
             {/* Portfolio Item 5 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-red-100 to-red-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <TrendingUp className="h-10 w-10 text-red-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Google Ads</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/5668882/pexels-photo-5668882.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Professional law office"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Search
                 </div>
@@ -692,15 +682,13 @@ export default function App() {
 
             {/* Portfolio Item 6 */}
             <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="relative h-64 bg-gradient-to-br from-teal-100 to-teal-200 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Lightbulb className="h-10 w-10 text-teal-700" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Full Package</h3>
-                  </div>
-                </div>
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Fitness gym equipment"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   3-in-1
                 </div>
@@ -758,15 +746,15 @@ export default function App() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature3}</span>
                 </div>
               </div>
@@ -797,15 +785,15 @@ export default function App() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature3}</span>
                 </div>
               </div>
@@ -836,15 +824,15 @@ export default function App() {
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature3}</span>
                 </div>
               </div>
@@ -922,130 +910,130 @@ export default function App() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-50">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-emerald-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {content.pricing.title}
             </h2>
-            <p className="text-xl text-gray-600 font-medium">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               {content.pricing.subtitle}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Starter Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200 hover:border-green-300 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-2xl font-black text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-black text-green-600 mb-2">{content.pricing.starterPrice}</div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
+              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.starterPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.starterDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-600 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-all duration-300"
+                className="w-full bg-gray-700 text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-all duration-300"
               >
                 {content.pricing.starterButtonText}
               </button>
             </div>
 
             {/* Professional Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border-2 border-green-300 relative transform scale-105">
+            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-gold-400 relative transform scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-green-500 text-white px-6 py-2 rounded-full text-sm font-black">
+                <span className="bg-gold-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                   {content.pricing.professionalBadgeText}
                 </span>
               </div>
 
-              <h3 className="text-2xl font-black text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-black text-green-600 mb-2">{content.pricing.professionalPrice}</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
+              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.professionalPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.professionalDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300"
+                className="w-full bg-gold-500 text-white py-3 rounded-xl font-bold hover:bg-gold-600 transition-all duration-300 shadow-lg"
               >
                 {content.pricing.professionalButtonText}
               </button>
             </div>
 
             {/* Enterprise Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200 hover:border-green-300 hover:shadow-lg transition-all duration-300">
-              <h3 className="text-2xl font-black text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-black text-green-600 mb-2">{content.pricing.enterprisePrice}</div>
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
+              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.enterprisePrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.enterpriseDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-500 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-600 text-white py-3 rounded-lg font-bold hover:bg-gray-700 transition-all duration-300"
+                className="w-full bg-gray-700 text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-all duration-300"
               >
                 {content.pricing.enterpriseButtonText}
               </button>
