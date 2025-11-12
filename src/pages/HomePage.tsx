@@ -389,7 +389,7 @@ export default function HomePage() {
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
               What If Your <span className="text-emerald-700">Logo</span> Could Tell 
-              <span className="block mt-2">Why You’re Not Getting  
+              <span className="block mt-2">Why You’re Not Getting  </span>
               <span className="block mt-2 text-gold-600">Clients?</span>
             </h1>
 
