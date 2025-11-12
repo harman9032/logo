@@ -381,213 +381,150 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-20 bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left Column */}
-            <div className="space-y-8">
-              {/* Status Badge */}
-              <div className="inline-flex items-center bg-emerald-900/50 border border-gold-600/50 rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-gold-400 rounded-full mr-2 animate-pulse"></div>
-                <span className="text-sm font-semibold text-white">
-                  🇺🇸 Trusted by US Marketing Agencies | Taking New Clients
-                </span>
-              </div>
+      <section className="relative pt-32 pb-24 bg-gradient-to-b from-emerald-50 to-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
-              {/* Rating */}
-              <div className="flex items-center space-x-3">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-4xl mx-auto">
+            {/* Status Badge */}
+            <div className="inline-flex items-center bg-white border border-emerald-200 rounded-full px-5 py-2 mb-8 shadow-sm">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-sm font-semibold text-emerald-900">
+                🇺🇸 Trusted by 50+ US Marketing Agencies
+              </span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
+              Get Your Clients <span className="text-emerald-700">10x ROI</span>
+              <span className="block mt-2">With Our Done-For-You</span>
+              <span className="block mt-2 text-gold-600">Design & Ad System</span>
+            </h1>
+
+            <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
+              White-label Shopify stores, landing pages & Meta/Google Ads that convert.
+              <span className="font-semibold text-gray-900"> Fast delivery. Proven results.</span>
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <a
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gold-500 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-gold-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
+              >
+                Get FREE Logo Analysis ($499 Value)
+                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="bg-white border-2 border-emerald-700 text-emerald-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-emerald-700 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
+              >
+                View Packages
+              </button>
+            </div>
+
+            {/* Social Proof & Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
+              <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-5 w-5 text-gold-500 fill-current" />
                   ))}
                 </div>
-                <span className="text-white font-bold">5.0 Rating</span>
-                <span className="text-gold-300">from 50+ US agencies</span>
+                <span className="text-gray-700 font-semibold">5.0 Rating</span>
               </div>
-
-              {/* Main Headline */}
-              <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
-                  Turn Your Client's Brand Into
-                  <span className="block mt-2 text-gold-400">A Revenue Machine</span>
-                </h1>
-                <p className="text-xl text-emerald-100 leading-relaxed mb-4">
-                  Expert freelancer delivering <span className="text-white font-bold">high-converting Shopify stores, landing pages, and ad campaigns</span> that US agencies trust. Get clients results fast—without hiring a full team.
-                </p>
-                <div className="bg-emerald-900/60 border border-gold-600/50 rounded-2xl p-4 backdrop-blur-sm">
-                  <p className="text-gold-300 font-bold text-lg mb-2">🎁 FREE for Agency Partners:</p>
-                  <p className="text-white text-base">
-                    Scientific Logo Analysis Report (Worth $499) — Data-driven insights using psychology & neuroscience to optimize your client's brand identity.
-                  </p>
-                </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="h-5 w-5 text-emerald-600" />
+                <span className="text-gray-700 font-semibold">48hr Delivery</span>
               </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gold-500 text-gray-900 px-8 py-5 rounded-xl text-lg font-black hover:bg-gold-400 transition-all duration-300 shadow-2xl flex items-center justify-center group"
-                >
-                  <Award className="h-6 w-6 mr-2 group-hover:scale-110 transition-transform" />
-                  Get FREE Logo Analysis Now
-                </a>
-                <button
-                  onClick={() => scrollToSection('services')}
-                  className="border-2 border-gold-400 text-white px-8 py-5 rounded-xl text-lg font-bold hover:bg-gold-400 hover:text-gray-900 transition-all duration-300 flex items-center justify-center"
-                >
-                  View 3-in-1 Combo Deal
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </button>
-              </div>
-
-              {/* Trust Badges */}
-              <div className="flex flex-wrap items-center gap-6 pt-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
-                    <CheckCircle className="h-5 w-5 text-gray-900" />
-                  </div>
-                  <span className="text-white text-sm font-semibold">Fast 48-72hr Delivery</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
-                    <Shield className="h-5 w-5 text-gray-900" />
-                  </div>
-                  <span className="text-white text-sm font-semibold">Money-Back Guarantee</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-gold-500 rounded-full flex items-center justify-center">
-                    <Users className="h-5 w-5 text-gray-900" />
-                  </div>
-                  <span className="text-white text-sm font-semibold">White-Label Ready</span>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gold-600/30">
-                <div>
-                  <div className="text-4xl font-black text-gold-400 mb-2">250+</div>
-                  <div className="text-sm text-gray-300">Projects Delivered</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-black text-gold-400 mb-2">87%</div>
-                  <div className="text-sm text-gray-300">Client Retention</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-black text-gold-400 mb-2">24hr</div>
-                  <div className="text-sm text-gray-300">Avg. Response Time</div>
-                </div>
+              <div className="flex items-center space-x-2">
+                <Shield className="h-5 w-5 text-emerald-600" />
+                <span className="text-gray-700 font-semibold">Money-Back Guarantee</span>
               </div>
             </div>
 
-            {/* Right Column - Service Cards */}
-            <div className="space-y-4">
-              {/* 3-in-1 Combo Deal - Featured */}
-              <div className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-white text-gray-900 px-4 py-1 rounded-full text-xs font-black">
-                  BEST VALUE
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center">
-                      <Zap className="h-9 w-9 text-gold-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-black text-gray-900 mb-1">3-in-1 Growth Package</h3>
-                      <p className="text-gray-800 text-sm font-bold">Logo + Landing Page + Ads Setup</p>
-                    </div>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-gray-200">
+              <div>
+                <div className="text-4xl font-bold text-emerald-700 mb-1">250+</div>
+                <div className="text-sm text-gray-600">Projects Completed</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-emerald-700 mb-1">87%</div>
+                <div className="text-sm text-gray-600">Repeat Clients</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-emerald-700 mb-1">$2M+</div>
+                <div className="text-sm text-gray-600">Client Revenue</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Package */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-6 right-6 bg-gold-500 text-white px-5 py-2 rounded-full text-sm font-black shadow-lg">
+              MOST POPULAR
+            </div>
+
+            <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  3-in-1 Growth Package
+                </h2>
+                <p className="text-emerald-100 text-lg mb-6">
+                  Complete brand & conversion system for your clients
+                </p>
+
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center text-white">
+                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                    <span>Scientific Logo Design & Analysis</span>
                   </div>
-                  <div className="bg-gray-900/20 rounded-2xl p-4 mb-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center text-gray-900">
-                        <CheckCircle className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-semibold">Scientific Logo Design & Analysis</span>
-                      </div>
-                      <div className="flex items-center text-gray-900">
-                        <CheckCircle className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-semibold">High-Converting Landing Page</span>
-                      </div>
-                      <div className="flex items-center text-gray-900">
-                        <CheckCircle className="h-4 w-4 mr-2" />
-                        <span className="text-sm font-semibold">Meta & Google Ads Campaign Setup</span>
-                      </div>
-                    </div>
+                  <div className="flex items-center text-white">
+                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                    <span>High-Converting Landing Page</span>
                   </div>
-                  <button
-                    onClick={() => scrollToSection('pricing')}
-                    className="w-full bg-gray-900 text-gold-400 py-4 rounded-xl font-black hover:bg-gray-800 transition-all shadow-lg"
-                  >
-                    View Package Details →
-                  </button>
+                  <div className="flex items-center text-white">
+                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                    <span>Meta & Google Ads Campaign Setup</span>
+                  </div>
                 </div>
+
+                <button
+                  onClick={() => scrollToSection('pricing')}
+                  className="bg-gold-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-gold-400 transition-all shadow-lg text-lg"
+                >
+                  View Full Details →
+                </button>
               </div>
 
-              {/* Individual Services Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Shopify Stores */}
-                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
-                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
-                    <Target className="h-7 w-7 text-gray-900" />
-                  </div>
-                  <h3 className="text-xl font-black text-white mb-2">Shopify Stores</h3>
-                  <p className="text-gray-300 text-sm mb-4">Custom e-commerce stores that sell</p>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
-                  >
-                    Learn More
-                  </button>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <Target className="h-10 w-10 text-gold-400 mb-3" />
+                  <h3 className="text-white font-bold mb-1">Logo Design</h3>
+                  <p className="text-emerald-200 text-sm">Science-backed branding</p>
                 </div>
-
-                {/* Landing Pages */}
-                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
-                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
-                    <BarChart3 className="h-7 w-7 text-gray-900" />
-                  </div>
-                  <h3 className="text-xl font-black text-white mb-2">Landing Pages</h3>
-                  <p className="text-gray-300 text-sm mb-4">Conversion-optimized page design</p>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
-                  >
-                    Learn More
-                  </button>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <BarChart3 className="h-10 w-10 text-gold-400 mb-3" />
+                  <h3 className="text-white font-bold mb-1">Landing Pages</h3>
+                  <p className="text-emerald-200 text-sm">Conversion optimized</p>
                 </div>
-
-                {/* Scientific Logo Analysis */}
-                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300 relative">
-                  <div className="absolute top-3 right-3 bg-gold-500 text-gray-900 px-2 py-1 rounded-full text-xs font-black">
-                    FREE
-                  </div>
-                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
-                    <Award className="h-7 w-7 text-gray-900" />
-                  </div>
-                  <h3 className="text-xl font-black text-white mb-2">Logo Analysis</h3>
-                  <p className="text-gray-300 text-sm mb-4">Scientific brand evaluation report</p>
-                  <a
-                    href={BOOKING_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full border-2 border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all block text-center"
-                  >
-                    Get Free Report
-                  </a>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <Zap className="h-10 w-10 text-gold-400 mb-3" />
+                  <h3 className="text-white font-bold mb-1">Meta Ads</h3>
+                  <p className="text-emerald-200 text-sm">Strategic campaigns</p>
                 </div>
-
-                {/* Meta & Google Ads */}
-                <div className="bg-emerald-900/40 border border-gold-600/30 rounded-3xl p-6 hover:bg-emerald-900/60 hover:border-gold-500/50 transition-all duration-300">
-                  <div className="w-14 h-14 bg-gold-500 rounded-2xl flex items-center justify-center mb-4">
-                    <TrendingUp className="h-7 w-7 text-gray-900" />
-                  </div>
-                  <h3 className="text-xl font-black text-white mb-2">Ad Campaigns</h3>
-                  <p className="text-gray-300 text-sm mb-4">Meta & Google Ads management</p>
-                  <button
-                    onClick={() => scrollToSection('services')}
-                    className="w-full border border-gold-500 text-gold-400 py-3 rounded-xl font-bold hover:bg-gold-500 hover:text-gray-900 transition-all"
-                  >
-                    Learn More
-                  </button>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <TrendingUp className="h-10 w-10 text-gold-400 mb-3" />
+                  <h3 className="text-white font-bold mb-1">Google Ads</h3>
+                  <p className="text-emerald-200 text-sm">Data-driven results</p>
                 </div>
               </div>
             </div>
