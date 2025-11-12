@@ -466,65 +466,65 @@ export default function App() {
       </section>
 
       {/* Featured Package */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-b from-white to-emerald-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-emerald-700 to-emerald-900 rounded-3xl p-12 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-6 right-6 bg-gold-500 text-white px-5 py-2 rounded-full text-sm font-black shadow-lg">
+          <div className="bg-white rounded-3xl p-12 shadow-xl relative overflow-hidden border-2 border-emerald-200">
+            <div className="absolute top-6 right-6 bg-gold-500 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
               MOST POPULAR
             </div>
 
             <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   3-in-1 Growth Package
                 </h2>
-                <p className="text-emerald-100 text-lg mb-6">
+                <p className="text-gray-600 text-lg mb-6">
                   Complete brand & conversion system for your clients
                 </p>
 
                 <div className="space-y-3 mb-8">
-                  <div className="flex items-center text-white">
-                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
                     <span>Scientific Logo Design & Analysis</span>
                   </div>
-                  <div className="flex items-center text-white">
-                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
                     <span>High-Converting Landing Page</span>
                   </div>
-                  <div className="flex items-center text-white">
-                    <CheckCircle className="h-5 w-5 mr-3 text-gold-400" />
+                  <div className="flex items-center text-gray-700">
+                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
                     <span>Meta & Google Ads Campaign Setup</span>
                   </div>
                 </div>
 
                 <button
                   onClick={() => scrollToSection('pricing')}
-                  className="bg-gold-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-gold-400 transition-all shadow-lg text-lg"
+                  className="bg-gold-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-gold-600 transition-all shadow-xl text-lg"
                 >
                   View Full Details →
                 </button>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <Target className="h-10 w-10 text-gold-400 mb-3" />
-                  <h3 className="text-white font-bold mb-1">Logo Design</h3>
-                  <p className="text-emerald-200 text-sm">Science-backed branding</p>
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
+                  <Target className="h-10 w-10 text-emerald-700 mb-3" />
+                  <h3 className="text-gray-900 font-bold mb-1">Logo Design</h3>
+                  <p className="text-gray-600 text-sm">Science-backed branding</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <BarChart3 className="h-10 w-10 text-gold-400 mb-3" />
-                  <h3 className="text-white font-bold mb-1">Landing Pages</h3>
-                  <p className="text-emerald-200 text-sm">Conversion optimized</p>
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
+                  <BarChart3 className="h-10 w-10 text-emerald-700 mb-3" />
+                  <h3 className="text-gray-900 font-bold mb-1">Landing Pages</h3>
+                  <p className="text-gray-600 text-sm">Conversion optimized</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <Zap className="h-10 w-10 text-gold-400 mb-3" />
-                  <h3 className="text-white font-bold mb-1">Meta Ads</h3>
-                  <p className="text-emerald-200 text-sm">Strategic campaigns</p>
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
+                  <Zap className="h-10 w-10 text-emerald-700 mb-3" />
+                  <h3 className="text-gray-900 font-bold mb-1">Meta Ads</h3>
+                  <p className="text-gray-600 text-sm">Strategic campaigns</p>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                  <TrendingUp className="h-10 w-10 text-gold-400 mb-3" />
-                  <h3 className="text-white font-bold mb-1">Google Ads</h3>
-                  <p className="text-emerald-200 text-sm">Data-driven results</p>
+                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
+                  <TrendingUp className="h-10 w-10 text-emerald-700 mb-3" />
+                  <h3 className="text-gray-900 font-bold mb-1">Google Ads</h3>
+                  <p className="text-gray-600 text-sm">Data-driven results</p>
                 </div>
               </div>
             </div>
