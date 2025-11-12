@@ -390,7 +390,7 @@ export default function HomePage() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
              Not Getting <span className="text-emerald-700">Clients</span>   
               <span className=" mt-2">Find via  </span>
-              <span className="block mt-2 text-gold-600">Scientific Logo</span><span className="block mt-2">Analysis </span>
+              <span className="block mt-2 text-gold-600">Scientific Logo</span><span className=" mt-2">Analysis </span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
