@@ -388,9 +388,9 @@ export default function HomePage() {
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-              What If Your <span className="text-emerald-700">Logo</span> Could Tell 
-              <span className="block mt-2">Why You’re Not Getting  </span>
-              <span className="block mt-2 text-gold-600">Clients?</span>
+             Decode Why <span className="text-emerald-700">Clients</span>   Don’t Buy 
+              <span className="block mt-2">Through Your  </span>
+              <span className="block mt-2 text-gold-600">Scientific Logo</span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
