@@ -532,6 +532,209 @@ export default function App() {
         </div>
       </section>
 
+      {/* Portfolio Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Our Recent Work
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              See how we've helped agencies deliver stunning results for their clients
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Portfolio Item 1 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-emerald-100 to-emerald-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <Target className="h-10 w-10 text-emerald-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-emerald-900">E-commerce Store</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Shopify
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Fashion Store</h3>
+                <p className="text-gray-600 mb-4">Custom Shopify store with 3x conversion rate increase</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">+180% Sales</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Item 2 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-gold-100 to-gold-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <BarChart3 className="h-10 w-10 text-gold-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Landing Page</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  SaaS
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">SaaS Product Launch</h3>
+                <p className="text-gray-600 mb-4">High-converting landing page with 47% conversion rate</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">47% CVR</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Item 3 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <Award className="h-10 w-10 text-blue-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Logo Design</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Branding
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Tech Startup Rebrand</h3>
+                <p className="text-gray-600 mb-4">Complete brand identity with scientific logo analysis</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">95/100 Score</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Item 4 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-purple-100 to-purple-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <Zap className="h-10 w-10 text-purple-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Meta Ads</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Facebook
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Restaurant Chain Campaign</h3>
+                <p className="text-gray-600 mb-4">Meta ads campaign generating 5x ROAS consistently</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">5x ROAS</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Item 5 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-red-100 to-red-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <TrendingUp className="h-10 w-10 text-red-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Google Ads</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  Search
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Legal Services Firm</h3>
+                <p className="text-gray-600 mb-4">Google search ads with 8.2x return on ad spend</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">8.2x ROAS</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Portfolio Item 6 */}
+            <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+              <div className="relative h-64 bg-gradient-to-br from-teal-100 to-teal-200 overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <Lightbulb className="h-10 w-10 text-teal-700" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900">Full Package</h3>
+                  </div>
+                </div>
+                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  3-in-1
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Fitness Brand Launch</h3>
+                <p className="text-gray-600 mb-4">Complete package: Logo, landing page & ad campaigns</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-emerald-700 font-semibold">$500K Revenue</span>
+                  <div className="flex space-x-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-16">
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gold-500 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-gold-600 transition-all shadow-lg hover:shadow-xl"
+            >
+              Start Your Project Today
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
