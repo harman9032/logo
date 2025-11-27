@@ -292,8 +292,8 @@ export default function HomePage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-black text-emerald-900">
-                  Daily Creative <span className="text-gold-600">Designs</span>
+                <span className="text-2xl font-black text-red-900">
+                  Daily Creative <span className="text-red-600">Designs</span>
                 </span>
               </div>
             </div>
@@ -301,26 +301,26 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Services
                 </button>
-                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Pricing
                 </button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Testimonials
                 </button>
-                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
                   FAQ
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Contact
                 </button>
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-green-500 text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-green-600 transition-all duration-300 shadow-md"
+                  className="bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-red-700 transition-all duration-300 shadow-md"
                 >
                   Book Free Call
                 </a>
@@ -331,7 +331,7 @@ export default function HomePage() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-green-600 p-2"
+                className="text-gray-700 hover:text-red-700 p-2"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -343,26 +343,26 @@ export default function HomePage() {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Services
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Testimonials
               </button>
-              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-green-600 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Contact
               </button>
               <a
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-green-500 text-white px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-green-600 transition-colors"
+                className="block bg-red-600 text-white px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-red-700 transition-colors"
               >
                 Book Free Call
               </a>
@@ -372,7 +372,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-b from-emerald-50 to-white overflow-hidden">
+      <section className="relative pt-32 pb-24 bg-gradient-to-b from-red-50 to-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -380,17 +380,17 @@ export default function HomePage() {
           <div className="text-center max-w-4xl mx-auto">
             {/* Status Badge */}
             <div className="inline-flex items-center bg-white border border-emerald-200 rounded-full px-5 py-2 mb-8 shadow-sm">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></div>
-              <span className="text-sm font-semibold text-emerald-900">
+              <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-sm font-semibold text-red-900">
                 🇺🇸 Trusted by 50+ US Marketing Agencies
               </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-             Not Getting <span className="text-emerald-700">Clients</span>   
+             Not Getting <span className="text-red-700">Clients</span>   
               <span className=" mt-2">Try </span>
-              <span className="block mt-2 text-gold-600">Scientific Logo</span><span className=" mt-2">Analysis </span>
+              <span className="block mt-2 text-red-600">Scientific Logo</span><span className=" mt-2">Analysis </span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
@@ -404,14 +404,14 @@ export default function HomePage() {
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gold-500 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-gold-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
+                className="bg-red-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-red-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
               >
                 Get FREE Logo Analysis ($499 Value)
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="bg-white border-2 border-emerald-700 text-emerald-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-emerald-700 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
+                className="bg-white border-2 border-red-700 text-red-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-red-700 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
               >
                 View Packages
               </button>
@@ -422,17 +422,17 @@ export default function HomePage() {
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-gold-500 fill-current" />
+                    <Star key={i} className="h-5 w-5 text-red-600 fill-current" />
                   ))}
                 </div>
                 <span className="text-gray-700 font-semibold">5.0 Rating</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-emerald-600" />
+                <CheckCircle className="h-5 w-5 text-red-600" />
                 <span className="text-gray-700 font-semibold">48hr Delivery</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-emerald-600" />
+                <Shield className="h-5 w-5 text-red-600" />
                 <span className="text-gray-700 font-semibold">Money-Back Guarantee</span>
               </div>
             </div>
@@ -440,15 +440,15 @@ export default function HomePage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-gray-200">
               <div>
-                <div className="text-4xl font-bold text-emerald-700 mb-1">250+</div>
+                <div className="text-4xl font-bold text-red-700 mb-1">250+</div>
                 <div className="text-sm text-gray-600">Projects Completed</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-emerald-700 mb-1">87%</div>
+                <div className="text-4xl font-bold text-red-700 mb-1">87%</div>
                 <div className="text-sm text-gray-600">Repeat Clients</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-emerald-700 mb-1">$2M+</div>
+                <div className="text-4xl font-bold text-red-700 mb-1">$2M+</div>
                 <div className="text-sm text-gray-600">Client Revenue</div>
               </div>
             </div>
@@ -457,10 +457,10 @@ export default function HomePage() {
       </section>
 
       {/* Featured Package */}
-      <section className="py-16 bg-gradient-to-b from-white to-emerald-50">
+      <section className="py-16 bg-gradient-to-b from-white to-red-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-12 shadow-xl relative overflow-hidden border-2 border-emerald-200">
-            <div className="absolute top-6 right-6 bg-gold-500 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+            <div className="absolute top-6 right-6 bg-red-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
               MOST POPULAR
             </div>
 
@@ -475,45 +475,45 @@ export default function HomePage() {
 
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
                     <span>Scientific Logo Design & Analysis</span>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
                     <span>High-Converting Landing Page</span>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-emerald-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
                     <span>Meta & Google Ads Campaign Setup</span>
                   </div>
                 </div>
 
                 <button
                   onClick={() => scrollToSection('pricing')}
-                  className="bg-gold-500 text-white px-8 py-4 rounded-xl font-bold hover:bg-gold-600 transition-all shadow-xl text-lg"
+                  className="bg-red-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-xl text-lg"
                 >
                   View Full Details →
                 </button>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
-                  <Target className="h-10 w-10 text-emerald-700 mb-3" />
+                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
+                  <Target className="h-10 w-10 text-red-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Logo Design</h3>
                   <p className="text-gray-600 text-sm">Science-backed branding</p>
                 </div>
-                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
-                  <BarChart3 className="h-10 w-10 text-emerald-700 mb-3" />
+                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
+                  <BarChart3 className="h-10 w-10 text-red-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Landing Pages</h3>
                   <p className="text-gray-600 text-sm">Conversion optimized</p>
                 </div>
-                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
-                  <Zap className="h-10 w-10 text-emerald-700 mb-3" />
+                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
+                  <Zap className="h-10 w-10 text-red-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Meta Ads</h3>
                   <p className="text-gray-600 text-sm">Strategic campaigns</p>
                 </div>
-                <div className="bg-emerald-50 rounded-2xl p-6 border border-emerald-200">
-                  <TrendingUp className="h-10 w-10 text-emerald-700 mb-3" />
+                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
+                  <TrendingUp className="h-10 w-10 text-red-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Google Ads</h3>
                   <p className="text-gray-600 text-sm">Data-driven results</p>
                 </div>
@@ -545,7 +545,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Shopify
                 </div>
               </div>
@@ -553,10 +553,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Fashion Store</h3>
                 <p className="text-gray-600 mb-4">Custom Shopify store with 3x conversion rate increase</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">+180% Sales</span>
+                  <span className="text-red-700 font-semibold">+180% Sales</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -572,7 +572,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   SaaS
                 </div>
               </div>
@@ -580,10 +580,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">SaaS Product Launch</h3>
                 <p className="text-gray-600 mb-4">High-converting landing page with 47% conversion rate</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">47% CVR</span>
+                  <span className="text-red-700 font-semibold">47% CVR</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -599,7 +599,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Branding
                 </div>
               </div>
@@ -607,10 +607,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Tech Startup Rebrand</h3>
                 <p className="text-gray-600 mb-4">Complete brand identity with scientific logo analysis</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">95/100 Score</span>
+                  <span className="text-red-700 font-semibold">95/100 Score</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -626,7 +626,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Facebook
                 </div>
               </div>
@@ -634,10 +634,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Restaurant Chain Campaign</h3>
                 <p className="text-gray-600 mb-4">Meta ads campaign generating 5x ROAS consistently</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">5x ROAS</span>
+                  <span className="text-red-700 font-semibold">5x ROAS</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -653,7 +653,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Search
                 </div>
               </div>
@@ -661,10 +661,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Legal Services Firm</h3>
                 <p className="text-gray-600 mb-4">Google search ads with 8.2x return on ad spend</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">8.2x ROAS</span>
+                  <span className="text-red-700 font-semibold">8.2x ROAS</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -680,7 +680,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   3-in-1
                 </div>
               </div>
@@ -688,10 +688,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Fitness Brand Launch</h3>
                 <p className="text-gray-600 mb-4">Complete package: Logo, landing page & ad campaigns</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-emerald-700 font-semibold">$500K Revenue</span>
+                  <span className="text-red-700 font-semibold">$500K Revenue</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-gold-500 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -705,7 +705,7 @@ export default function HomePage() {
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-gold-500 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-gold-600 transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-red-700 transition-all shadow-lg hover:shadow-xl"
             >
               Start Your Project Today
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -730,28 +730,28 @@ export default function HomePage() {
             {/* Logo Design */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-green-600" />
+                <Target className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.logoTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.logoDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-600">{content.services.logoPrice}</span>
+                <span className="text-2xl font-black text-red-700">{content.services.logoPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.logoDelivery}
@@ -760,7 +760,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300"
+                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -769,28 +769,28 @@ export default function HomePage() {
             {/* Landing Page */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-green-600" />
+                <BarChart3 className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.landingTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.landingDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-600">{content.services.landingPrice}</span>
+                <span className="text-2xl font-black text-red-700">{content.services.landingPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.landingDelivery}
@@ -799,7 +799,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300"
+                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -808,28 +808,28 @@ export default function HomePage() {
             {/* Meta Ads */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="h-8 w-8 text-green-600" />
+                <TrendingUp className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.adsTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.adsDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-600">{content.services.adsPrice}</span>
+                <span className="text-2xl font-black text-red-700">{content.services.adsPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.adsDelivery}
@@ -838,7 +838,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300"
+                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -846,7 +846,7 @@ export default function HomePage() {
           </div>
 
           {/* Complete Package */}
-          <div className="bg-green-500 rounded-3xl p-12 text-white text-center relative overflow-hidden shadow-lg">
+          <div className="bg-red-600 rounded-3xl p-12 text-white text-center relative overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-black/5"></div>
             <div className="relative z-10">
               <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
@@ -871,7 +871,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-md"
+                  className="bg-white text-red-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-md"
                 >
                   {content.services.packageButtonText}
                 </button>
@@ -879,7 +879,7 @@ export default function HomePage() {
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-600 transition-all duration-300"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-700 transition-all duration-300"
                 >
                   Book Free Call
                 </a>
@@ -901,7 +901,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-emerald-50">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -916,28 +916,28 @@ export default function HomePage() {
             {/* Starter Package */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.starterPrice}</div>
+              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.starterPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.starterDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature5}</span>
                 </div>
               </div>
@@ -951,43 +951,43 @@ export default function HomePage() {
             </div>
 
             {/* Professional Package */}
-            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-gold-400 relative transform scale-105">
+            <div className="bg-gradient-to-br from-red-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-red-600 relative transform scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-gold-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                <span className="bg-red-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                   {content.pricing.professionalBadgeText}
                 </span>
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.professionalPrice}</div>
+              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.professionalPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.professionalDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gold-500 text-white py-3 rounded-xl font-bold hover:bg-gold-600 transition-all duration-300 shadow-lg"
+                className="w-full bg-red-600 text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-all duration-300 shadow-lg"
               >
                 {content.pricing.professionalButtonText}
               </button>
@@ -996,28 +996,28 @@ export default function HomePage() {
             {/* Enterprise Package */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-bold text-emerald-700 mb-2">{content.pricing.enterprisePrice}</div>
+              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.enterprisePrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.enterpriseDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-emerald-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
                 </div>
               </div>
@@ -1048,7 +1048,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Zap className="h-8 w-8 text-green-600" />
+                <Zap className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason1Description}</p>
@@ -1056,7 +1056,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Award className="h-8 w-8 text-green-600" />
+                <Award className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason2Description}</p>
@@ -1064,7 +1064,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TrendingUp className="h-8 w-8 text-green-600" />
+                <TrendingUp className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason3Description}</p>
@@ -1072,7 +1072,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-green-600" />
+                <Shield className="h-8 w-8 text-red-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason4Description}</p>
@@ -1104,7 +1104,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial1Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial1Name.charAt(0)}
                 </div>
                 <div>
@@ -1124,7 +1124,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial2Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial2Name.charAt(0)}
                 </div>
                 <div>
@@ -1144,7 +1144,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial3Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial3Name.charAt(0)}
                 </div>
                 <div>
@@ -1185,9 +1185,9 @@ export default function HomePage() {
                 >
                   <span className="text-lg font-bold text-gray-900">{faq.question}</span>
                   {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-green-600" />
+                    <ChevronUp className="h-5 w-5 text-red-700" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-green-600" />
+                    <ChevronDown className="h-5 w-5 text-red-700" />
                   )}
                 </button>
                 {openFaq === index && (
@@ -1216,23 +1216,23 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Phone */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.phoneTitle}</h3>
               <p className="text-gray-600 mb-4">{content.readyToTalk.phoneDescription}</p>
               <a 
                 href={`tel:${content.readyToTalk.phoneNumber}`}
-                className="text-2xl font-bold text-green-600 hover:text-green-700 transition-colors block mb-2"
+                className="text-2xl font-bold text-red-700 hover:text-red-800 transition-colors block mb-2"
               >
                 {content.readyToTalk.phoneNumber}
               </a>
-              <p className="text-sm text-green-600">{content.readyToTalk.phoneAvailability}</p>
+              <p className="text-sm text-red-700">{content.readyToTalk.phoneAvailability}</p>
             </div>
 
             {/* WhatsApp */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.whatsappTitle}</h3>
@@ -1241,12 +1241,12 @@ export default function HomePage() {
                 href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors inline-flex items-center"
+                className="bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors inline-flex items-center"
               >
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {content.readyToTalk.whatsappButtonText}
               </a>
-              <p className="text-sm text-green-600 mt-4">{content.readyToTalk.whatsappResponse}</p>
+              <p className="text-sm text-red-700 mt-4">{content.readyToTalk.whatsappResponse}</p>
             </div>
 
             {/* Email */}
@@ -1282,7 +1282,7 @@ export default function HomePage() {
               </div>
               
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit2Title}</h4>
@@ -1416,7 +1416,7 @@ export default function HomePage() {
               </div>
 
               {submitMessage && (
-                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-green-700'}`}>
+                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-red-800'}`}>
                   {submitMessage}
                 </div>
               )}
@@ -1443,7 +1443,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-green-500 text-white">
+      <section className="py-20 bg-red-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             {content.cta.title}
@@ -1457,14 +1457,14 @@ export default function HomePage() {
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+              className="bg-white text-red-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
             >
               <Calendar className="h-5 w-5 mr-2" />
               {content.cta.primaryButtonText}
             </a>
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-600 transition-all duration-300"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-700 transition-all duration-300"
             >
               {content.cta.secondaryButtonText}
             </button>
@@ -1484,7 +1484,7 @@ export default function HomePage() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
                 <span className="text-2xl font-black text-white">
-                  Daily Creative <span className="text-gold-400">Designs</span>
+                  Daily Creative <span className="text-red-600">Designs</span>
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
@@ -1529,19 +1529,19 @@ export default function HomePage() {
               <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-gold-400 mr-3" />
+                  <Phone className="h-5 w-5 text-red-600 mr-3" />
                   <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.phoneNumber}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-gold-400 mr-3" />
+                  <Mail className="h-5 w-5 text-red-600 mr-3" />
                   <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.emailAddress}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-gold-400 mr-3" />
+                  <MapPin className="h-5 w-5 text-red-600 mr-3" />
                   <span className="text-gray-300">{content.footer.location}</span>
                 </div>
               </div>
@@ -1556,19 +1556,19 @@ export default function HomePage() {
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <Link
                   to="/privacy-policy"
-                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   to="/terms"
-                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
                 >
                   Terms
                 </Link>
                 <Link
                   to="/cookies-policy"
-                  className="text-gray-400 hover:text-gold-400 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
                 >
                   Cookies Policy
                 </Link>
@@ -1584,7 +1584,7 @@ export default function HomePage() {
           {/* Call Now Button */}
           <a
             href="tel:+917837319660"
-            className="flex-1 bg-green-500 hover:bg-green-600 text-white py-4 px-6 flex items-center justify-center font-bold transition-colors duration-200"
+            className="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 px-6 flex items-center justify-center font-bold transition-colors duration-200"
           >
             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
