@@ -372,30 +372,30 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-b from-red-50 to-white overflow-hidden">
+      <section className="relative pt-32 pb-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             {/* Status Badge */}
-            <div className="inline-flex items-center bg-white border border-emerald-200 rounded-full px-5 py-2 mb-8 shadow-sm">
-              <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
+            <div className="inline-flex items-center bg-brand-cream border border-red-300 rounded-full px-5 py-2 mb-8 shadow-lg">
+              <div className="w-2 h-2 bg-red-600 rounded-full mr-2 animate-pulse"></div>
               <span className="text-sm font-semibold text-red-900">
                 🇺🇸 Trusted by 50+ US Marketing Agencies
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight mb-6">
-             Not Getting <span className="text-red-700">Clients</span>   
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+             Not Getting <span className="text-brand-cream">Clients</span>
               <span className=" mt-2">Try </span>
-              <span className="block mt-2 text-red-600">Scientific Logo</span><span className=" mt-2">Analysis </span>
+              <span className="block mt-2 text-brand-cream">Scientific Logo</span><span className=" mt-2">Analysis </span>
             </h1>
 
-            <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-3xl mx-auto">
-              Let’s Decode It & Fix It with Our 3-in-1 Combo — Logo • Landing Page • Ads
-              <span className="font-semibold text-gray-900 block"> Find Out What Your Logo Is Manifesting</span>
+            <p className="text-xl text-red-50 leading-relaxed mb-10 max-w-3xl mx-auto">
+              Let's Decode It & Fix It with Our 3-in-1 Combo — Logo • Landing Page • Ads
+              <span className="font-semibold text-white block"> Find Out What Your Logo Is Manifesting</span>
             </p>
 
             {/* CTA Buttons */}
@@ -404,14 +404,14 @@ export default function HomePage() {
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-600 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-red-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
+                className="bg-brand-cream text-red-900 px-10 py-5 rounded-xl text-lg font-bold hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
               >
                 Get FREE Logo Analysis ($499 Value)
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="bg-white border-2 border-red-700 text-red-700 px-10 py-5 rounded-xl text-lg font-bold hover:bg-red-700 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
+                className="bg-transparent border-2 border-brand-cream text-brand-cream px-10 py-5 rounded-xl text-lg font-bold hover:bg-brand-cream hover:text-red-900 transition-all duration-300 flex items-center justify-center shadow-lg"
               >
                 View Packages
               </button>
@@ -422,34 +422,34 @@ export default function HomePage() {
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-red-600 fill-current" />
+                    <Star key={i} className="h-5 w-5 text-brand-cream fill-current" />
                   ))}
                 </div>
-                <span className="text-gray-700 font-semibold">5.0 Rating</span>
+                <span className="text-white font-semibold">5.0 Rating</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-red-600" />
-                <span className="text-gray-700 font-semibold">48hr Delivery</span>
+                <CheckCircle className="h-5 w-5 text-brand-cream" />
+                <span className="text-white font-semibold">48hr Delivery</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-red-600" />
-                <span className="text-gray-700 font-semibold">Money-Back Guarantee</span>
+                <Shield className="h-5 w-5 text-brand-cream" />
+                <span className="text-white font-semibold">Money-Back Guarantee</span>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-gray-200">
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-red-500">
               <div>
-                <div className="text-4xl font-bold text-red-700 mb-1">250+</div>
-                <div className="text-sm text-gray-600">Projects Completed</div>
+                <div className="text-4xl font-bold text-brand-cream mb-1">250+</div>
+                <div className="text-sm text-red-100">Projects Completed</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-red-700 mb-1">87%</div>
-                <div className="text-sm text-gray-600">Repeat Clients</div>
+                <div className="text-4xl font-bold text-brand-cream mb-1">87%</div>
+                <div className="text-sm text-red-100">Repeat Clients</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-red-700 mb-1">$2M+</div>
-                <div className="text-sm text-gray-600">Client Revenue</div>
+                <div className="text-4xl font-bold text-brand-cream mb-1">$2M+</div>
+                <div className="text-sm text-red-100">Client Revenue</div>
               </div>
             </div>
           </div>
