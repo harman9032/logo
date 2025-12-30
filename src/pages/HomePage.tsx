@@ -28,7 +28,7 @@ import {
 // Static content - no database needed
 const content = {
   hero: {
-  "title": "We Build Landing Pages & Ads That Convert Traffic Into Paying Clients",
+  "title": "Stop Feeling Lost—Start Your Business, Marketing & Community the Right Way with Divine Guidance",
   "subtitle": "Book a FREE 30-Minute Strategy Session (Worth ₹2,999)",
   "description": "Discover the exact system we use to deliver high-quality leads to businesses like yours—consistently, predictably, and affordably.",
   "ctaText": "Book My FREE Call Now",
