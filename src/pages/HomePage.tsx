@@ -28,11 +28,11 @@ import {
 // Static content - no database needed
 const content = {
   hero: {
-  "title": "Stop Feeling Lost—Start Your Business, Marketing & Community the Right Way with Divine Guidance",
-  "subtitle": "Book a FREE 30-Minute Strategy Session (Worth ₹2,999)",
-  "description": "Discover the exact system we use to deliver high-quality leads to businesses like yours—consistently, predictably, and affordably.",
-  "ctaText": "Book My FREE Call Now",
-  "badgeText": "Daily Creative Designs • Trusted by US Agencies • Since 2017",
+ "title": "Stop Feeling Lost—Start Your Business, Marketing & Community the Right Way with Astrology & Divine Guidance",
+  "subtitle": "Book a FREE 30-Minute Business Direction Session (Worth ₹2,999)",
+  "description": "Discover a proven astrology-based business guidance system to start your business, choose the right marketing strategy, build a loyal community, and generate consistent income with clarity—without confusion or wrong decisions.",
+  "ctaText": "Book My FREE Guidance Call Now",
+  "badgeText": "Astrology-Based Business Direction • Strategic Consulting • Trusted Guidance",
   "valueProposition1": "100+",
   "valueProposition1Value": "Quality Leads Monthly",
   "valueProposition1Desc": "Guaranteed Results with Every Project",
