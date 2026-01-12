@@ -13,3 +13,16 @@
     font-family: 'Space Grotesk', sans-serif;
   }
 }
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gold-gradient {
+    background: linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0);
+  }
+}

@@ -8,14 +8,14 @@ export default function CookiesPolicy() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className="flex items-center text-red-900 hover:text-red-600 mb-8 font-semibold transition-colors"
+          className="flex items-center text-green-900 hover:text-green-600 mb-8 font-semibold transition-colors"
         >
           <ArrowLeft className="h-5 w-5 mr-2" />
           Back to Home
         </Link>
 
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          <h1 className="text-4xl md:text-5xl font-black text-red-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-black text-green-900 mb-4">
             Cookies Policy
           </h1>
           <p className="text-gray-600 mb-8">
@@ -24,16 +24,16 @@ export default function CookiesPolicy() {
 
           <div className="prose prose-lg max-w-none">
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">What Are Cookies</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">What Are Cookies</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to the owners of the site.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">How We Use Cookies</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">How We Use Cookies</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Daily Creative Designs uses cookies to:
+                Career Clarity Webinar uses cookies to:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
                 <li>Remember your preferences and settings</li>
@@ -45,7 +45,7 @@ export default function CookiesPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">Types of Cookies We Use</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">Types of Cookies We Use</h2>
 
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Essential Cookies</h3>
@@ -77,7 +77,7 @@ export default function CookiesPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">Third-Party Cookies</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">Third-Party Cookies</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 We may use third-party services that also set cookies on your device. These include:
               </p>
@@ -90,7 +90,7 @@ export default function CookiesPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">How to Control Cookies</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">How to Control Cookies</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 You can control and manage cookies in various ways:
               </p>
@@ -103,33 +103,33 @@ export default function CookiesPolicy() {
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">Browser Settings</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">Browser Settings</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 To learn more about how to manage cookies in your specific browser, please visit:
               </p>
               <ul className="list-disc pl-6 text-gray-700 space-y-2 mb-4">
-                <li>Chrome: <span className="text-red-900 font-medium">chrome://settings/cookies</span></li>
-                <li>Firefox: <span className="text-red-900 font-medium">about:preferences#privacy</span></li>
-                <li>Safari: <span className="text-red-900 font-medium">Preferences &gt; Privacy</span></li>
-                <li>Edge: <span className="text-red-900 font-medium">edge://settings/privacy</span></li>
+                <li>Chrome: <span className="text-green-900 font-medium">chrome://settings/cookies</span></li>
+                <li>Firefox: <span className="text-green-900 font-medium">about:preferences#privacy</span></li>
+                <li>Safari: <span className="text-green-900 font-medium">Preferences &gt; Privacy</span></li>
+                <li>Edge: <span className="text-green-900 font-medium">edge://settings/privacy</span></li>
               </ul>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">Updates to This Policy</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">Updates to This Policy</h2>
               <p className="text-gray-700 leading-relaxed">
                 We may update this Cookies Policy from time to time. Any changes will be posted on this page with an updated revision date.
               </p>
             </section>
 
             <section className="mb-8">
-              <h2 className="text-2xl font-bold text-red-900 mb-4">Contact Us</h2>
+              <h2 className="text-2xl font-bold text-green-900 mb-4">Contact Us</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 If you have any questions about our use of cookies, please contact us at:
               </p>
               <div className="bg-brand-cream rounded-xl p-6 border border-gray-200">
-                <p className="text-gray-700 font-semibold mb-2">Daily Creative Designs</p>
-                <p className="text-gray-700">Email: <a href="mailto:hello@dailycreativedesigns.com" className="text-red-900 hover:text-red-600 underline">hello@dailycreativedesigns.com</a></p>
+                <p className="text-gray-700 font-semibold mb-2">Career Clarity Webinar</p>
+                <p className="text-gray-700">Email: <a href="mailto:hello@dailycreativedesigns.com" className="text-green-900 hover:text-green-600 underline">hello@dailycreativedesigns.com</a></p>
               </div>
             </section>
           </div>

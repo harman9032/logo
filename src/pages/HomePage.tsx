@@ -25,193 +25,193 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-// Static content - no database needed
+// Static content - Webinar focused
 const content = {
   hero: {
- "title": "Stop Feeling Lost—Start Your Business, Marketing & Community the Right Way with Astrology & Divine Guidance",
-  "subtitle": "Book a FREE 30-Minute Business Direction Session (Worth ₹2,999)",
-  "description": "Discover a proven astrology-based business guidance system to start your business, choose the right marketing strategy, build a loyal community, and generate consistent income with clarity—without confusion or wrong decisions.",
-  "ctaText": "Book My FREE Guidance Call Now",
-  "badgeText": "Astrology-Based Business Direction • Strategic Consulting • Trusted Guidance",
-  "valueProposition1": "100+",
-  "valueProposition1Value": "Quality Leads Monthly",
-  "valueProposition1Desc": "Guaranteed Results with Every Project",
-  "valueProposition2": "5X",
-  "valueProposition2Value": "Revenue Growth",
-  "valueProposition2Desc": "Average Growth Seen by Our Clients",
-  "valueProposition3": "7 Days",
-  "valueProposition3Value": "Complete Setup",
-  "valueProposition3Desc": "Go Live & Get Clients in Just 1 Week",
-  "learningTitle": "What You’ll Learn in This FREE Call",
-  "learningPoint1Title": "The 100+ Lead Generation System",
-  "learningPoint1Desc": "Our proven method to generate predictable, high-quality leads month after month",
-  "learningPoint2Title": "Revenue Multiplier Strategy",
-  "learningPoint2Desc": "How to scale your business with client-converting digital assets",
-  "learningPoint3Title": "Quality Lead Attraction",
-  "learningPoint3Desc": "Attract the right audience that is ready to buy",
-  "learningPoint4Title": "7-Day Launch Blueprint",
-  "learningPoint4Desc": "How we set up your system so you're ready to get leads within a week",
-  "bonusTitle": "🎁 FREE BONUS WORTH ₹4,999!",
-  "bonusSubtitle": "✅ Lead Generation Checklist + ✅ Ready-Made Ad Templates + ✅ High-Converting Landing Page Guide",
-  "bonusItems": "Get our exclusive Lead Gen Toolkit – Templates, Checklists, and a Complete Step-by-Step Guide (Worth ₹4,999)",
-  "bonusUrgency": "⚡ Limited Offer: Only 10 Free Sessions Available This Week!",
-  "instantBonusText": "💡 INSTANT BONUS:",
-  "heroBackgroundText": "8 Years of Excellence • Since 2017 • 1000+ Happy Clients",
-  "heroCalloutText": "Transform Traffic into Clients with a Done-For-You Growth System"
-},
+    title: "Confused About Your Career? Discover the 10 Proven Ways to Choose Your Perfect Profession",
+    subtitle: "FREE Live Webinar: Career Clarity Masterclass",
+    description: "Learn how to identify your true calling, whether you want to excel in business or climb the corporate ladder. Stop wasting years in the wrong career path.",
+    ctaText: "Register for FREE Webinar Now",
+    badgeText: "Career Guidance Webinar • Expert Coaching • Life-Changing Insights",
+    valueProposition1: "10,000+",
+    valueProposition1Value: "Career Transformations",
+    valueProposition1Desc: "People Who Found Their True Calling",
+    valueProposition2: "10",
+    valueProposition2Value: "Proven Methods",
+    valueProposition2Desc: "Scientific Ways to Choose Your Path",
+    valueProposition3: "90 Min",
+    valueProposition3Value: "Life-Changing Session",
+    valueProposition3Desc: "Get Complete Career Clarity",
+    learningTitle: "What You'll Learn in This FREE Webinar",
+    learningPoint1Title: "The Career DNA Framework",
+    learningPoint1Desc: "Discover your natural strengths and how they align with high-paying careers",
+    learningPoint2Title: "Business vs Job Decision Matrix",
+    learningPoint2Desc: "Know exactly whether entrepreneurship or employment suits you best",
+    learningPoint3Title: "The Passion-Profit Connection",
+    learningPoint3Desc: "Find careers that combine what you love with financial success",
+    learningPoint4Title: "10 Ways to Choose Your Profession",
+    learningPoint4Desc: "Scientific methods used by career counselors to guide thousands",
+    bonusTitle: "FREE BONUS WORTH Rs.4,999!",
+    bonusSubtitle: "Career Assessment Workbook + Industry Salary Guide + Interview Success Templates",
+    bonusItems: "Get our exclusive Career Clarity Toolkit - Assessment Tools, Salary Benchmarks, and Step-by-Step Career Planning Guide",
+    bonusUrgency: "Limited Seats: Only 100 Spots Available for This Webinar!",
+    instantBonusText: "INSTANT ACCESS:",
+    heroBackgroundText: "15 Years Experience • 10,000+ Success Stories • Certified Career Coach",
+    heroCalloutText: "Transform Your Career Confusion into Crystal Clear Direction"
+  },
   services: {
-    title: "Complete Digital Package",
-    subtitle: "Everything you need to establish a strong online presence and attract customers",
-    sectionDescription: "Our comprehensive digital solutions are designed to transform your business and drive real results.",
-    logoTitle: "Logo Design",
-    logoDescription: "Professional, memorable logo that represents your brand identity perfectly. Multiple concepts, unlimited revisions, and all file formats included.",
-    logoFeature1: "5+ Logo Concepts",
-    logoFeature2: "Unlimited Revisions", 
-    logoFeature3: "All File Formats",
-    logoPrice: "Starting at ₹2,999",
-    logoDelivery: "2-3 Days",
-    landingTitle: "Landing Page",
-    landingDescription: "High-converting, mobile-responsive landing page designed to turn visitors into customers. Optimized for speed and conversions.",
-    landingFeature1: "Mobile Responsive",
-    landingFeature2: "SEO Optimized",
-    landingFeature3: "Fast Loading",
-    landingPrice: "Starting at ₹4,999",
-    landingDelivery: "5-7 Days",
-    adsTitle: "Meta Ads Setup",
-    adsDescription: "Complete Facebook and Instagram ad campaigns setup with targeting, creative design, and optimization for maximum ROI.",
-    adsFeature1: "Campaign Setup",
-    adsFeature2: "Audience Targeting",
-    adsFeature3: "Ad Creatives",
-    adsPrice: "Starting at ₹3,999",
-    adsDelivery: "3-5 Days",
-    packageTitle: "Complete Package",
-    packageSubtitle: "Get everything for one low price",
-    packageDescription: "Save money and get better results with our complete digital marketing package.",
-    packagePrice: "₹9,999",
-    packageDelivery: "7-10 Days",
-    packageButtonText: "Get Complete Package",
-    guaranteeText: "100% Money-Back Guarantee",
-    supportText: "30 Days Free Support"
+    title: "What You'll Master in This Webinar",
+    subtitle: "10 Proven Ways to Choose Your Perfect Career Path",
+    sectionDescription: "Discover the exact framework used by thousands to find career clarity and make confident decisions about their professional future.",
+    logoTitle: "Self-Assessment Mastery",
+    logoDescription: "Learn powerful techniques to discover your true strengths, values, and natural talents that lead to career fulfillment.",
+    logoFeature1: "Personality Analysis",
+    logoFeature2: "Strengths Discovery",
+    logoFeature3: "Values Alignment",
+    logoPrice: "Covered in Webinar",
+    logoDelivery: "Module 1",
+    landingTitle: "Business vs Job Framework",
+    landingDescription: "Get clarity on whether entrepreneurship or employment is right for you based on your personality, risk tolerance, and goals.",
+    landingFeature1: "Risk Assessment",
+    landingFeature2: "Income Potential Analysis",
+    landingFeature3: "Lifestyle Matching",
+    landingPrice: "Covered in Webinar",
+    landingDelivery: "Module 2",
+    adsTitle: "Industry Selection Guide",
+    adsDescription: "Navigate through different industries and identify which sectors align with your skills and offer the best growth opportunities.",
+    adsFeature1: "Market Research",
+    adsFeature2: "Growth Potential",
+    adsFeature3: "Salary Insights",
+    adsPrice: "Covered in Webinar",
+    adsDelivery: "Module 3",
+    packageTitle: "Complete Career Clarity",
+    packageSubtitle: "Transform confusion into confidence",
+    packageDescription: "Walk away with a clear roadmap for your career success, whether in business or employment.",
+    packagePrice: "FREE",
+    packageDelivery: "90 Minutes",
+    packageButtonText: "Register for FREE Webinar",
+    guaranteeText: "100% Value Guaranteed",
+    supportText: "Q&A Session Included"
   },
   pricing: {
-    title: "Simple, Transparent Pricing",
-    subtitle: "Choose the package that's right for your business",
-    starterTitle: "Starter Package",
-    starterPrice: "₹4,999",
-    starterDescription: "Perfect for small businesses getting started",
-    starterFeature1: "Logo Design (3 concepts)",
-    starterFeature2: "Basic Landing Page",
-    starterFeature3: "Mobile Responsive",
-    starterFeature4: "Basic SEO Setup",
-    starterFeature5: "7-day Support",
-    starterButtonText: "Get Started",
-    professionalTitle: "Professional Package",
-    professionalPrice: "₹9,999",
-    professionalDescription: "Most popular choice for growing businesses",
-    professionalFeature1: "Professional Logo Design",
-    professionalFeature2: "Custom Landing Page",
-    professionalFeature3: "Meta Ads Campaign Setup",
-    professionalFeature4: "SEO Optimization",
-    professionalFeature5: "30-day Support",
-    professionalButtonText: "Get Started Now",
+    title: "Choose Your Career Clarity Path",
+    subtitle: "From free webinar to personalized coaching",
+    starterTitle: "FREE Webinar",
+    starterPrice: "FREE",
+    starterDescription: "Perfect for getting started with career clarity",
+    starterFeature1: "90-Minute Live Session",
+    starterFeature2: "10 Career Selection Methods",
+    starterFeature3: "Q&A Session",
+    starterFeature4: "Career Assessment Workbook",
+    starterFeature5: "Recording Access (48 hrs)",
+    starterButtonText: "Register Now",
+    professionalTitle: "Career Coaching",
+    professionalPrice: "Rs.9,999",
+    professionalDescription: "Personal guidance for career transformation",
+    professionalFeature1: "Everything in Free Webinar",
+    professionalFeature2: "3 One-on-One Sessions",
+    professionalFeature3: "Personalized Career Roadmap",
+    professionalFeature4: "Resume & LinkedIn Review",
+    professionalFeature5: "30-Day Email Support",
+    professionalButtonText: "Book Coaching",
     professionalBadgeText: "Most Popular",
-    enterpriseTitle: "Enterprise Package",
-    enterprisePrice: "₹19,999",
-    enterpriseDescription: "Complete solution for established businesses",
-    enterpriseFeature1: "Everything in Professional",
-    enterpriseFeature2: "Advanced Analytics Setup",
-    enterpriseFeature3: "CRM Integration",
-    enterpriseFeature4: "Email Marketing Setup",
-    enterpriseFeature5: "90-day Support",
-    enterpriseButtonText: "Contact Us"
+    enterpriseTitle: "Career Transformation",
+    enterprisePrice: "Rs.24,999",
+    enterpriseDescription: "Complete career change support",
+    enterpriseFeature1: "Everything in Career Coaching",
+    enterpriseFeature2: "6 Personal Coaching Sessions",
+    enterpriseFeature3: "Industry Connections",
+    enterpriseFeature4: "Interview Preparation",
+    enterpriseFeature5: "90-Day Priority Support",
+    enterpriseButtonText: "Apply Now"
   },
   whyChoose: {
-    title: "Why Choose Daily Creative Designs?",
-    subtitle: "We deliver results that matter to your business growth",
-    reason1Title: "Fast Delivery",
-    reason1Description: "Complete package delivered within 7 days",
-    reason2Title: "Expert Team",
-    reason2Description: "8 years of experience since 2017",
-    reason3Title: "Proven Results",
-    reason3Description: "Helped 1000+ businesses grow their revenue",
-    reason4Title: "Money-Back Guarantee",
-    reason4Description: "100% satisfaction or your money back"
+    title: "Why Learn Career Selection From Us?",
+    subtitle: "We've helped thousands find their perfect career path",
+    reason1Title: "15+ Years Experience",
+    reason1Description: "Certified career counselor with proven track record",
+    reason2Title: "10,000+ Success Stories",
+    reason2Description: "Helped people find fulfilling careers globally",
+    reason3Title: "Scientific Approach",
+    reason3Description: "Evidence-based methods that actually work",
+    reason4Title: "Lifetime Value",
+    reason4Description: "Skills and clarity that stay with you forever"
   },
   faq: {
     title: "Frequently Asked Questions",
-    subtitle: "Everything you need to know about our services",
-    question1: "How long does it take to complete the package?",
-    answer1: "Our complete package is delivered within 7 business days. Logo concepts are provided within 2-3 days, landing page within 5 days, and Meta ads setup within 7 days.",
-    question2: "Do you provide unlimited revisions?",
-    answer2: "Yes, we provide unlimited revisions for the logo design until you're 100% satisfied. For landing pages, we include up to 3 rounds of revisions.",
-    question3: "What's included in the Meta ads setup?",
-    answer3: "Complete Facebook and Instagram campaign setup including audience research, ad creative design, campaign structure, targeting setup, and initial optimization.",
-    question4: "Do you provide ongoing support?",
-    answer4: "Yes, we provide 30 days of free support after project completion. For ongoing management, we offer monthly packages starting at ₹9,999.",
-    question5: "What if I'm not satisfied with the work?",
-    answer5: "We offer a 100% money-back guarantee. If you're not completely satisfied with our work, we'll refund your payment within 30 days.",
-    question6: "Can you help with other digital marketing services?",
-    answer6: "Absolutely! We offer additional services like SEO, content marketing, social media management, and Google Ads. Contact us to discuss your specific needs."
+    subtitle: "Everything you need to know about the webinar",
+    question1: "Who is this webinar for?",
+    answer1: "This webinar is perfect for students, fresh graduates, working professionals considering a career change, or anyone confused about choosing between business and job opportunities.",
+    question2: "Is this webinar really free?",
+    answer2: "Yes, the webinar is completely free! We believe everyone deserves access to quality career guidance. You'll get the full 90-minute session plus bonus materials at no cost.",
+    question3: "What are the 10 ways to choose a profession?",
+    answer3: "We cover self-assessment, skills mapping, passion discovery, market analysis, financial planning, lifestyle alignment, growth potential evaluation, risk assessment, mentor consultation, and trial experiences.",
+    question4: "Will I get a recording of the webinar?",
+    answer4: "Yes, all registered participants receive access to the webinar recording for 48 hours. Premium members get lifetime access to all recordings and materials.",
+    question5: "How is this different from other career guidance?",
+    answer5: "Our approach combines scientific personality assessment with practical market insights. We don't just tell you what to do - we give you frameworks to make your own informed decisions.",
+    question6: "Can I ask questions during the webinar?",
+    answer6: "Absolutely! We have a dedicated Q&A session at the end where you can ask specific questions about your career situation and get personalized guidance."
   },
   readyToTalk: {
-    title: "Ready to Talk? Let's Connect!",
-    subtitle: "Skip the forms and get instant access to our team. Choose your preferred way to connect.",
+    title: "Have Questions? Let's Connect!",
+    subtitle: "Get clarity about the webinar or discuss your career challenges directly.",
     phoneTitle: "Call Us Now",
-    phoneDescription: "Speak directly with our experts",
-    phoneNumber: "+91 98765 43210",
+    phoneDescription: "Speak with our career advisors",
+    phoneNumber: "+91 78373 19660",
     phoneAvailability: "Available 9 AM - 9 PM",
     whatsappTitle: "WhatsApp Chat",
     whatsappDescription: "Quick responses within minutes",
     whatsappButtonText: "Start Chat",
     whatsappResponse: "Instant responses",
     emailTitle: "Email Us",
-    emailDescription: "Detailed project discussions",
-    emailAddress: "hello@dailycreativedesigns.com",
+    emailDescription: "Detailed career discussions",
+    emailAddress: "career@webinar.com",
     emailResponse: "Response within 2 hours",
     whyTalkTitle: "Why Talk to Us Directly?",
-    benefit1Title: "Instant Clarity",
-    benefit1Description: "Get immediate answers to your questions",
-    benefit2Title: "Personal Touch",
-    benefit2Description: "Speak with real experts, not chatbots",
-    benefit3Title: "Faster Results",
-    benefit3Description: "Skip the back-and-forth emails",
-    benefit4Title: "Custom Solutions",
-    benefit4Description: "Tailored advice for your business"
+    benefit1Title: "Career Clarity",
+    benefit1Description: "Get immediate answers about your career path",
+    benefit2Title: "Expert Guidance",
+    benefit2Description: "Speak with certified career counselors",
+    benefit3Title: "Personalized Advice",
+    benefit3Description: "Solutions tailored to your situation",
+    benefit4Title: "No Obligation",
+    benefit4Description: "Free consultation, no strings attached"
   },
   testimonials: {
-    title: "What Our Clients Say",
-    subtitle: "Don't just take our word for it",
-    testimonial1Text: "Daily Creative Designs transformed our business! We got 150 leads in the first month and our revenue increased by 300%.",
-    testimonial1Name: "Raj Patel",
-    testimonial1Title: "CEO, TechStart Solutions",
-    testimonial2Text: "Amazing service! The landing page looks professional and we're getting quality leads consistently.",
-    testimonial2Name: "Priya Sharma",
-    testimonial2Title: "Founder, GreenSpace Design",
-    testimonial3Text: "Best investment we made! The Meta ads are performing exceptionally well. Getting 100+ leads monthly. Highly recommended.",
-    testimonial3Name: "Amit Kumar",
-    testimonial3Title: "Director, FitLife Gym"
+    title: "Success Stories",
+    subtitle: "Real people who found their perfect career path",
+    testimonial1Text: "I was stuck in a dead-end job for 5 years. After attending this webinar, I finally understood what I truly wanted. Now I run my own consulting business!",
+    testimonial1Name: "Rahul Verma",
+    testimonial1Title: "Former IT Employee, Now Entrepreneur",
+    testimonial2Text: "The 10 ways framework changed everything. I discovered my passion for teaching and made a successful career switch. Best decision ever!",
+    testimonial2Name: "Sneha Gupta",
+    testimonial2Title: "Career Changer, Education Sector",
+    testimonial3Text: "As a fresh graduate, I was completely lost. This webinar helped me choose the right industry. Now I'm in my dream job at a Fortune 500 company.",
+    testimonial3Name: "Arjun Mehta",
+    testimonial3Title: "Software Engineer, Google"
   },
   cta: {
-    title: "Ready to Transform Your Business?",
-    subtitle: "Join 1000+ businesses that have transformed their digital presence with us",
-    primaryButtonText: "Book FREE Strategy Call (Worth ₹2,999)",
-    secondaryButtonText: "Get Complete Package - ₹9,999",
-    urgencyText: "⚡ Limited Time Offer - Book your call today!"
+    title: "Ready to Find Your Perfect Career?",
+    subtitle: "Join 10,000+ people who discovered their true calling through this webinar",
+    primaryButtonText: "Register for FREE Webinar Now",
+    secondaryButtonText: "Book 1-on-1 Career Coaching",
+    urgencyText: "Limited Seats - Only 100 spots available for this session!"
   },
   footer: {
-    companyDescription: "Transforming businesses with professional digital solutions since 2017.",
-    servicesTitle: "Services",
-    service1: "Logo Design",
-    service2: "Landing Pages",
-    service3: "Meta Ads",
-    service4: "Lead Generation",
-    service5: "SEO Optimization",
+    companyDescription: "Helping people discover their true career calling since 2010. 10,000+ success stories worldwide.",
+    servicesTitle: "Programs",
+    service1: "Free Webinar",
+    service2: "Career Coaching",
+    service3: "Resume Building",
+    service4: "Interview Prep",
+    service5: "Career Transformation",
     companyTitle: "Company",
     contactTitle: "Contact Info",
-    phoneNumber: "+91 98765 43210",
-    emailAddress: "hello@dailycreativedesigns.com",
-    location: "Mumbai, India",
-    copyrightText: "© 2025 Daily Creative Designs. All rights reserved. • Serving clients since 2017"
+    phoneNumber: "+91 78373 19660",
+    emailAddress: "career@webinar.com",
+    location: "India",
+    copyrightText: "© 2025 Career Clarity Webinar. All rights reserved. • Transforming careers since 2010"
   }
 };
 
@@ -292,8 +292,8 @@ export default function HomePage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-black text-red-900">
-                  Daily Creative <span className="text-red-600">Designs</span>
+                <span className="text-2xl font-black text-green-900">
+                  Career Clarity <span className="text-gold-gradient">Webinar</span>
                 </span>
               </div>
             </div>
@@ -301,19 +301,19 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Services
                 </button>
-                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Pricing
                 </button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Testimonials
                 </button>
-                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
                   FAQ
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-red-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
                   Contact
                 </button>
                 <a
@@ -331,7 +331,7 @@ export default function HomePage() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-red-700 p-2"
+                className="text-gray-700 hover:text-green-700 p-2"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -343,19 +343,19 @@ export default function HomePage() {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Services
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Testimonials
               </button>
-              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-red-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
                 Contact
               </button>
               <a
@@ -372,30 +372,30 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-br from-red-600 via-red-700 to-red-800 overflow-hidden">
+      <section className="relative pt-32 pb-24 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             {/* Status Badge */}
-            <div className="inline-flex items-center bg-brand-cream border border-red-300 rounded-full px-5 py-2 mb-8 shadow-lg">
-              <div className="w-2 h-2 bg-red-600 rounded-full mr-2 animate-pulse"></div>
-              <span className="text-sm font-semibold text-red-900">
-                🇺🇸 Trusted by 50+ US Marketing Agencies
+            <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
+              <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
+              <span className="text-sm font-semibold text-green-900">
+                FREE Live Webinar - Limited Seats Available
               </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
-             Not Getting <span className="text-brand-cream">Clients</span>
-              <span className=" mt-2">Try </span>
-              <span className="block mt-2 text-brand-cream">Scientific Logo</span><span className=" mt-2">Analysis </span>
+             Confused About Your <span className="text-gold-gradient">Career?</span>
+              <span className="block mt-2">Discover </span>
+              <span className="block mt-2 text-gold-gradient">10 Proven Ways</span><span className=" mt-2"> to Choose Your Profession</span>
             </h1>
 
-            <p className="text-xl text-red-50 leading-relaxed mb-10 max-w-3xl mx-auto">
-              Let's Decode It & Fix It with Our 3-in-1 Combo — Logo • Landing Page • Ads
-              <span className="font-semibold text-white block"> Find Out What Your Logo Is Manifesting</span>
+            <p className="text-xl text-green-50 leading-relaxed mb-10 max-w-3xl mx-auto">
+              Learn how to choose between business and job, find your true calling, and make confident career decisions
+              <span className="font-semibold text-white block">Stop wasting years in the wrong career path!</span>
             </p>
 
             {/* CTA Buttons */}
@@ -404,16 +404,16 @@ export default function HomePage() {
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-brand-cream text-red-900 px-10 py-5 rounded-xl text-lg font-bold hover:bg-white transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
+                className="btn-gold-gradient text-green-900 px-10 py-5 rounded-xl text-lg font-bold hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
               >
-                Get FREE Logo Analysis ($499 Value)
+                Register for FREE Webinar Now
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="bg-transparent border-2 border-brand-cream text-brand-cream px-10 py-5 rounded-xl text-lg font-bold hover:bg-brand-cream hover:text-red-900 transition-all duration-300 flex items-center justify-center shadow-lg"
+                className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white hover:text-green-900 transition-all duration-300 flex items-center justify-center shadow-lg"
               >
-                View Packages
+                View Programs
               </button>
             </div>
 
@@ -422,34 +422,34 @@ export default function HomePage() {
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-brand-cream fill-current" />
+                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
                 <span className="text-white font-semibold">5.0 Rating</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-brand-cream" />
-                <span className="text-white font-semibold">48hr Delivery</span>
+                <Clock className="h-5 w-5 text-yellow-400" />
+                <span className="text-white font-semibold">90 Min Session</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Shield className="h-5 w-5 text-brand-cream" />
-                <span className="text-white font-semibold">Money-Back Guarantee</span>
+                <Award className="h-5 w-5 text-yellow-400" />
+                <span className="text-white font-semibold">Certified Career Coach</span>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-red-500">
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-green-500">
               <div>
-                <div className="text-4xl font-bold text-brand-cream mb-1">250+</div>
-                <div className="text-sm text-red-100">Projects Completed</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">10,000+</div>
+                <div className="text-sm text-green-100">Success Stories</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-brand-cream mb-1">87%</div>
-                <div className="text-sm text-red-100">Repeat Clients</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">15+</div>
+                <div className="text-sm text-green-100">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-brand-cream mb-1">$2M+</div>
-                <div className="text-sm text-red-100">Client Revenue</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">10</div>
+                <div className="text-sm text-green-100">Proven Methods</div>
               </div>
             </div>
           </div>
@@ -457,10 +457,10 @@ export default function HomePage() {
       </section>
 
       {/* Featured Package */}
-      <section className="py-16 bg-gradient-to-b from-white to-red-50">
+      <section className="py-16 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl p-12 shadow-xl relative overflow-hidden border-2 border-emerald-200">
-            <div className="absolute top-6 right-6 bg-red-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+            <div className="absolute top-6 right-6 bg-green-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg">
               MOST POPULAR
             </div>
 
@@ -475,45 +475,45 @@ export default function HomePage() {
 
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-green-600" />
                     <span>Scientific Logo Design & Analysis</span>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-green-600" />
                     <span>High-Converting Landing Page</span>
                   </div>
                   <div className="flex items-center text-gray-700">
-                    <CheckCircle className="h-5 w-5 mr-3 text-red-600" />
+                    <CheckCircle className="h-5 w-5 mr-3 text-green-600" />
                     <span>Meta & Google Ads Campaign Setup</span>
                   </div>
                 </div>
 
                 <button
                   onClick={() => scrollToSection('pricing')}
-                  className="bg-red-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-red-700 transition-all shadow-xl text-lg"
+                  className="bg-green-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-700 transition-all shadow-xl text-lg"
                 >
                   View Full Details →
                 </button>
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
-                  <Target className="h-10 w-10 text-red-700 mb-3" />
+                <div className="bg-green-50 rounded-2xl p-6 border border-emerald-200">
+                  <Target className="h-10 w-10 text-green-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Logo Design</h3>
                   <p className="text-gray-600 text-sm">Science-backed branding</p>
                 </div>
-                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
-                  <BarChart3 className="h-10 w-10 text-red-700 mb-3" />
+                <div className="bg-green-50 rounded-2xl p-6 border border-emerald-200">
+                  <BarChart3 className="h-10 w-10 text-green-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Landing Pages</h3>
                   <p className="text-gray-600 text-sm">Conversion optimized</p>
                 </div>
-                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
-                  <Zap className="h-10 w-10 text-red-700 mb-3" />
+                <div className="bg-green-50 rounded-2xl p-6 border border-emerald-200">
+                  <Zap className="h-10 w-10 text-green-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Meta Ads</h3>
                   <p className="text-gray-600 text-sm">Strategic campaigns</p>
                 </div>
-                <div className="bg-red-50 rounded-2xl p-6 border border-emerald-200">
-                  <TrendingUp className="h-10 w-10 text-red-700 mb-3" />
+                <div className="bg-green-50 rounded-2xl p-6 border border-emerald-200">
+                  <TrendingUp className="h-10 w-10 text-green-700 mb-3" />
                   <h3 className="text-gray-900 font-bold mb-1">Google Ads</h3>
                   <p className="text-gray-600 text-sm">Data-driven results</p>
                 </div>
@@ -545,7 +545,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Shopify
                 </div>
               </div>
@@ -553,10 +553,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Premium Fashion Store</h3>
                 <p className="text-gray-600 mb-4">Custom Shopify store with 3x conversion rate increase</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">+180% Sales</span>
+                  <span className="text-green-700 font-semibold">+180% Sales</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -572,7 +572,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   SaaS
                 </div>
               </div>
@@ -580,10 +580,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">SaaS Product Launch</h3>
                 <p className="text-gray-600 mb-4">High-converting landing page with 47% conversion rate</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">47% CVR</span>
+                  <span className="text-green-700 font-semibold">47% CVR</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -599,7 +599,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Branding
                 </div>
               </div>
@@ -607,10 +607,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Tech Startup Rebrand</h3>
                 <p className="text-gray-600 mb-4">Complete brand identity with scientific logo analysis</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">95/100 Score</span>
+                  <span className="text-green-700 font-semibold">95/100 Score</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -626,7 +626,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Facebook
                 </div>
               </div>
@@ -634,10 +634,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Restaurant Chain Campaign</h3>
                 <p className="text-gray-600 mb-4">Meta ads campaign generating 5x ROAS consistently</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">5x ROAS</span>
+                  <span className="text-green-700 font-semibold">5x ROAS</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -653,7 +653,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Search
                 </div>
               </div>
@@ -661,10 +661,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Legal Services Firm</h3>
                 <p className="text-gray-600 mb-4">Google search ads with 8.2x return on ad spend</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">8.2x ROAS</span>
+                  <span className="text-green-700 font-semibold">8.2x ROAS</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -680,7 +680,7 @@ export default function HomePage() {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                   3-in-1
                 </div>
               </div>
@@ -688,10 +688,10 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Fitness Brand Launch</h3>
                 <p className="text-gray-600 mb-4">Complete package: Logo, landing page & ad campaigns</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-red-700 font-semibold">$500K Revenue</span>
+                  <span className="text-green-700 font-semibold">$500K Revenue</span>
                   <div className="flex space-x-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-red-600 fill-current" />
+                      <Star key={i} className="h-4 w-4 text-green-600 fill-current" />
                     ))}
                   </div>
                 </div>
@@ -705,7 +705,7 @@ export default function HomePage() {
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-red-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-red-700 transition-all shadow-lg hover:shadow-xl"
+              className="inline-flex items-center bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-green-700 transition-all shadow-lg hover:shadow-xl"
             >
               Start Your Project Today
               <ArrowRight className="h-5 w-5 ml-2" />
@@ -730,28 +730,28 @@ export default function HomePage() {
             {/* Logo Design */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-red-700" />
+                <Target className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.logoTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.logoDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.logoFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-red-700">{content.services.logoPrice}</span>
+                <span className="text-2xl font-black text-green-700">{content.services.logoPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.logoDelivery}
@@ -760,7 +760,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
+                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -769,28 +769,28 @@ export default function HomePage() {
             {/* Landing Page */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-red-700" />
+                <BarChart3 className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.landingTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.landingDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.landingFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-red-700">{content.services.landingPrice}</span>
+                <span className="text-2xl font-black text-green-700">{content.services.landingPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.landingDelivery}
@@ -799,7 +799,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
+                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -808,28 +808,28 @@ export default function HomePage() {
             {/* Meta Ads */}
             <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="h-8 w-8 text-red-700" />
+                <TrendingUp className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.adsTitle}</h3>
               <p className="text-gray-600 mb-6 font-medium">{content.services.adsDescription}</p>
 
               <div className="space-y-3 mb-6">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.services.adsFeature3}</span>
                 </div>
               </div>
 
               <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-red-700">{content.services.adsPrice}</span>
+                <span className="text-2xl font-black text-green-700">{content.services.adsPrice}</span>
                 <span className="text-sm text-gray-600 flex items-center font-medium">
                   <Clock className="h-4 w-4 mr-1" />
                   {content.services.adsDelivery}
@@ -838,7 +838,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-all duration-300"
+                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -846,7 +846,7 @@ export default function HomePage() {
           </div>
 
           {/* Complete Package */}
-          <div className="bg-red-600 rounded-3xl p-12 text-white text-center relative overflow-hidden shadow-lg">
+          <div className="bg-green-600 rounded-3xl p-12 text-white text-center relative overflow-hidden shadow-lg">
             <div className="absolute inset-0 bg-black/5"></div>
             <div className="relative z-10">
               <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
@@ -871,7 +871,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="bg-white text-red-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-md"
+                  className="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-md"
                 >
                   {content.services.packageButtonText}
                 </button>
@@ -879,7 +879,7 @@ export default function HomePage() {
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-700 transition-all duration-300"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300"
                 >
                   Book Free Call
                 </a>
@@ -901,7 +901,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-red-50">
+      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -916,28 +916,28 @@ export default function HomePage() {
             {/* Starter Package */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.starterPrice}</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.starterPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.starterDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.starterFeature5}</span>
                 </div>
               </div>
@@ -951,43 +951,43 @@ export default function HomePage() {
             </div>
 
             {/* Professional Package */}
-            <div className="bg-gradient-to-br from-red-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-red-600 relative transform scale-105">
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-green-600 relative transform scale-105">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-red-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                <span className="bg-green-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                   {content.pricing.professionalBadgeText}
                 </span>
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.professionalPrice}</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.professionalPrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.professionalDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
                 </div>
               </div>
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-red-600 text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-all duration-300 shadow-lg"
+                className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition-all duration-300 shadow-lg"
               >
                 {content.pricing.professionalButtonText}
               </button>
@@ -996,28 +996,28 @@ export default function HomePage() {
             {/* Enterprise Package */}
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-bold text-red-700 mb-2">{content.pricing.enterprisePrice}</div>
+              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.enterprisePrice}</div>
               <p className="text-gray-600 mb-6 font-medium">{content.pricing.enterpriseDescription}</p>
 
               <div className="space-y-3 mb-8">
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
                 </div>
                 <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-red-600 mr-3" />
+                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
                 </div>
               </div>
@@ -1048,7 +1048,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Zap className="h-8 w-8 text-red-700" />
+                <Zap className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason1Description}</p>
@@ -1056,7 +1056,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Award className="h-8 w-8 text-red-700" />
+                <Award className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason2Description}</p>
@@ -1064,7 +1064,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TrendingUp className="h-8 w-8 text-red-700" />
+                <TrendingUp className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason3Description}</p>
@@ -1072,7 +1072,7 @@ export default function HomePage() {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-red-700" />
+                <Shield className="h-8 w-8 text-green-700" />
               </div>
               <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
               <p className="text-gray-600 font-medium">{content.whyChoose.reason4Description}</p>
@@ -1104,7 +1104,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial1Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial1Name.charAt(0)}
                 </div>
                 <div>
@@ -1124,7 +1124,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial2Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial2Name.charAt(0)}
                 </div>
                 <div>
@@ -1144,7 +1144,7 @@ export default function HomePage() {
                 "{content.testimonials.testimonial3Text}"
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-black mr-4">
+                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
                   {content.testimonials.testimonial3Name.charAt(0)}
                 </div>
                 <div>
@@ -1185,9 +1185,9 @@ export default function HomePage() {
                 >
                   <span className="text-lg font-bold text-gray-900">{faq.question}</span>
                   {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-red-700" />
+                    <ChevronUp className="h-5 w-5 text-green-700" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-red-700" />
+                    <ChevronDown className="h-5 w-5 text-green-700" />
                   )}
                 </button>
                 {openFaq === index && (
@@ -1216,23 +1216,23 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {/* Phone */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.phoneTitle}</h3>
               <p className="text-gray-600 mb-4">{content.readyToTalk.phoneDescription}</p>
               <a 
                 href={`tel:${content.readyToTalk.phoneNumber}`}
-                className="text-2xl font-bold text-red-700 hover:text-red-800 transition-colors block mb-2"
+                className="text-2xl font-bold text-green-700 hover:text-green-800 transition-colors block mb-2"
               >
                 {content.readyToTalk.phoneNumber}
               </a>
-              <p className="text-sm text-red-700">{content.readyToTalk.phoneAvailability}</p>
+              <p className="text-sm text-green-700">{content.readyToTalk.phoneAvailability}</p>
             </div>
 
             {/* WhatsApp */}
             <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.whatsappTitle}</h3>
@@ -1241,12 +1241,12 @@ export default function HomePage() {
                 href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-red-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-red-700 transition-colors inline-flex items-center"
+                className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors inline-flex items-center"
               >
                 <MessageCircle className="h-5 w-5 mr-2" />
                 {content.readyToTalk.whatsappButtonText}
               </a>
-              <p className="text-sm text-red-700 mt-4">{content.readyToTalk.whatsappResponse}</p>
+              <p className="text-sm text-green-700 mt-4">{content.readyToTalk.whatsappResponse}</p>
             </div>
 
             {/* Email */}
@@ -1282,7 +1282,7 @@ export default function HomePage() {
               </div>
               
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit2Title}</h4>
@@ -1290,7 +1290,7 @@ export default function HomePage() {
               </div>
               
               <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="h-6 w-6 text-white" />
                 </div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit3Title}</h4>
@@ -1416,7 +1416,7 @@ export default function HomePage() {
               </div>
 
               {submitMessage && (
-                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-red-50 text-red-700' : 'bg-green-50 text-red-800'}`}>
+                <div className={`p-4 rounded-lg ${submitMessage.includes('error') ? 'bg-green-50 text-green-700' : 'bg-green-50 text-green-800'}`}>
                   {submitMessage}
                 </div>
               )}
@@ -1424,7 +1424,7 @@ export default function HomePage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-600 to-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-orange-700 hover:to-red-700 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-gold-gradient text-green-900 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Submitting...' : 'Get My Free Quote →'}
               </button>
@@ -1443,7 +1443,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-red-600 text-white">
+      <section className="py-20 bg-green-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
             {content.cta.title}
@@ -1457,14 +1457,14 @@ export default function HomePage() {
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-red-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+              className="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
             >
               <Calendar className="h-5 w-5 mr-2" />
               {content.cta.primaryButtonText}
             </a>
             <button
               onClick={() => scrollToSection('contact')}
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-red-700 transition-all duration-300"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300"
             >
               {content.cta.secondaryButtonText}
             </button>
@@ -1484,7 +1484,7 @@ export default function HomePage() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
                 <span className="text-2xl font-black text-white">
-                  Daily Creative <span className="text-red-600">Designs</span>
+                  Career Clarity <span className="text-gold-gradient">Webinar</span>
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
@@ -1529,19 +1529,19 @@ export default function HomePage() {
               <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-red-600 mr-3" />
+                  <Phone className="h-5 w-5 text-green-600 mr-3" />
                   <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.phoneNumber}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-red-600 mr-3" />
+                  <Mail className="h-5 w-5 text-green-600 mr-3" />
                   <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
                     {content.footer.emailAddress}
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-red-600 mr-3" />
+                  <MapPin className="h-5 w-5 text-green-600 mr-3" />
                   <span className="text-gray-300">{content.footer.location}</span>
                 </div>
               </div>
@@ -1556,19 +1556,19 @@ export default function HomePage() {
               <div className="flex space-x-6 mt-4 md:mt-0">
                 <Link
                   to="/privacy-policy"
-                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   to="/terms"
-                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
                 >
                   Terms
                 </Link>
                 <Link
                   to="/cookies-policy"
-                  className="text-gray-400 hover:text-red-600 text-sm transition-colors font-medium"
+                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
                 >
                   Cookies Policy
                 </Link>
@@ -1584,7 +1584,7 @@ export default function HomePage() {
           {/* Call Now Button */}
           <a
             href="tel:+917837319660"
-            className="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 px-6 flex items-center justify-center font-bold transition-colors duration-200"
+            className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 px-6 flex items-center justify-center font-bold transition-colors duration-200"
           >
             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
