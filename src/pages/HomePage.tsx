@@ -230,7 +230,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
-  const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-free-consulation";
+  const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
