@@ -382,7 +382,7 @@ export default function HomePage() {
             <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
               <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
               <span className="text-sm font-semibold text-green-900">
-                FREE Live Webinar - Limited Seats Available
+                Live Webinar - Limited Seats Available
               </span>
             </div>
 
@@ -406,7 +406,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="btn-gold-gradient text-green-900 px-10 py-5 rounded-xl text-lg font-bold hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
               >
-                Register for FREE Webinar Now
+                Register Now - ₹99
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
