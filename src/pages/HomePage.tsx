@@ -644,7 +644,7 @@ export default function HomePage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-24 bg-gradient-to-b from-white to-green-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {content.pricing.title}
@@ -654,121 +654,89 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Starter Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.starterTitle}</h3>
-              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.starterPrice}</div>
-              <p className="text-gray-600 mb-6 font-medium">{content.pricing.starterDescription}</p>
+          <div className="bg-gradient-to-br from-green-50 to-white rounded-3xl p-12 shadow-2xl border-2 border-green-600">
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">{content.pricing.starterTitle}</h3>
+              <div className="text-6xl font-bold text-green-700 mb-4">{content.pricing.starterPrice}</div>
+              <p className="text-lg text-gray-600 font-medium">{content.pricing.starterDescription}</p>
+            </div>
 
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature1}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature3}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature4}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.starterFeature5}</span>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div>
+                <h4 className="text-xl font-bold text-gray-900 mb-6">What You Get:</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700">{content.pricing.starterFeature1}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700">Career Assessment Workbook</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700">{content.pricing.starterFeature3}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700">{content.pricing.starterFeature5}</span>
+                  </div>
                 </div>
               </div>
 
+              <div>
+                <h4 className="text-xl font-bold text-gray-900 mb-6">10 Methods Covered:</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">1.</span>
+                    <span className="text-gray-700">D1 Chart Analysis</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">2.</span>
+                    <span className="text-gray-700">D10 Dasamsa Chart</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">3.</span>
+                    <span className="text-gray-700">BNN (Bhava Chakra)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">4.</span>
+                    <span className="text-gray-700">KP (Krishnamurti)</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">5.</span>
+                    <span className="text-gray-700">Char Dasha</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">6.</span>
+                    <span className="text-gray-700">Jamini Astrology</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">7.</span>
+                    <span className="text-gray-700">House Analysis</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">8.</span>
+                    <span className="text-gray-700">Rashi Analysis</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">9.</span>
+                    <span className="text-gray-700">Nakshatra Analysis</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-600 font-bold mr-2">10.</span>
+                    <span className="text-gray-700">Mahadasha Prediction</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-700 text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-all duration-300"
+                className="bg-green-600 text-white px-12 py-4 rounded-xl font-bold hover:bg-green-700 transition-all shadow-xl text-lg"
               >
                 {content.pricing.starterButtonText}
-              </button>
-            </div>
-
-            {/* Professional Package */}
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 shadow-2xl border-2 border-green-600 relative transform scale-105">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-green-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                  {content.pricing.professionalBadgeText}
-                </span>
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.professionalTitle}</h3>
-              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.professionalPrice}</div>
-              <p className="text-gray-600 mb-6 font-medium">{content.pricing.professionalDescription}</p>
-
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature1}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature3}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature4}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.professionalFeature5}</span>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-600 text-white py-3 rounded-xl font-bold hover:bg-green-700 transition-all duration-300 shadow-lg"
-              >
-                {content.pricing.professionalButtonText}
-              </button>
-            </div>
-
-            {/* Enterprise Package */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.pricing.enterpriseTitle}</h3>
-              <div className="text-4xl font-bold text-green-700 mb-2">{content.pricing.enterprisePrice}</div>
-              <p className="text-gray-600 mb-6 font-medium">{content.pricing.enterpriseDescription}</p>
-
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature1}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature3}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature4}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.pricing.enterpriseFeature5}</span>
-                </div>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gray-700 text-white py-3 rounded-xl font-bold hover:bg-gray-800 transition-all duration-300"
-              >
-                {content.pricing.enterpriseButtonText}
               </button>
             </div>
           </div>
