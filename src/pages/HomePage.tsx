@@ -293,7 +293,7 @@ export default function HomePage() {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <span className="text-2xl font-black text-green-900">
-                  Career Clarity <span className="text-gold-gradient">Webinar</span>
+                  Gaja Astro <span className="text-gold-gradient">Marketing</span>
                 </span>
               </div>
             </div>
@@ -1061,7 +1061,7 @@ export default function HomePage() {
             <div className="md:col-span-2">
               <div className="flex items-center mb-6">
                 <span className="text-2xl font-black text-white">
-                  Career Clarity <span className="text-gold-gradient">Webinar</span>
+                  Gaja Astro <span className="text-gold-gradient">Marketing</span>
                 </span>
               </div>
               <p className="text-gray-300 mb-6 max-w-md">
