@@ -387,7 +387,7 @@ export default function HomePage() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
              Confused About Your <span className="text-gold-gradient">Career?</span>
               <span className="block mt-2">Discover </span>
               <span className="block mt-2 text-gold-gradient">10 Proven Ways</span><span className=" mt-2"> to Choose Your Profession</span>
