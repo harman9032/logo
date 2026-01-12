@@ -320,7 +320,7 @@ export default function HomePage() {
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow-400 text-[#009e00] px-6 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 transition-all duration-300 shadow-md"
+                  className="bg-yellow-400 text-black px-6 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 transition-all duration-300 shadow-md"
                 >
                   Book Free Call
                 </a>
@@ -362,7 +362,7 @@ export default function HomePage() {
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-yellow-400 text-[#009e00] px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-yellow-300 transition-colors"
+                className="block bg-yellow-400 text-black px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-yellow-300 transition-colors"
               >
                 Book Free Call
               </a>
