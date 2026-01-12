@@ -287,13 +287,13 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100">
+      <nav className="fixed top-0 w-full bg-green-800/95 backdrop-blur-md z-50 border-b border-green-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <span className="text-2xl font-black text-green-900">
-                  Gaja Astro <span className="text-gold-gradient">Marketing</span>
+                <span className="text-2xl font-black text-yellow-400">
+                  Gaja Astro <span className="text-amber-400">Marketing</span>
                 </span>
               </div>
             </div>
@@ -301,26 +301,26 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('services')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   Services
                 </button>
-                <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('pricing')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   Pricing
                 </button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('testimonials')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   Testimonials
                 </button>
-                <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('faq')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   FAQ
                 </button>
-                <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-green-700 px-3 py-2 text-sm font-semibold transition-colors">
+                <button onClick={() => scrollToSection('contact')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   Contact
                 </button>
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-brand-cream text-gray-900 px-6 py-2 rounded-lg text-sm font-bold hover:bg-white transition-all duration-300 shadow-md"
+                  className="bg-yellow-400 text-green-900 px-6 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 transition-all duration-300 shadow-md"
                 >
                   Book Free Call
                 </a>
@@ -331,7 +331,7 @@ export default function HomePage() {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-green-700 p-2"
+                className="text-white hover:text-yellow-300 p-2"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -341,28 +341,28 @@ export default function HomePage() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
+          <div className="md:hidden bg-green-800 border-t border-green-900">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button onClick={() => scrollToSection('services')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('services')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Services
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('pricing')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('testimonials')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Testimonials
               </button>
-              <button onClick={() => scrollToSection('faq')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('faq')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 FAQ
               </button>
-              <button onClick={() => scrollToSection('contact')} className="block text-gray-700 hover:text-green-700 px-3 py-2 text-base font-semibold w-full text-left">
+              <button onClick={() => scrollToSection('contact')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Contact
               </button>
               <a
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-brand-cream text-gray-900 px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-white transition-colors"
+                className="block bg-yellow-400 text-green-900 px-3 py-2 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-yellow-300 transition-colors"
               >
                 Book Free Call
               </a>
