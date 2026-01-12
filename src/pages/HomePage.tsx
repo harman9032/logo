@@ -287,7 +287,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-[#009e00]/95 backdrop-blur-md z-50 border-b border-[#007a00]">
+      <nav className="fixed top-0 w-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 backdrop-blur-md z-50 border-b border-green-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -341,7 +341,7 @@ export default function HomePage() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-[#009e00] border-t border-[#007a00]">
+          <div className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button onClick={() => scrollToSection('services')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Services
