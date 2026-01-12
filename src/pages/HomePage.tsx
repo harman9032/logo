@@ -379,10 +379,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
             {/* Status Badge */}
-            <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
+            <div className="inline-flex items-center btn-gold-gradient border-2 border-yellow-400 rounded-full px-6 py-3 mb-8 shadow-2xl animate-pulse">
               <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
-              <span className="text-sm font-semibold text-green-900">
-                Live Webinar - Limited Seats Available
+              <span className="text-base font-bold text-green-900">
+                Upcoming Friday Webinar | 8 PM - 10 PM | Limited Seats!
               </span>
             </div>
 
