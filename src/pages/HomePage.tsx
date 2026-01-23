@@ -387,15 +387,15 @@ export default function HomePage() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gold-gradient leading-tight mb-6">
              Unsure About Your <span className="text-gold-gradient">Brand?</span>
               <span className="block mt-2">Master </span>
-              <span className="block mt-2 text-gold-gradient">Colors, Logos & Names</span><span className=" mt-2"> for Your Business</span>
+              <span className="block mt-2 text-gold-gradient">Colors, Logos & Names</span><span className="text-gold-gradient mt-2"> for Your Business</span>
             </h1>
 
-            <p className="text-xl text-green-50 leading-relaxed mb-10 max-w-3xl mx-auto">
+            <p className="text-xl text-gold-gradient leading-relaxed mb-10 max-w-3xl mx-auto">
               Learn how to choose the perfect colors, design memorable logos, and create brand names that resonate with your audience
-              <span className="font-semibold text-white block">Stop blending in - stand out with expert brand design!</span>
+              <span className="font-semibold text-gold-gradient block">Stop blending in - stand out with expert brand design!</span>
             </p>
 
             {/* CTA Buttons */}
@@ -425,31 +425,31 @@ export default function HomePage() {
                     <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <span className="text-white font-semibold">5.0 Rating</span>
+                <span className="text-gold-gradient font-semibold">5.0 Rating</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">90 Min Session</span>
+                <span className="text-gold-gradient font-semibold">120 Min Session</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Award className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">Certified Career Coach</span>
+                <span className="text-gold-gradient font-semibold">Award-Winning Designers</span>
               </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-green-500">
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">10,000+</div>
-                <div className="text-sm text-green-100">Success Stories</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">5,000+</div>
+                <div className="text-sm text-gold-gradient">Brands Created</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">15+</div>
-                <div className="text-sm text-green-100">Years Experience</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">12+</div>
+                <div className="text-sm text-gold-gradient">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">10</div>
-                <div className="text-sm text-green-100">Proven Methods</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">8</div>
+                <div className="text-sm text-gold-gradient">Design Principles</div>
               </div>
             </div>
           </div>
