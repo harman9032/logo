@@ -9,6 +9,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import CookiesPolicy from './components/CookiesPolicy';
 import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
+import RefundPolicy from './components/RefundPolicy';
 import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/cookies-policy" element={<CookiesPolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
       </Routes>
     </>
   );
