@@ -379,30 +379,44 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-green-500/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Status Badge */}
+            {/* Badge */}
             <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
-              <div className="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></div>
+              <div className="w-2 h-2 bg-green-700 rounded-full mr-2 animate-pulse"></div>
               <span className="text-sm font-semibold text-green-900">
-                Brand Design Masterclass - Limited Seats Available
+                Professional Design Services · Starting at $51
               </span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-             Unsure About Your <span className="text-gold-gradient">Brand?</span>
-              <span className="block mt-2">Master </span>
-              <span className="block mt-2 text-gold-gradient">Colors, Logos & Names</span><span className=" mt-2"> for Your Business</span>
+              Transform Your Business with
+              <span className="block mt-2 text-gold-gradient">Expert Digital Design</span>
             </h1>
 
-            <p className="text-xl text-green-50 leading-relaxed mb-10 max-w-3xl mx-auto">
-              Learn how to choose the perfect colors, design memorable logos, and create brand names that resonate with your audience
-              <span className="font-semibold text-white block">Stop blending in - stand out with expert brand design!</span>
+            <p className="text-xl text-green-50 leading-relaxed mb-8 max-w-3xl mx-auto">
+              From custom logos to AI-powered websites and full digital marketing strategies — we craft everything your brand needs to stand out and grow online.
             </p>
+
+            {/* Service Pills */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
+                <Star className="h-3.5 w-3.5 text-yellow-400 fill-current" />
+                Logo Design — $51
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
+                <Zap className="h-3.5 w-3.5 text-yellow-400" />
+                AI Website Design — $51
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-yellow-400/20 border border-yellow-400/40 text-yellow-200 text-sm font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
+                <Award className="h-3.5 w-3.5 text-yellow-400" />
+                Complete Package — $99.99
+              </span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -412,18 +426,18 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="btn-gold-gradient text-green-900 px-10 py-5 rounded-xl text-lg font-bold hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
               >
-                Register Now - ₹99
+                Get Started Today
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               <button
                 onClick={() => scrollToSection('pricing')}
                 className="bg-transparent border-2 border-white text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white hover:text-green-900 transition-all duration-300 flex items-center justify-center shadow-lg"
               >
-                View Programs
+                View All Packages
               </button>
             </div>
 
-            {/* Social Proof & Trust Badges */}
+            {/* Trust Badges */}
             <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
               <div className="flex items-center space-x-2">
                 <div className="flex space-x-1">
@@ -435,27 +449,31 @@ export default function HomePage() {
               </div>
               <div className="flex items-center space-x-2">
                 <Clock className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">90 Min Session</span>
+                <span className="text-white font-semibold">Fast Turnaround</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Award className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">Certified Career Coach</span>
+                <span className="text-white font-semibold">Award-Winning Designers</span>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-green-500">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-green-500">
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">10,000+</div>
-                <div className="text-sm text-green-100">Success Stories</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">5,000+</div>
+                <div className="text-sm text-green-100">Brands Created</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">15+</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">12+</div>
                 <div className="text-sm text-green-100">Years Experience</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">10</div>
-                <div className="text-sm text-green-100">Proven Methods</div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">100%</div>
+                <div className="text-sm text-green-100">Satisfaction Rate</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-gold-gradient mb-1">48hr</div>
+                <div className="text-sm text-green-100">Avg. Turnaround</div>
               </div>
             </div>
           </div>
