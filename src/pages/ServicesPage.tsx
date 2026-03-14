@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   CheckCircle,
@@ -20,9 +20,9 @@ import {
   FileText,
   Shield,
   Clock,
-  X,
-  Menu
+  X
 } from 'lucide-react';
+import Navbar from '../components/Navbar';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
@@ -141,58 +141,9 @@ const stats = [
 ];
 
 export default function ServicesPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-gradient-to-br from-green-600 backdrop-blur-md z-50 border-b border-green-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-black text-yellow-400">
-                Daily Creative <span className="text-amber-400">Designs</span>
-              </span>
-            </Link>
-            <div className="hidden md:flex items-center gap-6">
-              <Link to="/" className="text-green-100 hover:text-white transition-colors text-sm font-medium">
-                Home
-              </Link>
-              <Link to="/services" className="text-white font-semibold text-sm border-b-2 border-yellow-400 pb-0.5">
-                Services
-              </Link>
-              <a
-                href={BOOKING_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-yellow-400 text-green-900 font-bold px-4 py-2 rounded-lg text-sm hover:bg-yellow-300 transition-colors"
-              >
-                Book Masterclass
-              </a>
-            </div>
-            <button
-              className="md:hidden text-white"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-green-800 border-t border-green-700 px-4 py-4 flex flex-col gap-4">
-            <Link to="/" className="text-green-100 text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link to="/services" className="text-white text-sm font-semibold" onClick={() => setIsMenuOpen(false)}>Services</Link>
-            <a
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-yellow-400 text-green-900 font-bold px-4 py-2 rounded-lg text-sm text-center"
-            >
-              Book Masterclass
-            </a>
-          </div>
-        )}
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
