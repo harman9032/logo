@@ -359,7 +359,7 @@ export default function ServicesPage() {
 
                     <p className="text-center text-slate-500 text-xs mt-3">
                       <Clock size={10} className="inline mr-1" />
-                      Fast delivery • No hidden fees
+                      Fast delivery · No hidden fees · Split payment available
                     </p>
                   </div>
                 </div>

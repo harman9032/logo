@@ -16,6 +16,7 @@ const SERVICE_LINKS = [
 ];
 
 const NAV_LINKS = [
+  { label: 'Pricing', href: '/pricing' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },

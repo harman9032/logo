@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import GlobalEngagement from './components/GlobalEngagement';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
@@ -23,11 +24,13 @@ import WordPressDesignPage from './pages/services/WordPressDesignPage';
 import BrandIdentityPage from './pages/services/BrandIdentityPage';
 import SocialMediaDesignPage from './pages/services/SocialMediaDesignPage';
 import DigitalMarketingPage from './pages/services/DigitalMarketingPage';
+import PricingPage from './pages/PricingPage';
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
+      <GlobalEngagement />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -38,6 +41,7 @@ export default function App() {
         <Route path="/services/brand-identity" element={<BrandIdentityPage />} />
         <Route path="/services/social-media-design" element={<SocialMediaDesignPage />} />
         <Route path="/services/digital-marketing" element={<DigitalMarketingPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/process" element={<ProcessPage />} />

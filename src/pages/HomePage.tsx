@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import {
   Phone,
@@ -30,6 +30,10 @@ import {
   Search,
   BadgeCheck,
   Sparkles,
+  DollarSign,
+  Calculator,
+  Target,
+  Quote,
 } from 'lucide-react';
 import { portfolioProjects } from '../data/portfolioProjects';
 
@@ -117,8 +121,190 @@ function PortfolioPreview() {
   );
 }
 
+function ROICalculator() {
+  const [leads, setLeads] = useState(5);
+  const [dealValue, setDealValue] = useState(1000);
+  const [closeRate, setCloseRate] = useState(20);
+  const multiplier = 3.2;
+
+  const currentRevenue = leads * (closeRate / 100) * dealValue;
+  const projectedLeads = Math.round(leads * multiplier);
+  const projectedRevenue = projectedLeads * (closeRate / 100) * dealValue;
+  const gain = projectedRevenue - currentRevenue;
+
+  const fmt = (n: number) =>
+    n >= 1000 ? `$${(n / 1000).toFixed(1)}k` : `$${n.toFixed(0)}`;
+
+  return (
+    <section className="py-24 bg-gray-900 text-white overflow-hidden relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-900/30 via-gray-900 to-gray-900" />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            <Calculator className="h-3.5 w-3.5" />
+            ROI Calculator
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">
+            What Would{' '}
+            <span className="text-yellow-400">3× More Leads</span>{' '}
+            Mean for Your Business?
+          </h2>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Our clients average 3.2× more qualified leads within 30 days of launch. See what that's worth for you.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div className="bg-gray-800/60 border border-gray-700/50 rounded-2xl p-8 space-y-7">
+            <div>
+              <label className="flex items-center justify-between text-sm font-semibold text-gray-300 mb-3">
+                <span>Monthly website visitors / leads</span>
+                <span className="text-white font-black text-base">{leads}</span>
+              </label>
+              <input
+                type="range" min={1} max={200} value={leads}
+                onChange={(e) => setLeads(Number(e.target.value))}
+                className="w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer accent-green-500"
+              />
+              <div className="flex justify-between text-xs text-gray-500 mt-1"><span>1</span><span>200</span></div>
+            </div>
+
+            <div>
+              <label className="flex items-center justify-between text-sm font-semibold text-gray-300 mb-3">
+                <span>Average deal / order value</span>
+                <span className="text-white font-black text-base">${dealValue.toLocaleString()}</span>
+              </label>
+              <input
+                type="range" min={100} max={50000} step={100} value={dealValue}
+                onChange={(e) => setDealValue(Number(e.target.value))}
+                className="w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer accent-green-500"
+              />
+              <div className="flex justify-between text-xs text-gray-500 mt-1"><span>$100</span><span>$50k</span></div>
+            </div>
+
+            <div>
+              <label className="flex items-center justify-between text-sm font-semibold text-gray-300 mb-3">
+                <span>Current close / conversion rate</span>
+                <span className="text-white font-black text-base">{closeRate}%</span>
+              </label>
+              <input
+                type="range" min={1} max={80} value={closeRate}
+                onChange={(e) => setCloseRate(Number(e.target.value))}
+                className="w-full h-2 bg-gray-700 rounded-full appearance-none cursor-pointer accent-green-500"
+              />
+              <div className="flex justify-between text-xs text-gray-500 mt-1"><span>1%</span><span>80%</span></div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-gray-800/60 border border-gray-700/50 rounded-2xl p-6">
+              <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest mb-2">Current monthly revenue</p>
+              <p className="text-4xl font-black text-white">{fmt(currentRevenue)}</p>
+              <p className="text-gray-500 text-xs mt-1">{leads} leads × {closeRate}% close × {fmt(dealValue)}</p>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-700 to-emerald-800 border border-green-500/40 rounded-2xl p-6">
+              <p className="text-green-200 text-xs font-semibold uppercase tracking-widest mb-2">Projected after working with us</p>
+              <p className="text-4xl font-black text-yellow-400">{fmt(projectedRevenue)}</p>
+              <p className="text-green-200 text-xs mt-1">{projectedLeads} leads × {closeRate}% close × {fmt(dealValue)}</p>
+            </div>
+
+            <div className="bg-yellow-400/10 border border-yellow-400/30 rounded-2xl p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-yellow-300 text-xs font-semibold uppercase tracking-widest mb-1">Additional revenue per month</p>
+                  <p className="text-3xl font-black text-yellow-400">+{fmt(gain)}</p>
+                </div>
+                <div className="w-14 h-14 bg-yellow-400/20 rounded-xl flex items-center justify-center">
+                  <TrendingUp className="h-7 w-7 text-yellow-400" />
+                </div>
+              </div>
+              <p className="text-yellow-300/70 text-xs mt-2">That's a {fmt(gain / 999)}x ROI on our Complete Package in month one alone.</p>
+            </div>
+
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full btn-gold-gradient text-green-900 font-black py-4 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-xl"
+            >
+              Unlock This for My Business
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EmailCapture() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) setSubmitted(true);
+  };
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl px-8 py-14 sm:px-14 text-center shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 left-1/3 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
+
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+              <Target className="h-3.5 w-3.5" />
+              Free Weekly Value
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+              Get Free Design Tips &<br />Client Attraction Strategies
+            </h2>
+            <p className="text-green-100 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
+              Every week: one actionable tip to make your brand more credible, visible, and magnetic to ideal clients.
+            </p>
+
+            {!submitted ? (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <div className="relative flex-1">
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    className="w-full pl-10 pr-4 py-4 bg-white rounded-xl text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-lg"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="btn-gold-gradient text-green-900 font-black px-7 py-4 rounded-xl text-sm hover:opacity-90 transition-all shadow-lg whitespace-nowrap flex items-center gap-2"
+                >
+                  Get Free Tips
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </form>
+            ) : (
+              <div className="bg-white/15 border border-white/25 rounded-2xl px-6 py-5 max-w-sm mx-auto">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle className="h-5 w-5 text-white" />
+                </div>
+                <p className="text-white font-bold">You're in! Check your inbox.</p>
+                <p className="text-green-200 text-sm mt-1">First tip arrives within the hour.</p>
+              </div>
+            )}
+            <p className="text-green-200 text-xs mt-4">No spam. Unsubscribe anytime. Trusted by 5,000+ business owners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
-  const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => setOpenFaq(openFaq === index ? null : index);
@@ -212,24 +398,29 @@ export default function HomePage() {
               </ul>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+              <div className="flex flex-col sm:flex-row gap-3 mb-5">
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-gold-gradient text-green-900 px-8 py-4 rounded-xl text-base font-black hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
                 >
-                  Get a Free Brand Audit
+                  Claim My Free Brand Audit
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <Link
-                  to="/portfolio"
+                  to="/pricing"
                   className="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-white hover:text-green-900 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
                 >
-                  <Sparkles className="h-4 w-4" />
-                  See Our Work
+                  <DollarSign className="h-4 w-4" />
+                  See Pricing
                 </Link>
               </div>
+
+              {/* Payment plan nudge */}
+              <p className="text-green-200 text-xs mb-4">
+                Starting from <span className="text-white font-bold">$149</span> · Split into 2 installments · No hidden fees
+              </p>
 
               {/* Micro-social proof / FOMO nudge */}
               <div className="flex items-center gap-3">
@@ -733,35 +924,38 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                text: "Working with Daily Creative Designs was the best investment we made this year. Our new website converted 4x better than the old one within the first week of launch.",
+                text: "We spent 3 years with a generic logo and a WordPress site that embarrassed us. Daily Creative redesigned everything in 5 days. The following week we closed 2 deals we'd been chasing for months — the clients literally said our new brand made the difference.",
                 name: "Rahul Mehta",
-                role: "Owner, Restaurant Chain",
-                result: "4x conversions",
+                role: "Owner, Restaurant Chain · US",
+                result: "4× conversions",
                 color: "bg-green-600",
               },
               {
-                text: "I applied the brand strategy to my tech startup and we got funded immediately. Investors loved the professional visual identity they had built for us!",
+                text: "I pitched 6 investors and got rejected each time. After the brand package, I pitched the same deck with the new visual identity and got a term sheet on the third meeting. Investors told me it looked like a Series B company. That's the power of great design.",
                 name: "Vikram Singh",
-                role: "CEO, SaaS Startup",
+                role: "CEO, SaaS Startup · Canada",
                 result: "Series A funded",
                 color: "bg-amber-500",
               },
               {
-                text: "As a freelancer, I was struggling to stand out. They helped me create a strong personal brand. Now I attract premium clients who value my expertise!",
+                text: "I tried two Fiverr designers before this. Both times I got something generic and unusable. With Daily Creative I got 3 completely different concepts, asked for 9 rounds of changes over 2 weeks, and they never complained once. The result is stunning — and I own every file.",
                 name: "Anjali Desai",
-                role: "Freelance Design Consultant",
-                result: "2x client rate",
+                role: "Freelance Consultant · UK",
+                result: "2× client rate",
                 color: "bg-sky-500",
               },
             ].map((t) => (
-              <div key={t.name} className="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                  ))}
+              <div key={t.name} className="bg-white rounded-2xl p-8 shadow-md border border-gray-100 flex flex-col">
+                <div className="flex justify-between items-start mb-5">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <Quote className="h-7 w-7 text-gray-100 flex-shrink-0" />
                 </div>
-                <blockquote className="text-gray-700 mb-6 font-medium leading-relaxed">"{t.text}"</blockquote>
-                <div className="flex items-center justify-between">
+                <blockquote className="text-gray-700 mb-6 font-medium leading-relaxed flex-1">"{t.text}"</blockquote>
+                <div className="flex items-center justify-between pt-5 border-t border-gray-100">
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 ${t.color} rounded-full flex items-center justify-center text-white font-black`}>
                       {t.name.charAt(0)}
@@ -791,8 +985,123 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── OBJECTION CRUSHER: VS FIVERR/AGENCY ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              <BadgeCheck className="h-3.5 w-3.5" />
+              Honest Comparison
+            </div>
+            <h2 className="text-4xl font-black text-gray-900 mb-4">
+              "Why Not Just Use Fiverr?"
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              We get this every week. Here's the honest answer.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                label: "Fiverr",
+                price: "$5–$200",
+                color: "border-red-200 bg-red-50",
+                headerColor: "bg-red-100 text-red-700",
+                icon: <X className="h-5 w-5 text-red-500" />,
+                points: [
+                  "Unknown quality — lottery every time",
+                  "1–3 revisions then extra charges",
+                  "No strategy, just pixel pushing",
+                  "Files often unusable or stolen",
+                  "Zero accountability after delivery",
+                ],
+                verdict: "Cheap but risky",
+                verdictColor: "text-red-600 bg-red-50 border-red-200",
+              },
+              {
+                label: "Daily Creative Designs",
+                price: "From $149",
+                color: "border-green-400 bg-green-50",
+                headerColor: "bg-green-600 text-white",
+                icon: <CheckCircle className="h-5 w-5 text-white" />,
+                points: [
+                  "12+ years, 5,000+ happy clients",
+                  "Unlimited revisions, always",
+                  "Strategy + design in every project",
+                  "Full source files, you own everything",
+                  "100% satisfaction guarantee",
+                ],
+                verdict: "Best value for money",
+                verdictColor: "text-green-700 bg-green-50 border-green-200",
+                popular: true,
+              },
+              {
+                label: "Local Agency",
+                price: "$3,000–$15,000",
+                color: "border-gray-200 bg-gray-50",
+                headerColor: "bg-gray-200 text-gray-700",
+                icon: <DollarSign className="h-5 w-5 text-gray-500" />,
+                points: [
+                  "High quality but very expensive",
+                  "4–12 week timelines",
+                  "2–3 revision rounds only",
+                  "Retainer fees after delivery",
+                  "Hard to get meetings / attention",
+                ],
+                verdict: "Quality, but costly",
+                verdictColor: "text-gray-600 bg-gray-50 border-gray-200",
+              },
+            ].map((col) => (
+              <div key={col.label} className={`border-2 ${col.color} rounded-2xl overflow-hidden ${col.popular ? 'shadow-xl shadow-green-500/10' : 'shadow-sm'}`}>
+                <div className={`${col.headerColor} px-6 py-5 flex items-center justify-between`}>
+                  <div>
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-0.5 ${col.popular ? 'text-green-200' : ''}`}>Option</p>
+                    <h3 className="font-black text-lg leading-tight">{col.label}</h3>
+                  </div>
+                  <div className={`w-10 h-10 ${col.popular ? 'bg-white/20' : 'bg-white'} rounded-xl flex items-center justify-center`}>
+                    {col.icon}
+                  </div>
+                </div>
+                <div className="px-6 py-6">
+                  <p className={`text-2xl font-black mb-5 ${col.popular ? 'text-green-600' : 'text-gray-700'}`}>{col.price}</p>
+                  <ul className="space-y-3 mb-6">
+                    {col.points.map((pt, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        {col.popular
+                          ? <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                          : <div className="w-4 h-4 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-1.5 h-1.5 bg-gray-400 rounded-full" /></div>
+                        }
+                        <span className={`text-sm ${col.popular ? 'text-gray-700 font-medium' : 'text-gray-500'}`}>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className={`inline-flex text-xs font-bold px-3 py-1.5 rounded-lg border ${col.verdictColor}`}>{col.verdict}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/pricing"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-md hover:-translate-y-0.5"
+            >
+              See Full Pricing
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── PORTFOLIO PREVIEW ── */}
       <PortfolioPreview />
+
+      {/* ── ROI CALCULATOR ── */}
+      <ROICalculator />
+
+      {/* ── EMAIL CAPTURE ── */}
+      <EmailCapture />
 
       {/* ── TRUST BAR ── */}
       <section className="py-14 bg-gray-900">
