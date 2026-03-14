@@ -97,7 +97,7 @@ const content = {
     title: "Our Service Packages",
     subtitle: "Professional design services with transparent, competitive pricing",
     starterTitle: "Logo Design",
-    starterPrice: "$51.00",
+    starterPrice: "$299",
     starterDescription: "Custom logo crafted for your brand identity",
     starterFeature1: "3 unique logo concepts",
     starterFeature2: "Unlimited revisions",
@@ -106,7 +106,7 @@ const content = {
     starterFeature5: "Commercial usage rights",
     starterButtonText: "Get Your Logo",
     professionalTitle: "AI Website Design",
-    professionalPrice: "$51.00",
+    professionalPrice: "$499",
     professionalDescription: "Responsive website or landing page, built fast",
     professionalFeature1: "Fully responsive design",
     professionalFeature2: "Mobile-first optimization",
@@ -116,7 +116,7 @@ const content = {
     professionalButtonText: "Build My Website",
     professionalBadgeText: "Most Popular",
     enterpriseTitle: "Complete Digital Package",
-    enterprisePrice: "$99.99",
+    enterprisePrice: "$999",
     enterpriseDescription: "Logo + Website + Digital Marketing Strategy",
     enterpriseFeature1: "Everything in Logo Design",
     enterpriseFeature2: "Everything in AI Website Design",
@@ -202,9 +202,9 @@ const content = {
     companyDescription: "Transforming brands with expert design strategy since 2012. 5,000+ successful brand transformations globally.",
     servicesTitle: "Programs",
     service1: "Masterclass - ₹99",
-    service2: "Logo Design - $51",
-    service3: "AI Website Design - $51",
-    service4: "Complete Digital Package - $99.99",
+    service2: "Logo Design - $299",
+    service3: "AI Website Design - $499",
+    service4: "Complete Digital Package - $999",
     service5: "Brand Guidelines",
     companyTitle: "Company",
     contactTitle: "Contact Info",
@@ -298,7 +298,7 @@ export default function HomePage() {
             <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
               <div className="w-2 h-2 bg-green-700 rounded-full mr-2 animate-pulse"></div>
               <span className="text-sm font-semibold text-green-900">
-                Professional Design Services · Starting at $51
+                Professional Design Services · Starting at $299
               </span>
             </div>
 
@@ -316,15 +316,15 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-3 mb-10">
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
                 <Star className="h-3.5 w-3.5 text-yellow-400 fill-current" />
-                Logo Design — $51
+                Logo Design — $299
               </span>
               <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
                 <Zap className="h-3.5 w-3.5 text-yellow-400" />
-                AI Website Design — $51
+                AI Website Design — $499
               </span>
               <span className="inline-flex items-center gap-1.5 bg-yellow-400/20 border border-yellow-400/40 text-yellow-200 text-sm font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
                 <Award className="h-3.5 w-3.5 text-yellow-400" />
-                Complete Package — $99.99
+                Complete Package — $999
               </span>
             </div>
 

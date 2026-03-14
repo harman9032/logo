@@ -34,7 +34,7 @@ const services = [
     accentIcon: Star,
     title: "Logo Design",
     tagline: "Make a lasting first impression",
-    price: "$51.00",
+    price: "$299",
     priceNote: "One-time payment",
     description:
       "A professionally crafted custom logo that captures your brand's personality and sets you apart from the competition. Perfect for startups and small businesses ready to establish a strong visual identity.",
@@ -68,7 +68,7 @@ const services = [
     accentIcon: Zap,
     title: "AI Website Design",
     tagline: "Your digital storefront, built fast",
-    price: "$51.00",
+    price: "$499",
     priceNote: "One-time payment",
     description:
       "An AI-powered responsive website or landing page that looks stunning on every device. Get online quickly with a professional web presence optimized for conversions and search engines.",
@@ -103,7 +103,7 @@ const services = [
     accentIcon: Award,
     title: "Complete Digital Package",
     tagline: "Everything you need to dominate online",
-    price: "$99.99",
+    price: "$999",
     priceNote: "One-time payment",
     description:
       "The ultimate digital transformation bundle. Get a custom logo, a professional website, and a comprehensive digital marketing strategy — all working together to grow your business online.",
