@@ -480,182 +480,153 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-slate-950">
+      {/* How We Solve Your Problem Section */}
+      <section id="how-it-works" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
-              <Zap className="h-3 w-3" />
-              What We Offer
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              <Lightbulb className="h-3 w-3" />
+              Our Process
             </div>
-            <h2 className="text-4xl font-black text-white mb-4">
-              Services Built to{' '}
-              <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
-                Grow Your Brand
-              </span>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              From Problem to{' '}
+              <span className="text-green-600">Proven Results</span>
             </h2>
-            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Choose the package that fits your goals. Every service is crafted with precision, delivered fast, and backed by 12+ years of design expertise.
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              Most businesses struggle with inconsistent branding and a weak online presence. Here is exactly how we fix that — step by step.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Logo Design */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-slate-900 to-slate-800 border border-slate-700/50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold px-3 py-1 rounded-full">
-                    <Star className="h-3 w-3" />
-                    Brand Identity
-                  </div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-300 flex items-center justify-center shadow-lg">
-                    <Target className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
-                  </div>
+          {/* Problem vs Solution */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+            <div className="bg-red-50 border border-red-100 rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                  <X className="h-5 w-5 text-red-500" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-2xl font-black text-white mb-1">Logo Design</h3>
-                <p className="text-sm font-medium text-amber-300 mb-4">Make a lasting first impression</p>
-                <div className="mb-5">
-                  <span className="text-5xl font-black bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent leading-none">$51.00</span>
-                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
-                </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-5">A professionally crafted custom logo that captures your brand's personality and sets you apart from the competition.</p>
-                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-amber-400/10 text-amber-300">
-                  <Shield className="h-3 w-3" />
-                  Ideal for small businesses & startups
-                </div>
-                <ul className="space-y-2.5 mb-6 flex-1">
-                  {['3 unique logo concepts', 'Unlimited revisions until perfect', 'Final files: PNG, SVG, PDF, AI', 'Light & dark versions included', 'Brand color palette suggestion', 'Typography recommendation', 'Commercial usage rights'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
-                      <span className="text-slate-300 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-amber-400 hover:bg-amber-300 text-slate-900 transition-all hover:scale-[1.02] shadow-lg"
-                >
-                  Get Your Logo
-                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                </a>
-                <p className="text-center text-slate-500 text-xs mt-3">
-                  <Clock className="h-3 w-3 inline mr-1" />
-                  Fast delivery · No hidden fees
-                </p>
+                <h3 className="text-xl font-black text-gray-900">The Problem You Face</h3>
               </div>
+              <ul className="space-y-4">
+                {[
+                  { title: 'No professional brand identity', desc: 'Generic visuals make you look untrustworthy and forgettable to potential customers.' },
+                  { title: 'No website or a poor one', desc: 'You lose leads every day because prospects can\'t find you or don\'t trust what they see.' },
+                  { title: 'Wasted ad spend', desc: 'Running ads without a strong brand or landing page burns money with little to no return.' },
+                  { title: 'Inconsistent online presence', desc: 'Mixed messages across platforms confuse your audience and erode confidence.' },
+                ].map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <X className="h-3 w-3 text-red-600" strokeWidth={3} />
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-800 text-sm">{item.title}</p>
+                      <p className="text-gray-500 text-sm mt-0.5">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
 
-            {/* AI Website Design — Most Popular */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-green-900 to-green-800 border-2 border-slate-500/60 ring-2 ring-green-400/30 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-400 text-green-950 text-xs font-bold text-center py-1.5 tracking-wide uppercase">
-                Most Popular Choice
+            <div className="bg-green-50 border border-green-100 rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                  <CheckCircle className="h-5 w-5 text-green-600" strokeWidth={2.5} />
+                </div>
+                <h3 className="text-xl font-black text-gray-900">What You Get With Us</h3>
               </div>
-              <div className="p-8 pt-10 flex flex-col flex-1">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center gap-1.5 bg-green-400/20 text-green-300 border border-green-400/30 text-xs font-semibold px-3 py-1 rounded-full">
-                    <Zap className="h-3 w-3" />
-                    Most Popular
-                  </div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-300 flex items-center justify-center shadow-lg">
-                    <BarChart3 className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-black text-white mb-1">AI Website Design</h3>
-                <p className="text-sm font-medium text-green-300 mb-4">Your digital storefront, built fast</p>
-                <div className="mb-5">
-                  <span className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent leading-none">$51.00</span>
-                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
-                </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-5">An AI-powered responsive website or landing page that looks stunning on every device. Get online quickly with a professional web presence.</p>
-                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-green-400/10 text-green-300">
-                  <Shield className="h-3 w-3" />
-                  Ideal for entrepreneurs & small businesses
-                </div>
-                <ul className="space-y-2.5 mb-4 flex-1">
-                  {['Fully responsive design', 'Mobile-first optimization', 'Basic on-page SEO setup', 'Contact form integration', 'Fast loading performance', 'Social media links', 'Google Analytics ready'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
-                      <span className="text-slate-300 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="bg-slate-800/60 rounded-lg p-3 mb-5">
-                  <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-1">Not included</p>
-                  <div className="flex flex-col gap-1">
-                    {['Domain registration', 'Hosting fees'].map((item) => (
-                      <span key={item} className="flex items-center gap-2 text-slate-500 text-xs">
-                        <X className="h-3 w-3 flex-shrink-0" />
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-green-400 hover:bg-green-300 text-green-900 transition-all hover:scale-[1.02] shadow-lg"
-                >
-                  Build My Website
-                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                </a>
-                <p className="text-center text-slate-500 text-xs mt-3">
-                  <Clock className="h-3 w-3 inline mr-1" />
-                  Fast delivery · No hidden fees
-                </p>
-              </div>
-            </div>
-
-            {/* Complete Digital Package */}
-            <div className="relative rounded-2xl bg-gradient-to-b from-sky-900 to-sky-800 border border-slate-700/50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
-              <div className="p-8 flex flex-col flex-1">
-                <div className="flex items-start justify-between mb-6">
-                  <div className="inline-flex items-center gap-1.5 bg-sky-400/20 text-sky-300 border border-sky-400/30 text-xs font-semibold px-3 py-1 rounded-full">
-                    <Award className="h-3 w-3" />
-                    Best Value
-                  </div>
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-cyan-300 flex items-center justify-center shadow-lg">
-                    <TrendingUp className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
-                  </div>
-                </div>
-                <h3 className="text-2xl font-black text-white mb-1">Complete Digital Package</h3>
-                <p className="text-sm font-medium text-sky-300 mb-4">Everything you need to dominate online</p>
-                <div className="mb-5">
-                  <span className="text-5xl font-black bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent leading-none">$99.99</span>
-                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
-                </div>
-                <p className="text-slate-300 text-sm leading-relaxed mb-5">The ultimate digital transformation bundle. Custom logo + professional website + comprehensive digital marketing strategy — all in one.</p>
-                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-sky-400/10 text-sky-300">
-                  <Shield className="h-3 w-3" />
-                  Ideal for full digital transformation
-                </div>
-                <ul className="space-y-2.5 mb-6 flex-1">
-                  {['Everything in Logo Design', 'Everything in AI Website Design', 'Digital marketing strategy plan', 'Social media brand guidelines', 'Content calendar framework', 'Competitor analysis report', 'Growth roadmap (90 days)', 'Priority support included'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-sky-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
-                      <span className="text-slate-300 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-sky-400 hover:bg-sky-300 text-sky-900 transition-all hover:scale-[1.02] shadow-lg"
-                >
-                  Start Full Transformation
-                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                </a>
-                <p className="text-center text-slate-500 text-xs mt-3">
-                  <Clock className="h-3 w-3 inline mr-1" />
-                  Fast delivery · No hidden fees
-                </p>
-              </div>
+              <ul className="space-y-4">
+                {[
+                  { title: 'A brand that commands trust', desc: 'Custom logo and visual identity that make you look like the obvious choice in your market.' },
+                  { title: 'A website that converts', desc: 'AI-powered, mobile-first site built to turn visitors into paying customers — fast.' },
+                  { title: 'Clear digital strategy', desc: 'A marketing roadmap so every rupee you spend on ads and content delivers measurable ROI.' },
+                  { title: 'Consistent brand voice', desc: 'Unified look and messaging across all channels so customers instantly recognise and trust you.' },
+                ].map((item) => (
+                  <li key={item.title} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle className="h-3 w-3 text-green-700" strokeWidth={3} />
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-800 text-sm">{item.title}</p>
+                      <p className="text-gray-500 text-sm mt-0.5">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
+          {/* Process Steps */}
+          <div className="relative">
+            <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-200 to-transparent" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                {
+                  step: '01',
+                  icon: <MessageCircle className="h-6 w-6 text-green-700" />,
+                  title: 'Free Discovery Call',
+                  desc: 'We start with a 30-minute call to understand your business, goals, target audience, and existing challenges.',
+                  color: 'bg-green-100',
+                },
+                {
+                  step: '02',
+                  icon: <Lightbulb className="h-6 w-6 text-amber-700" />,
+                  title: 'Strategy & Concepts',
+                  desc: 'We research your market and competitors, then craft tailored design concepts aligned with your brand vision.',
+                  color: 'bg-amber-100',
+                },
+                {
+                  step: '03',
+                  icon: <Zap className="h-6 w-6 text-sky-700" />,
+                  title: 'Build & Refine',
+                  desc: 'We execute with precision and iterate based on your feedback — unlimited revisions until you are 100% happy.',
+                  color: 'bg-sky-100',
+                },
+                {
+                  step: '04',
+                  icon: <TrendingUp className="h-6 w-6 text-emerald-700" />,
+                  title: 'Launch & Grow',
+                  desc: 'You receive all final files and a growth roadmap so your brand is ready to attract customers from day one.',
+                  color: 'bg-emerald-100',
+                },
+              ].map((item) => (
+                <div key={item.step} className="relative flex flex-col items-center text-center group">
+                  <div className={`w-20 h-20 ${item.color} rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-105 transition-transform duration-300 relative z-10`}>
+                    {item.icon}
+                  </div>
+                  <div className="absolute -top-2 -right-2 md:right-auto md:left-auto md:-top-2 w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-black flex items-center justify-center z-20">
+                    {item.step}
+                  </div>
+                  <h4 className="text-lg font-black text-gray-900 mb-2">{item.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Trust bar */}
+          <div className="mt-16 bg-gray-900 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+              {[
+                { icon: <Award className="h-5 w-5 text-amber-400" />, text: '12+ Years Experience' },
+                { icon: <Users className="h-5 w-5 text-green-400" />, text: '500+ Clients Served' },
+                { icon: <Shield className="h-5 w-5 text-sky-400" />, text: '100% Satisfaction Guarantee' },
+                { icon: <Clock className="h-5 w-5 text-rose-400" />, text: 'Fast Turnaround' },
+              ].map((t) => (
+                <div key={t.text} className="flex items-center gap-2 text-white text-sm font-semibold">
+                  {t.icon}
+                  {t.text}
+                </div>
+              ))}
+            </div>
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105 shadow-lg"
+            >
+              Book Free Call
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
 
