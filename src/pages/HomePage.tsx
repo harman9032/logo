@@ -301,8 +301,11 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
+                <Link to="/services" className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
+                  Our Services
+                </Link>
                 <button onClick={() => scrollToSection('services')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
-                  Services
+                  Masterclass
                 </button>
                 <button onClick={() => scrollToSection('pricing')} className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors">
                   Pricing
@@ -343,8 +346,11 @@ export default function HomePage() {
         {isMenuOpen && (
           <div className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900">
             <div className="px-2 pt-2 pb-3 space-y-1">
+              <Link to="/services" className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
+                Our Services
+              </Link>
               <button onClick={() => scrollToSection('services')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
-                Services
+                Masterclass
               </button>
               <button onClick={() => scrollToSection('pricing')} className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left">
                 Pricing
