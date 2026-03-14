@@ -4,6 +4,12 @@ import ServicesPage from './pages/ServicesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ProcessPage from './pages/ProcessPage';
+import CaseStudiesPage from './pages/CaseStudiesPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import CookiesPolicy from './components/CookiesPolicy';
 import Terms from './components/Terms';
@@ -32,6 +38,12 @@ export default function App() {
         <Route path="/services/brand-identity" element={<BrandIdentityPage />} />
         <Route path="/services/social-media-design" element={<SocialMediaDesignPage />} />
         <Route path="/services/digital-marketing" element={<DigitalMarketingPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/process" element={<ProcessPage />} />
+        <Route path="/case-studies" element={<CaseStudiesPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/contact" element={<ContactPage />} />

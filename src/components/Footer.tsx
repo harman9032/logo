@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <span className="text-2xl font-black text-white">
               Daily Creative <span className="text-yellow-400">Designs</span>
@@ -29,10 +29,25 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Logo Design — $299</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">AI Website Design — $499</Link></li>
+              <li><Link to="/services/logo-design" className="text-gray-300 hover:text-white transition-colors">Logo Design — $299</Link></li>
+              <li><Link to="/services/ai-website-design" className="text-gray-300 hover:text-white transition-colors">AI Website — $499</Link></li>
+              <li><Link to="/services/shopify-design" className="text-gray-300 hover:text-white transition-colors">Shopify Design</Link></li>
+              <li><Link to="/services/brand-identity" className="text-gray-300 hover:text-white transition-colors">Brand Identity</Link></li>
+              <li><Link to="/services/digital-marketing" className="text-gray-300 hover:text-white transition-colors">Digital Marketing</Link></li>
               <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Complete Package — $999</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Brand Guidelines</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-6">Company</h3>
+            <ul className="space-y-3">
+              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link></li>
+              <li><Link to="/case-studies" className="text-gray-300 hover:text-white transition-colors">Case Studies</Link></li>
+              <li><Link to="/process" className="text-gray-300 hover:text-white transition-colors">Our Process</Link></li>
+              <li><Link to="/testimonials" className="text-gray-300 hover:text-white transition-colors">Testimonials</Link></li>
+              <li><Link to="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/faq" className="text-gray-300 hover:text-white transition-colors">FAQ</Link></li>
             </ul>
           </div>
 
@@ -49,7 +64,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-300">India</span>
+                <span className="text-gray-300">India — Serving Globally</span>
               </div>
             </div>
           </div>

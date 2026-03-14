@@ -689,6 +689,93 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── TOOLS & TECHNOLOGY ── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+              <BadgeCheck className="h-3.5 w-3.5" />
+              Our Toolkit
+            </div>
+            <h2 className="text-3xl font-black text-gray-900">Built With Industry-Leading Tools</h2>
+            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
+              We use the same professional software as the world's best design agencies — at a fraction of the price.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { label: 'Figma', icon: Palette },
+              { label: 'Adobe Illustrator', icon: PenTool },
+              { label: 'Adobe Photoshop', icon: Layers },
+              { label: 'React & Next.js', icon: Globe },
+              { label: 'Shopify', icon: BarChart2 },
+              { label: 'WordPress', icon: Globe },
+              { label: 'Tailwind CSS', icon: Sparkles },
+              { label: 'Google Analytics', icon: BarChart2 },
+              { label: 'Meta Ads Manager', icon: TrendingUp },
+              { label: 'Canva Pro', icon: Palette },
+              { label: 'SEMrush', icon: Search },
+              { label: 'Klaviyo', icon: MessageCircle },
+            ].map((tool) => {
+              const Icon = tool.icon;
+              return (
+                <div key={tool.label} className="flex items-center gap-2 bg-white border border-gray-200 hover:border-green-300 hover:bg-green-50 rounded-full px-5 py-2.5 transition-all duration-200">
+                  <Icon className="h-4 w-4 text-green-600" />
+                  <span className="text-gray-700 font-semibold text-sm">{tool.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SATISFACTION GUARANTEE ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-green-50 border-2 border-green-200 rounded-3xl p-12 text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Shield className="h-10 w-10 text-green-600" />
+            </div>
+            <h2 className="text-3xl font-black text-gray-900 mb-4">Our 100% Satisfaction Promise</h2>
+            <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+              We won't stop until you genuinely love your brand. That's not a marketing line — it's how we've maintained a 100% satisfaction rate for 12 years.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              {[
+                { icon: ArrowRight, text: 'Unlimited revisions until you love it' },
+                { icon: Clock, text: 'Full refund if we miss the agreed timeline' },
+                { icon: BadgeCheck, text: 'Full file ownership — no lock-in, ever' },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.text} className="bg-white rounded-xl p-5 flex flex-col items-center gap-3 shadow-sm border border-green-100">
+                    <Icon className="h-6 w-6 text-green-600" />
+                    <p className="text-green-900 font-semibold text-sm text-center leading-relaxed">{item.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-lg hover:-translate-y-0.5"
+              >
+                Start Risk-Free
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <Link
+                to="/process"
+                className="inline-flex items-center justify-center gap-2 bg-white border-2 border-green-300 text-green-700 hover:bg-green-50 font-bold px-8 py-4 rounded-xl text-base transition-all"
+              >
+                See How It Works
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FINAL CTA ── */}
       <section className="py-20 bg-green-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
