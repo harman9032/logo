@@ -71,13 +71,13 @@ export default function ThankYou() {
                   </div>
                 </a>
                 <a
-                  href="mailto:design@creativedaily.com"
+                  href="mailto:sales@dailycreativedesigns.com"
                   className="flex items-center gap-3 bg-white border border-sky-200 rounded-xl px-4 py-3 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all group"
                 >
                   <Mail className="h-5 w-5 text-sky-500 group-hover:text-white flex-shrink-0" />
                   <div>
                     <p className="text-xs font-semibold text-gray-500 group-hover:text-sky-100">Email</p>
-                    <p className="font-bold text-gray-900 text-sm group-hover:text-white">design@creativedaily.com</p>
+                    <p className="font-bold text-gray-900 text-sm group-hover:text-white">sales@dailycreativedesigns.com</p>
                   </div>
                 </a>
               </div>

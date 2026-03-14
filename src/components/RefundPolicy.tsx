@@ -94,7 +94,7 @@ export default function RefundPolicy() {
                   <p className="text-gray-700 leading-relaxed">
                     If you cancel your order before any work has started and within 24 hours of payment, you may be eligible
                     for a full refund. Cancellation requests must be submitted in writing via email to{' '}
-                    <a href="mailto:design@creativedaily.com" className="text-green-700 hover:underline">design@creativedaily.com</a>.
+                    <a href="mailto:sales@dailycreativedesigns.com" className="text-green-700 hover:underline">sales@dailycreativedesigns.com</a>.
                   </p>
                 ),
               },
@@ -115,7 +115,7 @@ export default function RefundPolicy() {
                   <>
                     <p className="text-gray-700 leading-relaxed mb-4">If you believe you are entitled to a refund:</p>
                     <ol className="list-decimal pl-6 text-gray-700 space-y-2">
-                      <li>Email us at <a href="mailto:design@creativedaily.com" className="text-green-700 hover:underline">design@creativedaily.com</a> with your order details and reason for the request.</li>
+                      <li>Email us at <a href="mailto:sales@dailycreativedesigns.com" className="text-green-700 hover:underline">sales@dailycreativedesigns.com</a> with your order details and reason for the request.</li>
                       <li>Our team will review your request within 3 business days.</li>
                       <li>We may request additional information or offer further revisions to resolve the issue.</li>
                       <li>If a refund is approved, it will be processed within 5–10 business days to the original payment method.</li>
@@ -150,7 +150,7 @@ export default function RefundPolicy() {
                     </p>
                     <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
                       <p className="font-bold text-gray-900 mb-2">Daily Creative Designs</p>
-                      <p className="text-gray-700 mb-1">Email: <a href="mailto:design@creativedaily.com" className="text-green-700 hover:underline">design@creativedaily.com</a></p>
+                      <p className="text-gray-700 mb-1">Email: <a href="mailto:sales@dailycreativedesigns.com" className="text-green-700 hover:underline">sales@dailycreativedesigns.com</a></p>
                       <p className="text-gray-700 mb-1">Phone: <a href="tel:+917837319660" className="text-green-700 hover:underline">+91 78373 19660</a></p>
                       <p className="text-gray-700">WhatsApp: <a href="https://wa.me/917837319660" target="_blank" rel="noopener noreferrer" className="text-green-700 hover:underline">+91 78373 19660</a></p>
                     </div>

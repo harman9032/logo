@@ -92,7 +92,7 @@ export default function ContactPage() {
       await new Promise((res) => setTimeout(res, 1000));
       navigate('/thank-you');
     } catch {
-      setSubmitError('Failed to send message. Please check your connection and try again, or email us directly at design@creativedaily.com.');
+      setSubmitError('Failed to send message. Please check your connection and try again, or email us directly at sales@dailycreativedesigns.com.');
     } finally {
       setIsSubmitting(false);
     }
@@ -161,8 +161,8 @@ export default function ContactPage() {
             </a>
 
             <a
-              href="mailto:design@creativedaily.com"
-              aria-label="Email us at design@creativedaily.com"
+              href="mailto:sales@dailycreativedesigns.com"
+              aria-label="Email us at sales@dailycreativedesigns.com"
               className="flex items-center gap-4 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-6 py-5 transition-colors duration-200 group"
             >
               <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200" aria-hidden="true">
@@ -170,7 +170,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide mb-0.5">Email</p>
-                <p className="font-bold text-gray-900 text-sm">design@creativedaily.com</p>
+                <p className="font-bold text-gray-900 text-sm">sales@dailycreativedesigns.com</p>
                 <p className="text-xs text-gray-500">Reply within 2 hours</p>
               </div>
             </a>
@@ -427,7 +427,7 @@ export default function ContactPage() {
           <Link to="/" aria-label="Daily Creative Designs — Home" className="text-xl font-black">
             Daily Creative <span className="text-yellow-400">Designs</span>
           </Link>
-          <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© 2026 Daily Creative Designs. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</Link>

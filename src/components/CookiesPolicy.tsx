@@ -140,7 +140,7 @@ const sections = [
         </p>
         <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
           <p className="font-bold text-gray-900 mb-2">Daily Creative Designs</p>
-          <p className="text-gray-700 mb-1">Email: <a href="mailto:design@creativedaily.com" className="text-green-700 hover:underline">design@creativedaily.com</a></p>
+          <p className="text-gray-700 mb-1">Email: <a href="mailto:sales@dailycreativedesigns.com" className="text-green-700 hover:underline">sales@dailycreativedesigns.com</a></p>
           <p className="text-gray-700">Phone: <a href="tel:+917837319660" className="text-green-700 hover:underline">+91 78373 19660</a></p>
         </div>
       </>

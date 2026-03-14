@@ -1218,13 +1218,13 @@ export default function HomePage() {
               </div>
             </a>
 
-            <a href="mailto:design@creativedaily.com" className="flex items-center gap-4 bg-white border border-sky-200 rounded-2xl px-6 py-5 hover:bg-sky-50 transition-colors">
+            <a href="mailto:sales@dailycreativedesigns.com" className="flex items-center gap-4 bg-white border border-sky-200 rounded-2xl px-6 py-5 hover:bg-sky-50 transition-colors">
               <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center flex-shrink-0">
                 <Mail className="h-5 w-5 text-white" />
               </div>
               <div>
                 <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide mb-0.5">Email</p>
-                <p className="font-bold text-gray-900 text-sm">design@creativedaily.com</p>
+                <p className="font-bold text-gray-900 text-sm">sales@dailycreativedesigns.com</p>
                 <p className="text-xs text-gray-500">Reply within 2 hours</p>
               </div>
             </a>
@@ -1404,7 +1404,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                  <a href="mailto:design@creativedaily.com" className="text-gray-300 hover:text-white transition-colors">design@creativedaily.com</a>
+                  <a href="mailto:sales@dailycreativedesigns.com" className="text-gray-300 hover:text-white transition-colors">sales@dailycreativedesigns.com</a>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
@@ -1415,7 +1415,7 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved. · Elevating brands since 2012</p>
+            <p className="text-gray-400 text-sm">© 2026 Daily Creative Designs. All rights reserved. · Elevating brands since 2012</p>
             <div className="flex space-x-6">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors font-medium">Privacy Policy</Link>
               <Link to="/terms" className="text-gray-400 hover:text-green-500 text-sm transition-colors font-medium">Terms</Link>
