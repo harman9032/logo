@@ -106,9 +106,10 @@ function ExitIntentPopup() {
       <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full overflow-hidden animate-[fadeSlideUp_0.4s_ease_both]">
         <button
           onClick={close}
+          aria-label="Close popup"
           className="absolute top-4 right-4 z-10 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
         >
-          <X className="h-4 w-4 text-gray-600" />
+          <X className="h-4 w-4 text-gray-600" aria-hidden="true" />
         </button>
 
         <div className="bg-gradient-to-br from-green-600 to-emerald-700 px-8 pt-8 pb-6 text-white text-center">
@@ -146,8 +147,10 @@ function ExitIntentPopup() {
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                 <div className="relative">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" aria-hidden="true" />
+                  <label htmlFor="popup-email" className="sr-only">Your best email address</label>
                   <input
+                    id="popup-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

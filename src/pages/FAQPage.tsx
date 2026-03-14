@@ -83,8 +83,9 @@ export default function FAQPage() {
   const toggle = (key: string) => setOpenItem(openItem === key ? null : key);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -123,13 +124,14 @@ export default function FAQPage() {
                       >
                         <button
                           onClick={() => toggle(key)}
+                          aria-expanded={isOpen}
                           className="w-full px-7 py-5 text-left flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors"
                         >
                           <span className="text-base font-bold text-gray-900 leading-snug">{item.question}</span>
                           {isOpen ? (
-                            <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" />
+                            <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" aria-hidden="true" />
                           ) : (
-                            <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                            <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" aria-hidden="true" />
                           )}
                         </button>
                         {isOpen && (
@@ -171,6 +173,8 @@ export default function FAQPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

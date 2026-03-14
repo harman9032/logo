@@ -204,6 +204,7 @@ export default function ProcessPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -373,12 +374,13 @@ export default function ProcessPage() {
               <div key={idx} className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  aria-expanded={openFaq === idx}
                   className="w-full flex items-center justify-between px-6 py-5 text-left"
                 >
                   <span className="font-bold text-gray-900">{faq.q}</span>
                   {openFaq === idx
-                    ? <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" />
-                    : <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />}
+                    ? <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" aria-hidden="true" />
+                    : <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" aria-hidden="true" />}
                 </button>
                 {openFaq === idx && (
                   <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-200 pt-4">
@@ -418,6 +420,8 @@ export default function ProcessPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

@@ -97,7 +97,7 @@ export default function AIWebsiteDesignPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-16">
+      <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-green-900 via-green-800 to-slate-900 py-20 px-4 text-white">
           <div className="max-w-4xl mx-auto text-center">

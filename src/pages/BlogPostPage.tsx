@@ -123,6 +123,7 @@ export default function BlogPostPage() {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         <Navbar />
+        <main id="main-content">
         <div className="flex-1 flex items-center justify-center py-40">
           <div className="text-center">
             <BookOpen className="h-16 w-16 text-gray-200 mx-auto mb-6" />
@@ -137,6 +138,7 @@ export default function BlogPostPage() {
             </Link>
           </div>
         </div>
+        </main>
         <Footer />
       </div>
     );
@@ -148,16 +150,17 @@ export default function BlogPostPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <BlogPostSchema post={post} />
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-500 mb-6 flex-wrap">
             <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
             <Link to="/blog" className="hover:text-gray-300 transition-colors">Blog</Link>
-            <span>/</span>
-            <span className="text-gray-300 line-clamp-1">{post.title}</span>
+            <span aria-hidden="true">/</span>
+            <span className="text-gray-300 line-clamp-1" aria-current="page">{post.title}</span>
           </nav>
           <div className="flex items-center gap-3 mb-6 flex-wrap">
             <span className={`${post.tagStyle} text-xs font-bold px-3 py-1.5 rounded-full`}>{post.category}</span>
@@ -331,6 +334,8 @@ export default function BlogPostPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

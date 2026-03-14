@@ -81,6 +81,7 @@ export default function BlogPage() {
       <BlogListSchema />
       <BreadcrumbSchema />
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
@@ -88,8 +89,8 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-xs text-gray-500 mb-6">
             <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
-            <span>/</span>
-            <span className="text-gray-300">Blog</span>
+            <span aria-hidden="true">/</span>
+            <span className="text-gray-300" aria-current="page">Blog</span>
           </nav>
           <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-500/40 text-green-300 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
             <BookOpen className="h-3.5 w-3.5" />
@@ -168,6 +169,7 @@ export default function BlogPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
+                aria-pressed={activeCategory === cat}
                 className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 ${
                   activeCategory === cat
                     ? 'bg-green-600 text-white shadow-md shadow-green-200'
@@ -312,6 +314,8 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

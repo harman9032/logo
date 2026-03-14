@@ -53,10 +53,10 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
           href={project.url}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Visit live site for ${project.client} (opens in new window)`}
           className="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all"
-          title="Visit live site"
         >
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
 
@@ -81,10 +81,11 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
           </span>
           <button
             onClick={() => setOpen(!open)}
+            aria-expanded={open}
             className="flex items-center gap-1 text-green-700 hover:text-green-600 text-xs font-bold transition-colors"
           >
             {open ? 'Less detail' : 'Full case study'}
-            {open ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
+            {open ? <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" /> : <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
           </button>
         </div>
 
@@ -174,6 +175,7 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       {/* ── HERO ── */}
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -239,6 +241,7 @@ export default function PortfolioPage() {
                 <button
                   key={label}
                   onClick={() => setActiveCategory(label as PortfolioCategory)}
+                  aria-pressed={activeCategory === label}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-200 ${
                     activeCategory === label
                       ? 'bg-green-600 text-white shadow-md shadow-green-200'
@@ -355,6 +358,8 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

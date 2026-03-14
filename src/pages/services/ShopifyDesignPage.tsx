@@ -95,7 +95,7 @@ export default function ShopifyDesignPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
-      <main className="flex-1 pt-16">
+      <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-green-800 via-emerald-800 to-teal-900 py-20 px-4 text-white">
           <div className="max-w-4xl mx-auto text-center">

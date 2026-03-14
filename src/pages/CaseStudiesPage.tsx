@@ -112,6 +112,7 @@ export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -283,6 +284,8 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

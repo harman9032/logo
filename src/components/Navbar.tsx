@@ -64,12 +64,14 @@ export default function Navbar() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsServicesOpen((v) => !v)}
+                aria-expanded={isServicesOpen}
+                aria-haspopup="true"
                 className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold transition-colors ${
                   isServicesActive ? 'text-yellow-300 border-b-2 border-yellow-400' : 'text-white hover:text-yellow-300'
                 }`}
               >
                 Our Services
-                <ChevronDown size={14} className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} aria-hidden="true" className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isServicesOpen && (
@@ -124,25 +126,29 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
             className="md:hidden text-white hover:text-yellow-300 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" aria-hidden="true" /> : <Menu className="h-6 w-6" aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900">
+        <div id="mobile-menu" className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {/* Services accordion */}
             <button
               onClick={() => setIsMobileServicesOpen((v) => !v)}
+              aria-expanded={isMobileServicesOpen}
               className="w-full flex items-center justify-between text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold"
             >
               Our Services
-              <ChevronDown size={16} className={`transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={16} aria-hidden="true" className={`transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isMobileServicesOpen && (

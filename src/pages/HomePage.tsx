@@ -337,8 +337,9 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       {/* ── HERO ── */}
       <section className="relative pt-28 pb-0 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -1347,6 +1348,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       {/* ── FOOTER ── */}
       <footer className="bg-gray-900 text-white py-16">

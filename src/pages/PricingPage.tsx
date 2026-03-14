@@ -196,8 +196,9 @@ export default function PricingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -521,6 +522,8 @@ export default function PricingPage() {
           </p>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

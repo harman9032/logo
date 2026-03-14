@@ -48,8 +48,9 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -129,8 +130,9 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
+                    <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
                     <input
+                      id="contact-name"
                       type="text"
                       name="name"
                       required
@@ -141,8 +143,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address *</label>
+                    <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address *</label>
                     <input
+                      id="contact-email"
                       type="email"
                       name="email"
                       required
@@ -156,8 +159,9 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number</label>
+                    <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number</label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       name="phone"
                       value={formData.phone}
@@ -167,8 +171,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Business Name</label>
+                    <label htmlFor="contact-business" className="block text-sm font-semibold text-gray-700 mb-1.5">Business Name</label>
                     <input
+                      id="contact-business"
                       type="text"
                       name="business"
                       value={formData.business}
@@ -180,8 +185,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">Service Interested In</label>
+                  <label htmlFor="contact-package" className="block text-sm font-semibold text-gray-700 mb-1.5">Service Interested In</label>
                   <select
+                    id="contact-package"
                     name="package"
                     value={formData.package}
                     onChange={handleChange}
@@ -196,8 +202,9 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label>
+                  <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label>
                   <textarea
+                    id="contact-message"
                     name="message"
                     required
                     rows={5}
@@ -287,6 +294,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">

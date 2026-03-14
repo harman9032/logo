@@ -210,6 +210,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">
       <Navbar />
+      <main id="main-content">
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -437,6 +438,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>
