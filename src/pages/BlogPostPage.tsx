@@ -1,15 +1,123 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, Clock, ArrowLeft, BookOpen, CheckCircle, Tag, Lightbulb, AlertCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { getPostBySlug, getRelatedPosts } from '../data/blogPosts';
+import type { BlogPost } from '../data/blogPosts';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const SITE_URL = "https://dailycreativedesigns.com";
+
+function BlogPostSchema({ post }: { post: BlogPost }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image,
+    "url": `${SITE_URL}/blog/${post.slug}`,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Organization",
+      "name": "Daily Creative Designs",
+      "url": SITE_URL
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Daily Creative Designs",
+      "url": SITE_URL,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/logo.png`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`
+    },
+    "articleSection": post.category,
+    "keywords": [post.category, "WordPress", "web design", "branding", "small business"],
+    "wordCount": post.sections.reduce((acc, s) => acc + s.body.split(' ').length, 0)
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${SITE_URL}/blog` },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `${SITE_URL}/blog/${post.slug}` }
+    ]
+  };
+
+  const faqSchema = post.sections.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": post.sections.slice(0, 5).map((s) => ({
+      "@type": "Question",
+      "name": s.heading,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": s.body
+      }
+    }))
+  } : null;
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+    </>
+  );
+}
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(slug) : undefined;
+
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Daily Creative Designs Blog`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', post.excerpt);
+
+      let ogTitle = document.querySelector('meta[property="og:title"]') as HTMLMetaElement | null;
+      if (!ogTitle) {
+        ogTitle = document.createElement('meta');
+        ogTitle.setAttribute('property', 'og:title');
+        document.head.appendChild(ogTitle);
+      }
+      ogTitle.setAttribute('content', post.title);
+
+      let ogDesc = document.querySelector('meta[property="og:description"]') as HTMLMetaElement | null;
+      if (!ogDesc) {
+        ogDesc = document.createElement('meta');
+        ogDesc.setAttribute('property', 'og:description');
+        document.head.appendChild(ogDesc);
+      }
+      ogDesc.setAttribute('content', post.excerpt);
+
+      let ogImage = document.querySelector('meta[property="og:image"]') as HTMLMetaElement | null;
+      if (!ogImage) {
+        ogImage = document.createElement('meta');
+        ogImage.setAttribute('property', 'og:image');
+        document.head.appendChild(ogImage);
+      }
+      ogImage.setAttribute('content', post.image);
+
+      let twitterCard = document.querySelector('meta[name="twitter:card"]') as HTMLMetaElement | null;
+      if (!twitterCard) {
+        twitterCard = document.createElement('meta');
+        twitterCard.setAttribute('name', 'twitter:card');
+        document.head.appendChild(twitterCard);
+      }
+      twitterCard.setAttribute('content', 'summary_large_image');
+    }
+  }, [post]);
 
   if (!post) {
     return (
@@ -38,20 +146,20 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <BlogPostSchema post={post} />
       <Navbar />
 
-      {/* ── HERO ── */}
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm font-medium mb-8 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Blog
-          </Link>
-          <div className="flex items-center gap-3 mb-6">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-500 mb-6 flex-wrap">
+            <Link to="/" className="hover:text-gray-300 transition-colors">Home</Link>
+            <span>/</span>
+            <Link to="/blog" className="hover:text-gray-300 transition-colors">Blog</Link>
+            <span>/</span>
+            <span className="text-gray-300 line-clamp-1">{post.title}</span>
+          </nav>
+          <div className="flex items-center gap-3 mb-6 flex-wrap">
             <span className={`${post.tagStyle} text-xs font-bold px-3 py-1.5 rounded-full`}>{post.category}</span>
             <span className="flex items-center gap-1.5 text-gray-400 text-xs font-medium">
               <Clock className="h-3.5 w-3.5" />
@@ -59,7 +167,7 @@ export default function BlogPostPage() {
             </span>
             <span className="text-gray-500 text-xs">{post.date}</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-white leading-tight mb-8">
+          <h1 className="text-3xl md:text-5xl font-black text-white leading-tight mb-8" itemProp="headline">
             {post.title}
           </h1>
           <div className="flex items-center gap-3 pt-6 border-t border-gray-700">
@@ -68,34 +176,33 @@ export default function BlogPostPage() {
             </div>
             <div>
               <p className="text-white font-bold text-sm">Daily Creative Designs Team</p>
-              <p className="text-gray-400 text-xs">Design & Branding Specialists · India</p>
+              <p className="text-gray-400 text-xs">WordPress Development & Branding Specialists</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── HERO IMAGE ── */}
       <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
         <div className="rounded-2xl overflow-hidden shadow-2xl h-72 md:h-96">
           <img
             src={post.image}
             alt={post.title}
             className="w-full h-full object-cover"
+            itemProp="image"
           />
         </div>
       </div>
 
-      {/* ── ARTICLE BODY ── */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-white" itemScope itemType="https://schema.org/BlogPosting">
+        <meta itemProp="headline" content={post.title} />
+        <meta itemProp="datePublished" content={post.date} />
+        <meta itemProp="author" content="Daily Creative Designs" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Intro paragraph */}
-          <p className="text-xl text-gray-600 leading-relaxed mb-12 font-medium border-l-4 border-green-400 pl-6">
+          <p className="text-xl text-gray-600 leading-relaxed mb-12 font-medium border-l-4 border-green-400 pl-6" itemProp="abstract">
             {post.intro}
           </p>
 
-          {/* Sections */}
-          <div className="space-y-12">
+          <div className="space-y-12" itemProp="articleBody">
             {post.sections.map((section, idx) => (
               <div key={idx}>
                 <h2 className="text-2xl font-black text-gray-900 mb-4 leading-tight">{section.heading}</h2>
@@ -131,7 +238,6 @@ export default function BlogPostPage() {
             ))}
           </div>
 
-          {/* CTA Box */}
           <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-2xl p-8 mt-14">
             <h3 className="text-xl font-black text-white mb-3">What to Do Next</h3>
             <p className="text-green-100 leading-relaxed mb-6">{post.cta}</p>
@@ -158,7 +264,6 @@ export default function BlogPostPage() {
         </div>
       </section>
 
-      {/* ── RELATED POSTS ── */}
       {relatedPosts.length > 0 && (
         <section className="py-16 bg-gray-50 border-t border-gray-100">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -209,7 +314,6 @@ export default function BlogPostPage() {
         </section>
       )}
 
-      {/* ── BACK TO BLOG ── */}
       <section className="py-10 bg-white border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between flex-wrap gap-4">
