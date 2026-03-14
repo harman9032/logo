@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import {
@@ -8,6 +8,7 @@ import {
   Star,
   CheckCircle,
   ArrowRight,
+  ArrowUpRight,
   Users,
   TrendingUp,
   Award,
@@ -30,9 +31,91 @@ import {
   BadgeCheck,
   Sparkles,
 } from 'lucide-react';
+import { portfolioProjects } from '../data/portfolioProjects';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'm interested in your design services";
+
+const FEATURED_PROJECTS = portfolioProjects.slice(0, 6);
+
+function PortfolioPreview() {
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+            <Award className="h-3 w-3" />
+            Portfolio Highlights
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            Real Projects.{' '}
+            <span className="text-green-600">Real Results.</span>
+          </h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+            WordPress sites built for US and Canadian clients — healthcare, B2B, local services, e-commerce, and SaaS.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {FEATURED_PROJECTS.map((project) => (
+            <div
+              key={project.id}
+              className="group relative rounded-2xl overflow-hidden shadow-md border border-gray-100 hover:-translate-y-1 transition-transform duration-300"
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.client}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${project.accentColor} opacity-50`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <span className={`inline-block ${project.tagColor} ${project.tagTextColor} text-xs font-bold px-2.5 py-0.5 rounded-full mb-1.5`}>
+                    {project.category}
+                  </span>
+                  <h3 className="text-white font-black text-base leading-tight">{project.client}</h3>
+                  <p className="text-white/70 text-xs">{project.industry}</p>
+                </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute top-3 right-3 w-7 h-7 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all"
+                >
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+              <div className="bg-white px-5 py-4 flex items-center justify-between">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.role.slice(0, 2).map((r) => (
+                    <span key={r} className="bg-gray-100 text-gray-600 text-xs font-semibold px-2 py-0.5 rounded-full">
+                      {r}
+                    </span>
+                  ))}
+                </div>
+                <span className="inline-flex items-center gap-1 bg-green-50 border border-green-200 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full whitespace-nowrap">
+                  <TrendingUp className="h-3 w-3" />
+                  {project.resultTag}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-md hover:-translate-y-0.5"
+          >
+            View All 18 Case Studies
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -560,6 +643,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── PORTFOLIO PREVIEW ── */}
+      <PortfolioPreview />
 
       {/* ── TRUST BAR ── */}
       <section className="py-14 bg-gray-900">
