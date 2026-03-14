@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import {
-  Phone,
   Mail,
   MessageCircle,
   Star,
@@ -14,27 +12,20 @@ import {
   Award,
   Zap,
   Shield,
-  Clock,
   Lightbulb,
   MapPin,
-  Calendar,
   ChevronDown,
   ChevronUp,
   X,
-  Layers,
   Globe,
-  BarChart2,
-  Palette,
   PenTool,
-  Smartphone,
-  Search,
-  BadgeCheck,
   Sparkles,
   DollarSign,
   Calculator,
   Target,
   Quote,
 } from 'lucide-react';
+import HeroSection from '../components/HeroSection';
 import { portfolioProjects } from '../data/portfolioProjects';
 import SEO from '../components/SEO';
 
@@ -347,231 +338,7 @@ export default function HomePage() {
       <main id="main-content">
 
       {/* ── HERO ── */}
-      <section className="relative pt-28 pb-0 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-green-400/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-emerald-300/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-          {/* ── TOP TRUST BADGE ROW ── */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-            <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-4 py-1.5 shadow-lg">
-              <div className="w-2 h-2 bg-green-700 rounded-full mr-2 animate-pulse" />
-              <span className="text-xs font-bold text-green-900 uppercase tracking-wide">
-                Accepting New Clients · 3 Spots Left This Week
-              </span>
-            </div>
-            <div className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 backdrop-blur-sm">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3 w-3 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <span className="text-white text-xs font-semibold">4.9/5 · 200+ Reviews</span>
-            </div>
-          </div>
-
-          {/* ── TWO-COLUMN LAYOUT ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-16">
-
-            {/* LEFT: COPY */}
-            <div className="text-left">
-              {/* Pain-point headline */}
-              <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-black text-white leading-[1.1] mb-6 tracking-tight">
-                Losing Clients to<br />
-                Competitors Who<br />
-                <span className="text-gold-gradient">Look More Professional?</span>
-              </h1>
-
-              <p className="text-lg text-green-100 leading-relaxed mb-6 max-w-xl">
-                We build logos, websites, and brand systems that make your business the <span className="text-white font-bold">obvious first choice</span> — so you stop losing deals before they start.
-              </p>
-
-              {/* Outcome bullets — scannable proof of what happens after */}
-              <ul className="space-y-2.5 mb-8">
-                {[
-                  { icon: <CheckCircle className="h-4 w-4 text-yellow-400 flex-shrink-0 mt-0.5" />, text: 'Logo delivered in 48 hours — or your money back' },
-                  { icon: <CheckCircle className="h-4 w-4 text-yellow-400 flex-shrink-0 mt-0.5" />, text: 'Websites that rank on Google & convert on day one' },
-                  { icon: <CheckCircle className="h-4 w-4 text-yellow-400 flex-shrink-0 mt-0.5" />, text: 'Unlimited revisions until you love every pixel' },
-                  { icon: <CheckCircle className="h-4 w-4 text-yellow-400 flex-shrink-0 mt-0.5" />, text: 'Full ownership of all files — no lock-in, ever' },
-                ].map((b) => (
-                  <li key={b.text} className="flex items-start gap-2.5">
-                    {b.icon}
-                    <span className="text-green-50 text-sm font-medium">{b.text}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 mb-5">
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-gold-gradient text-green-900 px-8 py-4 rounded-xl text-base font-black hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
-                >
-                  Claim My Free Brand Audit
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-                <Link
-                  to="/pricing"
-                  className="bg-white/10 border border-white/30 text-white px-8 py-4 rounded-xl text-base font-bold hover:bg-white hover:text-green-900 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm"
-                >
-                  <DollarSign className="h-4 w-4" />
-                  See Pricing
-                </Link>
-              </div>
-
-              {/* Payment plan nudge */}
-              <p className="text-green-200 text-xs mb-4">
-                Starting from <span className="text-white font-bold">$149</span> · Split into 2 installments · No hidden fees
-              </p>
-
-              {/* Micro-social proof / FOMO nudge */}
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {['bg-amber-500', 'bg-sky-500', 'bg-rose-500', 'bg-emerald-500', 'bg-violet-500'].map((c, i) => (
-                    <div key={i} className={`w-7 h-7 ${c} rounded-full border-2 border-green-700 flex items-center justify-center text-white text-xs font-black`}>
-                      {['R','V','A','S','M'][i]}
-                    </div>
-                  ))}
-                </div>
-                <p className="text-green-100 text-sm">
-                  <span className="text-white font-bold">43 businesses</span> hired us in the last 30 days
-                </p>
-              </div>
-            </div>
-
-            {/* RIGHT: VISUAL PROOF */}
-            <div className="relative hidden lg:block">
-
-              {/* Floating result badge — top left */}
-              <div className="absolute -top-5 -left-5 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_both]">
-                <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-green-200">
-                  <TrendingUp className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                  <p className="text-sm font-black text-gray-900 leading-none">Leads Up 4×</p>
-                  <p className="text-xs text-gray-400 mt-0.5">Within the first week</p>
-                </div>
-              </div>
-
-              {/* Floating rating badge — bottom right */}
-              <div className="absolute -bottom-5 -right-5 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3.5 flex items-center gap-3 border border-gray-100 animate-[fadeSlideUp_0.6s_ease_0.2s_both]">
-                <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-amber-200">
-                  <Star className="h-5 w-5 text-amber-400 fill-current" />
-                </div>
-                <div>
-                  <div className="flex gap-0.5 mb-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xs text-gray-500 font-semibold leading-tight">"Best investment we made"</p>
-                </div>
-              </div>
-
-              {/* Browser mock frame */}
-              <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.45)] ring-1 ring-white/20">
-                {/* Browser chrome */}
-                <div className="bg-gray-900 px-4 py-3 flex items-center gap-3">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 bg-red-500 rounded-full" />
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full" />
-                    <div className="w-3 h-3 bg-green-400 rounded-full" />
-                  </div>
-                  <div className="flex-1 bg-gray-800 rounded-lg px-3 py-1.5 flex items-center gap-2">
-                    <BadgeCheck className="h-3.5 w-3.5 text-green-400 flex-shrink-0" />
-                    <span className="text-xs text-gray-300 font-mono tracking-tight">dailycreativedesigns.com</span>
-                  </div>
-                  <div className="flex gap-1.5">
-                    {[...Array(3)].map((_, i) => (
-                      <div key={i} className="w-5 h-1.5 bg-gray-700 rounded-full" />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Screenshot */}
-                <div className="relative overflow-hidden" style={{ height: '300px' }}>
-                  <img
-                    src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900"
-                    alt="Professional website design for a client"
-                    className="w-full h-full object-cover object-top scale-[1.02] hover:scale-100 transition-transform duration-700"
-                    width="900"
-                    height="600"
-                    fetchpriority="high"
-                    loading="eager"
-                  />
-                  {/* Subtle darkening gradient at bottom only */}
-                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
-
-                  {/* Client result card inside the screenshot */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white rounded-xl px-4 py-3 shadow-xl flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Globe className="h-4 w-4 text-white" />
-                        </div>
-                        <div>
-                          <p className="text-xs font-black text-gray-900 leading-none">Healthcare Clinic · US</p>
-                          <p className="text-xs text-gray-400 mt-0.5">Launched in 4 days</p>
-                        </div>
-                      </div>
-                      <span className="bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">+312% leads</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ── STATS BAR (bottom of hero) ── */}
-          <div className="border-t border-green-500/50 bg-green-800/40 backdrop-blur-sm -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 divide-x divide-green-500/30">
-                {[
-                  { value: '5,000+', label: 'Brands Delivered', icon: <Award className="h-4 w-4 text-yellow-400" /> },
-                  { value: '12+', label: 'Years Experience', icon: <Calendar className="h-4 w-4 text-yellow-400" /> },
-                  { value: '4.9★', label: 'Average Rating', icon: <Star className="h-4 w-4 text-yellow-400 fill-current" /> },
-                  { value: '48hr', label: 'Logo Turnaround', icon: <Zap className="h-4 w-4 text-yellow-400" /> },
-                ].map((s) => (
-                  <div key={s.label} className="flex flex-col items-center justify-center gap-1 py-5 px-4">
-                    <div className="flex items-center gap-1.5">
-                      {s.icon}
-                      <span className="text-2xl font-black text-white">{s.value}</span>
-                    </div>
-                    <span className="text-xs text-green-200 font-medium">{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* ── PLATFORM / TRUST LOGO STRIP ── */}
-          <div className="bg-white py-4 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <p className="text-center text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Trusted by 5,000+ businesses · Built on industry-leading platforms</p>
-              <div className="flex flex-wrap items-center justify-center gap-6">
-                {[
-                  { label: 'WordPress', icon: <Globe className="h-4 w-4" /> },
-                  { label: 'Shopify', icon: <BarChart2 className="h-4 w-4" /> },
-                  { label: 'Google Partner', icon: <Search className="h-4 w-4" /> },
-                  { label: 'Adobe Suite', icon: <Palette className="h-4 w-4" /> },
-                  { label: 'Figma', icon: <Layers className="h-4 w-4" /> },
-                  { label: 'WooCommerce', icon: <Smartphone className="h-4 w-4" /> },
-                ].map((p) => (
-                  <div key={p.label} className="flex items-center gap-1.5 text-gray-400 hover:text-gray-600 transition-colors">
-                    {p.icon}
-                    <span className="text-sm font-semibold">{p.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ── WHAT YOU GET (VALUE BREAKDOWN) ── */}
       <section className="py-24 bg-white">
