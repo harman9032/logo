@@ -14,6 +14,16 @@
   }
 }
 
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 @layer utilities {
   .text-gold-gradient {
     background: linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0);

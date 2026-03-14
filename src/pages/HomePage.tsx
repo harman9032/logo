@@ -246,63 +246,78 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* RIGHT: VISUAL PROOF — mock browser frame */}
+            {/* RIGHT: VISUAL PROOF */}
             <div className="relative hidden lg:block">
-              {/* Floating result badge */}
-              <div className="absolute -top-4 -left-4 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3 border border-gray-100">
-                <div className="w-9 h-9 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="h-4.5 w-4.5 text-green-700" />
+
+              {/* Floating result badge — top left */}
+              <div className="absolute -top-5 -left-5 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_both]">
+                <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-green-200">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-gray-900">Leads Up 4x</p>
-                  <p className="text-xs text-gray-500">Within first week</p>
+                  <p className="text-sm font-black text-gray-900 leading-none">Leads Up 4×</p>
+                  <p className="text-xs text-gray-400 mt-0.5">Within the first week</p>
                 </div>
               </div>
 
-              {/* Floating rating badge */}
-              <div className="absolute -bottom-3 -right-3 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3 border border-gray-100">
-                <div className="w-9 h-9 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Star className="h-4.5 w-4.5 text-amber-500 fill-current" />
+              {/* Floating rating badge — bottom right */}
+              <div className="absolute -bottom-5 -right-5 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3.5 flex items-center gap-3 border border-gray-100 animate-[fadeSlideUp_0.6s_ease_0.2s_both]">
+                <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-amber-200">
+                  <Star className="h-5 w-5 text-amber-400 fill-current" />
                 </div>
                 <div>
-                  <div className="flex gap-0.5 mb-0.5">
+                  <div className="flex gap-0.5 mb-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-2.5 w-2.5 text-yellow-400 fill-current" />
+                      <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-xs text-gray-500 font-medium">"Best investment we made"</p>
+                  <p className="text-xs text-gray-500 font-semibold leading-tight">"Best investment we made"</p>
                 </div>
               </div>
 
               {/* Browser mock frame */}
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-2 shadow-2xl">
-                <div className="bg-white rounded-xl overflow-hidden shadow-inner">
-                  <div className="bg-gray-100 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 bg-red-400 rounded-full" />
-                      <div className="w-2.5 h-2.5 bg-yellow-400 rounded-full" />
-                      <div className="w-2.5 h-2.5 bg-green-400 rounded-full" />
-                    </div>
-                    <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-400 font-mono border border-gray-200">
-                      dailycreativedesigns.com
-                    </div>
-                    <BadgeCheck className="h-4 w-4 text-green-500" />
+              <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.45)] ring-1 ring-white/20">
+                {/* Browser chrome */}
+                <div className="bg-gray-900 px-4 py-3 flex items-center gap-3">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 bg-red-500 rounded-full" />
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full" />
+                    <div className="w-3 h-3 bg-green-400 rounded-full" />
                   </div>
-                  <div className="relative overflow-hidden h-64">
-                    <img
-                      src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800"
-                      alt="Sample website design"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-green-900/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="bg-white/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg">
-                        <p className="text-xs font-black text-gray-900 mb-1">Healthcare Clinic · US Client</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-gray-500">Launched in 4 days</span>
-                          <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">+312% leads</span>
+                  <div className="flex-1 bg-gray-800 rounded-lg px-3 py-1.5 flex items-center gap-2">
+                    <BadgeCheck className="h-3.5 w-3.5 text-green-400 flex-shrink-0" />
+                    <span className="text-xs text-gray-300 font-mono tracking-tight">dailycreativedesigns.com</span>
+                  </div>
+                  <div className="flex gap-1.5">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="w-5 h-1.5 bg-gray-700 rounded-full" />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Screenshot */}
+                <div className="relative overflow-hidden" style={{ height: '300px' }}>
+                  <img
+                    src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900"
+                    alt="Professional website design for a client"
+                    className="w-full h-full object-cover object-top scale-[1.02] hover:scale-100 transition-transform duration-700"
+                  />
+                  {/* Subtle darkening gradient at bottom only */}
+                  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
+
+                  {/* Client result card inside the screenshot */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white rounded-xl px-4 py-3 shadow-xl flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Globe className="h-4 w-4 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-black text-gray-900 leading-none">Healthcare Clinic · US</p>
+                          <p className="text-xs text-gray-400 mt-0.5">Launched in 4 days</p>
                         </div>
                       </div>
+                      <span className="bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">+312% leads</span>
                     </div>
                   </div>
                 </div>
