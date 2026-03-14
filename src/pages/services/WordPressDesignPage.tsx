@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, Globe, Zap, Shield, Code, ChevronRight, MessageCircle, LayoutGrid as Layout, Search, Settings, CheckSquare, XSquare, Newspaper, ShoppingCart, Briefcase, GraduationCap, Users } from 'lucide-react';
 import SEO from '../../components/SEO';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20WordPress%20Website%20Design.";
 
 const packages = [

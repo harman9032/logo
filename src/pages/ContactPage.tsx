@@ -14,7 +14,7 @@ import {
   AlertCircle,
 } from 'lucide-react';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20your%20design%20services";
 
 const INPUT_BASE = "w-full border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm bg-white transition-colors duration-200";

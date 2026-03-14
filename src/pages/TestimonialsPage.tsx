@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { Star, ArrowRight, Quote, TrendingUp, Users, Award } from 'lucide-react';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
 const testimonials = [
   {

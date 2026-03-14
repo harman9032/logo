@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/SEO';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
 const stats = [
   { value: '5,000+', label: 'Brands Created', icon: Users },

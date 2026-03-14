@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import { blogPosts, BLOG_CATEGORIES, getFeaturedPost, getPostsByCategory } from '../data/blogPosts';
 import type { BlogCategory } from '../data/blogPosts';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const SITE_URL = "https://dailycreativedesigns.com";
 
 function BlogListSchema() {

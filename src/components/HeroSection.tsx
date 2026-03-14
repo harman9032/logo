@@ -23,7 +23,7 @@ import {
   Phone,
 } from 'lucide-react';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi%2C+I%27m+interested+in+your+design+services.+Can+we+chat%3F";
 
 const RECENT_CLIENTS = [

@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20Digital%20Marketing%20services.";
 
 const services = [

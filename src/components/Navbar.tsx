@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Palette, Monitor, ShoppingCart, Globe, Layers, Image, TrendingUp, Package } from 'lucide-react';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
 const SERVICE_LINKS = [
   { label: 'Logo Design', href: '/services/logo-design', icon: Palette, color: 'text-amber-500' },

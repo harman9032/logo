@@ -24,7 +24,7 @@ import {
   type PortfolioProject,
 } from '../data/portfolioProjects';
 
-const BOOKING_LINK = 'https://rzp.io/rzp/x16Tmd2';
+const BOOKING_LINK = 'https://tidycal.com/harmanpreetsingh/get-consulation';
 
 const CATEGORY_COUNTS = PORTFOLIO_CATEGORIES.map((cat) => ({
   label: cat,

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ArrowRight, Star } from 'lucide-react';
 
-const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
 const SERVICES = [
   { label: 'Logo Design', href: '/services/logo-design', price: '$299' },
