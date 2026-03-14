@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Tag, BookOpen, Rss } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 import { blogPosts, BLOG_CATEGORIES, getFeaturedPost, getPostsByCategory } from '../data/blogPosts';
 import type { BlogCategory } from '../data/blogPosts';
@@ -82,7 +80,6 @@ export default function BlogPage() {
       <SEO title="Blog — Design & Digital Marketing Insights" description="Expert articles on logo design, website optimization, brand strategy, and digital marketing. Actionable advice from our design team." canonical="/blog" />
       <BlogListSchema />
       <BreadcrumbSchema />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 overflow-hidden">
@@ -324,8 +321,6 @@ export default function BlogPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -69,7 +69,6 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Client Testimonials — Real Reviews" description="Read real testimonials from our clients. Discover why 5,000+ businesses trust Daily Creative Designs for logos, websites, and brand identity." canonical="/testimonials" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -175,8 +174,6 @@ export default function TestimonialsPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

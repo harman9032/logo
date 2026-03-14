@@ -179,7 +179,6 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Portfolio — 5,000+ Brand Transformations" description="Browse our portfolio of logo designs, websites, and brand identities. Real results for real businesses across healthcare, retail, tech, and more." canonical="/portfolio" />
-      <Navbar />
       <main id="main-content">
 
       {/* ── HERO ── */}
@@ -365,8 +364,6 @@ export default function PortfolioPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

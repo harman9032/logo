@@ -4,8 +4,6 @@ import {
   ChevronRight, MessageCircle, Package, TrendingUp, Star, CreditCard,
   RefreshCw, Truck, BarChart3, Tag, Mail, Bell, Search, Smartphone
 } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -95,8 +93,6 @@ export default function ShopifyDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Shopify Store Design — Custom eCommerce Stores" description="Custom Shopify store design that converts visitors into customers. Mobile-optimized, fast-loading, and branded to your business. Get a free consultation." canonical="/services/shopify-design" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-green-800 via-emerald-800 to-teal-900 py-20 px-4 text-white">
@@ -279,8 +275,6 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

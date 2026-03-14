@@ -1,5 +1,3 @@
-import Navbar from './Navbar';
-import Footer from './Footer';
 
 const LAST_UPDATED = 'June 1, 2025';
 
@@ -151,8 +149,6 @@ const sections = [
 export default function CookiesPolicy() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Navbar />
-
       <main className="flex-1 pt-16">
         <div className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 py-16 text-white text-center px-4">
           <div className="max-w-2xl mx-auto">
@@ -173,7 +169,6 @@ export default function CookiesPolicy() {
         </div>
       </main>
 
-      <Footer />
     </div>
   );
 }

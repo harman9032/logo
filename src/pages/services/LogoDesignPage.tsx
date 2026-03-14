@@ -4,8 +4,6 @@ import {
   ChevronRight, MessageCircle, Type, Circle, Triangle, Hexagon,
   Smile, LayoutGrid, Eye, Lightbulb, FileCheck, Download
 } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -155,8 +153,6 @@ export default function LogoDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Logo Design — Professional Logos from $299" description="Get a professional, unique logo for $299. 3 concepts, unlimited revisions, PNG/SVG/PDF/AI files included. Free brand consultation. Order today." canonical="/services/logo-design" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20 px-4 text-white">
@@ -385,8 +381,6 @@ export default function LogoDesignPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

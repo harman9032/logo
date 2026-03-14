@@ -113,7 +113,6 @@ export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Case Studies — Proven Results" description="In-depth case studies showing how our design work drives real business results — increased conversions, brand authority, and revenue growth." canonical="/case-studies" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -288,8 +287,6 @@ export default function CaseStudiesPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

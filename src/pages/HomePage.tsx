@@ -344,7 +344,6 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Professional Logo & Website Design" description="Award-winning logo design from $299, AI website design from $499. 5,000+ brands transformed since 2012. Get your free brand audit today." canonical="/" />
-      <Navbar />
       <main id="main-content">
 
       {/* ── HERO ── */}

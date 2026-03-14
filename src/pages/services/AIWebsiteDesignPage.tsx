@@ -97,8 +97,6 @@ export default function AIWebsiteDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="AI Website Design — Stunning Websites from $499" description="AI-powered website design from $499. Mobile-first, SEO-optimized, fast-loading. Full responsive website with contact form. Delivered in 3-5 days." canonical="/services/ai-website-design" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-green-900 via-green-800 to-slate-900 py-20 px-4 text-white">
@@ -314,8 +312,6 @@ export default function AIWebsiteDesignPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

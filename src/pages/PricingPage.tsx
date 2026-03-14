@@ -199,7 +199,6 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Transparent Pricing — Logo $299, Website $499" description="Simple, flat pricing with no hidden fees. Logo Design from $299, AI Website Design from $499, Complete Digital Package from $999. One-time payment." canonical="/pricing" />
-      <Navbar />
       <main id="main-content">
 
       {/* Hero */}
@@ -526,8 +525,6 @@ export default function PricingPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

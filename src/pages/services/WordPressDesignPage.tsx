@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, Globe, Zap, Shield, Code, ChevronRight, MessageCircle, LayoutGrid as Layout, Search, Settings, CheckSquare, XSquare, Newspaper, ShoppingCart, Briefcase, GraduationCap, Users } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -91,8 +89,6 @@ export default function WordPressDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="WordPress Design — Custom WordPress Websites" description="Custom WordPress website design with full CMS capabilities. Mobile-responsive, SEO-ready, and easy to manage. Unlimited revisions included." canonical="/services/wordpress-design" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-sky-900 via-blue-900 to-slate-900 py-20 px-4 text-white">
@@ -304,8 +300,6 @@ export default function WordPressDesignPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

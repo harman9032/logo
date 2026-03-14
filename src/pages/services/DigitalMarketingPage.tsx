@@ -4,8 +4,6 @@ import {
   ChevronRight, MessageCircle, Target, Globe, Zap, Mail,
   Users, MousePointer, ShoppingCart, Star, Clock, Eye
 } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -110,8 +108,6 @@ export default function DigitalMarketingPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Digital Marketing — Strategy That Drives Growth" description="Data-driven digital marketing strategy including SEO, content marketing, social media, and paid ads. Get a custom growth roadmap for your business." canonical="/services/digital-marketing" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-teal-900 via-cyan-900 to-slate-900 py-20 px-4 text-white">
@@ -332,8 +328,6 @@ export default function DigitalMarketingPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -122,7 +122,6 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="min-h-screen bg-white flex flex-col">
-        <Navbar />
         <main id="main-content">
         <div className="flex-1 flex items-center justify-center py-40">
           <div className="text-center">
@@ -139,7 +138,6 @@ export default function BlogPostPage() {
           </div>
         </div>
         </main>
-        <Footer />
       </div>
     );
   }
@@ -149,7 +147,6 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <BlogPostSchema post={post} />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900 overflow-hidden">
@@ -343,8 +340,6 @@ export default function BlogPostPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

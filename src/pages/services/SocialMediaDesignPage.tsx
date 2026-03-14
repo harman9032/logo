@@ -4,8 +4,6 @@ import {
   ChevronRight, MessageCircle, Image, Users, BarChart3, Heart,
   PlayCircle, Quote, AlignLeft, Calendar, Gift, Megaphone
 } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -83,8 +81,6 @@ export default function SocialMediaDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Social Media Design — Scroll-Stopping Visuals" description="Professional social media design that stops the scroll. Custom templates, post graphics, story designs, and brand-consistent visuals for all platforms." canonical="/services/social-media-design" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-rose-900 via-pink-900 to-slate-900 py-20 px-4 text-white">
@@ -273,8 +269,6 @@ export default function SocialMediaDesignPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

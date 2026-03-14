@@ -110,8 +110,6 @@ export default function BrandIdentityPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Brand Identity Design — Complete Brand Systems" description="Complete brand identity design: logo, colour palette, typography, brand guidelines, and assets. Everything you need to build a memorable brand." canonical="/services/brand-identity" />
-      <Navbar />
-
       <main id="main-content" className="flex-1 pt-16">
         {/* Hero */}
         <section className="bg-gradient-to-br from-amber-900 via-orange-900 to-slate-900 py-20 px-4 text-white">
@@ -293,8 +291,6 @@ export default function BrandIdentityPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

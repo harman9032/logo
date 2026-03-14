@@ -4,8 +4,6 @@ import {
   ArrowRight, Users, Award, TrendingUp, Globe, Heart, Lightbulb,
   CheckCircle, Star, Clock, Shield, Target, Zap
 } from 'lucide-react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -94,7 +92,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="About Us — Design Agency Since 2012" description="Meet the team behind 5,000+ successful brand transformations. Daily Creative Designs has been delivering premium logo and website design since 2012." canonical="/about" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -324,8 +321,6 @@ export default function AboutPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

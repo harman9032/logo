@@ -1,15 +1,10 @@
 import { CheckCircle, ArrowRight, Phone, MessageCircle, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
-
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I just submitted an enquiry and wanted to follow up.";
 
 export default function ThankYou() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Navbar />
-
       <main className="flex-1 pt-24 pb-20">
         {/* Hero confirmation */}
         <section className="bg-gradient-to-br from-green-600 via-green-700 to-green-800 py-20 text-white text-center px-4">
@@ -102,7 +97,6 @@ export default function ThankYou() {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 }

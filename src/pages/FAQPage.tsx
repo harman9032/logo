@@ -102,7 +102,6 @@ export default function FAQPage() {
     <div className="min-h-screen bg-white flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <SEO title="FAQ — Frequently Asked Questions" description="Answers to common questions about our design services, process, pricing, revisions, timelines, and file deliverables." canonical="/faq" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -203,8 +202,6 @@ export default function FAQPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

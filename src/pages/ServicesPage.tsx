@@ -211,7 +211,6 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-slate-950 flex flex-col">
       <SEO title="Design Services — Logo, Website & Brand Identity" description="Complete design services: logo design, AI website design, Shopify, WordPress, brand identity, social media & digital marketing. Starting from $299." canonical="/services" />
-      <Navbar />
       <main id="main-content">
 
       {/* Hero Section */}
@@ -442,8 +441,6 @@ export default function ServicesPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

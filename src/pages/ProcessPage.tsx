@@ -205,7 +205,6 @@ export default function ProcessPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Our Process — 8 Steps From Brief to Brand" description="Transparent 8-step design process with clear timelines, unlimited revisions, and no surprises. From discovery call to 30-day post-delivery support." canonical="/process" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
@@ -424,8 +423,6 @@ export default function ProcessPage() {
       </section>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

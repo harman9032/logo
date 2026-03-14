@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import SEO from '../components/SEO';
 import {
   Phone,
@@ -104,7 +103,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <SEO title="Contact Us — Get a Free Brand Audit" description="Contact Daily Creative Designs for a free brand audit, project quote, or just to say hello. We respond within 2 hours during business hours." canonical="/contact" />
-      <Navbar />
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
