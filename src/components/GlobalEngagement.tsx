@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X, MessageCircle, ArrowRight, Gift, Mail } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'm interested in your design services";
@@ -48,10 +48,18 @@ function WhatsAppButton() {
 
 function ExitIntentPopup() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const mouseYRef = useRef(0);
+  const shownRef = useRef(false);
+
+  const triggerPopup = useCallback(() => {
+    const sessionKey = 'exit_popup_shown';
+    if (shownRef.current || sessionStorage.getItem(sessionKey)) return;
+    shownRef.current = true;
+    sessionStorage.setItem(sessionKey, '1');
+    setIsVisible(true);
+  }, []);
 
   useEffect(() => {
     const sessionKey = 'exit_popup_shown';
@@ -62,22 +70,13 @@ function ExitIntentPopup() {
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasShown && mouseYRef.current > 100) {
-        setIsVisible(true);
-        setHasShown(true);
-        sessionStorage.setItem(sessionKey, '1');
+      if (e.clientY <= 0 && mouseYRef.current > 100) {
+        triggerPopup();
       }
     };
 
     const mobileTimer = setTimeout(() => {
-      if (!hasShown && !sessionStorage.getItem(sessionKey)) {
-        const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-          setIsVisible(true);
-          setHasShown(true);
-          sessionStorage.setItem(sessionKey, '1');
-        }
-      }
+      if (window.innerWidth < 768) triggerPopup();
     }, 30000);
 
     document.addEventListener('mousemove', handleMouseMove);
@@ -88,7 +87,7 @@ function ExitIntentPopup() {
       document.removeEventListener('mouseleave', handleMouseLeave);
       clearTimeout(mobileTimer);
     };
-  }, [hasShown]);
+  }, [triggerPopup]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

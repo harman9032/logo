@@ -177,7 +177,7 @@ export default function BlogPage() {
                 {cat}
                 {cat !== 'All' && (
                   <span className="ml-1.5 text-xs opacity-70">
-                    ({blogPosts.filter((p) => p.category === cat).length})
+                    ({blogPosts.filter((p) => p.category === cat && !p.featured).length})
                   </span>
                 )}
               </button>

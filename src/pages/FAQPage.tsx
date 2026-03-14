@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { ChevronDown, ChevronUp, HelpCircle, ArrowRight, MessageCircle } from 'lucide-react';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -171,18 +172,7 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link to="/" className="text-xl font-black">
-            Daily Creative <span className="text-yellow-400">Designs</span>
-          </Link>
-          <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved.</p>
-          <div className="flex gap-4">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

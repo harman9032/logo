@@ -290,7 +290,7 @@ export default function PricingPage() {
                   )}
 
                   <a
-                    href={plan.href.startsWith('http') ? plan.href : BOOKING_LINK}
+                    href={BOOKING_LINK}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-all ${plan.color.btn} shadow-md hover:shadow-lg hover:scale-[1.02]`}
