@@ -94,36 +94,36 @@ const content = {
     supportText: "Expert Design Review Included"
   },
   pricing: {
-    title: "Choose Your Brand Design Program",
-    subtitle: "From masterclass (₹99) to complete brand identity packages",
-    starterTitle: "Masterclass",
-    starterPrice: "₹99",
-    starterDescription: "Perfect for understanding brand design fundamentals",
-    starterFeature1: "120-Minute Live Session",
-    starterFeature2: "8 Design Principles",
-    starterFeature3: "Q&A Session",
-    starterFeature4: "Brand Design Workbook",
-    starterFeature5: "Recording Access (48 hrs)",
-    starterButtonText: "Register Now",
-    professionalTitle: "Brand Design Package",
-    professionalPrice: "Rs.9,999",
-    professionalDescription: "Complete brand identity creation",
-    professionalFeature1: "Everything in Masterclass",
-    professionalFeature2: "3 Design Consultation Sessions",
-    professionalFeature3: "Custom Brand Strategy",
-    professionalFeature4: "Logo Design & Variations",
-    professionalFeature5: "30-Day Design Support",
-    professionalButtonText: "Book Consultation",
+    title: "Our Service Packages",
+    subtitle: "Professional design services with transparent, competitive pricing",
+    starterTitle: "Logo Design",
+    starterPrice: "$51.00",
+    starterDescription: "Custom logo crafted for your brand identity",
+    starterFeature1: "3 unique logo concepts",
+    starterFeature2: "Unlimited revisions",
+    starterFeature3: "Final files: PNG, SVG, PDF, AI",
+    starterFeature4: "Light & dark versions",
+    starterFeature5: "Commercial usage rights",
+    starterButtonText: "Get Your Logo",
+    professionalTitle: "AI Website Design",
+    professionalPrice: "$51.00",
+    professionalDescription: "Responsive website or landing page, built fast",
+    professionalFeature1: "Fully responsive design",
+    professionalFeature2: "Mobile-first optimization",
+    professionalFeature3: "Basic on-page SEO setup",
+    professionalFeature4: "Contact form integration",
+    professionalFeature5: "Google Analytics ready",
+    professionalButtonText: "Build My Website",
     professionalBadgeText: "Most Popular",
-    enterpriseTitle: "Enterprise Branding",
-    enterprisePrice: "Rs.29,999",
-    enterpriseDescription: "Complete brand transformation",
-    enterpriseFeature1: "Everything in Brand Design Package",
-    enterpriseFeature2: "6 Strategic Design Sessions",
-    enterpriseFeature3: "Brand Guidelines Document",
-    enterpriseFeature4: "Marketing Collateral Design",
-    enterpriseFeature5: "90-Day Priority Support",
-    enterpriseButtonText: "Start Project"
+    enterpriseTitle: "Complete Digital Package",
+    enterprisePrice: "$99.99",
+    enterpriseDescription: "Logo + Website + Digital Marketing Strategy",
+    enterpriseFeature1: "Everything in Logo Design",
+    enterpriseFeature2: "Everything in AI Website Design",
+    enterpriseFeature3: "Digital marketing strategy plan",
+    enterpriseFeature4: "Social media brand guidelines",
+    enterpriseFeature5: "90-day growth roadmap",
+    enterpriseButtonText: "Start Full Transformation"
   },
   whyChoose: {
     title: "Why Choose Our Brand Design Program?",
@@ -202,10 +202,10 @@ const content = {
     companyDescription: "Transforming brands with expert design strategy since 2012. 5,000+ successful brand transformations globally.",
     servicesTitle: "Programs",
     service1: "Masterclass - ₹99",
-    service2: "Brand Design Package",
-    service3: "Logo Design",
-    service4: "Brand Guidelines",
-    service5: "Enterprise Branding",
+    service2: "Logo Design - $51",
+    service3: "AI Website Design - $51",
+    service4: "Complete Digital Package - $99.99",
+    service5: "Brand Guidelines",
     companyTitle: "Company",
     contactTitle: "Contact Info",
     phoneNumber: "+91 78373 19660",
@@ -650,7 +650,7 @@ export default function HomePage() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-24 bg-gradient-to-b from-white to-green-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {content.pricing.title}
@@ -660,91 +660,118 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-white rounded-3xl p-12 shadow-2xl border-2 border-green-600">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">{content.pricing.starterTitle}</h3>
-              <div className="text-6xl font-bold text-green-700 mb-4">{content.pricing.starterPrice}</div>
-              <p className="text-lg text-gray-600 font-medium">{content.pricing.starterDescription}</p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-6">What You Get:</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{content.pricing.starterFeature1}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">Career Assessment Workbook</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{content.pricing.starterFeature3}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{content.pricing.starterFeature5}</span>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Logo Design */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-b border-amber-100 p-8">
+                <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <Star className="h-3 w-3" />
+                  Brand Identity
                 </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.starterTitle}</h3>
+                <p className="text-sm text-amber-600 font-medium mb-4">{content.pricing.starterDescription}</p>
+                <div className="text-5xl font-black text-amber-600 leading-none">{content.pricing.starterPrice}</div>
+                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
               </div>
-
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 mb-6">10 Methods Covered:</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">1.</span>
-                    <span className="text-gray-700">D1 Chart Analysis</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">2.</span>
-                    <span className="text-gray-700">D10 Dasamsa Chart</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">3.</span>
-                    <span className="text-gray-700">BNN (Bhava Chakra)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">4.</span>
-                    <span className="text-gray-700">KP (Krishnamurti)</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">5.</span>
-                    <span className="text-gray-700">Char Dasha</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">6.</span>
-                    <span className="text-gray-700">Jamini Astrology</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">7.</span>
-                    <span className="text-gray-700">House Analysis</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">8.</span>
-                    <span className="text-gray-700">Rashi Analysis</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">9.</span>
-                    <span className="text-gray-700">Nakshatra Analysis</span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-green-600 font-bold mr-2">10.</span>
-                    <span className="text-gray-700">Mahadasha Prediction</span>
-                  </div>
-                </div>
+              <div className="p-8 flex flex-col flex-1">
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[content.pricing.starterFeature1, content.pricing.starterFeature2, content.pricing.starterFeature3, content.pricing.starterFeature4, content.pricing.starterFeature5, 'Brand color palette suggestion', 'Typography recommendation'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
+                >
+                  {content.pricing.starterButtonText}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
 
-            <div className="text-center">
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-green-600 text-white px-12 py-4 rounded-xl font-bold hover:bg-green-700 transition-all shadow-xl text-lg"
-              >
-                {content.pricing.starterButtonText}
-              </button>
+            {/* AI Website Design */}
+            <div className="bg-white rounded-2xl border-2 border-green-500 shadow-2xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 relative">
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold text-center py-1.5 tracking-wide uppercase">
+                {content.pricing.professionalBadgeText}
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-100 p-8 pt-10">
+                <div className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <Zap className="h-3 w-3" />
+                  Most Popular
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.professionalTitle}</h3>
+                <p className="text-sm text-green-600 font-medium mb-4">{content.pricing.professionalDescription}</p>
+                <div className="text-5xl font-black text-green-600 leading-none">{content.pricing.professionalPrice}</div>
+                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[content.pricing.professionalFeature1, content.pricing.professionalFeature2, content.pricing.professionalFeature3, content.pricing.professionalFeature4, content.pricing.professionalFeature5, 'Social media links', 'Fast loading performance'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
+                >
+                  {content.pricing.professionalButtonText}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
             </div>
+
+            {/* Complete Digital Package */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-sky-50 to-cyan-50 border-b border-sky-100 p-8">
+                <div className="inline-flex items-center gap-1.5 bg-sky-100 text-sky-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <Award className="h-3 w-3" />
+                  Best Value
+                </div>
+                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.enterpriseTitle}</h3>
+                <p className="text-sm text-sky-600 font-medium mb-4">{content.pricing.enterpriseDescription}</p>
+                <div className="text-5xl font-black text-sky-600 leading-none">{content.pricing.enterprisePrice}</div>
+                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <ul className="space-y-3 mb-8 flex-1">
+                  {[content.pricing.enterpriseFeature1, content.pricing.enterpriseFeature2, content.pricing.enterpriseFeature3, content.pricing.enterpriseFeature4, content.pricing.enterpriseFeature5, 'Competitor analysis report', 'Priority support included'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-sky-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
+                >
+                  {content.pricing.enterpriseButtonText}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-sm transition-colors"
+            >
+              View full service details
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
