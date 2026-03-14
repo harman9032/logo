@@ -14,329 +14,108 @@ import {
   Zap,
   Shield,
   Clock,
-  Target,
-  BarChart3,
   Lightbulb,
   MapPin,
   Calendar,
   ChevronDown,
   ChevronUp,
   X,
-  ExternalLink
+  Layers,
+  Globe,
+  BarChart2,
+  Palette,
+  PenTool,
+  Smartphone,
+  Search,
+  BadgeCheck,
+  Sparkles,
 } from 'lucide-react';
 
-// Static content - Brand Design Consulting
-const content = {
-  hero: {
-    title: "Unsure About Your Brand Identity? Master the Art of Colors, Logos, Shapes & Names",
-    subtitle: "Live Masterclass: Complete Brand Design Strategy - Just ₹99",
-    description: "Learn how to choose the perfect colors, design impactful logos, select meaningful shapes, and create memorable brand names that resonate with your target audience.",
-    ctaText: "Register for Masterclass - ₹99",
-    badgeText: "Brand Design Masterclass • Expert Designers • Transform Your Brand",
-    valueProposition1: "5,000+",
-    valueProposition1Value: "Brands Transformed",
-    valueProposition1Desc: "Businesses That Found Their Visual Identity",
-    valueProposition2: "8",
-    valueProposition2Value: "Design Principles",
-    valueProposition2Desc: "Essential Elements for Brand Success",
-    valueProposition3: "120 Min",
-    valueProposition3Value: "Comprehensive Training",
-    valueProposition3Desc: "Master Colors, Logos, Shapes & Names",
-    learningTitle: "What You'll Learn in This Masterclass",
-    learningPoint1Title: "Color Psychology",
-    learningPoint1Desc: "Discover how colors influence perception and choose the perfect palette for your brand",
-    learningPoint2Title: "Logo Design Principles",
-    learningPoint2Desc: "Create memorable logos that represent your brand values and stand out in the market",
-    learningPoint3Title: "Shape Symbolism",
-    learningPoint3Desc: "Understand geometric shapes and their psychological impact on brand recognition",
-    learningPoint4Title: "Brand Naming Strategies",
-    learningPoint4Desc: "Master naming techniques, trademark basics, and create names that stick",
-    bonusTitle: "BONUS WORTH Rs.5,999!",
-    bonusSubtitle: "Brand Style Guide Template + Color Palette Generator + Logo Sketch Templates",
-    bonusItems: "Get our exclusive Brand Identity Toolkit - Design Templates, Color Palettes, and Step-by-Step Branding Guide",
-    bonusUrgency: "Limited Seats: Only 100 Spots Available!",
-    instantBonusText: "INSTANT ACCESS:",
-    heroBackgroundText: "12 Years Experience • 5,000+ Brands Created • Award-Winning Designers",
-    heroCalloutText: "Transform Your Brand Into a Visual Masterpiece"
-  },
-  services: {
-    title: "8 Essential Elements of Powerful Brand Design",
-    subtitle: "Master the Complete Framework for Building a Memorable Brand Identity",
-    sectionDescription: "Learn these 8 proven design principles that successful brands use to create lasting impressions and build customer loyalty.",
-    logoTitle: "Color Psychology",
-    logoDescription: "Understand how different colors influence emotions and perception. Learn to choose color palettes that align with your brand personality.",
-    logoFeature1: "Color Theory Basics",
-    logoFeature2: "Emotion Mapping",
-    logoFeature3: "Industry Standards",
-    logoPrice: "Covered in Masterclass",
-    logoDelivery: "Principle 1",
-    landingTitle: "Logo Design Fundamentals",
-    landingDescription: "Create distinctive logos that are memorable, scalable, and work across all mediums. Master the art of simplicity and impact.",
-    landingFeature1: "Logo Concepts",
-    landingFeature2: "Typography Selection",
-    landingFeature3: "Scalability Testing",
-    landingPrice: "Covered in Masterclass",
-    landingDelivery: "Principle 2",
-    adsTitle: "Shape & Symbolism",
-    adsDescription: "Discover how geometric shapes communicate meaning. Learn which shapes resonate with your target audience and brand values.",
-    adsFeature1: "Geometric Analysis",
-    adsFeature2: "Symbolic Meaning",
-    adsFeature3: "Brand Association",
-    adsPrice: "Covered in Masterclass",
-    adsDelivery: "Principle 3",
-    packageTitle: "Complete Brand Identity",
-    packageSubtitle: "From concept to execution",
-    packageDescription: "Walk away with a comprehensive brand strategy including colors, logo, shapes, and the perfect brand name for your business.",
-    packagePrice: "₹99",
-    packageDelivery: "120 Minutes",
-    packageButtonText: "Register Now - ₹99",
-    guaranteeText: "100% Value Guaranteed",
-    supportText: "Expert Design Review Included"
-  },
-  pricing: {
-    title: "Our Service Packages",
-    subtitle: "Professional design services with transparent, competitive pricing",
-    starterTitle: "Logo Design",
-    starterPrice: "$299",
-    starterDescription: "Custom logo crafted for your brand identity",
-    starterFeature1: "3 unique logo concepts",
-    starterFeature2: "Unlimited revisions",
-    starterFeature3: "Final files: PNG, SVG, PDF, AI",
-    starterFeature4: "Light & dark versions",
-    starterFeature5: "Commercial usage rights",
-    starterButtonText: "Get Your Logo",
-    professionalTitle: "AI Website Design",
-    professionalPrice: "$499",
-    professionalDescription: "Responsive website or landing page, built fast",
-    professionalFeature1: "Fully responsive design",
-    professionalFeature2: "Mobile-first optimization",
-    professionalFeature3: "Basic on-page SEO setup",
-    professionalFeature4: "Contact form integration",
-    professionalFeature5: "Google Analytics ready",
-    professionalButtonText: "Build My Website",
-    professionalBadgeText: "Most Popular",
-    enterpriseTitle: "Complete Digital Package",
-    enterprisePrice: "$999",
-    enterpriseDescription: "Logo + Website + Digital Marketing Strategy",
-    enterpriseFeature1: "Everything in Logo Design",
-    enterpriseFeature2: "Everything in AI Website Design",
-    enterpriseFeature3: "Digital marketing strategy plan",
-    enterpriseFeature4: "Social media brand guidelines",
-    enterpriseFeature5: "90-day growth roadmap",
-    enterpriseButtonText: "Start Full Transformation"
-  },
-  whyChoose: {
-    title: "Why Choose Our Brand Design Program?",
-    subtitle: "We've helped thousands create powerful, memorable brand identities",
-    reason1Title: "12+ Years Experience",
-    reason1Description: "Award-winning designers with proven expertise in brand identity creation",
-    reason2Title: "5,000+ Brands Created",
-    reason2Description: "Helped businesses of all sizes establish strong visual identities",
-    reason3Title: "8 Proven Principles",
-    reason3Description: "Combine color psychology, design theory, and market strategy",
-    reason4Title: "Lasting Impact",
-    reason4Description: "Design insights that guide your brand's growth for years to come"
-  },
-  faq: {
-    title: "Frequently Asked Questions",
-    subtitle: "Everything you need to know about the masterclass",
-    question1: "Who is this masterclass for?",
-    answer1: "Perfect for entrepreneurs, small business owners, startups, or anyone looking to create or rebrand their business with a strong visual identity.",
-    question2: "What's included for ₹99?",
-    answer2: "For just ₹99, you get the full 120-minute live session, all 8 design principles explained, bonus brand design workbook, Q&A session, and access to the recording for 48 hours.",
-    question3: "What are the 8 design principles covered?",
-    answer3: "We cover Color Psychology, Logo Design Fundamentals, Shape & Symbolism, Typography Mastery, Brand Naming Strategies, Visual Hierarchy, Consistency Guidelines, and Market Positioning.",
-    question4: "Will I get a recording of the masterclass?",
-    answer4: "Yes, all registered participants receive access to the masterclass recording for 48 hours. Premium members get lifetime access to all recordings and design templates.",
-    question5: "How is this different from other design courses?",
-    answer5: "Our approach combines design theory with practical market strategy. We don't just teach design - we show you how to create brands that resonate with your target audience and drive business results.",
-    question6: "Can I ask questions during the masterclass?",
-    answer6: "Absolutely! We have a dedicated Q&A session where you can ask specific questions about your brand and get personalized design recommendations."
-  },
-  readyToTalk: {
-    title: "Have Questions? Let's Connect!",
-    subtitle: "Get clarity about the masterclass or discuss your brand design needs directly.",
-    phoneTitle: "Call Us Now",
-    phoneDescription: "Speak with our design consultants",
-    phoneNumber: "+91 78373 19660",
-    phoneAvailability: "Available 9 AM - 9 PM",
-    whatsappTitle: "WhatsApp Chat",
-    whatsappDescription: "Quick responses within minutes",
-    whatsappButtonText: "Start Chat",
-    whatsappResponse: "Instant responses",
-    emailTitle: "Email Us",
-    emailDescription: "Detailed brand strategy discussions",
-    emailAddress: "design@creativedaily.com",
-    emailResponse: "Response within 2 hours",
-    whyTalkTitle: "Why Talk to Us Directly?",
-    benefit1Title: "Brand Clarity",
-    benefit1Description: "Get expert guidance on your brand identity",
-    benefit2Title: "Expert Consultation",
-    benefit2Description: "Speak with award-winning brand designers",
-    benefit3Title: "Customized Strategy",
-    benefit3Description: "Solutions tailored to your business goals",
-    benefit4Title: "No Obligation",
-    benefit4Description: "Free consultation, no strings attached"
-  },
-  testimonials: {
-    title: "Success Stories",
-    subtitle: "Real businesses that transformed their brand identity",
-    testimonial1Text: "Our brand was losing market share. After the design masterclass and brand package, we rebranded completely. Our customer engagement increased by 300% in just 3 months!",
-    testimonial1Name: "Priya Sharma",
-    testimonial1Title: "Founder, Fashion E-commerce Brand",
-    testimonial2Text: "The design principles taught here are gold. I applied them to my tech startup's branding and we got funded immediately. Investors loved the professional visual identity!",
-    testimonial2Name: "Vikram Singh",
-    testimonial2Title: "CEO, SaaS Startup",
-    testimonial3Text: "As a freelancer, I was struggling to stand out. This program helped me create a strong personal brand. Now I attract premium clients who value my expertise!",
-    testimonial3Name: "Anjali Desai",
-    testimonial3Title: "Freelance Design Consultant"
-  },
-  cta: {
-    title: "Ready to Transform Your Brand?",
-    subtitle: "Join 5,000+ businesses that elevated their brand identity through our design program",
-    primaryButtonText: "Register Now - ₹99",
-    secondaryButtonText: "Book Brand Design Consultation",
-    urgencyText: "Limited Seats - Only 100 spots available!"
-  },
-  footer: {
-    companyDescription: "Transforming brands with expert design strategy since 2012. 5,000+ successful brand transformations globally.",
-    servicesTitle: "Programs",
-    service1: "Masterclass - ₹99",
-    service2: "Logo Design - $299",
-    service3: "AI Website Design - $499",
-    service4: "Complete Digital Package - $999",
-    service5: "Brand Guidelines",
-    companyTitle: "Company",
-    contactTitle: "Contact Info",
-    phoneNumber: "+91 78373 19660",
-    emailAddress: "design@creativedaily.com",
-    location: "India",
-    copyrightText: "© 2025 Daily Creative Designs. All rights reserved. • Elevating brands since 2012"
-  }
-};
+const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'm interested in your design services";
 
 export default function HomePage() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    business: '',
-    package: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
 
-  const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
+  const toggleFaq = (index: number) => setOpenFaq(openFaq === index ? null : index);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Simple form submission without database
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setSubmitMessage('Thank you! We\'ll contact you within 24 hours.');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        business: '',
-        package: '',
-        message: ''
-      });
-      
-      // Redirect to thank you page after 2 seconds
-      setTimeout(() => {
-        navigate('/thank-you');
-      }, 2000);
-      
-    } catch (error) {
-      setSubmitMessage('There was an error. Please try again or contact us directly.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const faqs = [
+    {
+      question: "Who is this for?",
+      answer: "Perfect for entrepreneurs, small business owners, startups, and anyone looking to create or rebrand their business with a strong, professional visual identity.",
+    },
+    {
+      question: "How long does a project take?",
+      answer: "Logo Design is typically delivered within 48 hours. AI Website Design takes 3–5 business days. The Complete Digital Package is delivered in 7–10 business days.",
+    },
+    {
+      question: "How many revisions do I get?",
+      answer: "Unlimited. We iterate until you are 100% happy with the outcome. No revision caps, no extra charges.",
+    },
+    {
+      question: "Who owns the final designs?",
+      answer: "You do. Once the project is complete and payment received, full ownership and commercial usage rights transfer to you.",
+    },
+    {
+      question: "Can I upgrade packages later?",
+      answer: "Yes. If you start with Logo Design or AI Website Design and decide you want the full package, we offer upgrade pricing so you only pay the difference.",
+    },
+    {
+      question: "Do you offer a satisfaction guarantee?",
+      answer: "Absolutely. We offer a 100% satisfaction guarantee. We will work with you through revisions until you love the result.",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      {/* ── HERO ── */}
+      <section className="relative pt-32 pb-28 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         <div className="absolute top-16 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-green-500/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Badge */}
             <div className="inline-flex items-center btn-gold-gradient border border-yellow-400 rounded-full px-5 py-2 mb-8 shadow-lg">
-              <div className="w-2 h-2 bg-green-700 rounded-full mr-2 animate-pulse"></div>
+              <div className="w-2 h-2 bg-green-700 rounded-full mr-2 animate-pulse" />
               <span className="text-sm font-semibold text-green-900">
-                Professional Design Services · Starting at $299
+                Award-Winning Design Studio · 12+ Years · 5,000+ Brands
               </span>
             </div>
 
-            {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Transform Your Business with
-              <span className="block mt-2 text-gold-gradient">Expert Digital Design</span>
+              Your Brand Deserves to
+              <span className="block mt-2 text-gold-gradient">Look as Good as It Is</span>
             </h1>
 
-            <p className="text-xl text-green-50 leading-relaxed mb-8 max-w-3xl mx-auto">
-              From custom logos to AI-powered websites and full digital marketing strategies — we craft everything your brand needs to stand out and grow online.
+            <p className="text-xl text-green-50 leading-relaxed mb-10 max-w-3xl mx-auto">
+              We build custom logos, high-converting websites, and full digital strategies that make your business the obvious choice — from day one.
             </p>
 
-            {/* Service Pills */}
             <div className="flex flex-wrap justify-center gap-3 mb-10">
-              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
-                <Star className="h-3.5 w-3.5 text-yellow-400 fill-current" />
-                Logo Design — $299
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
-                <Zap className="h-3.5 w-3.5 text-yellow-400" />
-                AI Website Design — $499
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-yellow-400/20 border border-yellow-400/40 text-yellow-200 text-sm font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
-                <Award className="h-3.5 w-3.5 text-yellow-400" />
-                Complete Package — $999
-              </span>
+              {[
+                { label: 'Logo Design', price: '$299', icon: <PenTool className="h-3.5 w-3.5 text-yellow-400" /> },
+                { label: 'AI Website', price: '$499', icon: <Globe className="h-3.5 w-3.5 text-yellow-400" /> },
+                { label: 'Full Package', price: '$999', icon: <Layers className="h-3.5 w-3.5 text-yellow-400" /> },
+              ].map((s) => (
+                <span key={s.label} className="inline-flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full backdrop-blur-sm">
+                  {s.icon}
+                  {s.label} — {s.price}
+                </span>
+              ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
               <a
                 href={BOOKING_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold-gradient text-green-900 px-10 py-5 rounded-xl text-lg font-bold hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center group"
+                className="btn-gold-gradient text-green-900 px-10 py-5 rounded-xl text-lg font-bold hover:opacity-90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2 group"
               >
-                Get Started Today
-                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                Book a Free Call
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <Link
                 to="/services"
@@ -346,51 +125,209 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
-              <div className="flex items-center space-x-2">
-                <div className="flex space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <span className="text-white font-semibold">5.0 Rating</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">Fast Turnaround</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Award className="h-5 w-5 text-yellow-400" />
-                <span className="text-white font-semibold">Award-Winning Designers</span>
-              </div>
-            </div>
-
-            {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto pt-8 border-t border-green-500">
-              <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">5,000+</div>
-                <div className="text-sm text-green-100">Brands Created</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">12+</div>
-                <div className="text-sm text-green-100">Years Experience</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">100%</div>
-                <div className="text-sm text-green-100">Satisfaction Rate</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-gold-gradient mb-1">48hr</div>
-                <div className="text-sm text-green-100">Avg. Turnaround</div>
-              </div>
+              {[
+                { value: '5,000+', label: 'Brands Created' },
+                { value: '12+', label: 'Years Experience' },
+                { value: '100%', label: 'Satisfaction Rate' },
+                { value: '48hr', label: 'Avg. Turnaround' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-4xl font-bold text-gold-gradient mb-1">{s.value}</div>
+                  <div className="text-sm text-green-100">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* How We Solve Your Problem Section */}
-      <section id="how-it-works" className="py-24 bg-white">
+      {/* ── WHAT YOU GET (VALUE BREAKDOWN) ── */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              <Sparkles className="h-3 w-3" />
+              What You Actually Get
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Every Deliverable,{' '}
+              <span className="text-green-600">Spelled Out</span>
+            </h2>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+              No vague promises. Here is exactly what lands in your inbox when we are done.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Logo Design */}
+            <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-b border-amber-100 px-8 py-7">
+                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                  <PenTool className="h-6 w-6 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-black text-gray-900 mb-1">Logo Design</h3>
+                <p className="text-sm text-amber-600 font-semibold">$299 · Delivered in 48 hrs</p>
+              </div>
+              <div className="px-8 py-6">
+                <ul className="space-y-3">
+                  {[
+                    '3 unique logo concepts to choose from',
+                    'Unlimited revisions until perfect',
+                    'PNG, SVG, PDF & AI source files',
+                    'Light & dark versions',
+                    'Brand colour palette',
+                    'Typography recommendation',
+                    'Full commercial usage rights',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* AI Website Design */}
+            <div className="border-2 border-green-500 rounded-2xl overflow-hidden shadow-xl hover:-translate-y-1 transition-transform duration-300 relative">
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold text-center py-1.5 tracking-wide uppercase">
+                Most Popular
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-100 px-8 py-7 pt-9">
+                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                  <Globe className="h-6 w-6 text-green-700" />
+                </div>
+                <h3 className="text-xl font-black text-gray-900 mb-1">AI Website Design</h3>
+                <p className="text-sm text-green-600 font-semibold">$499 · Delivered in 3–5 days</p>
+              </div>
+              <div className="px-8 py-6">
+                <ul className="space-y-3">
+                  {[
+                    'Fully responsive, mobile-first design',
+                    'AI-powered layout for conversions',
+                    'On-page SEO setup',
+                    'Contact form integration',
+                    'Google Analytics ready',
+                    'Social media links',
+                    'Fast-loading performance',
+                    'Full source code ownership',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Complete Package */}
+            <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-gradient-to-br from-sky-50 to-cyan-50 border-b border-sky-100 px-8 py-7">
+                <div className="w-12 h-12 bg-sky-100 rounded-xl flex items-center justify-center mb-4">
+                  <Layers className="h-6 w-6 text-sky-600" />
+                </div>
+                <h3 className="text-xl font-black text-gray-900 mb-1">Complete Digital Package</h3>
+                <p className="text-sm text-sky-600 font-semibold">$999 · Delivered in 7–10 days</p>
+              </div>
+              <div className="px-8 py-6">
+                <ul className="space-y-3">
+                  {[
+                    'Everything in Logo Design',
+                    'Everything in AI Website Design',
+                    'Digital marketing strategy plan',
+                    'Social media brand guidelines',
+                    'Content calendar framework',
+                    'Competitor analysis report',
+                    '90-day growth roadmap',
+                    'Priority support included',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-sky-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-600 text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-sm transition-colors"
+            >
+              See full service details
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VALUE COMPARISON ── */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-black mb-4">
+              What You'd Pay Elsewhere vs.{' '}
+              <span className="text-yellow-400">What You Pay Here</span>
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Our packages bundle premium services that typically cost 5–10x more when purchased separately.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-700">
+                  <th className="text-left py-4 pr-6 text-gray-400 font-semibold">Service</th>
+                  <th className="text-center py-4 px-4 text-gray-400 font-semibold">Agency Rate</th>
+                  <th className="text-center py-4 px-4 text-yellow-400 font-bold">Our Price</th>
+                  <th className="text-center py-4 pl-4 text-green-400 font-semibold">You Save</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-800">
+                {[
+                  { service: 'Custom Logo Design', agency: '$800–$1,500', ours: '$299', saving: 'Up to $1,200' },
+                  { service: 'Responsive Website', agency: '$2,000–$5,000', ours: '$499', saving: 'Up to $4,500' },
+                  { service: 'Brand Guidelines', agency: '$500–$1,000', ours: 'Included', saving: '$500+' },
+                  { service: 'Digital Marketing Strategy', agency: '$1,500–$3,000', ours: 'Included', saving: '$1,500+' },
+                  { service: 'Social Media Guidelines', agency: '$400–$800', ours: 'Included', saving: '$400+' },
+                  { service: '90-Day Growth Roadmap', agency: '$1,000–$2,000', ours: 'Included', saving: '$1,000+' },
+                ].map((row) => (
+                  <tr key={row.service} className="hover:bg-gray-800/50 transition-colors">
+                    <td className="py-4 pr-6 font-medium text-white">{row.service}</td>
+                    <td className="py-4 px-4 text-center text-gray-400 line-through">{row.agency}</td>
+                    <td className="py-4 px-4 text-center font-bold text-yellow-400">{row.ours}</td>
+                    <td className="py-4 pl-4 text-center">
+                      <span className="bg-green-900/60 text-green-400 text-xs font-bold px-2.5 py-1 rounded-full border border-green-700">
+                        {row.saving}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-10 text-center">
+            <a
+              href={BOOKING_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 font-bold px-8 py-4 rounded-xl text-base transition-all shadow-lg hover:-translate-y-0.5"
+            >
+              Get Started Today
+              <ArrowRight className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── HOW WE WORK ── */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
@@ -398,29 +335,28 @@ export default function HomePage() {
               Our Process
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
-              From Problem to{' '}
-              <span className="text-green-600">Proven Results</span>
+              From First Call to{' '}
+              <span className="text-green-600">Launch-Ready Brand</span>
             </h2>
             <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-              Most businesses struggle with inconsistent branding and a weak online presence. Here is exactly how we fix that — step by step.
+              A clear, collaborative 4-step process — no guesswork, no surprises.
             </p>
           </div>
 
-          {/* Problem vs Solution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
             <div className="bg-red-50 border border-red-100 rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
                   <X className="h-5 w-5 text-red-500" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-xl font-black text-gray-900">The Problem You Face</h3>
+                <h3 className="text-xl font-black text-gray-900">Before Working With Us</h3>
               </div>
               <ul className="space-y-4">
                 {[
-                  { title: 'No professional brand identity', desc: 'Generic visuals make you look untrustworthy and forgettable to potential customers.' },
-                  { title: 'No website or a poor one', desc: 'You lose leads every day because prospects can\'t find you or don\'t trust what they see.' },
-                  { title: 'Wasted ad spend', desc: 'Running ads without a strong brand or landing page burns money with little to no return.' },
-                  { title: 'Inconsistent online presence', desc: 'Mixed messages across platforms confuse your audience and erode confidence.' },
+                  { title: 'No professional brand identity', desc: 'Generic visuals make you look untrustworthy and forgettable.' },
+                  { title: 'No website or a poor one', desc: 'You lose leads every day because prospects can\'t find or trust you.' },
+                  { title: 'Wasted ad spend', desc: 'Running ads without a strong brand burns money with little return.' },
+                  { title: 'Inconsistent online presence', desc: 'Mixed messages across platforms confuse and erode confidence.' },
                 ].map((item) => (
                   <li key={item.title} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -440,14 +376,14 @@ export default function HomePage() {
                 <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
                   <CheckCircle className="h-5 w-5 text-green-600" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-xl font-black text-gray-900">What You Get With Us</h3>
+                <h3 className="text-xl font-black text-gray-900">After Working With Us</h3>
               </div>
               <ul className="space-y-4">
                 {[
-                  { title: 'A brand that commands trust', desc: 'Custom logo and visual identity that make you look like the obvious choice in your market.' },
-                  { title: 'A website that converts', desc: 'AI-powered, mobile-first site built to turn visitors into paying customers — fast.' },
-                  { title: 'Clear digital strategy', desc: 'A marketing roadmap so every rupee you spend on ads and content delivers measurable ROI.' },
-                  { title: 'Consistent brand voice', desc: 'Unified look and messaging across all channels so customers instantly recognise and trust you.' },
+                  { title: 'A brand that commands trust', desc: 'Custom logo and visual identity that make you the obvious choice.' },
+                  { title: 'A website that converts', desc: 'Mobile-first site built to turn visitors into paying customers — fast.' },
+                  { title: 'A clear digital strategy', desc: 'A marketing roadmap so every dollar you spend delivers measurable ROI.' },
+                  { title: 'Consistent brand voice', desc: 'Unified look across all channels so customers instantly recognise you.' },
                 ].map((item) => (
                   <li key={item.title} className="flex items-start gap-3">
                     <div className="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -463,45 +399,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Process Steps */}
           <div className="relative">
             <div className="hidden md:block absolute top-10 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-green-200 to-transparent" />
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               {[
-                {
-                  step: '01',
-                  icon: <MessageCircle className="h-6 w-6 text-green-700" />,
-                  title: 'Free Discovery Call',
-                  desc: 'We start with a 30-minute call to understand your business, goals, target audience, and existing challenges.',
-                  color: 'bg-green-100',
-                },
-                {
-                  step: '02',
-                  icon: <Lightbulb className="h-6 w-6 text-amber-700" />,
-                  title: 'Strategy & Concepts',
-                  desc: 'We research your market and competitors, then craft tailored design concepts aligned with your brand vision.',
-                  color: 'bg-amber-100',
-                },
-                {
-                  step: '03',
-                  icon: <Zap className="h-6 w-6 text-sky-700" />,
-                  title: 'Build & Refine',
-                  desc: 'We execute with precision and iterate based on your feedback — unlimited revisions until you are 100% happy.',
-                  color: 'bg-sky-100',
-                },
-                {
-                  step: '04',
-                  icon: <TrendingUp className="h-6 w-6 text-emerald-700" />,
-                  title: 'Launch & Grow',
-                  desc: 'You receive all final files and a growth roadmap so your brand is ready to attract customers from day one.',
-                  color: 'bg-emerald-100',
-                },
+                { step: '01', icon: <MessageCircle className="h-6 w-6 text-green-700" />, title: 'Free Discovery Call', desc: 'We start with a 30-minute call to understand your business, goals, and audience.', color: 'bg-green-100' },
+                { step: '02', icon: <Lightbulb className="h-6 w-6 text-amber-700" />, title: 'Strategy & Concepts', desc: 'We research your market and craft tailored design concepts aligned with your vision.', color: 'bg-amber-100' },
+                { step: '03', icon: <Zap className="h-6 w-6 text-sky-700" />, title: 'Build & Refine', desc: 'We execute and iterate based on your feedback — unlimited revisions.', color: 'bg-sky-100' },
+                { step: '04', icon: <TrendingUp className="h-6 w-6 text-emerald-700" />, title: 'Launch & Grow', desc: 'You receive all final files and a growth roadmap to attract customers from day one.', color: 'bg-emerald-100' },
               ].map((item) => (
                 <div key={item.step} className="relative flex flex-col items-center text-center group">
                   <div className={`w-20 h-20 ${item.color} rounded-2xl flex items-center justify-center mb-5 shadow-sm group-hover:scale-105 transition-transform duration-300 relative z-10`}>
                     {item.icon}
                   </div>
-                  <div className="absolute -top-2 -right-2 md:right-auto md:left-auto md:-top-2 w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-black flex items-center justify-center z-20">
+                  <div className="absolute -top-2 left-1/2 md:left-auto md:right-auto w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-black flex items-center justify-center z-20">
                     {item.step}
                   </div>
                   <h4 className="text-lg font-black text-gray-900 mb-2">{item.title}</h4>
@@ -510,570 +421,363 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-
-          {/* Trust bar */}
-          <div className="mt-16 bg-gray-900 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-              {[
-                { icon: <Award className="h-5 w-5 text-amber-400" />, text: '12+ Years Experience' },
-                { icon: <Users className="h-5 w-5 text-green-400" />, text: '500+ Clients Served' },
-                { icon: <Shield className="h-5 w-5 text-sky-400" />, text: '100% Satisfaction Guarantee' },
-                { icon: <Clock className="h-5 w-5 text-rose-400" />, text: 'Fast Turnaround' },
-              ].map((t) => (
-                <div key={t.text} className="flex items-center gap-2 text-white text-sm font-semibold">
-                  {t.icon}
-                  {t.text}
-                </div>
-              ))}
-            </div>
-            <a
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105 shadow-lg"
-            >
-              Book Free Call
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-gradient-to-b from-white to-green-50">
+      {/* ── INDUSTRIES WE SERVE ── */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              {content.pricing.title}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {content.pricing.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {/* Logo Design */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300">
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border-b border-amber-100 p-8">
-                <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  <Star className="h-3 w-3" />
-                  Brand Identity
-                </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.starterTitle}</h3>
-                <p className="text-sm text-amber-600 font-medium mb-4">{content.pricing.starterDescription}</p>
-                <div className="text-5xl font-black text-amber-600 leading-none">{content.pricing.starterPrice}</div>
-                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
-              </div>
-              <div className="p-8 flex flex-col flex-1">
-                <ul className="space-y-3 mb-8 flex-1">
-                  {[content.pricing.starterFeature1, content.pricing.starterFeature2, content.pricing.starterFeature3, content.pricing.starterFeature4, content.pricing.starterFeature5, 'Brand color palette suggestion', 'Typography recommendation'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
-                >
-                  {content.pricing.starterButtonText}
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              <Users className="h-3 w-3" />
+              Industries We Serve
             </div>
-
-            {/* AI Website Design */}
-            <div className="bg-white rounded-2xl border-2 border-green-500 shadow-2xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 relative">
-              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold text-center py-1.5 tracking-wide uppercase">
-                {content.pricing.professionalBadgeText}
-              </div>
-              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-b border-green-100 p-8 pt-10">
-                <div className="inline-flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  <Zap className="h-3 w-3" />
-                  Most Popular
-                </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.professionalTitle}</h3>
-                <p className="text-sm text-green-600 font-medium mb-4">{content.pricing.professionalDescription}</p>
-                <div className="text-5xl font-black text-green-600 leading-none">{content.pricing.professionalPrice}</div>
-                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
-              </div>
-              <div className="p-8 flex flex-col flex-1">
-                <ul className="space-y-3 mb-8 flex-1">
-                  {[content.pricing.professionalFeature1, content.pricing.professionalFeature2, content.pricing.professionalFeature3, content.pricing.professionalFeature4, content.pricing.professionalFeature5, 'Social media links', 'Fast loading performance'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
-                >
-                  {content.pricing.professionalButtonText}
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Complete Digital Package */}
-            <div className="bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300">
-              <div className="bg-gradient-to-br from-sky-50 to-cyan-50 border-b border-sky-100 p-8">
-                <div className="inline-flex items-center gap-1.5 bg-sky-100 text-sky-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  <Award className="h-3 w-3" />
-                  Best Value
-                </div>
-                <h3 className="text-2xl font-black text-gray-900 mb-1">{content.pricing.enterpriseTitle}</h3>
-                <p className="text-sm text-sky-600 font-medium mb-4">{content.pricing.enterpriseDescription}</p>
-                <div className="text-5xl font-black text-sky-600 leading-none">{content.pricing.enterprisePrice}</div>
-                <p className="text-gray-400 text-xs mt-1">One-time payment</p>
-              </div>
-              <div className="p-8 flex flex-col flex-1">
-                <ul className="space-y-3 mb-8 flex-1">
-                  {[content.pricing.enterpriseFeature1, content.pricing.enterpriseFeature2, content.pricing.enterpriseFeature3, content.pricing.enterpriseFeature4, content.pricing.enterpriseFeature5, 'Competitor analysis report', 'Priority support included'].map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
-                      <CheckCircle className="h-4 w-4 text-sky-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={BOOKING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-white font-bold py-3.5 rounded-xl transition-all text-sm shadow-md"
-                >
-                  {content.pricing.enterpriseButtonText}
-                  <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-sm transition-colors"
-            >
-              View full service details
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
             <h2 className="text-4xl font-black text-gray-900 mb-4">
-              {content.whyChoose.title}
+              We've Built Brands Across{' '}
+              <span className="text-green-600">Every Industry</span>
             </h2>
-            <p className="text-xl text-gray-600 font-medium">
-              {content.whyChoose.subtitle}
+            <p className="text-gray-500 max-w-xl mx-auto">
+              From tech startups to local restaurants — our design system adapts to your market.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Zap className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason1Title}</h3>
-              <p className="text-gray-600 font-medium">{content.whyChoose.reason1Description}</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Award className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason2Title}</h3>
-              <p className="text-gray-600 font-medium">{content.whyChoose.reason2Description}</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TrendingUp className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason3Title}</h3>
-              <p className="text-gray-600 font-medium">{content.whyChoose.reason3Description}</p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-xl font-black text-gray-900 mb-4">{content.whyChoose.reason4Title}</h3>
-              <p className="text-gray-600 font-medium">{content.whyChoose.reason4Description}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
-              {content.testimonials.title}
-            </h2>
-            <p className="text-xl text-gray-600 font-medium">
-              {content.testimonials.subtitle}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-gray-700 mb-6 font-medium">
-                "{content.testimonials.testimonial1Text}"
-              </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
-                  {content.testimonials.testimonial1Name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">{content.testimonials.testimonial1Name}</p>
-                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial1Title}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-gray-700 mb-6 font-medium">
-                "{content.testimonials.testimonial2Text}"
-              </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
-                  {content.testimonials.testimonial2Name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">{content.testimonials.testimonial2Name}</p>
-                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial2Title}</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-md border border-gray-200">
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-gray-700 mb-6 font-medium">
-                "{content.testimonials.testimonial3Text}"
-              </blockquote>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-black mr-4">
-                  {content.testimonials.testimonial3Name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">{content.testimonials.testimonial3Name}</p>
-                  <p className="text-gray-600 text-sm">{content.testimonials.testimonial3Title}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
-              {content.faq.title}
-            </h2>
-            <p className="text-xl text-gray-600 font-medium">
-              {content.faq.subtitle}
-            </p>
-          </div>
-
-          <div className="space-y-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {[
-              { question: content.faq.question1, answer: content.faq.answer1 },
-              { question: content.faq.question2, answer: content.faq.answer2 },
-              { question: content.faq.question3, answer: content.faq.answer3 },
-              { question: content.faq.question4, answer: content.faq.answer4 },
-              { question: content.faq.question5, answer: content.faq.answer5 },
-              { question: content.faq.question6, answer: content.faq.answer6 }
-            ].map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl shadow-md border border-gray-200">
-                <button
-                  onClick={() => toggleFaq(index)}
-                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors rounded-2xl"
-                >
-                  <span className="text-lg font-bold text-gray-900">{faq.question}</span>
-                  {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-green-700" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 text-green-700" />
-                  )}
-                </button>
-                {openFaq === index && (
-                  <div className="px-8 pb-6">
-                    <p className="text-gray-600 leading-relaxed font-medium">{faq.answer}</p>
-                  </div>
-                )}
+              { icon: <Smartphone className="h-5 w-5 text-green-700" />, label: 'Tech & SaaS', color: 'bg-green-50 border-green-200' },
+              { icon: <BarChart2 className="h-5 w-5 text-amber-700" />, label: 'E-commerce', color: 'bg-amber-50 border-amber-200' },
+              { icon: <Palette className="h-5 w-5 text-sky-700" />, label: 'Creative & Media', color: 'bg-sky-50 border-sky-200' },
+              { icon: <BadgeCheck className="h-5 w-5 text-emerald-700" />, label: 'Professional Services', color: 'bg-emerald-50 border-emerald-200' },
+              { icon: <Globe className="h-5 w-5 text-rose-700" />, label: 'Retail & F&B', color: 'bg-rose-50 border-rose-200' },
+              { icon: <Search className="h-5 w-5 text-teal-700" />, label: 'Health & Wellness', color: 'bg-teal-50 border-teal-200' },
+              { icon: <Award className="h-5 w-5 text-orange-700" />, label: 'Education', color: 'bg-orange-50 border-orange-200' },
+              { icon: <TrendingUp className="h-5 w-5 text-cyan-700" />, label: 'Finance & Legal', color: 'bg-cyan-50 border-cyan-200' },
+            ].map((ind) => (
+              <div key={ind.label} className={`flex items-center gap-3 border ${ind.color} rounded-xl px-5 py-4`}>
+                <div className="flex-shrink-0">{ind.icon}</div>
+                <span className="text-sm font-bold text-gray-800">{ind.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ready to Talk Section */}
+      {/* ── WHY CHOOSE US ── */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              {content.readyToTalk.title}
+            <h2 className="text-4xl font-black text-gray-900 mb-4">
+              Why Hundreds of Businesses Choose Us
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {content.readyToTalk.subtitle}
+            <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto">
+              We are not just designers — we are strategic partners invested in your growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {/* Phone */}
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Phone className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.phoneTitle}</h3>
-              <p className="text-gray-600 mb-4">{content.readyToTalk.phoneDescription}</p>
-              <a 
-                href={`tel:${content.readyToTalk.phoneNumber}`}
-                className="text-2xl font-bold text-green-700 hover:text-green-800 transition-colors block mb-2"
-              >
-                {content.readyToTalk.phoneNumber}
-              </a>
-              <p className="text-sm text-green-700">{content.readyToTalk.phoneAvailability}</p>
-            </div>
-
-            {/* WhatsApp */}
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center hover:bg-green-100 transition-colors">
-              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.whatsappTitle}</h3>
-              <p className="text-gray-600 mb-6">{content.readyToTalk.whatsappDescription}</p>
-              <a 
-                href="https://wa.me/919876543210?text=Hi, I'm interested in your digital marketing services"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors inline-flex items-center"
-              >
-                <MessageCircle className="h-5 w-5 mr-2" />
-                {content.readyToTalk.whatsappButtonText}
-              </a>
-              <p className="text-sm text-green-700 mt-4">{content.readyToTalk.whatsappResponse}</p>
-            </div>
-
-            {/* Email */}
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center hover:bg-blue-100 transition-colors">
-              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Mail className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">{content.readyToTalk.emailTitle}</h3>
-              <p className="text-gray-600 mb-4">{content.readyToTalk.emailDescription}</p>
-              <a 
-                href={`mailto:${content.readyToTalk.emailAddress}`}
-                className="text-lg font-semibold text-blue-600 hover:text-blue-700 transition-colors block mb-2"
-              >
-                {content.readyToTalk.emailAddress}
-              </a>
-              <p className="text-sm text-blue-600">{content.readyToTalk.emailResponse}</p>
-            </div>
-          </div>
-
-          {/* Why Talk to Us */}
-          <div className="bg-gray-50 rounded-3xl p-12">
-            <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">
-              {content.readyToTalk.whyTalkTitle}
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Lightbulb className="h-6 w-6 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <Zap className="h-8 w-8 text-green-700" />, title: '12+ Years Experience', desc: 'Award-winning designers with deep expertise in brand identity.' },
+              { icon: <Award className="h-8 w-8 text-green-700" />, title: '5,000+ Brands Created', desc: 'Helping businesses of every size establish powerful visual identities.' },
+              { icon: <TrendingUp className="h-8 w-8 text-green-700" />, title: 'Results-Driven Design', desc: 'Every design decision is backed by market research and strategy.' },
+              { icon: <Shield className="h-8 w-8 text-green-700" />, title: '100% Satisfaction', desc: 'Unlimited revisions and a satisfaction guarantee on every project.' },
+            ].map((reason) => (
+              <div key={reason.title} className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  {reason.icon}
                 </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit1Title}</h4>
-                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit1Description}</p>
+                <h3 className="text-xl font-black text-gray-900 mb-3">{reason.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{reason.desc}</p>
               </div>
-              
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit2Title}</h4>
-                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit2Description}</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit3Title}</h4>
-                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit3Description}</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Target className="h-6 w-6 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{content.readyToTalk.benefit4Title}</h4>
-                <p className="text-gray-600 text-sm">{content.readyToTalk.benefit4Description}</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* ── TESTIMONIALS PREVIEW ── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-black text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-xl text-gray-500 font-medium">Real businesses. Real results. Verified outcomes.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                text: "Working with Daily Creative Designs was the best investment we made this year. Our new website converted 4x better than the old one within the first week of launch.",
+                name: "Rahul Mehta",
+                role: "Owner, Restaurant Chain",
+                result: "4x conversions",
+                color: "bg-green-600",
+              },
+              {
+                text: "I applied the brand strategy to my tech startup and we got funded immediately. Investors loved the professional visual identity they had built for us!",
+                name: "Vikram Singh",
+                role: "CEO, SaaS Startup",
+                result: "Series A funded",
+                color: "bg-amber-500",
+              },
+              {
+                text: "As a freelancer, I was struggling to stand out. They helped me create a strong personal brand. Now I attract premium clients who value my expertise!",
+                name: "Anjali Desai",
+                role: "Freelance Design Consultant",
+                result: "2x client rate",
+                color: "bg-sky-500",
+              },
+            ].map((t) => (
+              <div key={t.name} className="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="text-gray-700 mb-6 font-medium leading-relaxed">"{t.text}"</blockquote>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 ${t.color} rounded-full flex items-center justify-center text-white font-black`}>
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-gray-900 text-sm">{t.name}</p>
+                      <p className="text-gray-500 text-xs">{t.role}</p>
+                    </div>
+                  </div>
+                  <span className="bg-green-50 text-green-700 text-xs font-bold px-2.5 py-1 rounded-full border border-green-200">
+                    {t.result}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              to="/testimonials"
+              className="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-sm transition-colors"
+            >
+              Read all success stories
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TRUST BAR ── */}
+      <section className="py-14 bg-gray-900">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-6">
+            {[
+              { icon: <Award className="h-5 w-5 text-amber-400" />, text: '12+ Years Experience' },
+              { icon: <Users className="h-5 w-5 text-green-400" />, text: '5,000+ Brands Created' },
+              { icon: <Shield className="h-5 w-5 text-sky-400" />, text: '100% Satisfaction Guarantee' },
+              { icon: <Clock className="h-5 w-5 text-rose-400" />, text: '48hr Turnaround' },
+            ].map((t) => (
+              <div key={t.text} className="flex items-center gap-2 text-white text-sm font-semibold">
+                {t.icon}
+                {t.text}
+              </div>
+            ))}
+          </div>
+          <a
+            href={BOOKING_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3 rounded-xl text-sm transition-all hover:scale-105 shadow-lg"
+          >
+            Book Free Call
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-black text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-gray-500 text-lg">Quick answers to the most common questions.</p>
+          </div>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full px-7 py-5 text-left flex justify-between items-center gap-4 hover:bg-gray-100 transition-colors"
+                >
+                  <span className="text-base font-bold text-gray-900">{faq.question}</span>
+                  {openFaq === index ? (
+                    <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" />
+                  )}
+                </button>
+                {openFaq === index && (
+                  <div className="px-7 pb-5 border-t border-gray-200">
+                    <p className="text-gray-600 leading-relaxed pt-4">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 text-green-700 hover:text-green-600 font-semibold text-sm transition-colors"
+            >
+              See all questions
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT PREVIEW ── */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Ready to Talk?</h2>
+            <p className="text-xl text-gray-500 max-w-xl mx-auto">
+              Reach us directly — we respond within minutes during business hours.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <a href="tel:+917837319660" className="flex items-center gap-4 bg-white border border-green-200 rounded-2xl px-6 py-5 hover:bg-green-50 transition-colors">
+              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Phone className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-0.5">Call Us</p>
+                <p className="font-bold text-gray-900 text-sm">+91 78373 19660</p>
+                <p className="text-xs text-gray-500">9 AM – 9 PM IST</p>
+              </div>
+            </a>
+
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-green-200 rounded-2xl px-6 py-5 hover:bg-green-50 transition-colors">
+              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                <MessageCircle className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-0.5">WhatsApp</p>
+                <p className="font-bold text-gray-900 text-sm">Chat Now</p>
+                <p className="text-xs text-gray-500">Instant responses</p>
+              </div>
+            </a>
+
+            <a href="mailto:design@creativedaily.com" className="flex items-center gap-4 bg-white border border-sky-200 rounded-2xl px-6 py-5 hover:bg-sky-50 transition-colors">
+              <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Mail className="h-5 w-5 text-white" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-sky-700 uppercase tracking-wide mb-0.5">Email</p>
+                <p className="font-bold text-gray-900 text-sm">design@creativedaily.com</p>
+                <p className="text-xs text-gray-500">Reply within 2 hours</p>
+              </div>
+            </a>
+          </div>
+
+          <div className="text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold px-8 py-4 rounded-xl text-base transition-all shadow-md hover:-translate-y-0.5"
+            >
+              Send Us a Message
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
       <section className="py-20 bg-green-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
-            {content.cta.title}
+            Ready to Transform Your Brand?
           </h2>
-          <p className="text-xl mb-8 text-green-100 font-semibold">
-            {content.cta.subtitle}
+          <p className="text-xl mb-10 text-green-100 font-semibold max-w-2xl mx-auto">
+            Join 5,000+ businesses that chose professional design to stand out, build trust, and grow faster.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={BOOKING_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center"
+              className="bg-white text-green-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
             >
-              <Calendar className="h-5 w-5 mr-2" />
-              {content.cta.primaryButtonText}
+              <Calendar className="h-5 w-5" />
+              Book a Free Call
             </a>
             <Link
               to="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300 flex items-center justify-center"
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300 flex items-center justify-center"
             >
-              {content.cta.secondaryButtonText}
+              Send Us a Message
             </Link>
           </div>
-
-          <p className="text-green-100 font-bold animate-pulse">
-            {content.cta.urgencyText}
-          </p>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ── FOOTER ── */}
       <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Company Info */}
             <div className="md:col-span-2">
-              <div className="flex items-center mb-6">
-                <span className="text-2xl font-black text-white">
-                  Daily Creative <span className="text-gold-gradient">Designs</span>
-                </span>
-              </div>
-              <p className="text-gray-300 mb-6 max-w-md">
-                {content.footer.companyDescription}
+              <span className="text-2xl font-black text-white">
+                Daily Creative <span className="text-gold-gradient">Designs</span>
+              </span>
+              <p className="text-gray-300 mt-4 mb-6 max-w-md">
+                Transforming brands with expert design strategy since 2012. 5,000+ successful brand transformations globally.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <span className="sr-only">Facebook</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
-                  </svg>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" /></svg>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <span className="sr-only">Instagram</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297L3.182 17.635l1.044-1.944c-.8-.875-1.297-2.026-1.297-3.323c0-2.734 2.215-4.949 4.949-4.949s4.949 2.215 4.949 4.949S11.652 16.988 8.449 16.988z"/>
-                  </svg>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297L3.182 17.635l1.044-1.944c-.8-.875-1.297-2.026-1.297-3.323c0-2.734 2.215-4.949 4.949-4.949s4.949 2.215 4.949 4.949S11.652 16.988 8.449 16.988z" /></svg>
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <span className="sr-only">LinkedIn</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                 </a>
               </div>
             </div>
 
-            {/* Services */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">{content.footer.servicesTitle}</h3>
+              <h3 className="text-lg font-semibold mb-6">Services</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service1}</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service2}</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service3}</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service4}</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">{content.footer.service5}</a></li>
+                <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Logo Design — $299</Link></li>
+                <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">AI Website Design — $499</Link></li>
+                <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Complete Package — $999</Link></li>
+                <li><Link to="/services" className="text-gray-300 hover:text-white transition-colors">Brand Guidelines</Link></li>
               </ul>
             </div>
 
-            {/* Contact */}
             <div>
-              <h3 className="text-lg font-semibold mb-6">{content.footer.contactTitle}</h3>
+              <h3 className="text-lg font-semibold mb-6">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-green-600 mr-3" />
-                  <a href={`tel:${content.footer.phoneNumber}`} className="text-gray-300 hover:text-white transition-colors">
-                    {content.footer.phoneNumber}
-                  </a>
+                  <Phone className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                  <a href="tel:+917837319660" className="text-gray-300 hover:text-white transition-colors">+91 78373 19660</a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-green-600 mr-3" />
-                  <a href={`mailto:${content.footer.emailAddress}`} className="text-gray-300 hover:text-white transition-colors">
-                    {content.footer.emailAddress}
-                  </a>
+                  <Mail className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                  <a href="mailto:design@creativedaily.com" className="text-gray-300 hover:text-white transition-colors">design@creativedaily.com</a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-300">{content.footer.location}</span>
+                  <MapPin className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                  <span className="text-gray-300">India</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm">
-                {content.footer.copyrightText}
-              </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link
-                  to="/privacy-policy"
-                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
-                >
-                  Terms
-                </Link>
-                <Link
-                  to="/cookies-policy"
-                  className="text-gray-400 hover:text-green-600 text-sm transition-colors font-medium"
-                >
-                  Cookies Policy
-                </Link>
-              </div>
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved. · Elevating brands since 2012</p>
+            <div className="flex space-x-6">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors font-medium">Privacy Policy</Link>
+              <Link to="/terms" className="text-gray-400 hover:text-green-500 text-sm transition-colors font-medium">Terms</Link>
+              <Link to="/cookies-policy" className="text-gray-400 hover:text-green-500 text-sm transition-colors font-medium">Cookies</Link>
             </div>
           </div>
         </div>
