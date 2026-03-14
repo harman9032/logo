@@ -27,7 +27,31 @@ export default {
         display: ['Space Grotesk', 'sans-serif'],
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0)',
+        'gold-gradient': 'linear-gradient(90deg, #f0b400, #f7c948, #f0b400)',
+      },
+      transitionDuration: {
+        fast: '150ms',
+        normal: '200ms',
+        slow: '300ms',
+      },
+      zIndex: {
+        dropdown: '30',
+        sticky: '40',
+        fixed: '50',
+        modal: '100',
+      },
+      borderRadius: {
+        'card': '1rem',
+        'card-lg': '1.5rem',
+      },
+      boxShadow: {
+        'card': '0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05)',
+        'card-hover': '0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.05)',
+        'modal': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+      },
+      animation: {
+        'fade-slide-down': 'fadeSlideDown 0.3s ease-out both',
+        'fade-slide-up': 'fadeSlideUp 0.3s ease-out both',
       },
     },
   },

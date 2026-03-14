@@ -12,14 +12,42 @@ import {
   CheckCircle,
   Send,
   Calendar,
+  AlertCircle,
 } from 'lucide-react';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'm interested in your design services";
 
+const INPUT_BASE = "w-full border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm bg-white transition-colors duration-200";
+const INPUT_NORMAL = `${INPUT_BASE} border-gray-200 focus:ring-green-500`;
+const INPUT_ERROR = `${INPUT_BASE} border-red-400 focus:ring-red-400`;
+
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+  business: string;
+  package: string;
+  message: string;
+};
+
+type FormErrors = Partial<Record<keyof FormData, string>>;
+
+function validateForm(data: FormData): FormErrors {
+  const errors: FormErrors = {};
+  if (!data.name.trim()) errors.name = 'Please enter your full name.';
+  if (!data.email.trim()) {
+    errors.email = 'Please enter your email address.';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errors.email = 'Please enter a valid email address.';
+  }
+  if (!data.message.trim()) errors.message = 'Please tell us about your project.';
+  return errors;
+}
+
 export default function ContactPage() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -27,26 +55,51 @@ export default function ContactPage() {
     package: '',
     message: '',
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const updated = { ...formData, [name]: value };
+    setFormData(updated);
+    if (touched[name as keyof FormData]) {
+      const newErrors = validateForm(updated);
+      setErrors(prev => ({ ...prev, [name]: newErrors[name as keyof FormData] }));
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const newErrors = validateForm(formData);
+    setErrors(prev => ({ ...prev, [name]: newErrors[name as keyof FormData] }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const allTouched: Partial<Record<keyof FormData, boolean>> = {};
+    (Object.keys(formData) as Array<keyof FormData>).forEach(k => { allTouched[k] = true; });
+    setTouched(allTouched);
+    const newErrors = validateForm(formData);
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
     setIsSubmitting(true);
     setSubmitError('');
     try {
       await new Promise((res) => setTimeout(res, 1000));
       navigate('/thank-you');
     } catch {
-      setSubmitError('Something went wrong. Please try again or reach us directly.');
+      setSubmitError('Failed to send message. Please check your connection and try again, or email us directly at design@creativedaily.com.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const fieldClass = (field: keyof FormData) =>
+    errors[field] && touched[field] ? INPUT_ERROR : INPUT_NORMAL;
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -55,11 +108,11 @@ export default function ContactPage() {
       <main id="main-content">
 
       <section className="relative pt-32 pb-16 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-green-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-10" aria-hidden="true" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-green-500/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 bg-yellow-400/20 border border-yellow-400/40 text-yellow-200 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-            <MessageCircle className="h-3.5 w-3.5" />
+            <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
             Get In Touch
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
@@ -72,20 +125,21 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-8 bg-white border-b border-gray-100">
+      <section className="py-8 bg-white border-b border-gray-100" aria-label="Contact options">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <a
-              href={`tel:+917837319660`}
-              className="flex items-center gap-4 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl px-6 py-5 transition-colors group"
+              href="tel:+917837319660"
+              aria-label="Call us at +91 78373 19660"
+              className="flex items-center gap-4 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl px-6 py-5 transition-colors duration-200 group"
             >
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200" aria-hidden="true">
                 <Phone className="h-5 w-5 text-white" />
               </div>
               <div>
                 <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-0.5">Call Us</p>
                 <p className="font-bold text-gray-900 text-sm">+91 78373 19660</p>
-                <p className="text-xs text-gray-500">9 AM – 9 PM</p>
+                <p className="text-xs text-gray-500">9 AM – 9 PM IST</p>
               </div>
             </a>
 
@@ -93,9 +147,10 @@ export default function ContactPage() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl px-6 py-5 transition-colors group"
+              aria-label="Chat with us on WhatsApp (opens in new tab)"
+              className="flex items-center gap-4 bg-green-50 hover:bg-green-100 border border-green-200 rounded-2xl px-6 py-5 transition-colors duration-200 group"
             >
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200" aria-hidden="true">
                 <MessageCircle className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -107,9 +162,10 @@ export default function ContactPage() {
 
             <a
               href="mailto:design@creativedaily.com"
-              className="flex items-center gap-4 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-6 py-5 transition-colors group"
+              aria-label="Email us at design@creativedaily.com"
+              className="flex items-center gap-4 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-2xl px-6 py-5 transition-colors duration-200 group"
             >
-              <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-12 h-12 bg-sky-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-200" aria-hidden="true">
                 <Mail className="h-5 w-5 text-white" />
               </div>
               <div>
@@ -127,43 +183,74 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
               <h2 className="text-3xl font-black text-gray-900 mb-2">Send Us a Message</h2>
-              <p className="text-gray-500 mb-8">Fill in the form and we will get back to you within 2 hours during business hours.</p>
+              <p className="text-gray-500 mb-2">Fields marked with <span aria-label="required">*</span> are required. We'll reply within 2 hours during business hours.</p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 mt-8"
+                noValidate
+                aria-label="Contact form"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name *</label>
+                    <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Full Name <span aria-label="required" className="text-red-500">*</span>
+                    </label>
                     <input
                       id="contact-name"
                       type="text"
                       name="name"
                       autoComplete="name"
                       required
+                      aria-required="true"
+                      aria-invalid={!!(errors.name && touched.name)}
+                      aria-describedby={errors.name && touched.name ? 'name-error' : undefined}
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your name"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                      onBlur={handleBlur}
+                      placeholder="Your full name"
+                      className={fieldClass('name')}
                     />
+                    {errors.name && touched.name && (
+                      <p id="name-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-red-600 text-xs font-medium">
+                        <AlertCircle className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
                   <div>
-                    <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address *</label>
+                    <label htmlFor="contact-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Email Address <span aria-label="required" className="text-red-500">*</span>
+                    </label>
                     <input
                       id="contact-email"
                       type="email"
                       name="email"
                       autoComplete="email"
                       required
+                      aria-required="true"
+                      aria-invalid={!!(errors.email && touched.email)}
+                      aria-describedby={errors.email && touched.email ? 'email-error' : undefined}
                       value={formData.email}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="you@company.com"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                      className={fieldClass('email')}
                     />
+                    {errors.email && touched.email && (
+                      <p id="email-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-red-600 text-xs font-medium">
+                        <AlertCircle className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number</label>
+                    <label htmlFor="contact-phone" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Phone Number <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
                     <input
                       id="contact-phone"
                       type="tel"
@@ -171,12 +258,16 @@ export default function ContactPage() {
                       autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
+                      onBlur={handleBlur}
                       placeholder="+91 99999 99999"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                      className={fieldClass('phone')}
                     />
+                    <p className="mt-1 text-xs text-gray-400">We'll use this to schedule your free call</p>
                   </div>
                   <div>
-                    <label htmlFor="contact-business" className="block text-sm font-semibold text-gray-700 mb-1.5">Business Name</label>
+                    <label htmlFor="contact-business" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                      Business Name <span className="text-gray-400 font-normal">(optional)</span>
+                    </label>
                     <input
                       id="contact-business"
                       type="text"
@@ -184,58 +275,85 @@ export default function ContactPage() {
                       autoComplete="organization"
                       value={formData.business}
                       onChange={handleChange}
-                      placeholder="Your company"
-                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                      onBlur={handleBlur}
+                      placeholder="Your company name"
+                      className={fieldClass('business')}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-package" className="block text-sm font-semibold text-gray-700 mb-1.5">Service Interested In</label>
+                  <label htmlFor="contact-package" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Which service interests you?
+                  </label>
                   <select
                     id="contact-package"
                     name="package"
                     value={formData.package}
                     onChange={handleChange}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white"
+                    onBlur={handleBlur}
+                    className={fieldClass('package')}
                   >
                     <option value="">Select a service...</option>
                     <option value="logo">Logo Design — $299</option>
                     <option value="website">AI Website Design — $499</option>
                     <option value="complete">Complete Digital Package — $999</option>
-                    <option value="other">Not sure yet</option>
+                    <option value="other">Not sure yet — let's talk</option>
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label>
+                  <label htmlFor="contact-message" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Message <span aria-label="required" className="text-red-500">*</span>
+                  </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     required
+                    aria-required="true"
+                    aria-invalid={!!(errors.message && touched.message)}
+                    aria-describedby={errors.message && touched.message ? 'message-error' : 'message-hint'}
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     placeholder="Tell us about your project, goals, or any questions you have..."
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm bg-white resize-none"
+                    className={fieldClass('message')}
                   />
+                  <p id="message-hint" className="mt-1 text-xs text-gray-400">
+                    Briefly describe your business and what you're looking to achieve
+                  </p>
+                  {errors.message && touched.message && (
+                    <p id="message-error" role="alert" className="mt-1.5 flex items-center gap-1.5 text-red-600 text-xs font-medium">
+                      <AlertCircle className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
 
                 {submitError && (
-                  <p className="text-red-600 text-sm font-medium">{submitError}</p>
+                  <div role="alert" className="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4">
+                    <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <p className="text-red-700 text-sm font-medium">{submitError}</p>
+                  </div>
                 )}
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 disabled:opacity-60 text-white font-bold py-4 rounded-xl text-base transition-all shadow-md hover:-translate-y-0.5"
+                  aria-busy={isSubmitting}
+                  aria-disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-base transition-all duration-200 shadow-md hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (
-                    'Sending...'
+                    <>
+                      <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+                      Sending your message...
+                    </>
                   ) : (
                     <>
                       Send Message
-                      <Send className="h-4 w-4" />
+                      <Send className="h-4 w-4" aria-hidden="true" />
                     </>
                   )}
                 </button>
@@ -247,16 +365,16 @@ export default function ContactPage() {
                 <h3 className="text-lg font-black text-gray-900 mb-5">Why Work With Us</h3>
                 <ul className="space-y-4">
                   {[
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "12+ years of brand design expertise" },
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "5,000+ successful brand transformations" },
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "Unlimited revisions until you love it" },
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "48-hour turnaround on logo projects" },
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "100% satisfaction guarantee" },
-                    { icon: <CheckCircle className="h-4.5 w-4.5 text-green-500" />, text: "Full ownership of all final files" },
-                  ].map((item) => (
-                    <li key={item.text} className="flex items-start gap-3">
-                      {item.icon}
-                      <span className="text-gray-700 text-sm">{item.text}</span>
+                    "12+ years of brand design expertise",
+                    "5,000+ successful brand transformations",
+                    "Unlimited revisions until you love it",
+                    "48-hour turnaround on logo projects",
+                    "100% satisfaction guarantee",
+                    "Full ownership of all final files",
+                  ].map((text) => (
+                    <li key={text} className="flex items-start gap-3">
+                      <CheckCircle className="h-4.5 w-4.5 text-green-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                      <span className="text-gray-700 text-sm">{text}</span>
                     </li>
                   ))}
                 </ul>
@@ -266,14 +384,14 @@ export default function ContactPage() {
                 <h3 className="text-lg font-black text-gray-900 mb-4">Office Hours</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <Clock className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    <Clock className="h-4 w-4 text-green-600 flex-shrink-0" aria-hidden="true" />
                     <div>
                       <p className="text-sm font-semibold text-gray-800">Mon – Sat</p>
                       <p className="text-xs text-gray-500">9:00 AM – 9:00 PM IST</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <MapPin className="h-4 w-4 text-green-600 flex-shrink-0" />
+                    <MapPin className="h-4 w-4 text-green-600 flex-shrink-0" aria-hidden="true" />
                     <div>
                       <p className="text-sm font-semibold text-gray-800">India</p>
                       <p className="text-xs text-gray-500">Serving clients globally</p>
@@ -283,17 +401,18 @@ export default function ContactPage() {
               </div>
 
               <div className="bg-green-600 rounded-2xl p-7 text-white">
-                <Calendar className="h-8 w-8 text-yellow-400 mb-3" />
+                <Calendar className="h-8 w-8 text-yellow-400 mb-3" aria-hidden="true" />
                 <h3 className="text-lg font-black mb-2">Prefer a Call?</h3>
                 <p className="text-green-100 text-sm mb-4">Book a free 30-minute discovery call and talk directly with our design team.</p>
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 font-bold px-5 py-2.5 rounded-xl text-sm transition-all"
+                  aria-label="Book a free discovery call (opens in new tab)"
+                  className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 font-bold px-5 py-2.5 rounded-xl text-sm transition-all duration-200"
                 >
                   Book Free Call
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -305,7 +424,7 @@ export default function ContactPage() {
 
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link to="/" className="text-xl font-black">
+          <Link to="/" aria-label="Daily Creative Designs — Home" className="text-xl font-black">
             Daily Creative <span className="text-yellow-400">Designs</span>
           </Link>
           <p className="text-gray-400 text-sm">© 2025 Daily Creative Designs. All rights reserved.</p>

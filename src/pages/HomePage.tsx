@@ -89,9 +89,10 @@ function PortfolioPreview() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-3 right-3 w-7 h-7 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all"
+                  aria-label={`View live site for ${project.client} (opens in new tab)`}
+                  className="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-200"
                 >
-                  <ArrowUpRight className="h-3.5 w-3.5" />
+                  <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
               </div>
               <div className="bg-white px-5 py-4 flex items-center justify-between">

@@ -24,22 +24,47 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer utilities {
   .text-gold-gradient {
-    background: linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0);
+    background: linear-gradient(90deg, #f0b400, #f7c948, #f0b400);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.18));
   }
 
   .btn-gold-gradient {
-    background: linear-gradient(90deg, #fff7c0, #f9d976, #f7c948, #f0b400, #f7c948, #f9d976, #fff7c0);
+    background: linear-gradient(90deg, #f9d976, #f0b400, #f7c948, #f9d976);
   }
 
   .bg-grid-pattern {
     background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
+  }
+
+  .animate-fade-slide-down {
+    animation: fadeSlideDown 0.3s ease-out both;
+  }
+
+  .animate-fade-slide-up {
+    animation: fadeSlideUp 0.3s ease-out both;
   }
 }
 
@@ -48,5 +73,10 @@
     outline: 2px solid #059669;
     outline-offset: 2px;
     border-radius: 4px;
+  }
+
+  [aria-invalid="true"] {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 1px #dc2626;
   }
 }

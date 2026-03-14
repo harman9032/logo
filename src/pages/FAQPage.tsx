@@ -135,28 +135,38 @@ export default function FAQPage() {
                   {group.items.map((item, idx) => {
                     const key = `${group.category}-${idx}`;
                     const isOpen = openItem === key;
+                    const answerId = `faq-answer-${group.category}-${idx}`.replace(/\s+/g, '-').toLowerCase();
+                    const buttonId = `faq-btn-${group.category}-${idx}`.replace(/\s+/g, '-').toLowerCase();
                     return (
                       <div
                         key={key}
                         className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden"
                       >
-                        <button
-                          onClick={() => toggle(key)}
-                          aria-expanded={isOpen}
-                          className="w-full px-7 py-5 text-left flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors"
+                        <h3 className="m-0">
+                          <button
+                            id={buttonId}
+                            onClick={() => toggle(key)}
+                            aria-expanded={isOpen}
+                            aria-controls={answerId}
+                            className="w-full px-7 py-5 text-left flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors duration-200 min-h-[56px]"
+                          >
+                            <span className="text-base font-bold text-gray-900 leading-snug">{item.question}</span>
+                            {isOpen ? (
+                              <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" aria-hidden="true" />
+                            ) : (
+                              <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" aria-hidden="true" />
+                            )}
+                          </button>
+                        </h3>
+                        <div
+                          id={answerId}
+                          role="region"
+                          aria-labelledby={buttonId}
+                          hidden={!isOpen}
+                          className="px-7 pb-6 border-t border-gray-100"
                         >
-                          <span className="text-base font-bold text-gray-900 leading-snug">{item.question}</span>
-                          {isOpen ? (
-                            <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" aria-hidden="true" />
-                          ) : (
-                            <ChevronDown className="h-5 w-5 text-gray-400 flex-shrink-0" aria-hidden="true" />
-                          )}
-                        </button>
-                        {isOpen && (
-                          <div className="px-7 pb-6 border-t border-gray-100">
-                            <p className="text-gray-600 leading-relaxed pt-4">{item.answer}</p>
-                          </div>
-                        )}
+                          <p className="text-gray-600 leading-relaxed pt-4">{item.answer}</p>
+                        </div>
                       </div>
                     );
                   })}
