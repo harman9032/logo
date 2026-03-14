@@ -656,15 +656,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold text-sm transition-colors"
-            >
-              View full service details
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
         </div>
       </section>
 
