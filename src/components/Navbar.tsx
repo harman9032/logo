@@ -1,33 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
 const NAV_LINKS = [
   { label: 'Our Services', href: '/services', type: 'link' as const },
-  { label: 'Masterclass', section: 'hero', type: 'scroll' as const },
-  { label: 'Pricing', section: 'pricing', type: 'scroll' as const },
-  { label: 'Testimonials', section: 'testimonials', type: 'scroll' as const },
-  { label: 'FAQ', section: 'faq', type: 'scroll' as const },
-  { label: 'Contact', section: 'contact', type: 'scroll' as const },
+  { label: 'Testimonials', href: '/testimonials', type: 'link' as const },
+  { label: 'FAQ', href: '/faq', type: 'link' as const },
+  { label: 'Contact', href: '/contact', type: 'link' as const },
 ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const isHome = location.pathname === '/';
-
-  const handleScrollLink = (section: string) => {
-    setIsMenuOpen(false);
-    if (isHome) {
-      const el = document.getElementById(section);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate(`/#${section}`);
-    }
-  };
 
   return (
     <nav className="fixed top-0 w-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 backdrop-blur-md z-50 border-b border-green-900">
@@ -41,30 +27,19 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center space-x-1">
             {NAV_LINKS.map((link) => {
-              if (link.type === 'link') {
-                const isActive = location.pathname === link.href;
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.href!}
-                    className={`px-3 py-2 text-sm font-semibold transition-colors ${
-                      isActive
-                        ? 'text-yellow-300 border-b-2 border-yellow-400'
-                        : 'text-white hover:text-yellow-300'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              }
+              const isActive = location.pathname === link.href;
               return (
-                <button
+                <Link
                   key={link.label}
-                  onClick={() => handleScrollLink(link.section!)}
-                  className="text-white hover:text-yellow-300 px-3 py-2 text-sm font-semibold transition-colors"
+                  to={link.href!}
+                  className={`px-3 py-2 text-sm font-semibold transition-colors ${
+                    isActive
+                      ? 'text-yellow-300 border-b-2 border-yellow-400'
+                      : 'text-white hover:text-yellow-300'
+                  }`}
                 >
                   {link.label}
-                </button>
+                </Link>
               );
             })}
             <a
@@ -89,29 +64,16 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {NAV_LINKS.map((link) => {
-              if (link.type === 'link') {
-                return (
-                  <Link
-                    key={link.label}
-                    to={link.href!}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold"
-                  >
-                    {link.label}
-                  </Link>
-                );
-              }
-              return (
-                <button
-                  key={link.label}
-                  onClick={() => handleScrollLink(link.section!)}
-                  className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold w-full text-left"
-                >
-                  {link.label}
-                </button>
-              );
-            })}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                to={link.href!}
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold"
+              >
+                {link.label}
+              </Link>
+            ))}
             <a
               href={BOOKING_LINK}
               target="_blank"
