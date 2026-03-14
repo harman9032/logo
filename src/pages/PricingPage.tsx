@@ -22,7 +22,7 @@ import Footer from '../components/Footer';
 import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
-const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'd like to know more about pricing";
+const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20pricing";
 
 const plans = [
   {

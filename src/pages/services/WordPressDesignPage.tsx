@@ -3,7 +3,7 @@ import { CheckCircle, ArrowRight, Globe, Zap, Shield, Code, ChevronRight, Messag
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
-const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in WordPress Website Design.";
+const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20WordPress%20Website%20Design.";
 
 const packages = [
   {

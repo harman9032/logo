@@ -7,7 +7,7 @@ import {
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
-const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Social Media Design services.";
+const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20Social%20Media%20Design%20services.";
 
 const packages = [
   {

@@ -7,7 +7,7 @@ import {
 import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
-const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Digital Marketing services.";
+const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20Digital%20Marketing%20services.";
 
 const services = [
   { icon: Search, title: 'SEO Strategy', desc: 'Rank higher on Google with technical SEO, on-page optimisation, and content strategy.' },

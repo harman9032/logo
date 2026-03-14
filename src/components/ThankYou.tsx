@@ -1,6 +1,6 @@
 import { CheckCircle, ArrowRight, Phone, MessageCircle, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I just submitted an enquiry and wanted to follow up.";
+const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi%2C%20I%20just%20submitted%20an%20enquiry%20and%20wanted%20to%20follow%20up.";
 
 export default function ThankYou() {
   return (
