@@ -481,187 +481,189 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-gray-900 mb-4">
-              {content.services.title}
+            <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+              <Zap className="h-3 w-3" />
+              What We Offer
+            </div>
+            <h2 className="text-4xl font-black text-white mb-4">
+              Services Built to{' '}
+              <span className="bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">
+                Grow Your Brand
+              </span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
-              {content.services.subtitle}
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Choose the package that fits your goals. Every service is crafted with precision, delivered fast, and backed by 12+ years of design expertise.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             {/* Logo Design */}
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <Target className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.logoTitle}</h3>
-              <p className="text-gray-600 mb-6 font-medium">{content.services.logoDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature1}</span>
+            <div className="relative rounded-2xl bg-gradient-to-b from-slate-900 to-slate-800 border border-slate-700/50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="inline-flex items-center gap-1.5 bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-semibold px-3 py-1 rounded-full">
+                    <Star className="h-3 w-3" />
+                    Brand Identity
+                  </div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-300 flex items-center justify-center shadow-lg">
+                    <Target className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature2}</span>
+                <h3 className="text-2xl font-black text-white mb-1">Logo Design</h3>
+                <p className="text-sm font-medium text-amber-300 mb-4">Make a lasting first impression</p>
+                <div className="mb-5">
+                  <span className="text-5xl font-black bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent leading-none">$51.00</span>
+                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.logoFeature3}</span>
+                <p className="text-slate-300 text-sm leading-relaxed mb-5">A professionally crafted custom logo that captures your brand's personality and sets you apart from the competition.</p>
+                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-amber-400/10 text-amber-300">
+                  <Shield className="h-3 w-3" />
+                  Ideal for small businesses & startups
                 </div>
-              </div>
-
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-700">{content.services.logoPrice}</span>
-                <span className="text-sm text-gray-600 flex items-center font-medium">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.logoDelivery}
-                </span>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Landing Page */}
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <BarChart3 className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.landingTitle}</h3>
-              <p className="text-gray-600 mb-6 font-medium">{content.services.landingDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature1}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.landingFeature3}</span>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-700">{content.services.landingPrice}</span>
-                <span className="text-sm text-gray-600 flex items-center font-medium">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.landingDelivery}
-                </span>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
-              >
-                Get Started
-              </button>
-            </div>
-
-            {/* Meta Ads */}
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-green-300">
-              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="h-8 w-8 text-green-700" />
-              </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">{content.services.adsTitle}</h3>
-              <p className="text-gray-600 mb-6 font-medium">{content.services.adsDescription}</p>
-
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature1}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature2}</span>
-                </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">{content.services.adsFeature3}</span>
-                </div>
-              </div>
-
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-2xl font-black text-green-700">{content.services.adsPrice}</span>
-                <span className="text-sm text-gray-600 flex items-center font-medium">
-                  <Clock className="h-4 w-4 mr-1" />
-                  {content.services.adsDelivery}
-                </span>
-              </div>
-
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition-all duration-300"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-
-          {/* Complete Package */}
-          <div className="bg-green-600 rounded-3xl p-12 text-white text-center relative overflow-hidden shadow-lg">
-            <div className="absolute inset-0 bg-black/5"></div>
-            <div className="relative z-10">
-              <div className="inline-flex items-center bg-white/20 rounded-full px-6 py-2 mb-6">
-                <Zap className="h-5 w-5 mr-2" />
-                <span className="font-bold">Best Value</span>
-              </div>
-
-              <h3 className="text-4xl font-black mb-4">{content.services.packageTitle}</h3>
-              <p className="text-xl mb-2 font-semibold">{content.services.packageSubtitle}</p>
-              <p className="text-green-100 mb-8 max-w-2xl mx-auto font-medium">{content.services.packageDescription}</p>
-
-              <div className="flex items-center justify-center mb-8">
-                <span className="text-5xl font-black">{content.services.packagePrice}</span>
-                <span className="text-xl ml-2 text-green-100 font-semibold">one-time</span>
-              </div>
-
-              <div className="flex items-center justify-center mb-8">
-                <Clock className="h-5 w-5 mr-2" />
-                <span className="font-semibold">{content.services.packageDelivery}</span>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <button
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-white text-green-700 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-md"
-                >
-                  {content.services.packageButtonText}
-                </button>
+                <ul className="space-y-2.5 mb-6 flex-1">
+                  {['3 unique logo concepts', 'Unlimited revisions until perfect', 'Final files: PNG, SVG, PDF, AI', 'Light & dark versions included', 'Brand color palette suggestion', 'Typography recommendation', 'Commercial usage rights'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-amber-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-slate-300 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
                 <a
                   href={BOOKING_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-amber-400 hover:bg-amber-300 text-slate-900 transition-all hover:scale-[1.02] shadow-lg"
                 >
-                  Book Free Call
+                  Get Your Logo
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
                 </a>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm font-semibold">
-                <div className="flex items-center">
-                  <Shield className="h-5 w-5 mr-2" />
-                  <span>{content.services.guaranteeText}</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 mr-2" />
-                  <span>{content.services.supportText}</span>
-                </div>
+                <p className="text-center text-slate-500 text-xs mt-3">
+                  <Clock className="h-3 w-3 inline mr-1" />
+                  Fast delivery · No hidden fees
+                </p>
               </div>
             </div>
+
+            {/* AI Website Design — Most Popular */}
+            <div className="relative rounded-2xl bg-gradient-to-b from-green-900 to-green-800 border-2 border-slate-500/60 ring-2 ring-green-400/30 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
+              <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-400 text-green-950 text-xs font-bold text-center py-1.5 tracking-wide uppercase">
+                Most Popular Choice
+              </div>
+              <div className="p-8 pt-10 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="inline-flex items-center gap-1.5 bg-green-400/20 text-green-300 border border-green-400/30 text-xs font-semibold px-3 py-1 rounded-full">
+                    <Zap className="h-3 w-3" />
+                    Most Popular
+                  </div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-300 flex items-center justify-center shadow-lg">
+                    <BarChart3 className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-black text-white mb-1">AI Website Design</h3>
+                <p className="text-sm font-medium text-green-300 mb-4">Your digital storefront, built fast</p>
+                <div className="mb-5">
+                  <span className="text-5xl font-black bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent leading-none">$51.00</span>
+                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
+                </div>
+                <p className="text-slate-300 text-sm leading-relaxed mb-5">An AI-powered responsive website or landing page that looks stunning on every device. Get online quickly with a professional web presence.</p>
+                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-green-400/10 text-green-300">
+                  <Shield className="h-3 w-3" />
+                  Ideal for entrepreneurs & small businesses
+                </div>
+                <ul className="space-y-2.5 mb-4 flex-1">
+                  {['Fully responsive design', 'Mobile-first optimization', 'Basic on-page SEO setup', 'Contact form integration', 'Fast loading performance', 'Social media links', 'Google Analytics ready'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-slate-300 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="bg-slate-800/60 rounded-lg p-3 mb-5">
+                  <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-1">Not included</p>
+                  <div className="flex flex-col gap-1">
+                    {['Domain registration', 'Hosting fees'].map((item) => (
+                      <span key={item} className="flex items-center gap-2 text-slate-500 text-xs">
+                        <X className="h-3 w-3 flex-shrink-0" />
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-green-400 hover:bg-green-300 text-green-900 transition-all hover:scale-[1.02] shadow-lg"
+                >
+                  Build My Website
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </a>
+                <p className="text-center text-slate-500 text-xs mt-3">
+                  <Clock className="h-3 w-3 inline mr-1" />
+                  Fast delivery · No hidden fees
+                </p>
+              </div>
+            </div>
+
+            {/* Complete Digital Package */}
+            <div className="relative rounded-2xl bg-gradient-to-b from-sky-900 to-sky-800 border border-slate-700/50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1">
+              <div className="p-8 flex flex-col flex-1">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="inline-flex items-center gap-1.5 bg-sky-400/20 text-sky-300 border border-sky-400/30 text-xs font-semibold px-3 py-1 rounded-full">
+                    <Award className="h-3 w-3" />
+                    Best Value
+                  </div>
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-cyan-300 flex items-center justify-center shadow-lg">
+                    <TrendingUp className="h-6 w-6 text-slate-900" strokeWidth={2.5} />
+                  </div>
+                </div>
+                <h3 className="text-2xl font-black text-white mb-1">Complete Digital Package</h3>
+                <p className="text-sm font-medium text-sky-300 mb-4">Everything you need to dominate online</p>
+                <div className="mb-5">
+                  <span className="text-5xl font-black bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent leading-none">$99.99</span>
+                  <p className="text-slate-400 text-xs mt-1">One-time payment</p>
+                </div>
+                <p className="text-slate-300 text-sm leading-relaxed mb-5">The ultimate digital transformation bundle. Custom logo + professional website + comprehensive digital marketing strategy — all in one.</p>
+                <div className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-5 bg-sky-400/10 text-sky-300">
+                  <Shield className="h-3 w-3" />
+                  Ideal for full digital transformation
+                </div>
+                <ul className="space-y-2.5 mb-6 flex-1">
+                  {['Everything in Logo Design', 'Everything in AI Website Design', 'Digital marketing strategy plan', 'Social media brand guidelines', 'Content calendar framework', 'Competitor analysis report', 'Growth roadmap (90 days)', 'Priority support included'].map((f) => (
+                    <li key={f} className="flex items-start gap-2.5">
+                      <CheckCircle className="h-4 w-4 text-sky-400 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
+                      <span className="text-slate-300 text-sm">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={BOOKING_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm bg-sky-400 hover:bg-sky-300 text-sky-900 transition-all hover:scale-[1.02] shadow-lg"
+                >
+                  Start Full Transformation
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                </a>
+                <p className="text-center text-slate-500 text-xs mt-3">
+                  <Clock className="h-3 w-3 inline mr-1" />
+                  Fast delivery · No hidden fees
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold text-sm transition-colors"
+            >
+              View full service details
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
