@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Logo Design services.";
@@ -153,6 +154,7 @@ const faqs = [
 export default function LogoDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Logo Design — Professional Logos from $299" description="Get a professional, unique logo for $299. 3 concepts, unlimited revisions, PNG/SVG/PDF/AI files included. Free brand consultation. Order today." canonical="/services/logo-design" />
       <Navbar />
 
       <main id="main-content" className="flex-1 pt-16">

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in AI Website Design.";
@@ -95,6 +96,7 @@ const faqs = [
 export default function AIWebsiteDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="AI Website Design — Stunning Websites from $499" description="AI-powered website design from $499. Mobile-first, SEO-optimized, fast-loading. Full responsive website with contact form. Delivered in 3-5 days." canonical="/services/ai-website-design" />
       <Navbar />
 
       <main id="main-content" className="flex-1 pt-16">

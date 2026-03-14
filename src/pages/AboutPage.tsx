@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
@@ -92,6 +93,7 @@ const whyIndia = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="About Us — Design Agency Since 2012" description="Meet the team behind 5,000+ successful brand transformations. Daily Creative Designs has been delivering premium logo and website design since 2012." canonical="/about" />
       <Navbar />
       <main id="main-content">
 

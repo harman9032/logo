@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Tag, BookOpen, Rss } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { blogPosts, BLOG_CATEGORIES, getFeaturedPost, getPostsByCategory } from '../data/blogPosts';
 import type { BlogCategory } from '../data/blogPosts';
 
@@ -78,6 +79,7 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Blog — Design & Digital Marketing Insights" description="Expert articles on logo design, website optimization, brand strategy, and digital marketing. Actionable advice from our design team." canonical="/blog" />
       <BlogListSchema />
       <BreadcrumbSchema />
       <Navbar />
@@ -130,6 +132,9 @@ export default function BlogPage() {
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width="900"
+                    height="600"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-4 left-4">
@@ -216,6 +221,9 @@ export default function BlogPage() {
                         alt={post.title}
                         itemProp="image"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        width="400"
+                        height="300"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                       <div className="absolute top-3 left-3">

@@ -192,6 +192,10 @@ export default function BlogPostPage() {
             alt={post.title}
             className="w-full h-full object-cover"
             itemProp="image"
+            width="900"
+            height="600"
+            fetchpriority="high"
+            loading="eager"
           />
         </div>
       </div>
@@ -285,6 +289,9 @@ export default function BlogPostPage() {
                         src={related.image}
                         alt={related.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        width="400"
+                        height="300"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                       <div className="absolute top-2 left-2">

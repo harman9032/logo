@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { ChevronDown, ChevronUp, HelpCircle, ArrowRight, MessageCircle } from 'lucide-react';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -77,6 +78,21 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.flatMap((group) =>
+    group.items.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    }))
+  ),
+};
+
 export default function FAQPage() {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
@@ -84,6 +100,8 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <SEO title="FAQ — Frequently Asked Questions" description="Answers to common questions about our design services, process, pricing, revisions, timelines, and file deliverables." canonical="/faq" />
       <Navbar />
       <main id="main-content">
 

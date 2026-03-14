@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Shopify Website Design.";
@@ -93,6 +94,7 @@ const faqs = [
 export default function ShopifyDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Shopify Store Design — Custom eCommerce Stores" description="Custom Shopify store design that converts visitors into customers. Mobile-optimized, fast-loading, and branded to your business. Get a free consultation." canonical="/services/shopify-design" />
       <Navbar />
 
       <main id="main-content" className="flex-1 pt-16">

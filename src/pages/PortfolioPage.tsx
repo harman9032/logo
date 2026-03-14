@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import {
   portfolioProjects,
   PORTFOLIO_CATEGORIES,
@@ -40,6 +41,9 @@ function ProjectCard({ project }: { project: PortfolioProject }) {
           src={project.image}
           alt={`${project.client} website`}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          width="400"
+          height="300"
+          loading="lazy"
         />
         <div className={`absolute inset-0 bg-gradient-to-t ${project.accentColor} opacity-60`} />
         <div className="absolute inset-0 flex flex-col justify-end p-5">
@@ -174,6 +178,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Portfolio — 5,000+ Brand Transformations" description="Browse our portfolio of logo designs, websites, and brand identities. Real results for real businesses across healthcare, retail, tech, and more." canonical="/portfolio" />
       <Navbar />
       <main id="main-content">
 

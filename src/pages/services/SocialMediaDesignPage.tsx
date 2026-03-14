@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Social Media Design services.";
@@ -81,6 +82,7 @@ const faqs = [
 export default function SocialMediaDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Social Media Design — Scroll-Stopping Visuals" description="Professional social media design that stops the scroll. Custom templates, post graphics, story designs, and brand-consistent visuals for all platforms." canonical="/services/social-media-design" />
       <Navbar />
 
       <main id="main-content" className="flex-1 pt-16">

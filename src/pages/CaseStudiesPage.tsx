@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
@@ -111,6 +112,7 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Case Studies — Proven Results" description="In-depth case studies showing how our design work drives real business results — increased conversions, brand authority, and revenue growth." canonical="/case-studies" />
       <Navbar />
       <main id="main-content">
 

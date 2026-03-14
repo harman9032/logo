@@ -1,3 +1,5 @@
-Sitemap: https://dailycreativedesigns.com/sitemap.xml
 User-agent: *
 Allow: /
+Disallow: /thank-you
+
+Sitemap: https://dailycreativedesigns.com/sitemap.xml

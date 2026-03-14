@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle, FileText, Lightbulb, Layers, RefreshCw, CheckCircle, Download, Headphones as HeadphonesIcon, Shield, Clock, ChevronDown, ChevronUp, Zap, Star } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20process";
@@ -203,6 +204,7 @@ export default function ProcessPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Our Process — 8 Steps From Brief to Brand" description="Transparent 8-step design process with clear timelines, unlimited revisions, and no surprises. From discovery call to 30-day post-delivery support." canonical="/process" />
       <Navbar />
       <main id="main-content">
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import SEO from '../components/SEO';
 import {
   Phone,
   Mail,
@@ -49,6 +50,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Contact Us — Get a Free Brand Audit" description="Contact Daily Creative Designs for a free brand audit, project quote, or just to say hello. We respond within 2 hours during business hours." canonical="/contact" />
       <Navbar />
       <main id="main-content">
 
@@ -135,6 +137,7 @@ export default function ContactPage() {
                       id="contact-name"
                       type="text"
                       name="name"
+                      autoComplete="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
@@ -148,6 +151,7 @@ export default function ContactPage() {
                       id="contact-email"
                       type="email"
                       name="email"
+                      autoComplete="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
@@ -164,6 +168,7 @@ export default function ContactPage() {
                       id="contact-phone"
                       type="tel"
                       name="phone"
+                      autoComplete="tel"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 99999 99999"
@@ -176,6 +181,7 @@ export default function ContactPage() {
                       id="contact-business"
                       type="text"
                       name="business"
+                      autoComplete="organization"
                       value={formData.business}
                       onChange={handleChange}
                       placeholder="Your company"

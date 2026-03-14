@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import SEO from '../../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Brand Identity Design.";
@@ -108,6 +109,7 @@ const faqs = [
 export default function BrandIdentityPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Brand Identity Design — Complete Brand Systems" description="Complete brand identity design: logo, colour palette, typography, brand guidelines, and assets. Everything you need to build a memorable brand." canonical="/services/brand-identity" />
       <Navbar />
 
       <main id="main-content" className="flex-1 pt-16">

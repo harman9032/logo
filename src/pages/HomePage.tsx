@@ -36,6 +36,7 @@ import {
   Quote,
 } from 'lucide-react';
 import { portfolioProjects } from '../data/portfolioProjects';
+import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'm interested in your design services";
@@ -71,6 +72,9 @@ function PortfolioPreview() {
                   src={project.image}
                   alt={project.client}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width="400"
+                  height="300"
+                  loading="lazy"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${project.accentColor} opacity-50`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -338,6 +342,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Professional Logo & Website Design" description="Award-winning logo design from $299, AI website design from $499. 5,000+ brands transformed since 2012. Get your free brand audit today." canonical="/" />
       <Navbar />
       <main id="main-content">
 
@@ -493,6 +498,10 @@ export default function HomePage() {
                     src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900"
                     alt="Professional website design for a client"
                     className="w-full h-full object-cover object-top scale-[1.02] hover:scale-100 transition-transform duration-700"
+                    width="900"
+                    height="600"
+                    fetchpriority="high"
+                    loading="eager"
                   />
                   {/* Subtle darkening gradient at bottom only */}
                   <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />

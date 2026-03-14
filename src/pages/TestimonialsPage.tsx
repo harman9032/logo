@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import { Star, ArrowRight, Quote, TrendingUp, Users, Award } from 'lucide-react';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
@@ -67,6 +68,7 @@ const stats = [
 export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Client Testimonials — Real Reviews" description="Read real testimonials from our clients. Discover why 5,000+ businesses trust Daily Creative Designs for logos, websites, and brand identity." canonical="/testimonials" />
       <Navbar />
       <main id="main-content">
 

@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi, I'd like to know more about pricing";
@@ -197,6 +198,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <SEO title="Transparent Pricing — Logo $299, Website $499" description="Simple, flat pricing with no hidden fees. Logo Design from $299, AI Website Design from $499, Complete Digital Package from $999. One-time payment." canonical="/pricing" />
       <Navbar />
       <main id="main-content">
 
