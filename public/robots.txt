@@ -1,5 +1,32 @@
 User-agent: *
 Allow: /
+
 Disallow: /thank-you
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Block crawling of assets directly
+Disallow: /assets/
+
+# AI crawlers — allow content indexing for visibility
+User-agent: GPTBot
+Allow: /
+Disallow: /thank-you
+Disallow: /admin/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /thank-you
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /thank-you
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://dailycreativedesigns.com/sitemap.xml

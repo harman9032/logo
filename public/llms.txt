@@ -1,0 +1,62 @@
+# Daily Creative Designs — LLM Context File
+# https://dailycreativedesigns.com/llms.txt
+
+## About
+
+Daily Creative Designs is a professional design and digital marketing agency.
+We help small businesses, startups, and entrepreneurs build powerful brands and online presence through strategic design and marketing.
+
+## Services
+
+- Logo Design: Custom, vector-based logos with full commercial ownership
+- AI Website Design: Fast, modern websites built with AI-assisted tools
+- Shopify Design: Custom Shopify storefronts optimised for conversions
+- WordPress Design: Bespoke WordPress websites with performance and SEO focus
+- Brand Identity: Complete brand systems including colours, typography, and guidelines
+- Social Media Design: Templates, graphics, and visual assets for social platforms
+- Digital Marketing: SEO, content strategy, and paid media management
+
+## Key Pages
+
+- Home: https://dailycreativedesigns.com/
+- Services: https://dailycreativedesigns.com/services
+- Pricing: https://dailycreativedesigns.com/pricing
+- Portfolio: https://dailycreativedesigns.com/portfolio
+- About: https://dailycreativedesigns.com/about
+- Blog: https://dailycreativedesigns.com/blog
+- Case Studies: https://dailycreativedesigns.com/case-studies
+- Contact: https://dailycreativedesigns.com/contact
+- FAQ: https://dailycreativedesigns.com/faq
+- Process: https://dailycreativedesigns.com/process
+- Testimonials: https://dailycreativedesigns.com/testimonials
+
+## Service Pages
+
+- Logo Design: https://dailycreativedesigns.com/services/logo-design
+- AI Website Design: https://dailycreativedesigns.com/services/ai-website-design
+- Shopify Design: https://dailycreativedesigns.com/services/shopify-design
+- WordPress Design: https://dailycreativedesigns.com/services/wordpress-design
+- Brand Identity: https://dailycreativedesigns.com/services/brand-identity
+- Social Media Design: https://dailycreativedesigns.com/services/social-media-design
+- Digital Marketing: https://dailycreativedesigns.com/services/digital-marketing
+
+## Blog Topics
+
+Our blog covers logo design, brand identity, web design, digital marketing, WordPress, Shopify, and business growth.
+Full blog index: https://dailycreativedesigns.com/blog
+
+## Contact
+
+- Website: https://dailycreativedesigns.com/contact
+- WhatsApp: https://wa.me/917837319660
+
+## Policies
+
+- Privacy Policy: https://dailycreativedesigns.com/privacy-policy
+- Terms of Service: https://dailycreativedesigns.com/terms
+- Refund Policy: https://dailycreativedesigns.com/refund-policy
+- Cookies Policy: https://dailycreativedesigns.com/cookies-policy
+
+## Sitemap
+
+https://dailycreativedesigns.com/sitemap.xml
