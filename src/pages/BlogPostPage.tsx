@@ -74,8 +74,19 @@ export default function BlogPostPage() {
         </div>
       </section>
 
+      {/* ── HERO IMAGE ── */}
+      <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+        <div className="rounded-2xl overflow-hidden shadow-2xl h-72 md:h-96">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
       {/* ── ARTICLE BODY ── */}
-      <section className="py-16 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Intro paragraph */}
@@ -161,9 +172,17 @@ export default function BlogPostPage() {
                     to={`/blog/${related.slug}`}
                     className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:-translate-y-1 transition-transform duration-300 group flex flex-col"
                   >
-                    <div className={`${related.iconColor} flex items-center justify-center py-8`}>
-                      <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                        <Icon className={`h-6 w-6 ${related.iconTextColor}`} />
+                    <div className="relative h-40 overflow-hidden">
+                      <img
+                        src={related.image}
+                        alt={related.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                      <div className="absolute top-2 left-2">
+                        <div className={`w-8 h-8 ${related.iconColor} rounded-lg flex items-center justify-center shadow-sm`}>
+                          <Icon className={`h-4 w-4 ${related.iconTextColor}`} />
+                        </div>
                       </div>
                     </div>
                     <div className="p-5 flex flex-col flex-1">

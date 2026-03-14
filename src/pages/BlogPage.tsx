@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Tag, BookOpen } from 'lucide-react';
 import Navbar from '../components/Navbar';
@@ -57,15 +57,17 @@ export default function BlogPage() {
               Featured Article
             </div>
             <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden grid grid-cols-1 md:grid-cols-5">
-              <div className={`${featuredPost.iconColor} md:col-span-2 flex items-center justify-center p-16`}>
-                <div className="text-center">
-                  <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-md">
-                    {React.createElement(featuredPost.icon, { className: `h-12 w-12 ${featuredPost.iconTextColor}` })}
-                  </div>
+              <div className="md:col-span-2 relative overflow-hidden min-h-[280px]">
+                <img
+                  src={featuredPost.image}
+                  alt={featuredPost.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute bottom-4 left-4">
                   <span className={`inline-block ${featuredPost.tagStyle} text-xs font-bold px-3 py-1.5 rounded-full`}>
                     {featuredPost.category}
                   </span>
-                  <p className="text-gray-500 text-xs mt-3">{featuredPost.readTime} · {featuredPost.date}</p>
                 </div>
               </div>
               <div className="md:col-span-3 p-10 flex flex-col justify-center">
@@ -138,9 +140,17 @@ export default function BlogPage() {
                     key={post.slug}
                     className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden hover:-translate-y-1 transition-transform duration-300 group flex flex-col"
                   >
-                    <div className={`${post.iconColor} flex items-center justify-center py-10 relative`}>
-                      <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                        <Icon className={`h-7 w-7 ${post.iconTextColor}`} />
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <div className={`w-9 h-9 ${post.iconColor} rounded-lg flex items-center justify-center shadow-sm`}>
+                          <Icon className={`h-4.5 w-4.5 ${post.iconTextColor}`} />
+                        </div>
                       </div>
                     </div>
                     <div className="p-6 flex flex-col flex-1">

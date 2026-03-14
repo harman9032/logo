@@ -18,6 +18,7 @@ export interface BlogPost {
   category: Exclude<BlogCategory, 'All'>;
   readTime: string;
   date: string;
+  image: string;
   icon: LucideIcon;
   iconColor: string;
   iconTextColor: string;
@@ -38,6 +39,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Logo Design',
     readTime: '6 min read',
     date: 'January 2025',
+    image: 'https://images.pexels.com/photos/5428676/pexels-photo-5428676.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: Palette,
     iconColor: 'bg-amber-100',
     iconTextColor: 'text-amber-600',
@@ -96,6 +98,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Brand Identity',
     readTime: '9 min read',
     date: 'January 2025',
+    image: 'https://images.pexels.com/photos/7598019/pexels-photo-7598019.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: Layers,
     iconColor: 'bg-orange-100',
     iconTextColor: 'text-orange-600',
@@ -166,6 +169,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Web Design',
     readTime: '8 min read',
     date: 'December 2024',
+    image: 'https://images.pexels.com/photos/270488/pexels-photo-270488.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: Globe,
     iconColor: 'bg-sky-100',
     iconTextColor: 'text-sky-600',
@@ -235,6 +239,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Web Design',
     readTime: '7 min read',
     date: 'December 2024',
+    image: 'https://images.pexels.com/photos/3584973/pexels-photo-3584973.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: Monitor,
     iconColor: 'bg-green-100',
     iconTextColor: 'text-green-600',
@@ -313,6 +318,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Business Growth',
     readTime: '10 min read',
     date: 'November 2024',
+    image: 'https://images.pexels.com/photos/4238483/pexels-photo-4238483.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: BookOpen,
     iconColor: 'bg-teal-100',
     iconTextColor: 'text-teal-600',
@@ -415,6 +421,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Marketing',
     readTime: '5 min read',
     date: 'November 2024',
+    image: 'https://images.pexels.com/photos/5744248/pexels-photo-5744248.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: TrendingUp,
     iconColor: 'bg-rose-100',
     iconTextColor: 'text-rose-600',
@@ -478,6 +485,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Brand Identity',
     readTime: '7 min read',
     date: 'October 2024',
+    image: 'https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: Palette,
     iconColor: 'bg-amber-100',
     iconTextColor: 'text-amber-600',
@@ -551,6 +559,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Marketing',
     readTime: '8 min read',
     date: 'October 2024',
+    image: 'https://images.pexels.com/photos/19915765/pexels-photo-19915765.jpeg?auto=compress&cs=tinysrgb&w=1200',
     icon: BarChart3,
     iconColor: 'bg-teal-100',
     iconTextColor: 'text-teal-600',
