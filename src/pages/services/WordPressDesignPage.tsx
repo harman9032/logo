@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Globe, Zap, Shield, Code, ChevronRight, MessageCircle, LayoutGrid as Layout, Search, Settings } from 'lucide-react';
+import { CheckCircle, ArrowRight, Globe, Zap, Shield, Code, ChevronRight, MessageCircle, LayoutGrid as Layout, Search, Settings, CheckSquare, XSquare, Newspaper, ShoppingCart, Briefcase, GraduationCap, Users } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
@@ -45,6 +45,26 @@ const packages = [
     ],
     highlight: false,
   },
+];
+
+const siteTypes = [
+  { icon: Briefcase, title: 'Business & Corporate', desc: 'Professional sites for agencies, consultancies, and service providers.' },
+  { icon: ShoppingCart, title: 'WooCommerce Stores', desc: 'Full eCommerce sites with product catalogues, cart, and checkout.' },
+  { icon: Newspaper, title: 'Blogs & News Sites', desc: 'Content-heavy sites with powerful category and tag management.' },
+  { icon: GraduationCap, title: 'Education & LMS', desc: 'Course platforms with LearnDash or Tutor LMS integration.' },
+  { icon: Users, title: 'Membership Sites', desc: 'Restricted content, paid memberships, and user account management.' },
+  { icon: Layout, title: 'Portfolio Sites', desc: 'Showcase-heavy sites for designers, photographers, and creatives.' },
+];
+
+const comparison = [
+  { feature: 'Full design customisation', wordpress: true, wix: false, squarespace: false },
+  { feature: 'Own your data completely', wordpress: true, wix: false, squarespace: false },
+  { feature: 'Plugin ecosystem (60,000+)', wordpress: true, wix: false, squarespace: false },
+  { feature: 'Advanced SEO control', wordpress: true, wix: false, squarespace: false },
+  { feature: 'WooCommerce eCommerce', wordpress: true, wix: false, squarespace: false },
+  { feature: 'No monthly platform fee', wordpress: true, wix: false, squarespace: false },
+  { feature: 'Scalable to any size', wordpress: true, wix: false, squarespace: false },
+  { feature: 'Developer handoff possible', wordpress: true, wix: false, squarespace: false },
 ];
 
 const pluginStack = [
@@ -100,24 +120,26 @@ export default function WordPressDesignPage() {
           </div>
         </section>
 
-        {/* Why WordPress */}
-        <section className="py-16 px-4 border-b border-gray-100">
+        {/* Types of Sites */}
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-              {[
-                { icon: Layout, title: 'Fully Customisable', desc: 'Any design, any functionality', color: 'text-sky-600', bg: 'bg-sky-50' },
-                { icon: Search, title: 'SEO Powerhouse', desc: 'Built-in tools to dominate search', color: 'text-green-600', bg: 'bg-green-50' },
-                { icon: Settings, title: 'Easy to Manage', desc: 'Update content without a developer', color: 'text-amber-600', bg: 'bg-amber-50' },
-                { icon: Shield, title: 'Secure & Reliable', desc: 'Enterprise-grade security setup', color: 'text-rose-600', bg: 'bg-rose-50' },
-              ].map((item) => {
-                const Icon = item.icon;
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Site Types
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">6 Types of WordPress Sites We Build</h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">WordPress handles almost any website type. Here are the most common projects we build.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {siteTypes.map((site) => {
+                const Icon = site.icon;
                 return (
-                  <div key={item.title} className="text-center p-5 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                      <Icon size={20} className={item.color} />
+                  <div key={site.title} className="bg-sky-50 border border-sky-100 rounded-2xl p-6 hover:border-sky-300 hover:shadow-sm transition-all">
+                    <div className="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                      <Icon size={18} className="text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                    <p className="text-gray-500 text-xs">{item.desc}</p>
+                    <h3 className="font-black text-gray-900 mb-2">{site.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{site.desc}</p>
                   </div>
                 );
               })}
@@ -125,8 +147,47 @@ export default function WordPressDesignPage() {
           </div>
         </section>
 
+        {/* Comparison Table */}
+        <section className="py-16 px-4 bg-gray-50">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Platform Comparison
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">WordPress vs. Wix vs. Squarespace</h2>
+              <p className="text-gray-500 text-sm">Why serious businesses choose WordPress every time.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+              <div className="grid grid-cols-4 text-xs font-bold uppercase tracking-widest text-gray-500 bg-gray-50 border-b border-gray-200 px-5 py-3">
+                <div className="col-span-2">Feature</div>
+                <div className="text-center text-sky-600">WordPress</div>
+                <div className="text-center text-gray-400">Others</div>
+              </div>
+              {comparison.map((row, i) => (
+                <div key={row.feature} className={`grid grid-cols-4 items-center px-5 py-3.5 ${i % 2 === 0 ? '' : 'bg-gray-50'} border-b border-gray-100 last:border-0`}>
+                  <div className="col-span-2 text-sm text-gray-700 font-medium">{row.feature}</div>
+                  <div className="flex justify-center">
+                    {row.wordpress ? (
+                      <CheckSquare size={18} className="text-green-600" />
+                    ) : (
+                      <XSquare size={18} className="text-gray-300" />
+                    )}
+                  </div>
+                  <div className="flex justify-center">
+                    {!row.wordpress ? (
+                      <CheckSquare size={18} className="text-gray-400" />
+                    ) : (
+                      <XSquare size={18} className="text-red-300" />
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Packages */}
-        <section className="py-20 px-4 bg-gray-50">
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">WordPress Packages</h2>
@@ -162,16 +223,47 @@ export default function WordPressDesignPage() {
         </section>
 
         {/* Plugin stack */}
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 bg-slate-900 text-white">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-black text-gray-900 mb-3">Plugins & Tools We Use</h2>
-            <p className="text-gray-500 mb-8 text-sm">Industry-leading plugins for performance, security, and SEO.</p>
+            <div className="inline-flex items-center gap-2 bg-sky-400/20 text-sky-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+              Plugin Stack
+            </div>
+            <h2 className="text-2xl font-black text-white mb-2">Plugins & Tools We Use</h2>
+            <p className="text-slate-400 mb-8 text-sm">Industry-leading plugins for performance, security, and SEO — all included in your build.</p>
             <div className="flex flex-wrap justify-center gap-3">
               {pluginStack.map((p) => (
-                <span key={p} className="bg-sky-50 text-sky-800 border border-sky-200 text-sm font-semibold px-4 py-2 rounded-full">
+                <span key={p} className="bg-sky-900/60 text-sky-300 border border-sky-700/50 text-sm font-semibold px-4 py-2 rounded-full">
                   {p}
                 </span>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Why WordPress benefits */}
+        <section className="py-16 px-4 border-y border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-black text-gray-900 mb-2">Why We Recommend WordPress</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              {[
+                { icon: Layout, title: 'Fully Customisable', desc: 'Any design, any functionality — no template constraints.', color: 'text-sky-600', bg: 'bg-sky-50' },
+                { icon: Search, title: 'SEO Powerhouse', desc: 'Built-in tools and plugins to dominate organic search results.', color: 'text-green-600', bg: 'bg-green-50' },
+                { icon: Settings, title: 'Easy to Manage', desc: 'Update your own content, images, and pages without a developer.', color: 'text-amber-600', bg: 'bg-amber-50' },
+                { icon: Shield, title: 'Secure & Reliable', desc: 'Enterprise-grade security setup with regular updates and backups.', color: 'text-rose-600', bg: 'bg-rose-50' },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="text-center p-5 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                      <Icon size={20} className={item.color} />
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                    <p className="text-gray-500 text-xs">{item.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

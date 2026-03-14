@@ -1,13 +1,90 @@
 import { Link } from 'react-router-dom';
 import {
-  CheckCircle, ArrowRight, Star, Palette, Zap, Clock, Shield, Award,
-  ChevronRight, Users, MessageCircle
+  CheckCircle, ArrowRight, Star, Palette, Zap, Shield, Award,
+  ChevronRight, MessageCircle, Type, Circle, Triangle, Hexagon,
+  Smile, LayoutGrid, Eye, Lightbulb, FileCheck, Download
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 const WHATSAPP = "https://wa.me/917837319660?text=Hi, I'm interested in Logo Design services.";
+
+const logoStyles = [
+  {
+    icon: Type,
+    name: 'Wordmark',
+    desc: 'Your brand name styled as the logo itself. Clean, typographic, and instantly legible.',
+    examples: 'Google, FedEx, Coca-Cola',
+    bg: 'bg-amber-50',
+    border: 'border-amber-200',
+    iconColor: 'text-amber-600',
+    tagBg: 'bg-amber-100',
+    tagText: 'text-amber-700',
+  },
+  {
+    icon: Circle,
+    name: 'Lettermark',
+    desc: 'Initials crafted into a distinctive monogram — perfect for long brand names.',
+    examples: 'IBM, HP, Louis Vuitton',
+    bg: 'bg-slate-50',
+    border: 'border-slate-200',
+    iconColor: 'text-slate-600',
+    tagBg: 'bg-slate-100',
+    tagText: 'text-slate-700',
+  },
+  {
+    icon: Hexagon,
+    name: 'Pictorial Mark',
+    desc: 'A recognisable icon or symbol that represents your brand without text.',
+    examples: 'Apple, Twitter, Target',
+    bg: 'bg-green-50',
+    border: 'border-green-200',
+    iconColor: 'text-green-600',
+    tagBg: 'bg-green-100',
+    tagText: 'text-green-700',
+  },
+  {
+    icon: Triangle,
+    name: 'Abstract Mark',
+    desc: 'Geometric shapes and forms that create a unique visual identity with depth of meaning.',
+    examples: 'Nike, Adidas, Pepsi',
+    bg: 'bg-sky-50',
+    border: 'border-sky-200',
+    iconColor: 'text-sky-600',
+    tagBg: 'bg-sky-100',
+    tagText: 'text-sky-700',
+  },
+  {
+    icon: LayoutGrid,
+    name: 'Combination Mark',
+    desc: 'A symbol paired with your brand name — versatile enough for any application.',
+    examples: 'Amazon, Lacoste, Burger King',
+    bg: 'bg-rose-50',
+    border: 'border-rose-200',
+    iconColor: 'text-rose-600',
+    tagBg: 'bg-rose-100',
+    tagText: 'text-rose-700',
+  },
+  {
+    icon: Smile,
+    name: 'Mascot Logo',
+    desc: 'A character or mascot that gives your brand personality and makes it unforgettable.',
+    examples: 'KFC, Michelin, Reddit',
+    bg: 'bg-orange-50',
+    border: 'border-orange-200',
+    iconColor: 'text-orange-600',
+    tagBg: 'bg-orange-100',
+    tagText: 'text-orange-700',
+  },
+];
+
+const greatLogoTraits = [
+  { icon: Eye, title: 'Memorable', desc: 'A great logo sticks in the mind. It\'s distinct enough that customers recognise you immediately in a crowded feed or on a shelf.' },
+  { icon: Shield, title: 'Versatile', desc: 'Works at any size — from a 16px favicon to a 6-foot billboard. No detail is lost, no clarity is compromised.' },
+  { icon: Lightbulb, title: 'Relevant', desc: 'Speaks to your industry and audience without being generic. Colour, shape, and form all communicate your brand personality.' },
+  { icon: FileCheck, title: 'Timeless', desc: 'Designed to last decades, not months. We avoid trendy styles that date quickly in favour of foundations that endure.' },
+];
 
 const packages = [
   {
@@ -56,11 +133,21 @@ const process = [
   { step: '04', title: 'Final Delivery', desc: 'You receive all source files in every format you\'ll ever need, fully organised.' },
 ];
 
+const deliveryFormats = [
+  { format: 'PNG', use: 'Websites, social media, digital use' },
+  { format: 'SVG', use: 'Scalable vector — infinite resize' },
+  { format: 'PDF', use: 'Print-ready presentations' },
+  { format: 'AI', use: 'Adobe Illustrator source file' },
+  { format: 'JPG', use: 'Email signatures, documents' },
+  { format: 'EPS', use: 'Large-format print, signage' },
+];
+
 const faqs = [
   { q: 'How long does a logo take?', a: 'Initial concepts are typically delivered within 48–72 hours of the discovery call.' },
   { q: 'Do I own the logo?', a: 'Yes — 100% ownership and commercial rights transfer to you upon final payment.' },
   { q: 'What if I don\'t like any concepts?', a: 'We offer unlimited revisions. We keep refining until you\'re completely satisfied.' },
   { q: 'What file formats will I get?', a: 'PNG, JPG, SVG, PDF, and AI — every format for print, web, and social media.' },
+  { q: 'Can I get a logo without the discovery call?', a: 'Yes — you can fill out our detailed design brief form and we\'ll get straight to work.' },
 ];
 
 export default function LogoDesignPage() {
@@ -102,6 +189,66 @@ export default function LogoDesignPage() {
           </div>
         </section>
 
+        {/* Logo Styles We Master */}
+        <section className="py-20 px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Logo Styles
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">6 Logo Styles — We Master All of Them</h2>
+              <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
+                Every brand has a different visual need. We recommend the right logo style for your industry, audience, and goals — then execute it to perfection.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {logoStyles.map((style) => {
+                const Icon = style.icon;
+                return (
+                  <div key={style.name} className={`${style.bg} ${style.border} border-2 rounded-2xl p-6 flex flex-col gap-3 hover:shadow-md transition-shadow`}>
+                    <div className="flex items-start justify-between">
+                      <div className={`w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center`}>
+                        <Icon size={20} className={style.iconColor} />
+                      </div>
+                      <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${style.tagBg} ${style.tagText}`}>{style.name}</span>
+                    </div>
+                    <h3 className="font-black text-gray-900 text-lg">{style.name}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1">{style.desc}</p>
+                    <p className="text-xs text-gray-400 font-medium">e.g. {style.examples}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* What Makes a Great Logo */}
+        <section className="py-16 px-4 bg-slate-900 text-white">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 text-amber-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Design Principles
+              </div>
+              <h2 className="text-3xl font-black mb-3">What Makes a Great Logo?</h2>
+              <p className="text-slate-400 text-sm max-w-xl mx-auto">Every logo we create is built on these four non-negotiable principles.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              {greatLogoTraits.map((trait) => {
+                const Icon = trait.icon;
+                return (
+                  <div key={trait.title} className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 text-center hover:border-amber-500/40 transition-colors">
+                    <div className="w-12 h-12 bg-amber-400/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <Icon size={22} className="text-amber-400" />
+                    </div>
+                    <h3 className="font-black text-white text-lg mb-2">{trait.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{trait.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Packages */}
         <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-5xl mx-auto">
@@ -138,6 +285,27 @@ export default function LogoDesignPage() {
           </div>
         </section>
 
+        {/* File Formats */}
+        <section className="py-16 px-4 border-y border-gray-100">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                <Download size={12} /> File Delivery
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">Every Format You'll Ever Need</h2>
+              <p className="text-gray-500 text-sm">No extra requests. We deliver a complete file package from day one.</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+              {deliveryFormats.map((f) => (
+                <div key={f.format} className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center">
+                  <div className="text-xl font-black text-slate-800 mb-1">.{f.format}</div>
+                  <p className="text-gray-500 text-xs leading-snug">{f.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Process */}
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
@@ -146,10 +314,9 @@ export default function LogoDesignPage() {
               <p className="text-gray-500">A smooth, collaborative process from brief to beautiful logo.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {process.map((step, i) => (
+              {process.map((step) => (
                 <div key={step.step} className="text-center">
                   <div className="w-12 h-12 bg-amber-400 text-slate-900 rounded-full flex items-center justify-center text-sm font-black mx-auto mb-4 shadow-lg shadow-amber-500/20">{step.step}</div>
-                  {i < process.length - 1 && <div className="hidden md:block absolute mt-[-36px] ml-[88px] w-full h-px bg-amber-200" />}
                   <h3 className="font-black text-gray-900 mb-2">{step.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
                 </div>

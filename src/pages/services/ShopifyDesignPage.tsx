@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, ShoppingCart, Zap, Shield, Globe,
-  ChevronRight, MessageCircle, Package, TrendingUp, Star, CreditCard
+  ChevronRight, MessageCircle, Package, TrendingUp, Star, CreditCard,
+  RefreshCw, Truck, BarChart3, Tag, Mail, Bell, Search, Smartphone
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -51,13 +52,34 @@ const packages = [
   },
 ];
 
-const features = [
+const storeFeatures = [
   { icon: ShoppingCart, title: 'Custom Theme Design', desc: 'Unique, on-brand storefronts that stand out from generic Shopify templates.' },
   { icon: CreditCard, title: 'Payment Integration', desc: 'Razorpay, Stripe, PayPal, UPI, and all major gateways configured seamlessly.' },
   { icon: TrendingUp, title: 'Conversion Optimised', desc: 'Strategic layouts, trust signals, and CTAs designed to maximise sales.' },
   { icon: Shield, title: 'Secure & Reliable', desc: 'Shopify\'s enterprise-grade infrastructure with SSL and PCI compliance.' },
   { icon: Globe, title: 'SEO Ready', desc: 'Optimised site structure, meta tags, and sitemaps for organic discoverability.' },
   { icon: Zap, title: 'Lightning Fast', desc: 'Optimised images and code for sub-2 second load times globally.' },
+];
+
+const buildTimeline = [
+  { phase: 'Phase 1', title: 'Strategy & Niche Research', desc: 'We analyse your products, competitors, and target customers to plan the store architecture and user journey.' },
+  { phase: 'Phase 2', title: 'Design & Theme Build', desc: 'Custom homepage, collection, product, and cart pages designed in your brand colours and style.' },
+  { phase: 'Phase 3', title: 'Products & Content Upload', desc: 'We add all your products, write SEO-optimised descriptions, and upload high-quality images.' },
+  { phase: 'Phase 4', title: 'Apps & Integrations', desc: 'Reviews, upsells, email pop-ups, abandoned cart, analytics pixels — all configured and tested.' },
+  { phase: 'Phase 5', title: 'Testing & Launch', desc: 'Full end-to-end checkout testing, speed optimisation, and a guided launch walk-through.' },
+];
+
+const integrations = [
+  { icon: RefreshCw, label: 'Abandoned Cart Recovery' },
+  { icon: Star, label: 'Product Reviews (Judge.me)' },
+  { icon: Tag, label: 'Discount & Bundle Apps' },
+  { icon: Mail, label: 'Email Marketing (Klaviyo)' },
+  { icon: Bell, label: 'Push Notifications' },
+  { icon: BarChart3, label: 'Google Analytics 4' },
+  { icon: Search, label: 'Google Shopping Feed' },
+  { icon: Truck, label: 'Shipping & Delivery Apps' },
+  { icon: Smartphone, label: 'Mobile App Builder' },
+  { icon: CreditCard, label: 'Buy Now Pay Later' },
 ];
 
 const faqs = [
@@ -107,22 +129,26 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
 
-        {/* Features grid */}
-        <section className="py-16 px-4 border-b border-gray-100">
+        {/* Core features */}
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-black text-gray-900 text-center mb-8">Everything You Need to Sell Online</h2>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                What's Included
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Everything You Need to Sell Online</h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">Every Shopify store we build is a complete, production-ready selling machine from day one.</p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {features.map((f) => {
+              {storeFeatures.map((f) => {
                 const Icon = f.icon;
                 return (
-                  <div key={f.title} className="flex items-start gap-3 bg-gray-50 rounded-xl p-5 border border-gray-100">
-                    <div className="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon size={18} className="text-emerald-600" />
+                  <div key={f.title} className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
+                    <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-sm">
+                      <Icon size={18} className="text-white" />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-1 text-sm">{f.title}</h3>
-                      <p className="text-gray-500 text-xs leading-relaxed">{f.desc}</p>
-                    </div>
+                    <h3 className="font-black text-gray-900 mb-2">{f.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                   </div>
                 );
               })}
@@ -162,6 +188,57 @@ export default function ShopifyDesignPage() {
                   </a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Build Timeline */}
+        <section className="py-20 px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Our Process
+              </div>
+              <h2 className="text-3xl font-black text-gray-900 mb-2">How We Build Your Store</h2>
+              <p className="text-gray-500 text-sm">A methodical 5-phase process ensures nothing is missed and everything is launch-ready.</p>
+            </div>
+            <div className="space-y-4">
+              {buildTimeline.map((phase, i) => (
+                <div key={phase.phase} className="flex gap-5 items-start">
+                  <div className="flex-shrink-0 w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center text-sm font-black shadow-sm shadow-emerald-500/20">
+                    {i + 1}
+                  </div>
+                  <div className="flex-1 bg-emerald-50 border border-emerald-100 rounded-xl p-5">
+                    <span className="text-emerald-600 text-xs font-bold uppercase tracking-widest">{phase.phase}</span>
+                    <h3 className="font-black text-gray-900 mt-0.5 mb-1">{phase.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{phase.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Integrations */}
+        <section className="py-16 px-4 bg-slate-900 text-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-emerald-400/20 text-emerald-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Apps & Integrations
+              </div>
+              <h2 className="text-2xl font-black text-white mb-2">Apps We Set Up for You</h2>
+              <p className="text-slate-400 text-sm">We configure the best Shopify apps to automate and scale your store from day one.</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+              {integrations.map((intg) => {
+                const Icon = intg.icon;
+                return (
+                  <div key={intg.label} className="bg-slate-800/60 border border-slate-700 rounded-xl p-4 text-center hover:border-emerald-500/40 transition-colors group">
+                    <Icon size={20} className="mx-auto mb-2 text-slate-400 group-hover:text-emerald-400 transition-colors" />
+                    <p className="text-xs font-semibold text-slate-300 leading-tight">{intg.label}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

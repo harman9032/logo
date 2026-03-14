@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import {
-  CheckCircle, ArrowRight, Monitor, Zap, Clock, Shield, Globe,
-  ChevronRight, MessageCircle, Search, Smartphone, BarChart3, Code
+  CheckCircle, ArrowRight, Monitor, Zap, Globe,
+  ChevronRight, MessageCircle, Search, Smartphone, BarChart3, Code,
+  Shield, Clock, Users, Store, Stethoscope, GraduationCap, Briefcase,
+  Home, Utensils, Dumbbell, ShoppingCart, Camera, Wrench
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -47,6 +49,30 @@ const packages = [
     ],
     highlight: false,
   },
+];
+
+const coreFeatures = [
+  { icon: Smartphone, title: 'Mobile-First Design', desc: 'Every site is designed for mobile screens first, then scaled up — matching how 70%+ of your visitors browse.' },
+  { icon: Search, title: 'SEO Foundations Built-In', desc: 'Proper heading structure, meta tags, schema markup, XML sitemaps, and page speed — all configured from the start.' },
+  { icon: Zap, title: 'Sub-2s Load Speed', desc: 'Compressed images, minimal scripts, and optimised code ensure your site loads fast and reduces bounce rates.' },
+  { icon: Shield, title: 'SSL & Security', desc: 'HTTPS encryption, secure forms, and best-practice security headers to protect your visitors and your reputation.' },
+  { icon: BarChart3, title: 'Analytics & Tracking', desc: 'Google Analytics 4, Google Search Console, and Meta Pixel integration to track every visit and conversion.' },
+  { icon: Users, title: 'Conversion-Optimised Layout', desc: 'Strategic placement of CTAs, trust signals, testimonials, and contact forms to maximise enquiries and sales.' },
+  { icon: Code, title: 'Clean, Maintainable Code', desc: 'Built on modern frameworks with readable, well-structured code you can hand to any developer in the future.' },
+  { icon: Globe, title: 'Cross-Browser Compatible', desc: 'Tested on Chrome, Safari, Firefox, and Edge — on both desktop and mobile — before delivery.' },
+];
+
+const industries = [
+  { icon: Store, label: 'Retail & eCommerce' },
+  { icon: Stethoscope, label: 'Healthcare & Clinics' },
+  { icon: GraduationCap, label: 'Education & Coaching' },
+  { icon: Briefcase, label: 'Professional Services' },
+  { icon: Home, label: 'Real Estate & Property' },
+  { icon: Utensils, label: 'Restaurants & Food' },
+  { icon: Dumbbell, label: 'Fitness & Wellness' },
+  { icon: ShoppingCart, label: 'Wholesale & B2B' },
+  { icon: Camera, label: 'Photography & Creative' },
+  { icon: Wrench, label: 'Trades & Construction' },
 ];
 
 const techStack = [
@@ -105,24 +131,28 @@ export default function AIWebsiteDesignPage() {
           </div>
         </section>
 
-        {/* Features highlights */}
-        <section className="py-16 px-4 border-b border-gray-100">
+        {/* Every Site Includes */}
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { icon: Smartphone, title: 'Mobile-First', desc: 'Flawless on every device', color: 'text-green-600', bg: 'bg-green-50' },
-                { icon: Search, title: 'SEO Optimised', desc: 'Rank higher on Google', color: 'text-sky-600', bg: 'bg-sky-50' },
-                { icon: Zap, title: 'Fast Loading', desc: 'Sub-2s load times', color: 'text-amber-500', bg: 'bg-amber-50' },
-                { icon: BarChart3, title: 'Conversion-Focused', desc: 'Built to generate leads', color: 'text-rose-500', bg: 'bg-rose-50' },
-              ].map((item) => {
-                const Icon = item.icon;
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Standard Inclusions
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Everything Every Site Includes</h2>
+              <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
+                These aren't upsells — they're fundamentals. Every website we build includes these 8 non-negotiables at no extra charge.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              {coreFeatures.map((feature) => {
+                const Icon = feature.icon;
                 return (
-                  <div key={item.title} className="text-center p-5 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                      <Icon size={20} className={item.color} />
+                  <div key={feature.title} className="bg-green-50 border border-green-100 rounded-2xl p-5 hover:border-green-300 hover:shadow-sm transition-all">
+                    <div className="w-10 h-10 bg-green-600 rounded-xl flex items-center justify-center mb-4 shadow-sm shadow-green-500/20">
+                      <Icon size={18} className="text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                    <p className="text-gray-500 text-xs">{item.desc}</p>
+                    <h3 className="font-black text-gray-900 text-sm mb-2">{feature.title}</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed">{feature.desc}</p>
                   </div>
                 );
               })}
@@ -166,17 +196,81 @@ export default function AIWebsiteDesignPage() {
           </div>
         </section>
 
-        {/* Tech stack */}
+        {/* Industries We Serve */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-black text-gray-900 text-center mb-8">What's Under the Hood</h2>
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Industry Experience
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">Industries We've Designed For</h2>
+              <p className="text-gray-500 text-sm">We understand the unique needs of different sectors — no generic templates here.</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+              {industries.map((ind) => {
+                const Icon = ind.icon;
+                return (
+                  <div key={ind.label} className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center hover:bg-green-50 hover:border-green-200 transition-colors group">
+                    <Icon size={20} className="mx-auto mb-2 text-gray-400 group-hover:text-green-600 transition-colors" />
+                    <p className="text-xs font-semibold text-gray-700 leading-tight">{ind.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Tech stack */}
+        <section className="py-16 px-4 bg-slate-900 text-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-green-400/20 text-green-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Technology
+              </div>
+              <h2 className="text-2xl font-black text-white mb-2">What's Under the Hood</h2>
+              <p className="text-slate-400 text-sm">Modern tools that produce fast, secure, future-proof websites.</p>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {techStack.map((t) => (
-                <div key={t.label} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-200">
-                  <Code size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                <div key={t.label} className="flex items-start gap-3 bg-slate-800/60 border border-slate-700 rounded-xl p-4 hover:border-green-500/40 transition-colors">
+                  <Code size={16} className="text-green-400 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="font-bold text-gray-900 text-sm">{t.label}</p>
-                    <p className="text-gray-500 text-xs">{t.desc}</p>
+                    <p className="font-bold text-white text-sm">{t.label}</p>
+                    <p className="text-slate-400 text-xs">{t.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline visual */}
+        <section className="py-20 px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                <Clock size={12} /> Timeline
+              </div>
+              <h2 className="text-3xl font-black text-gray-900 mb-2">From Brief to Live in Days</h2>
+              <p className="text-gray-500 text-sm">A streamlined process that keeps things moving without cutting corners.</p>
+            </div>
+            <div className="relative">
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-green-200" />
+              {[
+                { day: 'Day 1', title: 'Brief & Kickoff', desc: 'We discuss your goals, gather content, and align on the design direction and sitemap.' },
+                { day: 'Day 2–3', title: 'Design Mockups', desc: 'We create high-fidelity page designs for your approval before any coding begins.' },
+                { day: 'Day 4–6', title: 'Development', desc: 'Approved designs are built into a fully responsive, functional website.' },
+                { day: 'Day 7–9', title: 'Review & Revisions', desc: 'You test the live preview, request changes, and we polish every detail.' },
+                { day: 'Day 10', title: 'Launch', desc: 'Your site goes live. We assist with domain, hosting setup, and final checks.' },
+              ].map((item, i) => (
+                <div key={item.day} className="relative flex gap-6 mb-8">
+                  <div className="flex-shrink-0 w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center text-xs font-black shadow z-10">
+                    {i + 1}
+                  </div>
+                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 flex-1">
+                    <span className="text-green-600 text-xs font-bold uppercase tracking-widest">{item.day}</span>
+                    <h3 className="font-black text-gray-900 mt-0.5 mb-1">{item.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               ))}

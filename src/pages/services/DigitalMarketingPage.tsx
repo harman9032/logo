@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, TrendingUp, Search, BarChart3,
-  ChevronRight, MessageCircle, Target, Globe, Zap, Mail
+  ChevronRight, MessageCircle, Target, Globe, Zap, Mail,
+  Users, MousePointer, ShoppingCart, Star, Clock, Eye
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -58,11 +59,50 @@ const packages = [
   },
 ];
 
+const growthFunnel = [
+  {
+    stage: 'Attract',
+    icon: Eye,
+    color: 'bg-teal-600',
+    tactics: ['SEO & Content Marketing', 'Google Ads', 'Social Media Ads', 'Organic Social'],
+    desc: 'Bring the right people to your brand through search, social, and paid channels.',
+  },
+  {
+    stage: 'Engage',
+    icon: MousePointer,
+    color: 'bg-sky-600',
+    tactics: ['Landing Pages', 'Email Capture', 'Lead Magnets', 'Retargeting Ads'],
+    desc: 'Turn visitors into interested leads with compelling offers and optimised pages.',
+  },
+  {
+    stage: 'Convert',
+    icon: ShoppingCart,
+    color: 'bg-green-600',
+    tactics: ['Email Nurture Sequences', 'Booking Funnels', 'Sales Page Optimisation', 'A/B Testing'],
+    desc: 'Move leads through the sales process with automated nurturing and strategic follow-up.',
+  },
+  {
+    stage: 'Retain',
+    icon: Star,
+    color: 'bg-amber-500',
+    tactics: ['Customer Email Flows', 'Loyalty Programs', 'Review Generation', 'Upsell Campaigns'],
+    desc: 'Keep customers coming back, generate reviews, and unlock referrals and repeat revenue.',
+  },
+];
+
+const metrics = [
+  { metric: '3.2×', label: 'Average ROAS', sub: 'Return on Ad Spend across client campaigns' },
+  { metric: '47%', label: 'More organic traffic', sub: 'Average increase in 6 months of SEO' },
+  { metric: '28%', label: 'Lower cost per lead', sub: 'After 90 days of campaign optimisation' },
+  { metric: '4.1×', label: 'Email revenue lift', sub: 'From automated email sequences' },
+];
+
 const faqs = [
   { q: 'How quickly will I see results?', a: 'Paid ads can show results within the first week. SEO typically shows measurable improvement in 3–6 months. We set realistic expectations and track progress transparently.' },
   { q: 'Do you manage our ad budget?', a: 'Yes — we manage your campaigns within your defined budget. Our management fee is separate from the ad spend you pay directly to Google/Meta.' },
   { q: 'What makes your strategy different?', a: 'We combine design expertise with marketing strategy — your ads, content, and landing pages all work together as a cohesive system rather than in silos.' },
   { q: 'Can you work with our existing marketing team?', a: 'Absolutely. We can operate as an extension of your in-house team, providing specialist skills on demand.' },
+  { q: 'Is there a minimum contract period?', a: 'No lock-in contracts. We work month-to-month with a 30-day notice period. We earn your continued business through results.' },
 ];
 
 export default function DigitalMarketingPage() {
@@ -104,15 +144,78 @@ export default function DigitalMarketingPage() {
           </div>
         </section>
 
-        {/* Services grid */}
-        <section className="py-16 px-4 border-b border-gray-100">
+        {/* Results Metrics */}
+        <section className="py-14 px-4 bg-slate-900 text-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-teal-400/20 text-teal-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                Average Client Results
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {metrics.map((m) => (
+                <div key={m.label} className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 text-center hover:border-teal-500/40 transition-colors">
+                  <div className="text-4xl font-black text-teal-400 mb-1">{m.metric}</div>
+                  <div className="text-white text-sm font-bold mb-1">{m.label}</div>
+                  <div className="text-slate-400 text-xs leading-tight">{m.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Growth Funnel */}
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl font-black text-gray-900 text-center mb-8">Our Marketing Services</h2>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Our System
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">The 4-Stage Growth System</h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">We don't just run ads — we build a complete customer acquisition and retention system.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              {growthFunnel.map((stage, i) => {
+                const Icon = stage.icon;
+                return (
+                  <div key={stage.stage} className="relative bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-teal-200 hover:shadow-sm transition-all">
+                    <div className="absolute -top-3 -left-3 w-7 h-7 bg-teal-600 text-white text-xs font-black rounded-full flex items-center justify-center shadow">
+                      {i + 1}
+                    </div>
+                    <div className={`w-10 h-10 ${stage.color} rounded-xl flex items-center justify-center mb-4 shadow-sm`}>
+                      <Icon size={18} className="text-white" />
+                    </div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-teal-600 mb-1">{stage.stage}</div>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-3">{stage.desc}</p>
+                    <ul className="space-y-1">
+                      {stage.tactics.map((t) => (
+                        <li key={t} className="text-xs text-gray-600 flex items-center gap-1.5">
+                          <div className="w-1 h-1 bg-teal-400 rounded-full flex-shrink-0" />
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Services grid */}
+        <section className="py-16 px-4 bg-gray-50 border-y border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-teal-100 text-teal-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Services
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">What We Do For You</h2>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {services.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.title} className="flex items-start gap-3 bg-gray-50 rounded-xl p-5 border border-gray-100">
+                  <div key={s.title} className="flex items-start gap-3 bg-white rounded-xl p-5 border border-gray-100 hover:border-teal-200 hover:shadow-sm transition-all">
                     <div className="w-9 h-9 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Icon size={18} className="text-teal-600" />
                     </div>
@@ -128,7 +231,7 @@ export default function DigitalMarketingPage() {
         </section>
 
         {/* Packages */}
-        <section className="py-20 px-4 bg-gray-50">
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Marketing Packages</h2>
@@ -157,6 +260,36 @@ export default function DigitalMarketingPage() {
                     className={`w-full text-center font-bold py-3 rounded-xl transition-all ${pkg.highlight ? 'bg-teal-400 hover:bg-teal-300 text-teal-900' : 'bg-gray-900 hover:bg-gray-700 text-white'}`}>
                     Get Started
                   </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* What We Track */}
+        <section className="py-14 px-4 bg-teal-50 border-y border-teal-100">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-teal-200 text-teal-800 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-2">
+                <Clock size={11} /> Reporting
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-1">Transparent, Plain-English Reports</h2>
+              <p className="text-gray-500 text-sm">No vanity metrics. We report on what moves your business forward.</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: 'Revenue generated', icon: '₹' },
+                { label: 'Cost per acquisition', icon: '🎯' },
+                { label: 'Return on ad spend', icon: '📈' },
+                { label: 'Organic traffic growth', icon: '🔍' },
+                { label: 'Email open & click rates', icon: '📧' },
+                { label: 'Conversion rate', icon: '⚡' },
+                { label: 'Leads generated', icon: '👥' },
+                { label: 'Keyword rankings', icon: '🏆' },
+              ].map((item) => (
+                <div key={item.label} className="bg-white border border-teal-200 rounded-xl p-3 text-center">
+                  <div className="text-lg mb-1">{item.icon}</div>
+                  <p className="text-xs font-semibold text-gray-700 leading-tight">{item.label}</p>
                 </div>
               ))}
             </div>

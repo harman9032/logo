@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, TrendingUp, Zap, Star,
-  ChevronRight, MessageCircle, Image, Users, BarChart3, Heart
+  ChevronRight, MessageCircle, Image, Users, BarChart3, Heart,
+  PlayCircle, Quote, AlignLeft, Calendar, Gift, Megaphone
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -49,13 +50,32 @@ const packages = [
   },
 ];
 
+const postTypes = [
+  { icon: Quote, title: 'Quote Posts', desc: 'Inspirational or thought-leadership quotes formatted beautifully for your brand.' },
+  { icon: Image, title: 'Product Showcases', desc: 'High-impact product photography frames and feature highlight posts.' },
+  { icon: BarChart3, title: 'Infographics & Stats', desc: 'Data-driven graphics that educate your audience and boost shares.' },
+  { icon: Gift, title: 'Promotional Posts', desc: 'Sale announcements, offers, and discount posts designed to drive clicks.' },
+  { icon: PlayCircle, title: 'Reel / Story Covers', desc: 'Custom thumbnail and cover designs for Reels, Stories, and YouTube Shorts.' },
+  { icon: AlignLeft, title: 'Carousel Posts', desc: 'Multi-slide educational or storytelling posts optimised for saves and shares.' },
+  { icon: Calendar, title: 'Event Announcements', desc: 'Launch announcements, webinars, sales events — designed to drive excitement.' },
+  { icon: Megaphone, title: 'Ad Creatives', desc: 'Static social media ad graphics formatted for Facebook, Instagram, and LinkedIn.' },
+];
+
 const platforms = ['Instagram', 'Facebook', 'LinkedIn', 'Twitter / X', 'YouTube', 'Pinterest', 'TikTok', 'Google Business'];
+
+const engagementStats = [
+  { metric: '94%', label: 'Higher engagement rate', sub: 'with custom branded visuals vs. generic content' },
+  { metric: '3.2×', label: 'More profile visits', sub: 'for brands with a consistent visual identity' },
+  { metric: '65%', label: 'Better brand recall', sub: 'when visuals match brand guidelines consistently' },
+  { metric: '40%', label: 'Lower ad cost per click', sub: 'with professionally designed ad creatives' },
+];
 
 const faqs = [
   { q: 'What file formats do I get?', a: 'You receive PNG exports for immediate use plus editable source files in Canva and/or Figma so you can update text and images yourself.' },
   { q: 'Can you match our existing brand?', a: 'Absolutely — we work from your existing brand guidelines, or we can establish a new social media visual identity for you.' },
   { q: 'Do you offer ongoing monthly design?', a: 'Yes — we offer monthly retainer packages for brands who need consistent content design at scale. Contact us for custom pricing.' },
   { q: 'Can you create animated or video posts?', a: 'Yes — the Agency Pack includes animated templates. For fully custom video/motion graphics, contact us for a separate quote.' },
+  { q: 'How do I provide my content (text/images)?', a: 'You share your content via a shared Google Drive or Notion document. We take care of everything from there.' },
 ];
 
 export default function SocialMediaDesignPage() {
@@ -92,36 +112,46 @@ export default function SocialMediaDesignPage() {
           </div>
         </section>
 
-        {/* Platforms */}
-        <section className="py-12 px-4 border-b border-gray-100">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Platforms We Design For</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {platforms.map((p) => (
-                <span key={p} className="bg-rose-50 text-rose-700 border border-rose-200 text-sm font-semibold px-4 py-2 rounded-full">{p}</span>
+        {/* Engagement Stats */}
+        <section className="py-14 px-4 bg-slate-900 text-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-rose-400/20 text-rose-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-2">
+                The Impact of Great Design
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {engagementStats.map((stat) => (
+                <div key={stat.label} className="bg-slate-800/60 border border-slate-700 rounded-2xl p-5 text-center hover:border-rose-500/40 transition-colors">
+                  <div className="text-4xl font-black text-rose-400 mb-1">{stat.metric}</div>
+                  <div className="text-white text-sm font-bold mb-1">{stat.label}</div>
+                  <div className="text-slate-400 text-xs leading-tight">{stat.sub}</div>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Value props */}
-        <section className="py-16 px-4">
+        {/* Post Types */}
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-              {[
-                { icon: Heart, title: 'Scroll-Stopping Designs', desc: 'Visuals that capture attention in a crowded feed.', color: 'text-rose-500', bg: 'bg-rose-50' },
-                { icon: Users, title: 'Brand Consistent', desc: 'Every post reinforces your brand identity.', color: 'text-sky-600', bg: 'bg-sky-50' },
-                { icon: Zap, title: 'Fast Turnaround', desc: 'Packs delivered within 3–5 business days.', color: 'text-amber-500', bg: 'bg-amber-50' },
-                { icon: BarChart3, title: 'Engagement Focused', desc: 'Designed to drive likes, shares, and clicks.', color: 'text-green-600', bg: 'bg-green-50' },
-              ].map((item) => {
-                const Icon = item.icon;
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Post Types
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">8 Types of Posts We Design</h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">A variety of post formats to keep your feed dynamic, engaging, and algorithm-friendly.</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              {postTypes.map((pt) => {
+                const Icon = pt.icon;
                 return (
-                  <div key={item.title} className="text-center p-5 rounded-2xl bg-gray-50 border border-gray-100">
-                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                      <Icon size={20} className={item.color} />
+                  <div key={pt.title} className="bg-rose-50 border border-rose-100 rounded-2xl p-5 hover:border-rose-300 hover:shadow-sm transition-all">
+                    <div className="w-9 h-9 bg-rose-600 rounded-xl flex items-center justify-center mb-3 shadow-sm">
+                      <Icon size={16} className="text-white" />
                     </div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
-                    <p className="text-gray-500 text-xs">{item.desc}</p>
+                    <h3 className="font-black text-gray-900 text-sm mb-1.5">{pt.title}</h3>
+                    <p className="text-gray-500 text-xs leading-relaxed">{pt.desc}</p>
                   </div>
                 );
               })}
@@ -165,13 +195,55 @@ export default function SocialMediaDesignPage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* Platforms */}
+        <section className="py-14 px-4 border-y border-gray-100">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+              Platform Coverage
+            </div>
+            <h2 className="text-2xl font-black text-gray-900 mb-2">Every Platform, Every Format</h2>
+            <p className="text-gray-500 mb-8 text-sm">We design to the exact specifications of each platform — no cropped heads or blurry uploads.</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {platforms.map((p) => (
+                <span key={p} className="bg-rose-50 text-rose-700 border border-rose-200 text-sm font-semibold px-4 py-2 rounded-full">{p}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Value props */}
         <section className="py-16 px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-black text-gray-900 text-center mb-8">Why Great Social Media Design Matters</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              {[
+                { icon: Heart, title: 'Scroll-Stopping', desc: 'You have 1.7 seconds to capture attention. We make every frame count.', color: 'text-rose-500', bg: 'bg-rose-50' },
+                { icon: Users, title: 'Brand Consistent', desc: 'Every post reinforces your brand — building recognition with every scroll.', color: 'text-sky-600', bg: 'bg-sky-50' },
+                { icon: Zap, title: 'Fast Turnaround', desc: 'Packs delivered within 3–5 business days for your content calendar.', color: 'text-amber-500', bg: 'bg-amber-50' },
+                { icon: BarChart3, title: 'Engagement Driven', desc: 'Designed with platform algorithms and audience psychology in mind.', color: 'text-green-600', bg: 'bg-green-50' },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="text-center p-5 rounded-2xl bg-gray-50 border border-gray-100">
+                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
+                      <Icon size={20} className={item.color} />
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-sm mb-1">{item.title}</h3>
+                    <p className="text-gray-500 text-xs">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-black text-gray-900 text-center mb-10">Common Questions</h2>
             <div className="space-y-4">
               {faqs.map((faq) => (
-                <div key={faq.q} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                <div key={faq.q} className="bg-white border border-gray-200 rounded-xl p-6">
                   <h3 className="font-bold text-gray-900 mb-2">{faq.q}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
                 </div>

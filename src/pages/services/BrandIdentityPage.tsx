@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, Layers, Star, Palette, Award,
-  ChevronRight, MessageCircle, FileText, BookOpen
+  ChevronRight, MessageCircle, FileText, BookOpen, User,
+  Store, Coffee, Briefcase, Stethoscope, GraduationCap
 } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -58,11 +59,50 @@ const packages = [
   },
 ];
 
+const brandTransformation = [
+  {
+    stage: 'Before',
+    items: [
+      'Inconsistent logo use across platforms',
+      'No defined colour palette',
+      'Mixed fonts and visual styles',
+      'Looks unprofessional to potential clients',
+      'Hard to create new marketing materials',
+    ],
+    style: 'bg-red-50 border-red-200',
+    badgeStyle: 'bg-red-100 text-red-700',
+    checkStyle: 'text-red-400',
+  },
+  {
+    stage: 'After',
+    items: [
+      'Consistent, professional brand presence',
+      'Defined colours that evoke the right emotions',
+      'Typography system that communicates authority',
+      'Instant credibility and trust with visitors',
+      'Any designer can extend your brand easily',
+    ],
+    style: 'bg-green-50 border-green-200',
+    badgeStyle: 'bg-green-100 text-green-700',
+    checkStyle: 'text-green-600',
+  },
+];
+
+const whoIsItFor = [
+  { icon: User, title: 'Solopreneurs & Freelancers', desc: 'Build credibility and charge premium rates with a professional brand that stands out.' },
+  { icon: Store, title: 'New Businesses', desc: 'Launch with a strong visual foundation so you\'re taken seriously from day one.' },
+  { icon: Coffee, title: 'Restaurants & Cafés', desc: 'Create a dining experience that starts the moment customers see your branding.' },
+  { icon: Briefcase, title: 'Agencies & Consultancies', desc: 'Position yourself as the authority in your space with a brand that commands respect.' },
+  { icon: Stethoscope, title: 'Healthcare & Wellness', desc: 'Build patient trust and communicate care and professionalism through design.' },
+  { icon: GraduationCap, title: 'Coaches & Educators', desc: 'Establish thought leadership with a brand that reflects your expertise and values.' },
+];
+
 const faqs = [
   { q: 'What\'s the difference between a logo and a brand identity?', a: 'A logo is one element. A brand identity is the full system — logo, colors, typography, imagery style, and voice guidelines — that ensures consistency everywhere your business appears.' },
   { q: 'How long does a brand identity take?', a: 'A Core Identity typically takes 5–7 days. A Full Brand System takes 10–14 days depending on the revision process.' },
   { q: 'Do I get editable source files?', a: 'Yes — you receive all source files (AI, EPS, PSD, Figma) so your brand can be used and extended by any designer in future.' },
   { q: 'Can I use this for physical products too?', a: 'Absolutely. All files are print-ready at high resolution and suitable for packaging, merchandise, and signage.' },
+  { q: 'Do you provide a brand strategy session?', a: 'Yes — the Brand + Website package includes a brand strategy session where we deep-dive into your positioning, target audience, and competitive landscape.' },
 ];
 
 export default function BrandIdentityPage() {
@@ -99,10 +139,41 @@ export default function BrandIdentityPage() {
           </div>
         </section>
 
-        {/* Deliverables */}
+        {/* Before & After */}
         <section className="py-20 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                The Transformation
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Before vs. After a Brand Identity</h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">The difference a professional brand system makes is felt immediately — by your team, your clients, and your bottom line.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {brandTransformation.map((col) => (
+                <div key={col.stage} className={`${col.style} border-2 rounded-2xl p-7`}>
+                  <div className={`inline-block text-sm font-black uppercase tracking-widest px-3 py-1 rounded-full mb-5 ${col.badgeStyle}`}>{col.stage}</div>
+                  <ul className="space-y-3">
+                    {col.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckCircle size={16} className={`${col.checkStyle} mt-0.5 flex-shrink-0`} />
+                        <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Deliverables */}
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Deliverables
+              </div>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">What You'll Receive</h2>
               <p className="text-gray-500">Every asset you need to show up professionally, consistently, and memorably.</p>
             </div>
@@ -110,7 +181,7 @@ export default function BrandIdentityPage() {
               {deliverables.map((d) => {
                 const Icon = d.icon;
                 return (
-                  <div key={d.title} className="bg-gray-50 border border-gray-200 rounded-2xl p-6">
+                  <div key={d.title} className="bg-white border border-gray-200 rounded-2xl p-6 hover:border-amber-200 hover:shadow-sm transition-all">
                     <div className="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
                       <Icon size={20} className="text-amber-600" />
                     </div>
@@ -124,7 +195,7 @@ export default function BrandIdentityPage() {
         </section>
 
         {/* Packages */}
-        <section className="py-20 px-4 bg-gray-50">
+        <section className="py-20 px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Brand Identity Packages</h2>
@@ -155,6 +226,34 @@ export default function BrandIdentityPage() {
                   </a>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Who is it for */}
+        <section className="py-16 px-4 bg-amber-50 border-y border-amber-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-amber-200 text-amber-800 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Who It's For
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">Brand Identity Works for Every Type of Business</h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {whoIsItFor.map((who) => {
+                const Icon = who.icon;
+                return (
+                  <div key={who.title} className="bg-white border border-amber-100 rounded-xl p-5 flex gap-4 items-start">
+                    <div className="w-9 h-9 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon size={18} className="text-amber-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-black text-gray-900 text-sm mb-1">{who.title}</h3>
+                      <p className="text-gray-500 text-xs leading-relaxed">{who.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
