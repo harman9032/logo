@@ -1,11 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   CheckCircle,
   ArrowRight,
   Star,
   Zap,
-  Globe,
   Package,
   Layers,
   Monitor,
@@ -14,19 +12,20 @@ import {
   ChevronRight,
   Sparkles,
   BarChart3,
-  Search,
-  Smartphone,
-  Palette,
-  FileText,
   Shield,
   Clock,
-  X
+  X,
+  Palette,
+  ShoppingCart,
+  Globe,
+  Image,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const BOOKING_LINK = "https://rzp.io/rzp/x16Tmd2";
 
-const services = [
+const featuredServices = [
   {
     id: 1,
     badge: "Brand Identity",
@@ -34,20 +33,20 @@ const services = [
     accentIcon: Star,
     title: "Logo Design",
     tagline: "Make a lasting first impression",
-    price: "$299",
-    priceNote: "One-time payment",
+    price: "$149",
+    priceNote: "Starting from",
+    href: "/services/logo-design",
     description:
-      "A professionally crafted custom logo that captures your brand's personality and sets you apart from the competition. Perfect for startups and small businesses ready to establish a strong visual identity.",
+      "A professionally crafted custom logo that captures your brand's personality and sets you apart from the competition.",
     features: [
       "3 unique logo concepts",
       "Unlimited revisions until perfect",
       "Final files: PNG, SVG, PDF, AI",
       "Light & dark versions included",
       "Brand color palette suggestion",
-      "Typography recommendation",
       "Commercial usage rights"
     ],
-    cta: "Get Your Logo",
+    cta: "View Logo Packages",
     popular: false,
     color: {
       bg: "from-slate-900 to-slate-800",
@@ -68,21 +67,21 @@ const services = [
     accentIcon: Zap,
     title: "AI Website Design",
     tagline: "Your digital storefront, built fast",
-    price: "$499",
-    priceNote: "One-time payment",
+    price: "$299",
+    priceNote: "Starting from",
+    href: "/services/ai-website-design",
     description:
-      "An AI-powered responsive website or landing page that looks stunning on every device. Get online quickly with a professional web presence optimized for conversions and search engines.",
+      "An AI-powered responsive website or landing page that looks stunning on every device, optimized for conversions.",
     features: [
       "Fully responsive design",
       "Mobile-first optimization",
       "Basic on-page SEO setup",
       "Contact form integration",
       "Fast loading performance",
-      "Social media links",
       "Google Analytics ready"
     ],
     excludes: ["Domain registration", "Hosting fees"],
-    cta: "Build My Website",
+    cta: "View Website Packages",
     popular: true,
     color: {
       bg: "from-green-900 to-green-800",
@@ -105,19 +104,19 @@ const services = [
     tagline: "Everything you need to dominate online",
     price: "$999",
     priceNote: "One-time payment",
+    href: "/contact",
     description:
-      "The ultimate digital transformation bundle. Get a custom logo, a professional website, and a comprehensive digital marketing strategy — all working together to grow your business online.",
+      "The ultimate digital transformation bundle — logo, professional website, and comprehensive digital marketing strategy.",
     features: [
       "Everything in Logo Design",
       "Everything in AI Website Design",
       "Digital marketing strategy plan",
       "Social media brand guidelines",
-      "Content calendar framework",
       "Competitor analysis report",
       "Growth roadmap (90 days)",
       "Priority support included"
     ],
-    cta: "Start Full Transformation",
+    cta: "Get Full Package",
     popular: false,
     color: {
       bg: "from-sky-900 to-sky-800",
@@ -133,6 +132,73 @@ const services = [
   }
 ];
 
+const allServices = [
+  {
+    icon: Palette,
+    title: "Logo Design",
+    desc: "Custom logos crafted to represent your brand perfectly, with unlimited revisions.",
+    from: "From $149",
+    href: "/services/logo-design",
+    color: "bg-amber-100 text-amber-600",
+  },
+  {
+    icon: Monitor,
+    title: "AI Website Design",
+    desc: "Modern, responsive websites built with AI-assisted design for fast, beautiful results.",
+    from: "From $299",
+    href: "/services/ai-website-design",
+    color: "bg-green-100 text-green-600",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Shopify Website Design",
+    desc: "High-converting Shopify stores designed, configured, and ready to sell from day one.",
+    from: "From $499",
+    href: "/services/shopify-design",
+    color: "bg-emerald-100 text-emerald-700",
+  },
+  {
+    icon: Globe,
+    title: "WordPress Design",
+    desc: "Powerful, flexible WordPress sites with full CMS control, SEO, and WooCommerce options.",
+    from: "From $399",
+    href: "/services/wordpress-design",
+    color: "bg-sky-100 text-sky-700",
+  },
+  {
+    icon: Layers,
+    title: "Brand Identity",
+    desc: "Complete brand systems — logo, guidelines, stationery, and social kits.",
+    from: "From $599",
+    href: "/services/brand-identity",
+    color: "bg-orange-100 text-orange-600",
+  },
+  {
+    icon: Image,
+    title: "Social Media Design",
+    desc: "Scroll-stopping social media visuals for Instagram, Facebook, LinkedIn, and more.",
+    from: "From $199",
+    href: "/services/social-media-design",
+    color: "bg-rose-100 text-rose-600",
+  },
+  {
+    icon: TrendingUp,
+    title: "Digital Marketing",
+    desc: "SEO, Google Ads, Meta Ads, email marketing, and strategy — all data-driven.",
+    from: "From $299",
+    href: "/services/digital-marketing",
+    color: "bg-teal-100 text-teal-700",
+  },
+  {
+    icon: Package,
+    title: "Complete Package",
+    desc: "The full digital transformation: brand, website, and marketing strategy bundled.",
+    from: "From $999",
+    href: "/contact",
+    color: "bg-slate-100 text-slate-700",
+  },
+];
+
 const stats = [
   { value: "5,000+", label: "Brands Created" },
   { value: "12+", label: "Years Experience" },
@@ -142,7 +208,7 @@ const stats = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen bg-slate-950 flex flex-col">
       <Navbar />
 
       {/* Hero Section */}
@@ -162,10 +228,9 @@ export default function ServicesPage() {
             </span>
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            From memorable logos to complete digital presences — choose the package that fits your ambition and budget. Every project is crafted with precision and passion.
+            From memorable logos to complete digital presences — every project is crafted with precision and passion. 5,000+ brands transformed since 2012.
           </p>
 
-          {/* Stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {stats.map((stat) => (
               <div key={stat.label} className="bg-slate-800/60 border border-slate-700/50 rounded-xl p-4">
@@ -177,11 +242,47 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Service Cards */}
+      {/* All Services Grid */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">All Services</h2>
+            <p className="text-slate-400 text-sm">Click any service to see full details, packages, and pricing.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {allServices.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <Link
+                  key={svc.title}
+                  to={svc.href}
+                  className="group bg-slate-800/60 border border-slate-700/50 rounded-2xl p-6 hover:border-slate-600 hover:bg-slate-800 transition-all hover:-translate-y-1 flex flex-col"
+                >
+                  <div className={`w-10 h-10 rounded-xl ${svc.color} flex items-center justify-center mb-4`}>
+                    <Icon size={20} />
+                  </div>
+                  <h3 className="text-white font-bold text-base mb-2">{svc.title}</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed flex-1 mb-4">{svc.desc}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-green-400 font-semibold text-sm">{svc.from}</span>
+                    <ArrowRight size={16} className="text-slate-500 group-hover:text-white group-hover:translate-x-1 transition-all" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Service Cards */}
       <section className="py-8 pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-2">Most Popular Packages</h2>
+            <p className="text-slate-400 text-sm">Our three most-requested services with full feature breakdowns.</p>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            {services.map((service, index) => {
+            {featuredServices.map((service) => {
               const Icon = service.icon;
               const AccentIcon = service.accentIcon;
               return (
@@ -189,7 +290,6 @@ export default function ServicesPage() {
                   key={service.id}
                   className={`relative rounded-2xl bg-gradient-to-b ${service.color.bg} border ${service.popular ? `border-slate-500/60 ${service.color.ring} ring-2` : 'border-slate-700/50'} shadow-2xl ${service.popular ? service.color.glow : ''} overflow-hidden flex flex-col transition-transform duration-300 hover:-translate-y-1`}
                 >
-                  {/* Popular Banner */}
                   {service.popular && (
                     <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-green-500 to-emerald-400 text-green-950 text-xs font-bold text-center py-1.5 tracking-wide uppercase">
                       Most Popular Choice
@@ -197,7 +297,6 @@ export default function ServicesPage() {
                   )}
 
                   <div className={`p-8 ${service.popular ? 'pt-10' : ''} flex flex-col flex-1`}>
-                    {/* Badge + Icon Row */}
                     <div className="flex items-start justify-between mb-6">
                       <div className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full ${service.color.badge}`}>
                         <AccentIcon size={11} />
@@ -208,11 +307,9 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    {/* Title & Tagline */}
                     <h2 className="text-2xl font-black text-white mb-1">{service.title}</h2>
                     <p className={`text-sm font-medium mb-4 ${service.color.tag.split(' ')[1]}`}>{service.tagline}</p>
 
-                    {/* Price */}
                     <div className="mb-6">
                       <div className="flex items-end gap-2">
                         <span className={`text-5xl font-black bg-gradient-to-r ${service.color.accent} bg-clip-text text-transparent leading-none`}>
@@ -222,16 +319,13 @@ export default function ServicesPage() {
                       <p className="text-slate-400 text-xs mt-1">{service.priceNote}</p>
                     </div>
 
-                    {/* Description */}
                     <p className="text-slate-300 text-sm leading-relaxed mb-6">{service.description}</p>
 
-                    {/* Target */}
                     <div className={`inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg mb-6 ${service.color.tag}`}>
                       <Shield size={11} />
                       {service.target}
                     </div>
 
-                    {/* Features */}
                     <ul className="space-y-2.5 mb-6 flex-1">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-2.5">
@@ -241,7 +335,6 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    {/* Excludes */}
                     {service.excludes && (
                       <div className="bg-slate-800/60 rounded-lg p-3 mb-6">
                         <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide mb-2">Not included</p>
@@ -256,18 +349,14 @@ export default function ServicesPage() {
                       </div>
                     )}
 
-                    {/* CTA Button */}
-                    <a
-                      href={BOOKING_LINK}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={service.href}
                       className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 ${service.color.button} hover:scale-[1.02] active:scale-[0.98] shadow-lg`}
                     >
                       {service.cta}
                       <ArrowRight size={16} strokeWidth={2.5} />
-                    </a>
+                    </Link>
 
-                    {/* Trust Line */}
                     <p className="text-center text-slate-500 text-xs mt-3">
                       <Clock size={10} className="inline mr-1" />
                       Fast delivery • No hidden fees
@@ -280,7 +369,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Comparison / Why Us */}
+      {/* Why Us */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50 border-y border-slate-800/50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
@@ -290,9 +379,6 @@ export default function ServicesPage() {
                 Daily Creative Designs?
               </span>
             </h2>
-            <p className="text-slate-400 text-base max-w-xl mx-auto">
-              We combine design expertise with strategic thinking to deliver results that actually grow your business.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -325,7 +411,7 @@ export default function ServicesPage() {
               <Layers size={26} className="text-slate-900" strokeWidth={2.5} />
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-              Not sure which package is right for you?
+              Not sure which service is right for you?
             </h2>
             <p className="text-slate-400 mb-8 leading-relaxed">
               Book a free 15-minute consultation and our design experts will help you choose the best option for your business goals and budget.
@@ -341,10 +427,10 @@ export default function ServicesPage() {
                 <ArrowRight size={18} strokeWidth={2.5} />
               </a>
               <Link
-                to="/"
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold px-8 py-4 rounded-xl transition-all"
               >
-                View Masterclass
+                Contact Us
                 <ChevronRight size={18} />
               </Link>
             </div>
@@ -352,21 +438,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-xl font-black text-yellow-400">
-            Daily Creative <span className="text-amber-400">Designs</span>
-          </span>
-          <p className="text-slate-500 text-sm text-center">
-            © 2025 Daily Creative Designs. All rights reserved. Elevating brands since 2012.
-          </p>
-          <div className="flex gap-4 text-sm text-slate-500">
-            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy</Link>
-            <Link to="/terms" className="hover:text-slate-300 transition-colors">Terms</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
