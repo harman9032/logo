@@ -141,11 +141,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── LIVE NOTIFICATION BAR ── */}
-        <div className="flex justify-center mb-8">
-          <LiveNotification />
-        </div>
-
         {/* ── TWO-COLUMN LAYOUT ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-16">
 
@@ -159,9 +154,14 @@ export default function HeroSection() {
               <span className="text-gold-gradient">Better-Looking Competitors</span>
             </h1>
 
-            <p className="text-lg text-green-100 leading-relaxed mb-6 max-w-xl">
+            <p className="text-lg text-green-100 leading-relaxed mb-5 max-w-xl">
               We build logos, websites &amp; brand systems that make your business the <span className="text-white font-bold">obvious first choice</span> — so clients pick you before you even speak.
             </p>
+
+            {/* Live notification */}
+            <div className="mb-6">
+              <LiveNotification />
+            </div>
 
             {/* Outcome bullets */}
             <ul className="space-y-2.5 mb-7">
