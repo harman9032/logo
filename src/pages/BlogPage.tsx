@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Tag, BookOpen, Rss } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -66,14 +66,6 @@ export default function BlogPage() {
   const filtered = activeCategory === 'All'
     ? allNonFeatured
     : getPostsByCategory(activeCategory).filter((p) => !p.featured);
-
-  useEffect(() => {
-    document.title = "Blog | WordPress & Branding Tips for Small Businesses | Daily Creative Designs";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', 'Practical guides on WordPress development, branding, logo design, and digital marketing. Written for freelancers and small business owners targeting US and Canadian clients.');
-    }
-  }, []);
 
   return (
     <div className="min-h-screen bg-white flex flex-col">

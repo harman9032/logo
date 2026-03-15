@@ -215,7 +215,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-5">
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center md:text-left">
             <p className="text-gray-500 text-sm">
-              © 2026 Daily Creative Designs. All rights reserved.
+              © {new Date().getFullYear()} Daily Creative Designs. All rights reserved.
             </p>
             <span className="hidden sm:block text-gray-700">·</span>
             <p className="text-gray-600 text-sm">Elevating brands since 2012</p>

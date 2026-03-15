@@ -169,7 +169,7 @@ export default function ContactPage() {
           <Link to="/" aria-label="Daily Creative Designs — Home" className="text-xl font-black">
             Daily Creative <span className="text-yellow-400">Designs</span>
           </Link>
-          <p className="text-gray-400 text-sm">© 2026 Daily Creative Designs. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">© {new Date().getFullYear()} Daily Creative Designs. All rights reserved.</p>
           <div className="flex gap-4">
             <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</Link>

@@ -223,7 +223,7 @@ function ROICalculator() {
                   <TrendingUp className="h-7 w-7 text-yellow-400" />
                 </div>
               </div>
-              <p className="text-yellow-300/70 text-xs mt-2">That's a {fmt(gain / 999)}x ROI on our Complete Package in month one alone.</p>
+              <p className="text-yellow-300/70 text-xs mt-2">That's a {(gain / 999).toFixed(1)}× ROI on our Complete Package in month one alone.</p>
             </div>
 
             <a

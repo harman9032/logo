@@ -49,6 +49,7 @@ export default function SEO({ title, description, canonical, ogImage, ogType = '
     setMeta('og:image', image, true);
     setMeta('og:type', ogType, true);
 
+    setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', `${title} | Daily Creative Designs`);
     setMeta('twitter:description', description);
     setMeta('twitter:image', image);
