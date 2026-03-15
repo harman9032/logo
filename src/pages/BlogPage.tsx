@@ -266,34 +266,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-green-50">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-3xl shadow-md border border-green-100 p-10">
-            <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <BookOpen className="h-7 w-7 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-black text-gray-900 mb-3">Get WordPress & Design Tips Weekly</h2>
-            <p className="text-gray-500 mb-6 leading-relaxed">
-              Practical WordPress, SEO, and branding advice for freelancers targeting US clients — no fluff, once a week.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 px-5 py-3 rounded-xl border border-gray-200 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm"
-              />
-              <button
-                type="submit"
-                className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-xl text-sm transition-all whitespace-nowrap"
-              >
-                Subscribe
-              </button>
-            </form>
-            <p className="text-gray-400 text-xs mt-3">No spam. Unsubscribe anytime.</p>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 bg-green-600 text-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black mb-4">Need a WordPress Site Built for US Clients?</h2>

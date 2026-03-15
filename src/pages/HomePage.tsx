@@ -30,7 +30,6 @@ import {
   Sparkles,
   DollarSign,
   Calculator,
-  Target,
   Quote,
   Phone,
 } from 'lucide-react';
@@ -243,71 +242,6 @@ function ROICalculator() {
   );
 }
 
-function EmailCapture() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubmitted(true);
-  };
-
-  return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl px-8 py-14 sm:px-14 text-center shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 left-1/3 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none" />
-
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-              <Target className="h-3.5 w-3.5" />
-              Free Weekly Value
-            </div>
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
-              Get Free Design Tips &<br />Client Attraction Strategies
-            </h2>
-            <p className="text-green-100 text-lg max-w-xl mx-auto mb-8 leading-relaxed">
-              Every week: one actionable tip to make your brand more credible, visible, and magnetic to ideal clients.
-            </p>
-
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <div className="relative flex-1">
-                  <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    required
-                    className="w-full pl-10 pr-4 py-4 bg-white rounded-xl text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 shadow-lg"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="btn-gold-gradient text-green-900 font-black px-7 py-4 rounded-xl text-sm hover:opacity-90 transition-all shadow-lg whitespace-nowrap flex items-center gap-2"
-                >
-                  Get Free Tips
-                  <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
-            ) : (
-              <div className="bg-white/15 border border-white/25 rounded-2xl px-6 py-5 max-w-sm mx-auto">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <CheckCircle className="h-5 w-5 text-white" />
-                </div>
-                <p className="text-white font-bold">You're in! Check your inbox.</p>
-                <p className="text-green-200 text-sm mt-1">First tip arrives within the hour.</p>
-              </div>
-            )}
-            <p className="text-green-200 text-xs mt-4">No spam. Unsubscribe anytime. Trusted by 5,000+ business owners.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -885,9 +819,6 @@ export default function HomePage() {
 
       {/* ── ROI CALCULATOR ── */}
       <ROICalculator />
-
-      {/* ── EMAIL CAPTURE ── */}
-      <EmailCapture />
 
       {/* ── TRUST BAR ── */}
       <section className="py-14 bg-gray-900">
