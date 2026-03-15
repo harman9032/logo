@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import {
@@ -17,6 +17,11 @@ import {
 const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 const WHATSAPP_LINK = "https://wa.me/917837319660?text=Hi%2C%20I%27m%20interested%20in%20your%20design%20services";
 
+const EDGE_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-contact`;
+
+const SUBMIT_COOLDOWN_MS = 60_000;
+const SUBMIT_MAX = 3;
+
 const INPUT_BASE = "w-full border rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent text-sm bg-white transition-colors duration-200";
 const INPUT_NORMAL = `${INPUT_BASE} border-gray-200 focus:ring-green-500`;
 const INPUT_ERROR = `${INPUT_BASE} border-red-400 focus:ring-red-400`;
@@ -32,6 +37,10 @@ type FormData = {
 
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
+function sanitize(value: string): string {
+  return value.trim().replace(/[<>]/g, '').slice(0, 2000);
+}
+
 function validateForm(data: FormData): FormErrors {
   const errors: FormErrors = {};
   if (!data.name.trim()) errors.name = 'Please enter your full name.';
@@ -42,6 +51,17 @@ function validateForm(data: FormData): FormErrors {
   }
   if (!data.message.trim()) errors.message = 'Please tell us about your project.';
   return errors;
+}
+
+const submitLog: number[] = [];
+
+function clientRateLimitOk(): boolean {
+  const now = Date.now();
+  const windowStart = now - SUBMIT_COOLDOWN_MS;
+  while (submitLog.length && submitLog[0] < windowStart) submitLog.shift();
+  if (submitLog.length >= SUBMIT_MAX) return false;
+  submitLog.push(now);
+  return true;
 }
 
 export default function ContactPage() {
@@ -58,6 +78,8 @@ export default function ContactPage() {
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const formLoadTime = useRef<number>(Date.now());
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -78,6 +100,16 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (honeypotRef.current?.value) return;
+
+    if (Date.now() - formLoadTime.current < 3000) return;
+
+    if (!clientRateLimitOk()) {
+      setSubmitError('Too many submissions. Please wait a minute before trying again.');
+      return;
+    }
+
     const allTouched: Partial<Record<keyof FormData, boolean>> = {};
     (Object.keys(formData) as Array<keyof FormData>).forEach(k => { allTouched[k] = true; });
     setTouched(allTouched);
@@ -87,8 +119,34 @@ export default function ContactPage() {
 
     setIsSubmitting(true);
     setSubmitError('');
+
     try {
-      await new Promise((res) => setTimeout(res, 1000));
+      const payload = {
+        name: sanitize(formData.name),
+        email: sanitize(formData.email),
+        phone: sanitize(formData.phone),
+        business: sanitize(formData.business),
+        package: sanitize(formData.package),
+        message: sanitize(formData.message),
+        _hp: '',
+      };
+
+      const res = await fetch(EDGE_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const json = await res.json();
+
+      if (!res.ok) {
+        setSubmitError(json.error || 'Failed to send message. Please try again or email us directly at sales@dailycreativedesigns.com.');
+        return;
+      }
+
       navigate('/thank-you');
     } catch {
       setSubmitError('Failed to send message. Please check your connection and try again, or email us directly at sales@dailycreativedesigns.com.');
@@ -189,6 +247,19 @@ export default function ContactPage() {
                 noValidate
                 aria-label="Contact form"
               >
+                {/* Honeypot — hidden from real users, bots fill it in */}
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, pointerEvents: 'none', tabIndex: -1 } as React.CSSProperties}>
+                  <label htmlFor="_hp">Leave this field empty</label>
+                  <input
+                    id="_hp"
+                    name="_hp"
+                    type="text"
+                    ref={honeypotRef}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="contact-name" className="block text-sm font-semibold text-gray-700 mb-1.5">
