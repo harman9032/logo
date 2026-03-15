@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   Menu, X, ChevronDown, Palette, Monitor, ShoppingCart,
   Globe, Layers, Image, TrendingUp, Package, Phone,
-  Star, ArrowRight, Zap, BadgeCheck, Sparkles,
+  Star, ArrowRight, Zap, BadgeCheck, Sparkles, Workflow,
 } from 'lucide-react';
 
 const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
@@ -64,6 +64,14 @@ const SERVICE_LINKS = [
     bg: 'bg-teal-50',
     iconColor: 'text-teal-500',
     desc: 'SEO, ads & measurable growth',
+  },
+  {
+    label: 'n8n Automation',
+    href: '/services/n8n-automation',
+    icon: Workflow,
+    bg: 'bg-green-50',
+    iconColor: 'text-green-700',
+    desc: 'Automate tasks, save 10+ hrs/week',
   },
 ];
 
@@ -240,7 +248,7 @@ export default function Navbar() {
                     aria-label="Services menu"
                     onKeyDown={handleDropdownKeyDown}
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50"
-                    style={{ width: '680px' }}
+                    style={{ width: '720px' }}
                   >
                     {/* Arrow */}
                     <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-gray-100 rotate-45 z-10" />

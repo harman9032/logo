@@ -27,6 +27,7 @@ const WordPressDesignPage = lazy(() => import('./pages/services/WordPressDesignP
 const BrandIdentityPage = lazy(() => import('./pages/services/BrandIdentityPage'));
 const SocialMediaDesignPage = lazy(() => import('./pages/services/SocialMediaDesignPage'));
 const DigitalMarketingPage = lazy(() => import('./pages/services/DigitalMarketingPage'));
+const N8nAutomationPage = lazy(() => import('./pages/services/N8nAutomationPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
 
 function PageLoader() {
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/services/brand-identity" element={<BrandIdentityPage />} />
             <Route path="/services/social-media-design" element={<SocialMediaDesignPage />} />
             <Route path="/services/digital-marketing" element={<DigitalMarketingPage />} />
+            <Route path="/services/n8n-automation" element={<N8nAutomationPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
