@@ -199,13 +199,7 @@ export default function Navbar() {
                   aria-hidden="true"
                   className="flex-shrink-0 drop-shadow-sm group-hover:drop-shadow-md transition-all"
                 >
-                  <rect x="14" y="1" width="18.38" height="18.38" rx="2" transform="rotate(45 14 1)" fill="url(#logoGrad)" />
-                  <defs>
-                    <linearGradient id="logoGrad" x1="5" y1="5" x2="23" y2="23" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stopColor="#22c55e" />
-                      <stop offset="100%" stopColor="#16a34a" />
-                    </linearGradient>
-                  </defs>
+                  <rect x="14" y="1" width="18.38" height="18.38" rx="2" transform="rotate(45 14 1)" fill="#16a34a" />
                 </svg>
                 <span className="text-[17px] font-black text-gray-900 tracking-tight whitespace-nowrap">
                   Daily Creative <span className="text-green-600">Designs</span>
