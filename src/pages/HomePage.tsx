@@ -1104,36 +1104,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
-      <section className="py-20 bg-green-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Ready to Transform Your Brand?
-          </h2>
-          <p className="text-xl mb-10 text-green-100 font-semibold max-w-2xl mx-auto">
-            Join 5,000+ businesses that chose professional design to stand out, build trust, and grow faster.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-green-700 px-8 py-4 rounded-xl text-lg font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
-            >
-              <Calendar className="h-5 w-5" />
-              Book a Free Call
-            </a>
-            <Link
-              to="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-white hover:text-green-700 transition-all duration-300 flex items-center justify-center"
-            >
-              Send Us a Message
-            </Link>
-          </div>
-        </div>
-      </section>
-
       </main>
     </div>
   );
