@@ -142,7 +142,7 @@ export default function HeroSection() {
         </div>
 
         {/* ── TWO-COLUMN LAYOUT ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center pb-20">
 
           {/* LEFT: COPY */}
           <div className="text-left">
@@ -240,8 +240,8 @@ export default function HeroSection() {
           {/* RIGHT: VISUAL PROOF */}
           <div className="relative">
 
-            {/* Floating badge — top left (desktop only) */}
-            <div className="absolute -top-4 -left-4 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_both]">
+            {/* Floating badge — top left */}
+            <div className="absolute -top-5 -left-5 z-20 bg-white rounded-2xl shadow-2xl px-3.5 py-3 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_both]">
               <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-green-200">
                 <TrendingUp className="h-5 w-5 text-green-600" />
               </div>
@@ -251,23 +251,21 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Floating badge — bottom right (desktop only) */}
-            <div className="absolute -bottom-4 -right-4 z-20 bg-white rounded-2xl shadow-2xl px-4 py-3.5 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideUp_0.6s_ease_0.2s_both]">
+            {/* Floating badge — top right */}
+            <div className="absolute -top-5 -right-5 z-20 bg-white rounded-2xl shadow-2xl px-3.5 py-3 hidden lg:flex items-center gap-2.5 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_0.1s_both]">
               <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-amber-200">
-                <Star className="h-5 w-5 text-amber-400 fill-current" />
+                <Award className="h-5 w-5 text-amber-500" />
               </div>
               <div>
-                <div className="flex gap-0.5 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-xs text-gray-500 font-semibold leading-tight">"Best investment we ever made"</p>
+                <p className="text-sm font-black text-gray-900 leading-none">5,000+</p>
+                <p className="text-xs text-gray-400 mt-0.5">Brands Delivered</p>
               </div>
             </div>
 
-            {/* Browser mock + screenshot */}
-            <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
+            {/* Main card */}
+            <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.55)] ring-1 ring-white/20 mt-4">
+
+              {/* Browser chrome */}
               <div className="bg-gray-900 px-4 py-3 flex items-center gap-3">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 bg-red-500 rounded-full" />
@@ -276,7 +274,7 @@ export default function HeroSection() {
                 </div>
                 <div className="flex-1 bg-gray-800 rounded-lg px-3 py-1.5 flex items-center gap-2">
                   <BadgeCheck className="h-3.5 w-3.5 text-green-400 flex-shrink-0" />
-                  <span className="text-xs text-gray-300 font-mono tracking-tight">dailycreativedesigns.com</span>
+                  <span className="text-xs text-gray-300 font-mono tracking-tight">dailycreativedesigns.com/portfolio</span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-green-500/20 rounded-md px-2 py-1">
                   <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
@@ -284,7 +282,8 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden" style={{ height: '320px' }}>
+              {/* Hero image */}
+              <div className="relative overflow-hidden" style={{ height: '260px' }}>
                 <img
                   src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900"
                   alt="Professional website design sample"
@@ -293,24 +292,83 @@ export default function HeroSection() {
                   height="600"
                   loading="eager"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-gray-900/90 via-gray-900/30 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-950/95 via-gray-900/40 to-transparent" />
 
-                {/* Result card inside screenshot */}
+                {/* Overlay label */}
+                <div className="absolute top-3 left-3">
+                  <span className="bg-green-500 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Real Client Result</span>
+                </div>
+
+                {/* Result card */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white rounded-xl px-4 py-3 shadow-xl flex items-center justify-between gap-3">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
                         <Globe className="h-4 w-4 text-white" />
                       </div>
                       <div>
                         <p className="text-xs font-black text-gray-900 leading-none">Healthcare Clinic · Texas, US</p>
-                        <p className="text-xs text-gray-400 mt-0.5">Launched in 4 days</p>
+                        <p className="text-xs text-gray-400 mt-0.5">Website launched in 4 days</p>
                       </div>
                     </div>
-                    <span className="bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">+312% leads</span>
+                    <div className="flex flex-col items-end gap-0.5">
+                      <span className="bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">+312% leads</span>
+                      <span className="text-[10px] text-gray-400 whitespace-nowrap">in 30 days</span>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              {/* 3 mini result cards */}
+              <div className="bg-gray-950 px-4 py-3 grid grid-cols-3 gap-2">
+                {[
+                  { icon: <BarChart2 className="h-3.5 w-3.5 text-green-400" />, stat: '+280%', label: 'More Traffic' },
+                  { icon: <DollarSign className="h-3.5 w-3.5 text-yellow-400" />, stat: '3.8×', label: 'ROI Avg.' },
+                  { icon: <Star className="h-3.5 w-3.5 text-amber-400 fill-current" />, stat: '4.9★', label: '200+ Reviews' },
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col items-center gap-1 bg-white/5 rounded-xl py-2.5 px-1">
+                    {item.icon}
+                    <span className="text-white text-sm font-black leading-none">{item.stat}</span>
+                    <span className="text-gray-400 text-[10px] font-medium">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Testimonial strip */}
+              <div className="bg-white px-4 py-3 flex items-start gap-3">
+                <div className="w-9 h-9 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">S</div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
+                    ))}
+                    <span className="text-gray-400 text-[10px] ml-1">· verified</span>
+                  </div>
+                  <p className="text-gray-700 text-xs leading-snug font-medium">"Best investment we made — our inquiries tripled in the first month."</p>
+                  <p className="text-gray-400 text-[10px] mt-0.5 font-semibold">Sarah K. · Brand Identity Client · Ontario, CA</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom floating badge */}
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-20 bg-white rounded-2xl shadow-2xl px-5 py-3 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideUp_0.6s_ease_0.2s_both] whitespace-nowrap">
+              <div className="flex -space-x-2">
+                {[
+                  { bg: 'bg-amber-500', init: 'M' },
+                  { bg: 'bg-sky-500', init: 'S' },
+                  { bg: 'bg-rose-500', init: 'A' },
+                  { bg: 'bg-emerald-500', init: 'R' },
+                ].map((c, i) => (
+                  <div key={i} className={`w-7 h-7 ${c.bg} rounded-full border-2 border-white flex items-center justify-center text-white text-[10px] font-black`}>
+                    {c.init}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="text-xs font-black text-gray-900 leading-none">43 businesses hired us</p>
+                <p className="text-[10px] text-gray-400 mt-0.5">in the last 30 days</p>
+              </div>
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-1" />
             </div>
 
             {/* Mobile-only quick contact strip */}
