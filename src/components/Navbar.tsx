@@ -176,7 +176,7 @@ export default function Navbar() {
       <nav
         className={`w-full transition-all duration-300 ${
           scrolled
-            ? 'bg-white/98 backdrop-blur-xl shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-gray-100'
+            ? 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.08)] border-b border-gray-100'
             : 'bg-white border-b border-gray-100'
         }`}
         aria-label="Main navigation"
