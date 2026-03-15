@@ -3,17 +3,6 @@ import { Phone, Mail, MapPin, ArrowRight, Star } from 'lucide-react';
 
 const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
-const SERVICES = [
-  { label: 'Logo Design', href: '/services/logo-design', price: '$299' },
-  { label: 'AI Website Design', href: '/services/ai-website-design', price: '$499' },
-  { label: 'Shopify Design', href: '/services/shopify-design' },
-  { label: 'WordPress Design', href: '/services/wordpress-design' },
-  { label: 'Brand Identity', href: '/services/brand-identity' },
-  { label: 'Social Media Design', href: '/services/social-media-design' },
-  { label: 'Digital Marketing', href: '/services/digital-marketing' },
-  { label: 'Complete Package', href: '/services', price: '$999' },
-];
-
 const COMPANY = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Portfolio', href: '/portfolio' },
@@ -77,7 +66,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-gray-800">
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-5">
             <Link to="/" aria-label="Daily Creative Designs — Home">
               <span className="text-2xl font-black text-white">
                 Daily Creative <span className="text-yellow-400">Designs</span>
@@ -154,25 +143,6 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-5">Services</h3>
-            <ul className="space-y-2.5">
-              {SERVICES.map(({ label, href, price }) => (
-                <li key={href}>
-                  <Link
-                    to={href}
-                    className="flex items-center justify-between text-gray-400 hover:text-white transition-colors duration-200 text-sm group"
-                  >
-                    <span className="group-hover:translate-x-0.5 transition-transform duration-200">{label}</span>
-                    {price && (
-                      <span className="text-xs text-green-500 font-semibold ml-2 flex-shrink-0">{price}</span>
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
             <h3 className="text-xs font-black uppercase tracking-widest text-gray-500 mb-5">Company</h3>
             <ul className="space-y-2.5">
               {COMPANY.map(({ label, href }) => (
