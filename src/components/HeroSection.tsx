@@ -21,6 +21,9 @@ import {
   Clock,
   DollarSign,
   Phone,
+  Users,
+  ChevronRight,
+  Sparkles,
 } from 'lucide-react';
 
 const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
@@ -97,6 +100,263 @@ function LiveNotification() {
         <span className="text-yellow-300">{client.name}</span> from {client.location} just hired us for <span className="text-yellow-300">{client.service}</span>
       </span>
       <span className="text-green-300 text-xs font-medium whitespace-nowrap hidden sm:inline">{client.time}</span>
+    </div>
+  );
+}
+
+const PORTFOLIO_TABS = [
+  {
+    id: 'website',
+    label: 'Website',
+    icon: <Globe className="h-3.5 w-3.5" />,
+    img: 'https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900',
+    badge: 'Web Design',
+    client: 'Healthcare Clinic',
+    location: 'Texas, US',
+    result: '+312% Leads',
+    sub: 'Launched in 4 days',
+    color: 'from-green-500 to-emerald-600',
+  },
+  {
+    id: 'brand',
+    label: 'Branding',
+    icon: <Palette className="h-3.5 w-3.5" />,
+    img: 'https://images.pexels.com/photos/6476808/pexels-photo-6476808.jpeg?auto=compress&cs=tinysrgb&w=900',
+    badge: 'Brand Identity',
+    client: 'Boutique Law Firm',
+    location: 'Ontario, CA',
+    result: '3× More Clients',
+    sub: 'Full rebrand in 5 days',
+    color: 'from-amber-500 to-orange-500',
+  },
+  {
+    id: 'shopify',
+    label: 'Shopify',
+    icon: <BarChart2 className="h-3.5 w-3.5" />,
+    img: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=900',
+    badge: 'Shopify Store',
+    client: 'Fashion Retailer',
+    location: 'New York, US',
+    result: '+$48K Revenue',
+    sub: 'First month after launch',
+    color: 'from-sky-500 to-blue-600',
+  },
+];
+
+const TESTIMONIALS = [
+  { init: 'S', bg: 'from-sky-400 to-blue-600', name: 'Sarah K.', role: 'Brand Identity · Ontario, CA', quote: '"Best investment we made. Inquiries tripled in our first month."' },
+  { init: 'M', bg: 'from-amber-400 to-orange-500', name: 'Marcus T.', role: 'Logo + Website · Texas, US', quote: '"Delivered faster than anyone else and it looked world-class."' },
+  { init: 'R', bg: 'from-emerald-400 to-green-600', name: 'Ravi P.', role: 'Shopify Store · New York, US', quote: '"Our store generated $48k in the first month after launch."' },
+];
+
+function RightPanel({ whatsappLink, bookingLink }: { whatsappLink: string; bookingLink: string }) {
+  const [activeTab, setActiveTab] = useState(0);
+  const [testimIdx, setTestimIdx] = useState(0);
+  const [testimVisible, setTestimVisible] = useState(true);
+  const tab = PORTFOLIO_TABS[activeTab];
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setTestimVisible(false);
+      setTimeout(() => {
+        setTestimIdx((i) => (i + 1) % TESTIMONIALS.length);
+        setTestimVisible(true);
+      }, 350);
+    }, 5000);
+    return () => clearInterval(t);
+  }, []);
+
+  const testimonial = TESTIMONIALS[testimIdx];
+
+  return (
+    <div className="relative lg:pl-6">
+
+      {/* ── Floating badge top-left ── */}
+      <div className="absolute -top-6 -left-2 z-20 hidden lg:flex items-center gap-2.5 bg-white rounded-2xl shadow-2xl border border-gray-100 px-3.5 py-2.5 animate-[fadeSlideDown_0.5s_ease_both]">
+        <div className="w-9 h-9 bg-green-50 rounded-xl flex items-center justify-center ring-1 ring-green-100 flex-shrink-0">
+          <TrendingUp className="h-4.5 w-4.5 text-green-600 h-[18px] w-[18px]" />
+        </div>
+        <div>
+          <p className="text-xs font-black text-gray-900 leading-none">Leads Up 4×</p>
+          <p className="text-[10px] text-gray-400 mt-0.5">avg. in first week</p>
+        </div>
+      </div>
+
+      {/* ── Floating badge top-right ── */}
+      <div className="absolute -top-6 -right-2 z-20 hidden lg:flex items-center gap-2.5 bg-white rounded-2xl shadow-2xl border border-gray-100 px-3.5 py-2.5 animate-[fadeSlideDown_0.5s_ease_0.1s_both]">
+        <div className="w-9 h-9 bg-amber-50 rounded-xl flex items-center justify-center ring-1 ring-amber-100 flex-shrink-0">
+          <Sparkles className="h-[18px] w-[18px] text-amber-500" />
+        </div>
+        <div>
+          <p className="text-xs font-black text-gray-900 leading-none">5,000+ Brands</p>
+          <p className="text-[10px] text-gray-400 mt-0.5">delivered globally</p>
+        </div>
+      </div>
+
+      {/* ── Main card ── */}
+      <div className="rounded-3xl overflow-hidden shadow-[0_40px_90px_-16px_rgba(0,0,0,0.6)] ring-1 ring-white/25 mt-8 bg-gray-950">
+
+        {/* Tab switcher */}
+        <div className="flex items-center gap-1 px-4 pt-4 pb-0">
+          <div className="flex bg-white/5 rounded-xl p-1 gap-1 flex-1">
+            {PORTFOLIO_TABS.map((t, i) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTab(i)}
+                className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold transition-all duration-200 ${
+                  i === activeTab
+                    ? 'bg-white text-gray-900 shadow-md'
+                    : 'text-gray-400 hover:text-gray-200'
+                }`}
+              >
+                {t.icon}
+                <span className="hidden sm:inline">{t.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-1.5 bg-green-500/15 rounded-xl px-3 py-2 ml-2">
+            <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+            <span className="text-[10px] text-green-300 font-bold tracking-wide">LIVE</span>
+          </div>
+        </div>
+
+        {/* Portfolio image */}
+        <div className="relative overflow-hidden mx-4 mt-3 rounded-2xl" style={{ height: '220px' }}>
+          <img
+            key={tab.id}
+            src={tab.img}
+            alt={tab.badge}
+            className="w-full h-full object-cover object-top transition-all duration-500"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent" />
+
+          {/* Top-left badge */}
+          <div className="absolute top-3 left-3 flex items-center gap-1.5">
+            <span className={`bg-gradient-to-r ${tab.color} text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wide shadow-lg`}>
+              {tab.badge}
+            </span>
+          </div>
+
+          {/* Bottom result card */}
+          <div className="absolute bottom-3 left-3 right-3">
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl px-3.5 py-2.5 shadow-2xl flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className={`w-8 h-8 bg-gradient-to-br ${tab.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
+                  <BadgeCheck className="h-4 w-4 text-white" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-black text-gray-900 leading-none truncate">{tab.client} · {tab.location}</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">{tab.sub}</p>
+                </div>
+              </div>
+              <div className="flex-shrink-0 text-right">
+                <span className={`bg-gradient-to-r ${tab.color} text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap shadow`}>
+                  {tab.result}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── 3 proof metrics ── */}
+        <div className="grid grid-cols-3 gap-2 px-4 pt-3">
+          {[
+            { icon: <BarChart2 className="h-3.5 w-3.5 text-green-400" />, stat: '+280%', label: 'Avg. Traffic' },
+            { icon: <DollarSign className="h-3.5 w-3.5 text-yellow-400" />, stat: '3.8×', label: 'Avg. ROI' },
+            { icon: <Users className="h-3.5 w-3.5 text-sky-400" />, stat: '5,000+', label: 'Brands Built' },
+          ].map((m) => (
+            <div key={m.label} className="flex flex-col items-center gap-0.5 bg-white/5 rounded-xl py-2.5 px-2">
+              {m.icon}
+              <span className="text-white text-sm font-black leading-none mt-0.5">{m.stat}</span>
+              <span className="text-gray-500 text-[10px] font-medium">{m.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Rotating testimonial ── */}
+        <div
+          className={`mx-4 mt-3 mb-4 bg-white rounded-2xl px-4 py-3.5 shadow-sm transition-all duration-350 ${testimVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'}`}
+        >
+          <div className="flex items-start gap-3">
+            <div className={`w-10 h-10 bg-gradient-to-br ${testimonial.bg} rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0`}>
+              {testimonial.init}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between mb-1">
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
+                  ))}
+                </div>
+                <span className="text-[10px] text-green-600 font-bold bg-green-50 px-2 py-0.5 rounded-md">Verified</span>
+              </div>
+              <p className="text-gray-800 text-xs leading-snug font-semibold">{testimonial.quote}</p>
+              <p className="text-gray-400 text-[10px] mt-1 font-medium">{testimonial.name} · {testimonial.role}</p>
+            </div>
+          </div>
+          {/* Testimonial dots */}
+          <div className="flex justify-center gap-1 mt-2.5">
+            {TESTIMONIALS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setTestimVisible(false); setTimeout(() => { setTestimIdx(i); setTestimVisible(true); }, 350); }}
+                className={`rounded-full transition-all duration-200 ${i === testimIdx ? 'w-4 h-1.5 bg-green-500' : 'w-1.5 h-1.5 bg-gray-200'}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ── CTA strip at bottom ── */}
+        <div className="border-t border-white/5 px-4 py-3 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <div className="flex -space-x-1.5">
+              {[
+                { bg: 'bg-amber-500', init: 'M' },
+                { bg: 'bg-sky-500', init: 'S' },
+                { bg: 'bg-rose-500', init: 'A' },
+                { bg: 'bg-emerald-500', init: 'R' },
+              ].map((c, i) => (
+                <div key={i} className={`w-6 h-6 ${c.bg} rounded-full border-2 border-gray-950 flex items-center justify-center text-white text-[9px] font-black`}>
+                  {c.init}
+                </div>
+              ))}
+            </div>
+            <span className="text-gray-400 text-[11px] font-medium">
+              <span className="text-white font-bold">43 hired</span> this month
+            </span>
+          </div>
+          <a
+            href={bookingLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-xs font-black text-green-400 hover:text-green-300 transition-colors group"
+          >
+            See All Work
+            <ChevronRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      {/* Mobile-only quick contact strip */}
+      <div className="lg:hidden mt-5 grid grid-cols-2 gap-3">
+        <a
+          href="tel:+917837319660"
+          className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold hover:bg-white/20 transition-all backdrop-blur-sm"
+        >
+          <Phone className="h-4 w-4" />
+          Call Now
+        </a>
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 bg-[#25D366] rounded-xl px-4 py-3 text-white text-sm font-bold hover:bg-[#1ebe5c] transition-all"
+        >
+          <MessageCircle className="h-4 w-4" />
+          WhatsApp
+        </a>
+      </div>
     </div>
   );
 }
@@ -238,159 +498,7 @@ export default function HeroSection() {
           </div>
 
           {/* RIGHT: VISUAL PROOF */}
-          <div className="relative">
-
-            {/* Floating badge — top left */}
-            <div className="absolute -top-5 -left-5 z-20 bg-white rounded-2xl shadow-2xl px-3.5 py-3 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_both]">
-              <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-green-200">
-                <TrendingUp className="h-5 w-5 text-green-600" />
-              </div>
-              <div>
-                <p className="text-sm font-black text-gray-900 leading-none">Leads Up 4×</p>
-                <p className="text-xs text-gray-400 mt-0.5">Within the first week</p>
-              </div>
-            </div>
-
-            {/* Floating badge — top right */}
-            <div className="absolute -top-5 -right-5 z-20 bg-white rounded-2xl shadow-2xl px-3.5 py-3 hidden lg:flex items-center gap-2.5 border border-gray-100 animate-[fadeSlideDown_0.6s_ease_0.1s_both]">
-              <div className="w-10 h-10 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0 ring-1 ring-amber-200">
-                <Award className="h-5 w-5 text-amber-500" />
-              </div>
-              <div>
-                <p className="text-sm font-black text-gray-900 leading-none">5,000+</p>
-                <p className="text-xs text-gray-400 mt-0.5">Brands Delivered</p>
-              </div>
-            </div>
-
-            {/* Main card */}
-            <div className="rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.55)] ring-1 ring-white/20 mt-4">
-
-              {/* Browser chrome */}
-              <div className="bg-gray-900 px-4 py-3 flex items-center gap-3">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 bg-red-500 rounded-full" />
-                  <div className="w-3 h-3 bg-yellow-400 rounded-full" />
-                  <div className="w-3 h-3 bg-green-400 rounded-full" />
-                </div>
-                <div className="flex-1 bg-gray-800 rounded-lg px-3 py-1.5 flex items-center gap-2">
-                  <BadgeCheck className="h-3.5 w-3.5 text-green-400 flex-shrink-0" />
-                  <span className="text-xs text-gray-300 font-mono tracking-tight">dailycreativedesigns.com/portfolio</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-green-500/20 rounded-md px-2 py-1">
-                  <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-[10px] text-green-300 font-semibold">LIVE</span>
-                </div>
-              </div>
-
-              {/* Hero image */}
-              <div className="relative overflow-hidden" style={{ height: '260px' }}>
-                <img
-                  src="https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=900"
-                  alt="Professional website design sample"
-                  className="w-full h-full object-cover object-top scale-[1.02] hover:scale-100 transition-transform duration-700"
-                  width="900"
-                  height="600"
-                  loading="eager"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-gray-950/95 via-gray-900/40 to-transparent" />
-
-                {/* Overlay label */}
-                <div className="absolute top-3 left-3">
-                  <span className="bg-green-500 text-white text-[10px] font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Real Client Result</span>
-                </div>
-
-                {/* Result card */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white rounded-xl px-4 py-3 shadow-xl flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Globe className="h-4 w-4 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-black text-gray-900 leading-none">Healthcare Clinic · Texas, US</p>
-                        <p className="text-xs text-gray-400 mt-0.5">Website launched in 4 days</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-end gap-0.5">
-                      <span className="bg-green-500 text-white text-xs font-black px-2.5 py-1 rounded-lg whitespace-nowrap">+312% leads</span>
-                      <span className="text-[10px] text-gray-400 whitespace-nowrap">in 30 days</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 3 mini result cards */}
-              <div className="bg-gray-950 px-4 py-3 grid grid-cols-3 gap-2">
-                {[
-                  { icon: <BarChart2 className="h-3.5 w-3.5 text-green-400" />, stat: '+280%', label: 'More Traffic' },
-                  { icon: <DollarSign className="h-3.5 w-3.5 text-yellow-400" />, stat: '3.8×', label: 'ROI Avg.' },
-                  { icon: <Star className="h-3.5 w-3.5 text-amber-400 fill-current" />, stat: '4.9★', label: '200+ Reviews' },
-                ].map((item) => (
-                  <div key={item.label} className="flex flex-col items-center gap-1 bg-white/5 rounded-xl py-2.5 px-1">
-                    {item.icon}
-                    <span className="text-white text-sm font-black leading-none">{item.stat}</span>
-                    <span className="text-gray-400 text-[10px] font-medium">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Testimonial strip */}
-              <div className="bg-white px-4 py-3 flex items-start gap-3">
-                <div className="w-9 h-9 bg-gradient-to-br from-sky-400 to-blue-600 rounded-full flex items-center justify-center text-white text-sm font-black flex-shrink-0">S</div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1 mb-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-3 w-3 text-amber-400 fill-current" />
-                    ))}
-                    <span className="text-gray-400 text-[10px] ml-1">· verified</span>
-                  </div>
-                  <p className="text-gray-700 text-xs leading-snug font-medium">"Best investment we made — our inquiries tripled in the first month."</p>
-                  <p className="text-gray-400 text-[10px] mt-0.5 font-semibold">Sarah K. · Brand Identity Client · Ontario, CA</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Bottom floating badge */}
-            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 z-20 bg-white rounded-2xl shadow-2xl px-5 py-3 hidden lg:flex items-center gap-3 border border-gray-100 animate-[fadeSlideUp_0.6s_ease_0.2s_both] whitespace-nowrap">
-              <div className="flex -space-x-2">
-                {[
-                  { bg: 'bg-amber-500', init: 'M' },
-                  { bg: 'bg-sky-500', init: 'S' },
-                  { bg: 'bg-rose-500', init: 'A' },
-                  { bg: 'bg-emerald-500', init: 'R' },
-                ].map((c, i) => (
-                  <div key={i} className={`w-7 h-7 ${c.bg} rounded-full border-2 border-white flex items-center justify-center text-white text-[10px] font-black`}>
-                    {c.init}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-xs font-black text-gray-900 leading-none">43 businesses hired us</p>
-                <p className="text-[10px] text-gray-400 mt-0.5">in the last 30 days</p>
-              </div>
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-1" />
-            </div>
-
-            {/* Mobile-only quick contact strip */}
-            <div className="lg:hidden mt-5 grid grid-cols-2 gap-3">
-              <a
-                href="tel:+917837319660"
-                className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white text-sm font-bold hover:bg-white/20 transition-all backdrop-blur-sm"
-              >
-                <Phone className="h-4 w-4" />
-                Call Now
-              </a>
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#25D366] rounded-xl px-4 py-3 text-white text-sm font-bold hover:bg-[#1ebe5c] transition-all"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
-              </a>
-            </div>
-          </div>
+          <RightPanel whatsappLink={WHATSAPP_LINK} bookingLink={BOOKING_LINK} />
         </div>
 
         {/* ── ANIMATED STATS BAR ── */}
