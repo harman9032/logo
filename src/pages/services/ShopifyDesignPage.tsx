@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   CheckCircle, ArrowRight, ShoppingCart, Zap, Shield, Globe,
   ChevronRight, MessageCircle, Package, TrendingUp, Star, CreditCard,
-  RefreshCw, Truck, BarChart3, Tag, Mail, Bell, Search, Smartphone
+  RefreshCw, Truck, BarChart3, Tag, Mail, Bell, Search, Smartphone,
+  MapPin, Clock, DollarSign, Award, ChevronDown, ChevronUp,
+  Users, Layers, CheckSquare, XSquare,
 } from 'lucide-react';
 import SEO from '../../components/SEO';
 
@@ -13,14 +16,25 @@ const packages = [
   {
     name: 'Starter Store',
     price: '$499',
-    desc: 'Get your Shopify store live fast with a clean, branded theme setup.',
-    features: ['Shopify theme setup & customisation', 'Up to 20 products added', 'Payment gateway setup', 'Basic SEO configuration', 'Mobile responsive'],
+    priceNote: 'One-time payment',
+    turnaround: '3–5 business days',
+    desc: 'Get your Shopify store live fast with a clean, branded theme setup and full configuration.',
+    features: [
+      'Shopify theme setup & customisation',
+      'Up to 20 products added',
+      'Payment gateway configuration',
+      'Basic SEO setup',
+      'Mobile responsive design',
+      'Commercial usage rights',
+    ],
     highlight: false,
   },
   {
     name: 'Growth Store',
     price: '$999',
-    desc: 'A fully custom, conversion-optimised Shopify store built to scale.',
+    priceNote: 'Most popular',
+    turnaround: '7–14 business days',
+    desc: 'A fully custom, conversion-optimised Shopify store built to scale your brand.',
     features: [
       'Custom Shopify theme design',
       'Up to 50 products with descriptions',
@@ -28,44 +42,46 @@ const packages = [
       'Abandoned cart recovery setup',
       'Product reviews integration',
       'SEO & speed optimisation',
-      'Google/Meta Pixel integration',
-      'Upsell & cross-sell setup',
+      'Google / Meta Pixel integration',
+      'Upsell & cross-sell configuration',
     ],
     highlight: true,
   },
   {
     name: 'Enterprise Store',
     price: '$1,999',
+    priceNote: 'Full-scale operation',
+    turnaround: 'Custom timeline',
     desc: 'A full-scale Shopify Plus store with custom development and marketing automation.',
     features: [
-      'Everything in Growth',
+      'Everything in Growth Store',
       'Shopify Plus features',
       'Custom app integrations',
       'Multi-currency & multi-language',
       'Advanced analytics dashboard',
-      'Email marketing automation',
+      'Email marketing automation (Klaviyo)',
       'Loyalty & rewards programme',
-      'Dedicated project manager',
+      'Priority support',
     ],
     highlight: false,
   },
 ];
 
 const storeFeatures = [
-  { icon: ShoppingCart, title: 'Custom Theme Design', desc: 'Unique, on-brand storefronts that stand out from generic Shopify templates.' },
-  { icon: CreditCard, title: 'Payment Integration', desc: 'Razorpay, Stripe, PayPal, UPI, and all major gateways configured seamlessly.' },
-  { icon: TrendingUp, title: 'Conversion Optimised', desc: 'Strategic layouts, trust signals, and CTAs designed to maximise sales.' },
-  { icon: Shield, title: 'Secure & Reliable', desc: 'Shopify\'s enterprise-grade infrastructure with SSL and PCI compliance.' },
-  { icon: Globe, title: 'SEO Ready', desc: 'Optimised site structure, meta tags, and sitemaps for organic discoverability.' },
-  { icon: Zap, title: 'Lightning Fast', desc: 'Optimised images and code for sub-2 second load times globally.' },
+  { icon: ShoppingCart, title: 'Custom Theme Design', desc: 'Unique, on-brand storefronts built from scratch — no purchased templates resold as custom work.' },
+  { icon: CreditCard, title: 'Payment Integration', desc: 'Stripe, PayPal, Shop Pay, Apple Pay, and all major gateways configured for your market.' },
+  { icon: TrendingUp, title: 'Conversion Optimised', desc: 'Strategic layouts, trust signals, and CTAs proven to reduce bounce and maximise average order value.' },
+  { icon: Shield, title: 'Secure & Compliant', desc: 'Shopify\'s enterprise infrastructure with SSL, PCI compliance, and GDPR-ready setup.' },
+  { icon: Globe, title: 'SEO Ready from Day One', desc: 'Structured data, optimised meta tags, canonical URLs, and sitemap submitted at launch.' },
+  { icon: Zap, title: 'Lightning Fast', desc: 'Optimised images, lazy loading, and clean code for sub-2 second load times on mobile and desktop.' },
 ];
 
 const buildTimeline = [
-  { phase: 'Phase 1', title: 'Strategy & Niche Research', desc: 'We analyse your products, competitors, and target customers to plan the store architecture and user journey.' },
-  { phase: 'Phase 2', title: 'Design & Theme Build', desc: 'Custom homepage, collection, product, and cart pages designed in your brand colours and style.' },
-  { phase: 'Phase 3', title: 'Products & Content Upload', desc: 'We add all your products, write SEO-optimised descriptions, and upload high-quality images.' },
-  { phase: 'Phase 4', title: 'Apps & Integrations', desc: 'Reviews, upsells, email pop-ups, abandoned cart, analytics pixels — all configured and tested.' },
-  { phase: 'Phase 5', title: 'Testing & Launch', desc: 'Full end-to-end checkout testing, speed optimisation, and a guided launch walk-through.' },
+  { phase: 'Phase 1', title: 'Strategy & Research', desc: 'We analyse your products, competitors, and target customers to map the store architecture and customer journey.' },
+  { phase: 'Phase 2', title: 'Custom Design & Build', desc: 'Homepage, collection, product detail, cart, and checkout pages designed to your brand identity.' },
+  { phase: 'Phase 3', title: 'Products & Content Upload', desc: 'We add all products, write SEO-optimised descriptions, and upload images in optimal formats.' },
+  { phase: 'Phase 4', title: 'Apps & Integrations', desc: 'Reviews, upsells, abandoned cart recovery, email pop-ups, and analytics pixels — all configured.' },
+  { phase: 'Phase 5', title: 'Testing & Launch', desc: 'Full end-to-end checkout testing, page speed audit, and a guided handover walkthrough.' },
 ];
 
 const integrations = [
@@ -81,67 +97,306 @@ const integrations = [
   { icon: CreditCard, label: 'Buy Now Pay Later' },
 ];
 
-const faqs = [
-  { q: 'Do I need a Shopify subscription?', a: 'Yes — Shopify plans start from $32/month. We help you choose the right plan and handle the entire setup.' },
-  { q: 'Can you migrate my existing store?', a: 'Yes. We handle full migrations from WooCommerce, Wix, Squarespace, and other platforms, including products and customer data.' },
-  { q: 'How long does the store take to build?', a: 'A Starter Store takes 3–5 days; Growth Store 7–14 days; Enterprise Store varies by complexity.' },
-  { q: 'Do you add products for me?', a: 'Yes — all packages include product uploading. You provide images, descriptions, and pricing.' },
-  { q: 'Will I be able to manage the store myself?', a: 'Absolutely. Shopify is one of the easiest platforms to manage. We provide a full walkthrough on how to add products, manage orders, and process payments.' },
+const stats = [
+  { value: '300+', label: 'Shopify stores launched', icon: ShoppingCart },
+  { value: '$2M+', label: 'Revenue generated by clients', icon: TrendingUp },
+  { value: '12+', label: 'Years eCommerce experience', icon: Award },
+  { value: '48 hr', label: 'First design draft', icon: Clock },
 ];
+
+const niches = [
+  'Fashion & Apparel', 'Beauty & Skincare', 'Health & Supplements',
+  'Home & Furniture', 'Electronics & Tech', 'Sports & Outdoors',
+  'Food & Beverage', 'Jewellery & Accessories', 'Pet Products',
+  'Baby & Kids', 'Art & Prints', 'Digital Products',
+];
+
+const comparison = [
+  { feature: 'Built-in payment processing', shopify: true },
+  { feature: 'Native abandoned cart recovery', shopify: true },
+  { feature: 'App ecosystem (8,000+ apps)', shopify: true },
+  { feature: 'Shopify Payments (zero transaction fees)', shopify: true },
+  { feature: 'Mobile buy button & POS', shopify: true },
+  { feature: 'Multi-currency checkout', shopify: true },
+  { feature: 'Hosted — no server management', shopify: true },
+  { feature: 'Dedicated 24/7 platform support', shopify: true },
+];
+
+const whyChooseUs = [
+  {
+    icon: Award,
+    title: 'Dedicated Shopify Freelancer',
+    desc: '12+ years building Shopify stores for brands in the US, Canada, and Australia — not a generalist agency.',
+    color: 'text-emerald-600',
+    bg: 'bg-emerald-50',
+  },
+  {
+    icon: Clock,
+    title: '48-Hour First Draft',
+    desc: 'Initial store designs delivered within 2 business days. No waiting weeks for a first preview.',
+    color: 'text-sky-600',
+    bg: 'bg-sky-50',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Conversion-First Design',
+    desc: 'Every layout decision is informed by conversion rate optimisation data — not just aesthetics.',
+    color: 'text-amber-600',
+    bg: 'bg-amber-50',
+  },
+  {
+    icon: Users,
+    title: 'Direct Communication',
+    desc: 'You work with the same Shopify expert from brief to launch — no account managers or junior handoffs.',
+    color: 'text-rose-600',
+    bg: 'bg-rose-50',
+  },
+  {
+    icon: Layers,
+    title: 'Full App Stack Setup',
+    desc: 'All essential Shopify apps — reviews, upsells, abandoned cart, email marketing — configured at no extra cost.',
+    color: 'text-slate-600',
+    bg: 'bg-slate-50',
+  },
+  {
+    icon: Globe,
+    title: 'SEO & Analytics Included',
+    desc: 'Google Analytics 4, Meta Pixel, Search Console, and on-page SEO configured and verified at launch.',
+    color: 'text-emerald-600',
+    bg: 'bg-emerald-50',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How much does a Shopify freelancer charge to build a store?',
+    a: 'A professional Shopify freelancer typically charges between $499 and $2,000+ depending on store complexity. A Starter Store with up to 20 products starts at $499, a fully custom Growth Store with conversion optimisation and app integrations costs $999, and an Enterprise Shopify Plus store starts at $1,999. All pricing is flat-rate — no hourly billing surprises.',
+  },
+  {
+    q: 'How long does it take a Shopify freelancer to build a store?',
+    a: 'A Starter Shopify Store takes 3–5 business days. A custom Growth Store with advanced features takes 7–14 business days. Enterprise stores vary by complexity. First design drafts are delivered within 48 hours of the project kickoff call.',
+  },
+  {
+    q: 'Why hire a Shopify freelancer instead of an agency?',
+    a: 'A dedicated Shopify freelancer offers direct communication with the person actually building your store, faster turnarounds, and significantly lower costs than a full agency. You work one-on-one from brief to launch with no account managers or junior developers involved. For most eCommerce brands, a specialist freelancer delivers comparable or better quality at a fraction of agency pricing.',
+  },
+  {
+    q: 'What is included in a custom Shopify store build?',
+    a: 'A custom Shopify store includes a unique design built for your brand (not a purchased theme), mobile-optimised layouts, payment gateway configuration, product uploading with SEO-optimised descriptions, app setup (reviews, upsells, abandoned cart), Google Analytics 4 and Meta Pixel integration, basic SEO configuration, and a full handover walkthrough.',
+  },
+  {
+    q: 'Do I need a Shopify subscription?',
+    a: 'Yes — Shopify plans start from $32/month for the Basic plan. We help you choose the right plan for your business size and volume, handle the complete account setup, and connect your custom domain.',
+  },
+  {
+    q: 'Can a Shopify freelancer migrate my existing store?',
+    a: 'Yes. Full store migrations from WooCommerce, Wix, BigCommerce, Squarespace, and other platforms are a core service — including product data, customer records, order history, and URL redirect mapping to preserve SEO rankings.',
+  },
+  {
+    q: 'Will I be able to manage my Shopify store myself?',
+    a: 'Yes. Shopify is designed for non-technical users. Every project includes a recorded walkthrough video and written documentation covering how to add products, manage orders, run discounts, and read analytics. Most clients manage their stores confidently from day one.',
+  },
+  {
+    q: 'Do you provide Shopify support after the store launches?',
+    a: 'Yes. Post-launch support for bug fixes and questions is included for 30 days. Ongoing monthly maintenance packages for theme updates, app management, and performance monitoring are also available.',
+  },
+];
+
+function FAQItem({ faq }: { faq: { q: string; a: string } }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-gray-200 rounded-xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between gap-4 p-5 text-left bg-white hover:bg-gray-50 transition-colors"
+        aria-expanded={open}
+      >
+        <span className="font-bold text-gray-900 text-sm leading-snug">{faq.q}</span>
+        {open
+          ? <ChevronUp className="h-4 w-4 text-gray-500 flex-shrink-0" />
+          : <ChevronDown className="h-4 w-4 text-gray-500 flex-shrink-0" />}
+      </button>
+      {open && (
+        <div className="px-5 pb-5 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-600 text-sm leading-relaxed pt-4">{faq.a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ShopifyDesignPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <SEO title="Shopify Store Design — Custom eCommerce Stores" description="Custom Shopify store design that converts visitors into customers. Mobile-optimized, fast-loading, and branded to your business. Get a free consultation." canonical="/services/shopify-design" />
+      <SEO
+        title="Shopify Freelancer — Custom Shopify Stores from $499 | US & Canada"
+        description="Hire a professional Shopify freelancer with 12+ years experience. Custom Shopify stores, WooCommerce migrations, and conversion optimisation. Starting from $499. 48-hr first draft."
+        canonical="/services/shopify-design"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Shopify Freelancer — Custom Shopify Store Design",
+            "description": "Custom Shopify store design and development for eCommerce brands in the US, Canada, and Australia. Services include new stores, WooCommerce migrations, Shopify Plus builds, and conversion optimisation.",
+            "provider": {
+              "@type": "ProfessionalService",
+              "name": "DigitalBoost",
+              "areaServed": ["United States", "Canada", "Australia", "United Kingdom"],
+              "knowsAbout": [
+                "Shopify Store Design", "Shopify Development", "WooCommerce Migration",
+                "Shopify Freelancer", "Custom Shopify Themes", "Shopify SEO",
+                "eCommerce Design", "Shopify Plus"
+              ],
+            },
+            "offers": [
+              { "@type": "Offer", "name": "Starter Shopify Store", "price": "499", "priceCurrency": "USD" },
+              { "@type": "Offer", "name": "Growth Shopify Store", "price": "999", "priceCurrency": "USD" },
+              { "@type": "Offer", "name": "Enterprise Shopify Plus Store", "price": "1999", "priceCurrency": "USD" },
+            ],
+            "mainEntityOfPage": {
+              "@type": "FAQPage",
+              "mainEntity": faqs.map((f) => ({
+                "@type": "Question",
+                "name": f.q,
+                "acceptedAnswer": { "@type": "Answer", "text": f.a },
+              })),
+            },
+          }),
+        }}
+      />
+
       <main id="main-content" className="flex-1 pt-16">
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-green-800 via-emerald-800 to-teal-900 py-20 px-4 text-white">
-          <div className="max-w-4xl mx-auto text-center">
+
+        {/* ── HERO ── */}
+        <section className="bg-gradient-to-br from-green-800 via-emerald-800 to-teal-900 py-24 px-4 text-white relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-400/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="max-w-4xl mx-auto text-center relative z-10">
             <div className="inline-flex items-center gap-2 bg-emerald-400/20 border border-emerald-400/30 text-emerald-300 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
               <ShoppingCart size={12} />
-              Shopify eCommerce Design
+              Shopify Freelancer — US &amp; Canada
             </div>
             <h1 className="text-4xl md:text-6xl font-black mb-5 leading-tight">
-              Shopify Stores That <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Sell While You Sleep</span>
+              Hire a Shopify Freelancer{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                Who Drives Revenue
+              </span>
             </h1>
-            <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-              We build high-converting, beautifully designed Shopify stores from scratch — custom branded, fully configured, and ready to take orders from day one.
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-6 leading-relaxed">
+              Custom Shopify stores designed and built from scratch — conversion-optimised, fully configured, and ready to take orders from day one. 12+ years experience. No templates. No outsourcing. Direct communication from brief to launch.
             </p>
+
+            <div className="flex flex-wrap justify-center gap-3 mb-8 text-xs text-slate-400">
+              <span className="flex items-center gap-1.5"><MapPin size={12} className="text-emerald-400" /> Serving US &amp; Canada</span>
+              <span className="flex items-center gap-1.5"><Clock size={12} className="text-emerald-400" /> 48-hr first draft</span>
+              <span className="flex items-center gap-1.5"><DollarSign size={12} className="text-emerald-400" /> Starting at $499</span>
+              <span className="flex items-center gap-1.5"><Star size={12} className="text-emerald-400" /> 300+ stores launched</span>
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_LINK} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-emerald-900 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20">
-                Launch My Store — From $499
+              <a
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-400 hover:bg-emerald-300 text-emerald-900 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5 shadow-lg shadow-emerald-500/20"
+              >
+                Hire Me — From $499
                 <ArrowRight size={18} />
               </a>
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 transition-all">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 transition-all"
+              >
                 <MessageCircle size={18} />
-                Chat on WhatsApp
+                WhatsApp Me
               </a>
-            </div>
-            <div className="flex flex-wrap justify-center gap-6 mt-10 text-sm text-slate-400">
-              <span className="flex items-center gap-2"><CheckCircle size={14} className="text-emerald-400" /> 300+ stores launched</span>
-              <span className="flex items-center gap-2"><CheckCircle size={14} className="text-emerald-400" /> All payment gateways</span>
-              <span className="flex items-center gap-2"><CheckCircle size={14} className="text-emerald-400" /> Full setup included</span>
             </div>
           </div>
         </section>
 
-        {/* Core features */}
-        <section className="py-20 px-4">
+        {/* ── STATS BAR ── */}
+        <section className="py-10 bg-gray-900" aria-label="Key statistics">
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {stats.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.label}>
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Icon size={16} className="text-emerald-400" />
+                      <span className="text-2xl font-black text-white">{s.value}</span>
+                    </div>
+                    <p className="text-sm text-gray-400 font-medium">{s.label}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── WHAT IS A SHOPIFY FREELANCER (AIO/GEO definitional block) ── */}
+        <section className="py-16 px-4 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+                  What Is a Shopify Freelancer?
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-4 leading-tight">
+                  A Shopify Expert Who Works Directly With You
+                </h2>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  A <strong>Shopify freelancer</strong> is an independent professional who designs, builds, and optimises Shopify stores for eCommerce brands. Unlike a web design agency, a freelancer provides direct access to the expert actually building your store — no account managers, no junior handoffs.
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                  Shopify freelancers specialise in custom theme development, app configuration, WooCommerce migrations, conversion rate optimisation, and Shopify Plus builds. A skilled Shopify freelancer costs significantly less than an agency while delivering comparable or superior results for most eCommerce businesses.
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  Shopify powers over <strong>4.6 million online stores</strong> across 175 countries, making it the world's leading hosted eCommerce platform. Hiring a specialist Shopify freelancer ensures your store is built on a proven, scalable foundation designed to grow with your business.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { label: 'Shopify Market Share', value: '#1', note: 'most widely used eCommerce platform globally' },
+                  { label: 'App Ecosystem', value: '8K+', note: 'apps in the Shopify App Store' },
+                  { label: 'Cost vs Agency', value: '60%', note: 'average savings hiring a specialist freelancer' },
+                  { label: 'Time to Launch', value: '5 days', note: 'average Starter Store build timeline' },
+                ].map((item) => (
+                  <div key={item.label} className="bg-emerald-50 border border-emerald-100 rounded-2xl p-4 text-center">
+                    <div className="text-2xl font-black text-emerald-600 mb-1">{item.value}</div>
+                    <p className="text-xs font-bold text-gray-800 mb-1">{item.label}</p>
+                    <p className="text-xs text-gray-500 leading-snug">{item.note}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── CORE FEATURES ── */}
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
                 What's Included
               </div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Everything You Need to Sell Online</h2>
-              <p className="text-gray-500 text-sm max-w-xl mx-auto">Every Shopify store we build is a complete, production-ready selling machine from day one.</p>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">
+                Everything You Need to Sell Online
+              </h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto leading-relaxed">
+                Every Shopify store I build is a complete, production-ready selling machine — no extras, no surprises.
+              </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {storeFeatures.map((f) => {
                 const Icon = f.icon;
                 return (
-                  <div key={f.title} className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
+                  <div key={f.title} className="bg-white border border-emerald-100 rounded-2xl p-6 hover:border-emerald-300 hover:shadow-sm transition-all">
                     <div className="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center mb-4 shadow-sm">
                       <Icon size={18} className="text-white" />
                     </div>
@@ -154,24 +409,83 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
 
-        {/* Packages */}
-        <section className="py-20 px-4 bg-gray-50">
+        {/* ── COMPARISON TABLE ── */}
+        <section className="py-16 px-4 bg-white border-y border-gray-100">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Platform Comparison
+              </div>
+              <h2 className="text-2xl font-black text-gray-900 mb-2">
+                Shopify vs. WooCommerce vs. BigCommerce
+              </h2>
+              <p className="text-gray-500 text-sm">Why growing eCommerce brands choose Shopify — and a specialist Shopify freelancer — every time.</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+              <div className="grid grid-cols-4 text-xs font-bold uppercase tracking-widest text-gray-500 bg-gray-50 border-b border-gray-200 px-5 py-3">
+                <div className="col-span-2">Feature</div>
+                <div className="text-center text-emerald-600">Shopify</div>
+                <div className="text-center text-gray-400">Others</div>
+              </div>
+              {comparison.map((row, i) => (
+                <div
+                  key={row.feature}
+                  className={`grid grid-cols-4 items-center px-5 py-3.5 ${i % 2 === 0 ? '' : 'bg-gray-50'} border-b border-gray-100 last:border-0`}
+                >
+                  <div className="col-span-2 text-sm text-gray-700 font-medium">{row.feature}</div>
+                  <div className="flex justify-center">
+                    <CheckSquare size={18} className="text-green-600" />
+                  </div>
+                  <div className="flex justify-center">
+                    <XSquare size={18} className="text-red-300" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── PACKAGES ── */}
+        <section className="py-20 px-4 bg-gray-50" id="pricing">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Shopify Store Packages</h2>
-              <p className="text-gray-500">From first store to full-scale operation — we have a package for every stage of your business.</p>
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Transparent Pricing
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">
+                Shopify Freelancer Pricing — No Hidden Fees
+              </h2>
+              <p className="text-gray-500 max-w-xl mx-auto text-sm leading-relaxed">
+                Flat-rate project pricing. No hourly billing. All packages include 100% satisfaction guarantee and full store ownership.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {packages.map((pkg) => (
-                <div key={pkg.name} className={`rounded-2xl p-8 flex flex-col border-2 ${pkg.highlight ? 'bg-slate-900 border-emerald-400 shadow-2xl shadow-emerald-500/10 scale-105' : 'bg-white border-gray-200'}`}>
+                <div
+                  key={pkg.name}
+                  className={`rounded-2xl p-8 flex flex-col border-2 ${
+                    pkg.highlight
+                      ? 'bg-slate-900 border-emerald-400 shadow-2xl shadow-emerald-500/10 scale-105'
+                      : 'bg-white border-gray-200'
+                  }`}
+                >
                   {pkg.highlight && (
                     <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-4 flex items-center gap-1.5">
-                      <Star size={12} fill="currentColor" /> Best Value
+                      <Star size={12} fill="currentColor" /> Most Popular
                     </div>
                   )}
-                  <h3 className={`text-xl font-black mb-1 ${pkg.highlight ? 'text-white' : 'text-gray-900'}`}>{pkg.name}</h3>
-                  <div className={`text-4xl font-black mb-3 ${pkg.highlight ? 'text-emerald-400' : 'text-gray-900'}`}>{pkg.price}</div>
-                  <p className={`text-sm mb-6 leading-relaxed ${pkg.highlight ? 'text-slate-400' : 'text-gray-500'}`}>{pkg.desc}</p>
+                  <h3 className={`text-xl font-black mb-1 ${pkg.highlight ? 'text-white' : 'text-gray-900'}`}>
+                    {pkg.name}
+                  </h3>
+                  <div className={`text-4xl font-black mb-1 ${pkg.highlight ? 'text-emerald-400' : 'text-gray-900'}`}>
+                    {pkg.price}
+                  </div>
+                  <p className={`text-xs font-semibold mb-1 ${pkg.highlight ? 'text-emerald-400/70' : 'text-gray-400'}`}>
+                    {pkg.priceNote} · Turnaround: {pkg.turnaround}
+                  </p>
+                  <p className={`text-sm mb-6 leading-relaxed mt-2 ${pkg.highlight ? 'text-slate-400' : 'text-gray-500'}`}>
+                    {pkg.desc}
+                  </p>
                   <ul className="space-y-2.5 flex-1 mb-8">
                     {pkg.features.map((f) => (
                       <li key={f} className="flex items-start gap-2.5">
@@ -180,8 +494,16 @@ export default function ShopifyDesignPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href={BOOKING_LINK} target="_blank" rel="noopener noreferrer"
-                    className={`w-full text-center font-bold py-3 rounded-xl transition-all ${pkg.highlight ? 'bg-emerald-400 hover:bg-emerald-300 text-emerald-900' : 'bg-gray-900 hover:bg-gray-700 text-white'}`}>
+                  <a
+                    href={BOOKING_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full text-center font-bold py-3.5 rounded-xl transition-all ${
+                      pkg.highlight
+                        ? 'bg-emerald-400 hover:bg-emerald-300 text-emerald-900'
+                        : 'bg-gray-900 hover:bg-gray-700 text-white'
+                    }`}
+                  >
                     Get Started
                   </a>
                 </div>
@@ -190,15 +512,19 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
 
-        {/* Build Timeline */}
-        <section className="py-20 px-4">
+        {/* ── HOW IT WORKS ── */}
+        <section className="py-20 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
-                Our Process
+              <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                My Process
               </div>
-              <h2 className="text-3xl font-black text-gray-900 mb-2">How We Build Your Store</h2>
-              <p className="text-gray-500 text-sm">A methodical 5-phase process ensures nothing is missed and everything is launch-ready.</p>
+              <h2 className="text-3xl font-black text-gray-900 mb-2">
+                How the Shopify Freelance Process Works
+              </h2>
+              <p className="text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
+                A clear, 5-phase process — from brief to live store in as few as 5 business days.
+              </p>
             </div>
             <div className="space-y-4">
               {buildTimeline.map((phase, i) => (
@@ -217,15 +543,19 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
 
-        {/* Integrations */}
+        {/* ── INTEGRATIONS ── */}
         <section className="py-16 px-4 bg-slate-900 text-white">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <div className="inline-flex items-center gap-2 bg-emerald-400/20 text-emerald-300 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
-                Apps & Integrations
+                Apps &amp; Integrations
               </div>
-              <h2 className="text-2xl font-black text-white mb-2">Apps We Set Up for You</h2>
-              <p className="text-slate-400 text-sm">We configure the best Shopify apps to automate and scale your store from day one.</p>
+              <h2 className="text-2xl font-black text-white mb-2">
+                Shopify Apps I Configure for You
+              </h2>
+              <p className="text-slate-400 text-sm max-w-lg mx-auto leading-relaxed">
+                The best Shopify apps for automating growth — all configured and tested before handover.
+              </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
               {integrations.map((intg) => {
@@ -241,39 +571,140 @@ export default function ShopifyDesignPage() {
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-16 px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-black text-gray-900 text-center mb-10">Shopify FAQs</h2>
-            <div className="space-y-4">
-              {faqs.map((faq) => (
-                <div key={faq.q} className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-                  <h3 className="font-bold text-gray-900 mb-2">{faq.q}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
-                </div>
+        {/* ── WHY CHOOSE THIS FREELANCER ── */}
+        <section className="py-16 px-4 bg-emerald-50 border-y border-emerald-100">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3">
+                Why Hire This Shopify Freelancer?
+              </h2>
+              <p className="text-gray-500 text-sm max-w-xl mx-auto">
+                With thousands of Shopify developers on Upwork and Fiverr, here is what sets this service apart.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {whyChooseUs.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.title} className="bg-white rounded-2xl p-6 border border-emerald-100">
+                    <div className={`w-10 h-10 ${item.bg} rounded-xl flex items-center justify-center mb-4`}>
+                      <Icon size={20} className={item.color} />
+                    </div>
+                    <h3 className="font-black text-gray-900 mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── NICHES ── */}
+        <section className="py-16 px-4 bg-white border-b border-gray-100">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-4">
+              <Globe size={12} /> Product Niches Served
+            </div>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-3">
+              Shopify Stores Built for Every Niche
+            </h2>
+            <p className="text-gray-500 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
+              Shopify stores launched for brands across the US and Canada — from solo founders to seven-figure merchants.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {niches.map((niche) => (
+                <span key={niche} className="bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium px-4 py-2 rounded-full hover:border-emerald-300 hover:text-emerald-700 transition-colors">
+                  {niche}
+                </span>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 px-4 bg-emerald-700 text-white text-center">
+        {/* ── FAQ (AEO) ── */}
+        <section className="py-20 px-4 bg-gray-50">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-gray-200 text-gray-700 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-3">
+                Frequently Asked Questions
+              </div>
+              <h2 className="text-3xl font-black text-gray-900 mb-3">
+                Shopify Freelancer FAQ
+              </h2>
+              <p className="text-gray-500 text-sm">
+                Answers to the most common questions about hiring a Shopify freelancer.
+              </p>
+            </div>
+            <div className="space-y-3">
+              {faqs.map((faq) => (
+                <FAQItem key={faq.q} faq={faq} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── INTERNAL LINKS (SEO) ── */}
+        <section className="py-12 px-4 bg-white border-y border-gray-100">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-center text-lg font-black text-gray-900 mb-6">
+              Explore Related Design Services
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { label: 'WordPress Design', href: '/services/wordpress-design' },
+                { label: 'Brand Identity Design', href: '/services/brand-identity' },
+                { label: 'Logo Design', href: '/services/logo-design' },
+                { label: 'Digital Marketing', href: '/services/digital-marketing' },
+              ].map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="bg-gray-50 border border-gray-200 hover:border-emerald-300 hover:text-emerald-700 text-gray-700 text-sm font-semibold text-center px-4 py-3 rounded-xl transition-all"
+                >
+                  {link.label}
+                  <ChevronRight size={14} className="inline ml-1" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section className="py-20 px-4 bg-emerald-700 text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <Package size={40} className="mx-auto mb-4 text-emerald-300" />
-            <h2 className="text-3xl font-black mb-3">Ready to Open Your Online Store?</h2>
-            <p className="text-emerald-100 mb-8">Start selling globally with a Shopify store built for conversions.</p>
+            <div className="inline-flex items-center gap-2 bg-white/10 text-emerald-200 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-5">
+              Hire a Shopify Freelancer
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black mb-3">
+              Ready to Launch Your Shopify Store?
+            </h2>
+            <p className="text-emerald-100 mb-2 leading-relaxed">
+              Custom Shopify design by a specialist with 12+ years eCommerce experience. Direct communication, fast delivery, and a store you fully own.
+            </p>
+            <p className="text-emerald-300/70 text-sm mb-8">
+              Starting from $499 · 48-hr first draft · 100% satisfaction guarantee · Full store ownership
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_LINK} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-emerald-50 text-emerald-800 font-bold px-8 py-4 rounded-xl transition-all">
-                Launch My Shopify Store <ArrowRight size={18} />
+              <a
+                href={BOOKING_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-emerald-50 text-emerald-800 font-bold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5"
+              >
+                Launch My Shopify Store
+                <ArrowRight size={18} />
               </a>
-              <Link to="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-all">
-                All Services <ChevronRight size={18} />
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-all"
+              >
+                All Services
+                <ChevronRight size={18} />
               </Link>
             </div>
           </div>
         </section>
+
       </main>
     </div>
   );
