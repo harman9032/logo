@@ -28,6 +28,7 @@ const BrandIdentityPage = lazy(() => import('./pages/services/BrandIdentityPage'
 const SocialMediaDesignPage = lazy(() => import('./pages/services/SocialMediaDesignPage'));
 const DigitalMarketingPage = lazy(() => import('./pages/services/DigitalMarketingPage'));
 const N8nAutomationPage = lazy(() => import('./pages/services/N8nAutomationPage'));
+const CareersPage = lazy(() => import('./pages/CareersPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
 
 function PageLoader() {
@@ -79,6 +80,7 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/thank-you" element={<ThankYou />} />
             <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/careers" element={<CareersPage />} />
           </Routes>
         </Layout>
       </Suspense>
