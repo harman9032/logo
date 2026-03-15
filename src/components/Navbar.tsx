@@ -1,20 +1,18 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import {
-  Menu, X, ChevronDown, Palette, Monitor, ShoppingCart,
-  Globe, Layers, Image, TrendingUp, Package, Phone,
-} from 'lucide-react';
+import { Menu, X, ChevronDown, Palette, Monitor, ShoppingCart, Globe, Layers, Image, TrendingUp, Package } from 'lucide-react';
 
 const BOOKING_LINK = "https://tidycal.com/harmanpreetsingh/get-consulation";
 
 const SERVICE_LINKS = [
-  { label: 'Logo Design', href: '/services/logo-design', icon: Palette, color: 'text-amber-500', desc: 'Brand marks & identity' },
-  { label: 'AI Website Design', href: '/services/ai-website-design', icon: Monitor, color: 'text-green-500', desc: 'Fast, smart web builds' },
-  { label: 'Shopify Design', href: '/services/shopify-design', icon: ShoppingCart, color: 'text-emerald-600', desc: 'eCommerce stores' },
-  { label: 'WordPress Design', href: '/services/wordpress-design', icon: Globe, color: 'text-sky-500', desc: 'Custom WP themes' },
-  { label: 'Brand Identity', href: '/services/brand-identity', icon: Layers, color: 'text-orange-500', desc: 'Visual systems & style' },
-  { label: 'Social Media Design', href: '/services/social-media-design', icon: Image, color: 'text-rose-500', desc: 'Posts, reels & banners' },
-  { label: 'Digital Marketing', href: '/services/digital-marketing', icon: TrendingUp, color: 'text-teal-500', desc: 'SEO, ads & growth' },
+  { label: 'Logo Design', href: '/services/logo-design', icon: Palette, color: 'text-amber-500' },
+  { label: 'AI Website Design', href: '/services/ai-website-design', icon: Monitor, color: 'text-green-500' },
+  { label: 'Shopify Design', href: '/services/shopify-design', icon: ShoppingCart, color: 'text-emerald-600' },
+  { label: 'WordPress Design', href: '/services/wordpress-design', icon: Globe, color: 'text-sky-500' },
+  { label: 'Brand Identity', href: '/services/brand-identity', icon: Layers, color: 'text-orange-500' },
+  { label: 'Social Media Design', href: '/services/social-media-design', icon: Image, color: 'text-rose-500' },
+  { label: 'Digital Marketing', href: '/services/digital-marketing', icon: TrendingUp, color: 'text-teal-500' },
+  { label: 'Complete Package', href: '/services', icon: Package, color: 'text-slate-400' },
 ];
 
 const NAV_LINKS = [
@@ -29,17 +27,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dropdownMenuRef = useRef<HTMLDivElement>(null);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -80,11 +71,13 @@ export default function Navbar() {
     const currentIndex = Array.from(items).indexOf(document.activeElement as HTMLElement);
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      items[(currentIndex + 1) % items.length]?.focus();
+      const next = items[(currentIndex + 1) % items.length];
+      next?.focus();
     }
     if (e.key === 'ArrowUp') {
       e.preventDefault();
-      items[(currentIndex - 1 + items.length) % items.length]?.focus();
+      const prev = items[(currentIndex - 1 + items.length) % items.length];
+      prev?.focus();
     }
   }, []);
 
@@ -92,39 +85,23 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-gray-950/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/5'
-          : 'bg-gray-950'
-      }`}
+      className="fixed top-0 w-full bg-gradient-to-br from-green-600 via-green-700 to-green-800 backdrop-blur-md z-50 border-b border-green-900"
       aria-label="Main navigation"
     >
-      {/* Top accent line */}
-      <div className="h-0.5 w-full bg-gradient-to-r from-teal-500 via-green-400 to-amber-400" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-
-          {/* Logo */}
           <Link
             to="/"
-            className="flex-shrink-0 group"
+            className="flex-shrink-0"
             aria-label="Daily Creative Designs — Home"
           >
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-400 to-green-500 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                <Palette size={16} className="text-white" />
-              </div>
-              <div className="leading-none">
-                <span className="text-lg font-black text-white tracking-tight">Daily Creative</span>
-                <span className="text-lg font-black bg-gradient-to-r from-teal-400 to-green-400 bg-clip-text text-transparent tracking-tight"> Designs</span>
-              </div>
-            </div>
+            <span className="text-2xl font-black text-yellow-400">
+              Daily Creative <span className="text-amber-400">Designs</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-0.5">
-
+          <div className="hidden md:flex items-center space-x-1">
             {/* Services dropdown */}
             <div className="relative" ref={dropdownRef} onKeyDown={handleServicesKeyDown}>
               <button
@@ -133,15 +110,13 @@ export default function Navbar() {
                 aria-expanded={isServicesOpen}
                 aria-haspopup="menu"
                 aria-controls="services-dropdown"
-                className={`flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold rounded-lg transition-all duration-150 ${
-                  isServicesActive
-                    ? 'text-teal-400 bg-teal-400/10'
-                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold transition-colors rounded-md ${
+                  isServicesActive ? 'text-yellow-300 border-b-2 border-yellow-400' : 'text-white hover:text-yellow-300'
                 }`}
               >
-                Services
+                Our Services
                 <ChevronDown
-                  size={13}
+                  size={14}
                   aria-hidden="true"
                   className={`transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`}
                 />
@@ -154,63 +129,33 @@ export default function Navbar() {
                   role="menu"
                   aria-label="Services menu"
                   onKeyDown={handleDropdownKeyDown}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden py-2 z-50"
-                  style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.18)' }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden py-2 z-50"
                 >
-                  {/* Dropdown header */}
-                  <div className="px-4 py-3 border-b border-gray-100 mb-1 flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">Services</span>
+                  <div className="px-3 py-2 border-b border-gray-100 mb-1">
                     <Link
                       to="/services"
                       role="menuitem"
-                      className="text-xs font-bold text-teal-600 hover:text-teal-700 transition-colors flex items-center gap-1"
+                      className="text-xs font-bold text-gray-500 uppercase tracking-widest hover:text-green-700 transition-colors"
                     >
-                      View all
-                      <ChevronDown size={11} className="-rotate-90" />
+                      View All Services →
                     </Link>
                   </div>
-
-                  <div className="px-2">
-                    {SERVICE_LINKS.map((svc) => {
-                      const Icon = svc.icon;
-                      const isActive = location.pathname === svc.href;
-                      return (
-                        <Link
-                          key={svc.href}
-                          to={svc.href}
-                          role="menuitem"
-                          className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all group ${
-                            isActive ? 'bg-teal-50' : 'hover:bg-gray-50'
-                          }`}
-                        >
-                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                            isActive ? 'bg-teal-100' : 'bg-gray-100 group-hover:bg-gray-200'
-                          } transition-colors`}>
-                            <Icon size={15} className={svc.color} aria-hidden="true" />
-                          </div>
-                          <div>
-                            <div className={`text-sm font-semibold leading-tight ${isActive ? 'text-teal-700' : 'text-gray-800'}`}>
-                              {svc.label}
-                            </div>
-                            <div className="text-xs text-gray-400 leading-tight">{svc.desc}</div>
-                          </div>
-                          {isActive && <span className="sr-only">(current page)</span>}
-                        </Link>
-                      );
-                    })}
-                  </div>
-
-                  {/* Dropdown footer CTA */}
-                  <div className="px-4 pt-3 pb-2 mt-1 border-t border-gray-100">
-                    <Link
-                      to="/services"
-                      role="menuitem"
-                      className="flex items-center justify-center gap-2 w-full bg-gray-900 hover:bg-gray-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors"
-                    >
-                      <Package size={13} />
-                      View Complete Packages
-                    </Link>
-                  </div>
+                  {SERVICE_LINKS.map((svc) => {
+                    const Icon = svc.icon;
+                    const isActive = location.pathname === svc.href;
+                    return (
+                      <Link
+                        key={svc.href}
+                        to={svc.href}
+                        role="menuitem"
+                        className={`flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition-colors ${isActive ? 'bg-green-50' : ''}`}
+                      >
+                        <Icon size={16} className={svc.color} aria-hidden="true" />
+                        <span className={`text-sm font-semibold ${isActive ? 'text-green-700' : 'text-gray-800'}`}>{svc.label}</span>
+                        {isActive && <span className="sr-only">(current page)</span>}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -222,10 +167,8 @@ export default function Navbar() {
                   key={link.label}
                   to={link.href}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`px-3.5 py-2 text-sm font-semibold rounded-lg transition-all duration-150 ${
-                    isActive
-                      ? 'text-teal-400 bg-teal-400/10'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                  className={`px-3 py-2 text-sm font-semibold transition-colors rounded-md ${
+                    isActive ? 'text-yellow-300 border-b-2 border-yellow-400' : 'text-white hover:text-yellow-300'
                   }`}
                 >
                   {link.label}
@@ -238,9 +181,8 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book a free call (opens in new tab)"
-              className="ml-3 inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 to-green-500 hover:from-teal-400 hover:to-green-400 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all duration-200 shadow-md shadow-teal-900/30 hover:shadow-teal-700/30 hover:-translate-y-px"
+              className="ml-4 bg-yellow-400 text-black px-6 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 transition-all duration-200 shadow-md"
             >
-              <Phone size={13} />
               Book Free Call
             </a>
           </div>
@@ -250,12 +192,12 @@ export default function Navbar() {
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
-            className="md:hidden text-gray-300 hover:text-white p-2 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-white/5 transition-colors"
+            className="md:hidden text-white hover:text-yellow-300 p-2 rounded-md min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen
-              ? <X className="h-5 w-5" aria-hidden="true" />
-              : <Menu className="h-5 w-5" aria-hidden="true" />
+              ? <X className="h-6 w-6" aria-hidden="true" />
+              : <Menu className="h-6 w-6" aria-hidden="true" />
             }
           </button>
         </div>
@@ -267,30 +209,28 @@ export default function Navbar() {
           id="mobile-menu"
           role="navigation"
           aria-label="Mobile navigation"
-          className="md:hidden bg-gray-950 border-t border-white/5"
+          className="md:hidden bg-gradient-to-br from-green-600 via-green-700 to-green-800 border-t border-green-900"
         >
-          <div className="px-3 pt-3 pb-5 space-y-0.5">
-
+          <div className="px-2 pt-2 pb-3 space-y-1">
             {/* Services accordion */}
             <button
               onClick={() => setIsMobileServicesOpen((v) => !v)}
               aria-expanded={isMobileServicesOpen}
               aria-controls="mobile-services-menu"
-              className="w-full flex items-center justify-between text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2.5 text-sm font-semibold rounded-xl min-h-[44px] transition-colors"
+              className="w-full flex items-center justify-between text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold rounded-md min-h-[44px]"
             >
-              Services
+              Our Services
               <ChevronDown
-                size={14}
+                size={16}
                 aria-hidden="true"
                 className={`transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`}
               />
             </button>
 
             {isMobileServicesOpen && (
-              <div id="mobile-services-menu" className="ml-2 mr-1 space-y-0.5 bg-white/5 rounded-xl p-2">
-                <Link to="/services" className="block text-teal-400 hover:text-teal-300 px-3 py-2 text-sm font-bold min-h-[44px] flex items-center gap-2 rounded-lg hover:bg-white/5 transition-colors">
-                  <Package size={14} />
-                  View Complete Packages
+              <div id="mobile-services-menu" className="ml-4 space-y-0.5 bg-green-800/50 rounded-xl p-2">
+                <Link to="/services" className="block text-green-200 hover:text-yellow-300 px-3 py-2 text-sm font-bold min-h-[44px] flex items-center">
+                  View All Services →
                 </Link>
                 {SERVICE_LINKS.map((svc) => {
                   const Icon = svc.icon;
@@ -298,10 +238,10 @@ export default function Navbar() {
                     <Link
                       key={svc.href}
                       to={svc.href}
-                      className="flex items-center gap-3 text-gray-300 hover:text-white px-3 py-2 text-sm font-medium min-h-[44px] rounded-lg hover:bg-white/5 transition-colors"
+                      className="flex items-center gap-2 text-green-100 hover:text-yellow-300 px-3 py-2 text-sm font-medium min-h-[44px]"
                     >
                       <Icon size={14} className={svc.color} aria-hidden="true" />
-                      <span>{svc.label}</span>
+                      {svc.label}
                     </Link>
                   );
                 })}
@@ -315,11 +255,7 @@ export default function Navbar() {
                   key={link.label}
                   to={link.href}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`flex items-center text-sm font-semibold px-3 py-2.5 rounded-xl min-h-[44px] transition-colors ${
-                    isActive
-                      ? 'text-teal-400 bg-teal-400/10'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
-                  }`}
+                  className="block text-white hover:text-yellow-300 px-3 py-2 text-base font-semibold rounded-md min-h-[44px] flex items-center"
                 >
                   {link.label}
                 </Link>
@@ -331,9 +267,8 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Book a free call (opens in new tab)"
-              className="flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-green-500 text-white px-3 py-3 text-sm font-bold text-center rounded-xl mt-3 hover:from-teal-400 hover:to-green-400 transition-all min-h-[44px] shadow-md"
+              className="block bg-yellow-400 text-black px-3 py-3 text-base font-bold text-center rounded-lg mx-3 mt-4 hover:bg-yellow-300 transition-colors min-h-[44px]"
             >
-              <Phone size={14} />
               Book Free Call
             </a>
           </div>
