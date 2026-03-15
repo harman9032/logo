@@ -115,7 +115,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative pt-24 pb-0 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
+    <section className="relative pt-[130px] pb-0 bg-gradient-to-br from-green-600 via-green-700 to-green-800 overflow-hidden">
       {/* Background texture */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10" />
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-green-400/10 rounded-full blur-3xl pointer-events-none" />

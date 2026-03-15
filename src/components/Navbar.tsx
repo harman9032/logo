@@ -190,15 +190,26 @@ export default function Navbar() {
               className="flex-shrink-0 group"
               aria-label="Daily Creative Designs — Home"
             >
-              <div className="flex items-center gap-3">
-                <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center shadow-lg shadow-green-200 group-hover:shadow-green-300 transition-shadow">
-                  <Palette size={18} className="text-white" />
-                  <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-yellow-400 rounded-full border-2 border-white" />
-                </div>
-                <div className="flex flex-col leading-none">
-                  <span className="text-[15px] font-black text-gray-900 tracking-tight">Daily Creative</span>
-                  <span className="text-[15px] font-black bg-gradient-to-r from-green-600 to-teal-500 bg-clip-text text-transparent tracking-tight -mt-0.5">Designs</span>
-                </div>
+              <div className="flex items-center gap-2.5">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  aria-hidden="true"
+                  className="flex-shrink-0 drop-shadow-sm group-hover:drop-shadow-md transition-all"
+                >
+                  <rect x="14" y="1" width="18.38" height="18.38" rx="2" transform="rotate(45 14 1)" fill="url(#logoGrad)" />
+                  <defs>
+                    <linearGradient id="logoGrad" x1="5" y1="5" x2="23" y2="23" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stopColor="#22c55e" />
+                      <stop offset="100%" stopColor="#16a34a" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <span className="text-[17px] font-black text-gray-900 tracking-tight whitespace-nowrap">
+                  Daily Creative <span className="text-green-600">Designs</span>
+                </span>
               </div>
             </Link>
 
