@@ -6,7 +6,8 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /*.json$
 
-
+# Block crawling of assets directly
+Disallow: /assets/
 
 # AI crawlers — allow content indexing for visibility
 User-agent: GPTBot
